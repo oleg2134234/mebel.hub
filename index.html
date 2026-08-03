@@ -334,6 +334,20 @@
     font-size: 0.82rem; color: var(--ink-soft); background: var(--surface-2);
     border-radius: 10px; padding: 0.7rem 0.9rem; margin-bottom: 1.4rem;
   }
+  .fabric-cat-section { margin-top: 2.4rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+  .fabric-cat-title { font-size: 1.15rem; font-weight: 700; margin: 0 0 0.5rem; }
+  .fabric-brand-block { margin-bottom: 1.8rem; }
+  .fabric-brand-name {
+    font-weight: 700; font-size: 1rem; margin-bottom: 0.6rem; color: var(--accent-ink, var(--ink));
+    display: inline-block; padding: 0.25rem 0.7rem; border-radius: 6px; background: var(--accent-soft);
+  }
+  .fabric-cat-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+  .fabric-cat-table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 0.82rem; }
+  .fabric-cat-table th, .fabric-cat-table td {
+    border: 1px solid var(--line); padding: 0.55rem 0.6rem; text-align: left; vertical-align: top; white-space: nowrap;
+  }
+  .fabric-cat-table th { background: var(--surface-2); font-weight: 700; color: var(--ink-soft); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .fabric-cat-table td { font-weight: 600; line-height: 1.65; }
 
   /* Tabs (Модификация) */
   .tabs { display: flex; gap: 0.5rem; }
@@ -504,6 +518,12 @@
     <div class="fabric-note">Демо-набор цветов — привязка есть только у моделей, чей реальный цвет ткани подтверждён по референсным фото; остальные постепенно добавим.</div>
     <div class="swatch-grid" id="fabricSwatchGrid"></div>
     <div class="quiz-results" id="fabricResults" style="margin-top: 1.6rem;"></div>
+
+    <div class="fabric-cat-section">
+      <h2 class="fabric-cat-title">Категории тканей поставщиков</h2>
+      <p class="fabric-note">Категория определяет тариф ткани в прайс-листе «Апогей» — от 2 (базовая) до 9 (премиум). Внутри категории — конкретные коллекции ткани у поставщика.</p>
+      <div id="fabricCatBrands"></div>
+    </div>
   </div>
 </div>
 
@@ -710,6 +730,63 @@
       </button>`).join("");
   }
   document.getElementById("fabricSwatchGrid").innerHTML = swatchGridHTML("fab");
+
+  const FABRIC_CATEGORIES = [
+    {
+      brand: "Абсолют",
+      cats: {
+        2: ["BORA-A", "MONAKO-A", "NAPOLI-A", "LEVIS", "EASTON", "DAKOTA", "TOLEDO"],
+        3: ["KIOTO", "ANKONA"],
+        4: ["BORDO", "BOSTON", "TORONTO", "LAGOS-A", "GENEVA-A"]
+      }
+    },
+    {
+      brand: "EGIDA",
+      cats: {
+        2: ["ШТОРМ"],
+        3: ["СОТБИ", "ФУРРИ"],
+        4: ["СЕВЕН", "ДЖИДЖИЭЛ"],
+        5: ["ДЖОЯ", "НЕСС", "НЕББИ"],
+        6: ["ТАЙМЛЕСС", "ПЛУТОН", "ТЕДДИ", "БРАССИ"],
+        7: ["НОЛА", "МАБОРО"],
+        8: ["ТАКОМА", "БРАБУС"],
+        9: ["КЕЙТУР"]
+      }
+    },
+    {
+      brand: "VipTextil",
+      cats: {
+        2: ["Tesla", "Nice", "Selfie", "Fresh", "Tenerife"],
+        3: ["Infinity", "Cosmo", "Iceberg", "Mega", "Holiday", "Sensey"],
+        4: ["Shape", "Bali", "Suffle", "Fresca"],
+        5: ["Siesta", "Barni", "Plush", "Uno"],
+        6: ["Florida"],
+        7: ["Buffalo"]
+      }
+    },
+    {
+      brand: "СОЮЗ-М",
+      cats: {
+        2: ["Forward", "Zodiak", "Velutto", "Bond"],
+        3: ["Fortis"],
+        4: ["Danco", "Daily"]
+      }
+    }
+  ];
+  function fabricCatTableHTML(brandDef) {
+    const catsPresent = Array.from({ length: 8 }, (_, i) => i + 2).filter((c) => brandDef.cats[c]);
+    return `
+      <div class="fabric-brand-block">
+        <div class="fabric-brand-name">${brandDef.brand}</div>
+        <div class="fabric-cat-table-wrap">
+          <table class="fabric-cat-table">
+            <thead><tr>${catsPresent.map((c) => `<th>${c} категория</th>`).join("")}</tr></thead>
+            <tbody><tr>${catsPresent.map((c) => `<td>${brandDef.cats[c].join("<br>")}</td>`).join("")}</tr></tbody>
+          </table>
+        </div>
+      </div>`;
+  }
+  document.getElementById("fabricCatBrands").innerHTML = FABRIC_CATEGORIES.map(fabricCatTableHTML).join("");
   const fabricResultsEl = document.getElementById("fabricResults");
   function renderFabricResults(colorIdx) {
     if (colorIdx === null) { fabricResultsEl.innerHTML = ""; return; }
