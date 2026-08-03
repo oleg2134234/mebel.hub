@@ -310,6 +310,10 @@
   .home-tile .cube {
     width: 2.1rem; height: 2.1rem; color: var(--accent);
   }
+  .home-tile .icon-sale { color: #3a8f5c; }
+  .home-tile .icon-catalog { color: #3b6fc9; }
+  .home-tile .icon-tips { color: #e0a52c; }
+  .home-tile .icon-fabric { color: #a9539c; }
   .home-tile .label { font-size: 0.92rem; font-weight: 600; line-height: 1.25; }
   .home-tile.locked { cursor: pointer; opacity: 0.55; }
   .home-tile.locked .cube { color: var(--ink-soft); }
@@ -339,12 +343,17 @@
     transition: background 0.15s, border-color 0.15s, color 0.15s;
   }
   .tabs button[aria-current="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+  .tabs-icon button { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 0.75rem 0.5rem; }
+  .tabs-icon svg { width: 1.5rem; height: 1.5rem; color: var(--accent); flex-shrink: 0; }
+  .tabs-icon button[aria-current="true"] svg { color: var(--accent-ink); }
 
   /* Sliders (Габариты) */
   .field-block { margin-top: 1.5rem; }
   .field-block .field-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.9rem; }
   .slider-row { margin-bottom: 1.3rem; }
-  .slider-row .slider-label { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 0.45rem; }
+  .slider-row .slider-label { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; margin-bottom: 0.45rem; }
+  .slider-row .slider-label-main { display: flex; align-items: center; gap: 0.5rem; }
+  .slider-icon { width: 1.15rem; height: 1.15rem; color: var(--accent); flex-shrink: 0; }
   .slider-row .slider-label .val { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
   .slider-row input[type="range"] {
     -webkit-appearance: none; appearance: none; width: 100%; height: 3px;
@@ -454,23 +463,22 @@
   </div>
   <div class="home-body">
     <div class="home-tagline">Вся мебельная индустрия — в одной точке</div>
-    <h1 class="home-title display">Чем помочь?</h1>
     <div class="home-grid">
       <button class="home-tile" id="tileQuiz">
-        <svg class="cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 20.5 7.5 12 12 3.5 7.5z"/><path d="M3.5 7.5v9L12 21v-9"/><path d="M20.5 7.5v9L12 21"/></svg>
-        <span class="label">Начать подбор</span>
+        <svg class="cube icon-sale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.5 12.7 20.3a2 2 0 0 1-2.83 0L3.7 14.13a2 2 0 0 1 0-2.83L11.5 3.5H18a2.5 2.5 0 0 1 2.5 2.5z"/><circle cx="15.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/><path d="m8 15 2 2 4-4" stroke="#3a8f5c"/></svg>
+        <span class="label">Начать продажу</span>
       </button>
       <button class="home-tile" id="tileCatalog">
-        <svg class="cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 20.5 7.5 12 12 3.5 7.5z"/><path d="M3.5 7.5v9L12 21v-9"/><path d="M20.5 7.5v9L12 21"/></svg>
-        <span class="label">Каталог</span>
+        <svg class="cube icon-catalog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/><path d="M13 4v16M7 8h2M7 11h2M15 8h2M15 11h2"/></svg>
+        <span class="label">Электронный каталог</span>
       </button>
       <button class="home-tile" id="tileTips">
-        <svg class="cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 20.5 7.5 12 12 3.5 7.5z"/><path d="M3.5 7.5v9L12 21v-9"/><path d="M20.5 7.5v9L12 21"/></svg>
-        <span class="label">Советы продавцу</span>
+        <svg class="cube icon-tips" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.7 10.74c.5.4.7 1 .7 1.62V16h6v-.64c0-.62.2-1.22.7-1.62A6 6 0 0 0 12 3z"/><path d="M12 3v0" stroke="#e0a52c" stroke-width="2.4"/></svg>
+        <span class="label">Советы начинающему</span>
       </button>
       <button class="home-tile" id="tileFabric">
-        <svg class="cube" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 20.5 7.5 12 12 3.5 7.5z"/><path d="M3.5 7.5v9L12 21v-9"/><path d="M20.5 7.5v9L12 21"/></svg>
-        <span class="label">Категория тканей</span>
+        <svg class="cube icon-fabric" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.3" y="3.3" width="7.4" height="7.4" rx="1.2"/><rect x="13.3" y="3.3" width="7.4" height="7.4" rx="1.2" stroke="#c25a8a"/><rect x="3.3" y="13.3" width="7.4" height="7.4" rx="1.2" stroke="#3d8f8a"/><rect x="13.3" y="13.3" width="7.4" height="7.4" rx="1.2" stroke="#d69a3e"/></svg>
+        <span class="label">Категория и цвет тканей</span>
       </button>
     </div>
   </div>
@@ -481,7 +489,7 @@
     <button class="back-home-btn" id="tipsBack">&larr; Меню</button>
   </div>
   <div class="tips-body">
-    <h1 class="home-title display">Советы продавцу</h1>
+    <h1 class="home-title display">Советы начинающему</h1>
     <div class="tips-intro">Частые возражения покупателей мебели и как на них честно отвечать — только реальными фактами о наших диванах, без выдумок и завышенных обещаний.</div>
     <div class="comic-grid" id="comicGrid"></div>
   </div>
@@ -492,7 +500,7 @@
     <button class="back-home-btn" id="fabricBack">&larr; Меню</button>
   </div>
   <div class="fabric-screen-body">
-    <h1 class="home-title display">Категория тканей</h1>
+    <h1 class="home-title display">Категория и цвет тканей</h1>
     <div class="fabric-note">Демо-набор цветов — привязка есть только у моделей, чей реальный цвет ткани подтверждён по референсным фото; остальные постепенно добавим.</div>
     <div class="swatch-grid" id="fabricSwatchGrid"></div>
     <div class="quiz-results" id="fabricResults" style="margin-top: 1.6rem;"></div>
@@ -811,9 +819,9 @@
   };
 
   const MODS = [
-    { label: "Прямой", value: "straight" },
-    { label: "Угловой", value: "corner" },
-    { label: "П-образный", value: "ushape" }
+    { label: "Прямой", value: "straight", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="10" width="19" height="7" rx="1.5"/><path d="M4 10V8.5a1 1 0 0 1 1-1h1.5M20 10V8.5a1 1 0 0 0-1-1h-1.5"/></svg>' },
+    { label: "Угловой", value: "corner", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8.5a1 1 0 0 1 1-1h5.5V3h7a1 1 0 0 1 1 1v10h6"/><rect x="3" y="14" width="7.5" height="7" rx="1.2"/><rect x="9.5" y="7.5" width="11" height="6.5" rx="1.2"/></svg>' },
+    { label: "П-образный", value: "ushape", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="6.5" height="17" rx="1.2"/><rect x="15" y="3.5" width="6.5" height="17" rx="1.2"/><rect x="7" y="14.5" width="10" height="6" rx="1.2"/></svg>' }
   ];
 
   function goTo(stepKey) {
@@ -836,19 +844,19 @@
       <div class="quiz-step-label">Шаг 2</div>
       <div class="field-block">
         <div class="field-title">Модификация</div>
-        <div class="tabs" id="modTabs">${MODS.map((m) => `<button data-v="${m.value}" aria-current="${m.value === answers.modification}">${m.label}</button>`).join("")}</div>
+        <div class="tabs tabs-icon" id="modTabs">${MODS.map((m) => `<button data-v="${m.value}" aria-current="${m.value === answers.modification}">${m.icon}<span>${m.label}</span></button>`).join("")}</div>
       </div>
       <div class="field-block">
         <div class="field-title">Габариты</div>
         <div class="slider-row">
-          <div class="slider-label"><span>Ширина</span><span class="val" id="widthVal">${(answers.width / 10).toFixed(0)} см</span></div>
-          <input type="range" id="widthSlider" min="170" max="390" step="5" value="${answers.width / 10}">
-          <div class="slider-minmax"><span>170 см</span><span>390 см</span></div>
-        </div>
-        <div class="slider-row">
-          <div class="slider-label"><span>Длина</span><span class="val" id="lengthVal">${(answers.length / 10).toFixed(0)} см</span></div>
+          <div class="slider-label"><span class="slider-label-main"><svg class="slider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8v8M21 8v8M3 12h18M6 9l-3 3 3 3M18 9l3 3-3 3"/></svg>Длина</span><span class="val" id="lengthVal">${(answers.length / 10).toFixed(0)} см</span></div>
           <input type="range" id="lengthSlider" min="90" max="190" step="5" value="${answers.length / 10}">
           <div class="slider-minmax"><span>90 см</span><span>190 см</span></div>
+        </div>
+        <div class="slider-row">
+          <div class="slider-label"><span class="slider-label-main"><svg class="slider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8M8 21h8M12 3v18M9 6 12 3l3 3M9 18l3 3 3-3"/></svg>Ширина</span><span class="val" id="widthVal">${(answers.width / 10).toFixed(0)} см</span></div>
+          <input type="range" id="widthSlider" min="170" max="390" step="5" value="${answers.width / 10}">
+          <div class="slider-minmax"><span>170 см</span><span>390 см</span></div>
         </div>
       </div>
       <button class="quiz-back" id="qBack">&larr; Назад</button>
