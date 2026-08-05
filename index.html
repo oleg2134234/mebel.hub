@@ -1,4 +1,4 @@
-<title>МЕБЕЛЬ.ХАБ — каталог мебели</title>
+<title>БРЕНД МЕБЕЛИ — каталог мебели</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   :root {
@@ -283,8 +283,8 @@
   }
   .home-header .word { font-size: 1.05rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; }
   .brand-mark { display: flex; align-items: center; gap: 0.6rem; }
-  .brand-logo { width: 2.2rem; height: 2.2rem; border-radius: 8px; object-fit: cover; flex: none; }
-  .brand-logo.small { width: 1.7rem; height: 1.7rem; border-radius: 6px; }
+  .brand-logo { width: 3.2rem; height: 3.2rem; border-radius: 9px; object-fit: contain; flex: none; }
+  .brand-logo.small { width: 2.4rem; height: 2.4rem; border-radius: 7px; }
   .home-tagline {
     font-size: 0.85rem; color: var(--accent); font-weight: 600; letter-spacing: 0.02em;
     margin-bottom: 0.6rem;
@@ -300,20 +300,32 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 3vw, 1.1rem);
   }
   .home-tile {
-    aspect-ratio: 1 / 1; border: 1.5px solid var(--line); border-radius: 8px;
+    aspect-ratio: 1 / 1; border: 1.5px solid var(--line); border-radius: 14px;
     background: var(--surface); cursor: pointer;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.7rem;
-    font: inherit; color: var(--ink); text-align: center; padding: 1rem;
-    transition: border-color 0.15s, background 0.15s;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.65rem;
+    font: inherit; color: var(--ink); text-align: center; padding: 0.9rem;
+    transition: border-color 0.15s, background 0.15s, transform 0.15s;
   }
-  .home-tile:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .home-tile:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
+  .home-tile .icon-badge {
+    width: clamp(3.8rem, 18vw, 5rem); height: clamp(3.8rem, 18vw, 5rem);
+    border-radius: 1.15rem; flex: none;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--badge-bg, var(--accent-soft));
+  }
   .home-tile .cube {
-    width: 2.1rem; height: 2.1rem; color: var(--accent);
+    width: 58%; height: 58%; color: var(--accent);
   }
-  .home-tile .icon-sale { color: #3a8f5c; }
-  .home-tile .icon-catalog { color: #3b6fc9; }
-  .home-tile .icon-tips { color: #e0a52c; }
-  .home-tile .icon-fabric { color: #a9539c; }
+  .home-tile .badge-sale { --badge-bg: rgba(58,143,92,0.14); }
+  .home-tile .badge-sale .cube, .home-tile .icon-sale { color: #3a8f5c; }
+  .home-tile .badge-catalog { --badge-bg: rgba(59,111,201,0.14); }
+  .home-tile .badge-catalog .cube, .home-tile .icon-catalog { color: #3b6fc9; }
+  .home-tile .badge-tips { --badge-bg: rgba(224,165,44,0.16); }
+  .home-tile .badge-tips .cube, .home-tile .icon-tips { color: #e0a52c; }
+  .home-tile .badge-color { --badge-bg: rgba(169,83,156,0.14); }
+  .home-tile .badge-color .cube, .home-tile .icon-fabric { color: #a9539c; }
+  .home-tile .badge-fabric { --badge-bg: rgba(47,143,122,0.14); }
+  .home-tile .badge-fabric .cube, .home-tile .icon-fabricroll { color: #2f8f7a; }
   .home-tile .label { font-size: 0.92rem; font-weight: 600; line-height: 1.25; }
   .home-tile.locked { cursor: pointer; opacity: 0.55; }
   .home-tile.locked .cube { color: var(--ink-soft); }
@@ -348,6 +360,19 @@
   }
   .fabric-cat-table th { background: var(--surface-2); font-weight: 700; color: var(--ink-soft); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
   .fabric-cat-table td { font-weight: 600; line-height: 1.65; }
+
+  /* Supplier links (Подбор ткани) */
+  .supplier-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr)); gap: 0.8rem; margin-bottom: 0.6rem; }
+  .supplier-link {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.6rem;
+    padding: 0.95rem 1.1rem; border-radius: 12px; border: 1.5px solid var(--line);
+    background: var(--surface); font-weight: 700; font-size: 0.95rem; text-decoration: none; color: var(--ink);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  a.supplier-link:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .supplier-link.pending { opacity: 0.55; cursor: default; }
+  .supplier-link-arrow { color: var(--accent); font-size: 1rem; flex: none; }
+  .supplier-link-note { font-size: 0.66rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.04em; flex: none; }
 
   /* Tabs (Модификация) */
   .tabs { display: flex; gap: 0.5rem; }
@@ -468,8 +493,8 @@
 <div class="screen active" id="homeScreen">
   <div class="home-header">
     <div class="brand-mark">
-      <img src="assets/brand/logo.jpg" alt="МЕБЕЛЬ.ХАБ" class="brand-logo" />
-      <span class="word display">МЕБЕЛЬ.ХАБ</span>
+      <img src="assets/brand/logo.jpg" alt="Бренд Мебели" class="brand-logo" />
+      <span class="word display">БРЕНД МЕБЕЛИ</span>
     </div>
     <button class="home-search-btn" id="homeSearchBtn" aria-label="Поиск">
       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
@@ -479,20 +504,24 @@
     <div class="home-tagline">Вся мебельная индустрия — в одной точке</div>
     <div class="home-grid">
       <button class="home-tile" id="tileQuiz">
-        <svg class="cube icon-sale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="8.7" cy="10.2" r="1.1" fill="currentColor" stroke="none"/><circle cx="15.3" cy="10.2" r="1.1" fill="currentColor" stroke="none"/><path d="M7.6 14.3c1.1 1.8 2.9 2.7 4.4 2.7s3.3-.9 4.4-2.7" stroke="#3a8f5c"/></svg>
+        <span class="icon-badge badge-sale"><svg class="cube icon-sale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="8.7" cy="10.2" r="1.1" fill="currentColor" stroke="none"/><circle cx="15.3" cy="10.2" r="1.1" fill="currentColor" stroke="none"/><path d="M7.6 14.3c1.1 1.8 2.9 2.7 4.4 2.7s3.3-.9 4.4-2.7" stroke="#3a8f5c"/></svg></span>
         <span class="label">Начать продажу</span>
       </button>
       <button class="home-tile" id="tileCatalog">
-        <svg class="cube icon-catalog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/><path d="M13 4v16M7 8h2M7 11h2M15 8h2M15 11h2"/></svg>
+        <span class="icon-badge badge-catalog"><svg class="cube icon-catalog" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5z"/><path d="M20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/><path d="M13 4v16M7 8h2M7 11h2M15 8h2M15 11h2"/></svg></span>
         <span class="label">Электронный каталог</span>
       </button>
       <button class="home-tile" id="tileTips">
-        <svg class="cube icon-tips" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.7 10.74c.5.4.7 1 .7 1.62V16h6v-.64c0-.62.2-1.22.7-1.62A6 6 0 0 0 12 3z"/><path d="M12 3v0" stroke="#e0a52c" stroke-width="2.4"/></svg>
+        <span class="icon-badge badge-tips"><svg class="cube icon-tips" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.7 10.74c.5.4.7 1 .7 1.62V16h6v-.64c0-.62.2-1.22.7-1.62A6 6 0 0 0 12 3z"/><path d="M12 3v0" stroke="#e0a52c" stroke-width="2.4"/></svg></span>
         <span class="label">Советы начинающему</span>
       </button>
       <button class="home-tile" id="tileFabric">
-        <svg class="cube icon-fabric" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.3" y="3.3" width="7.4" height="7.4" rx="1.2"/><rect x="13.3" y="3.3" width="7.4" height="7.4" rx="1.2" stroke="#c25a8a"/><rect x="3.3" y="13.3" width="7.4" height="7.4" rx="1.2" stroke="#3d8f8a"/><rect x="13.3" y="13.3" width="7.4" height="7.4" rx="1.2" stroke="#d69a3e"/></svg>
-        <span class="label">Категория и цвет тканей</span>
+        <span class="icon-badge badge-color"><svg class="cube icon-fabric" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.3" y="3.3" width="7.4" height="7.4" rx="1.2"/><rect x="13.3" y="3.3" width="7.4" height="7.4" rx="1.2" stroke="#c25a8a"/><rect x="3.3" y="13.3" width="7.4" height="7.4" rx="1.2" stroke="#3d8f8a"/><rect x="13.3" y="13.3" width="7.4" height="7.4" rx="1.2" stroke="#d69a3e"/></svg></span>
+        <span class="label">Подбор по цвету</span>
+      </button>
+      <button class="home-tile" id="tileSupplier">
+        <span class="icon-badge badge-fabric"><svg class="cube icon-fabricroll" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h9a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H8"/><ellipse cx="8" cy="11" rx="2.3" ry="7"/><path d="M8.2 6.5c1.1.9 1.6.9 2.7 0M8.2 11c1.1.9 1.6.9 2.7 0M8.2 15.5c1.1.9 1.6.9 2.7 0" stroke-width="1.2"/><path d="M13.4 7.3h5.2M13.4 11h6M13.4 14.7h5.2" stroke-width="1.2" opacity="0.6"/></svg></span>
+        <span class="label">Подбор ткани</span>
       </button>
     </div>
   </div>
@@ -514,10 +543,21 @@
     <button class="back-home-btn" id="fabricBack">&larr; Меню</button>
   </div>
   <div class="fabric-screen-body">
-    <h1 class="home-title display">Категория и цвет тканей</h1>
+    <h1 class="home-title display">Подбор по цвету</h1>
     <div class="fabric-note">Демо-набор цветов — привязка есть только у моделей, чей реальный цвет ткани подтверждён по референсным фото; остальные постепенно добавим.</div>
     <div class="swatch-grid" id="fabricSwatchGrid"></div>
     <div class="quiz-results" id="fabricResults" style="margin-top: 1.6rem;"></div>
+  </div>
+</div>
+
+<div class="screen" id="supplierScreen">
+  <div class="home-header">
+    <button class="back-home-btn" id="supplierBack">&larr; Меню</button>
+  </div>
+  <div class="fabric-screen-body">
+    <h1 class="home-title display">Подбор ткани</h1>
+    <div class="fabric-note">Сайты производителей тканей — для выбора конкретной коллекции и фактуры перед заказом.</div>
+    <div class="supplier-links" id="supplierLinks"></div>
 
     <div class="fabric-cat-section">
       <h2 class="fabric-cat-title">Категории тканей поставщиков</h2>
@@ -533,8 +573,8 @@
       <button class="back-home-btn" id="catalogBack">&larr; Меню</button>
       <div class="brand">
         <div class="brand-mark">
-          <img src="assets/brand/logo.jpg" alt="МЕБЕЛЬ.ХАБ" class="brand-logo small" />
-          <span class="word display">МЕБЕЛЬ.ХАБ</span>
+          <img src="assets/brand/logo.jpg" alt="Бренд Мебели" class="brand-logo small" />
+          <span class="word display">БРЕНД МЕБЕЛИ</span>
         </div>
         <span class="sub">Каталог мебели «Апогей»</span>
       </div>
@@ -794,6 +834,23 @@
       </div>`;
   }
   document.getElementById("fabricCatBrands").innerHTML = FABRIC_CATEGORIES.map(fabricCatTableHTML).join("");
+
+  const SUPPLIER_LINKS = [
+    { name: "Абсолют", url: "" },
+    { name: "EGIDA", url: "" },
+    { name: "VipTextil", url: "" },
+    { name: "СОЮЗ-М", url: "" }
+  ];
+  function supplierLinkHTML(s) {
+    return s.url
+      ? `<a class="supplier-link" href="${s.url}" target="_blank" rel="noopener">
+           <span>${s.name}</span><span class="supplier-link-arrow">&#8599;</span>
+         </a>`
+      : `<span class="supplier-link pending">
+           <span>${s.name}</span><span class="supplier-link-note">Ссылка скоро</span>
+         </span>`;
+  }
+  document.getElementById("supplierLinks").innerHTML = SUPPLIER_LINKS.map(supplierLinkHTML).join("");
   const fabricResultsEl = document.getElementById("fabricResults");
   function renderFabricResults(colorIdx) {
     if (colorIdx === null) { fabricResultsEl.innerHTML = ""; return; }
@@ -822,9 +879,11 @@
   document.getElementById("tileCatalog").addEventListener("click", () => showScreen("catalogScreen"));
   document.getElementById("tileFabric").addEventListener("click", () => showScreen("fabricScreen"));
   document.getElementById("tileTips").addEventListener("click", () => showScreen("tipsScreen"));
+  document.getElementById("tileSupplier").addEventListener("click", () => showScreen("supplierScreen"));
   document.getElementById("catalogBack").addEventListener("click", () => showScreen("homeScreen"));
   document.getElementById("fabricBack").addEventListener("click", () => showScreen("homeScreen"));
   document.getElementById("tipsBack").addEventListener("click", () => showScreen("homeScreen"));
+  document.getElementById("supplierBack").addEventListener("click", () => showScreen("homeScreen"));
 
   const COMIC_CARDS = [
     {
