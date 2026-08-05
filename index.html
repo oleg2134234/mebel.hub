@@ -385,6 +385,8 @@
   .tabs-icon button { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 0.75rem 0.5rem; }
   .tabs-icon svg { width: 1.5rem; height: 1.5rem; color: var(--accent); flex-shrink: 0; }
   .tabs-icon button[aria-current="true"] svg { color: var(--accent-ink); }
+  .mod-icon-img { width: 2.5rem; height: 2.5rem; border-radius: 0.6rem; flex-shrink: 0; opacity: 0.55; transition: opacity 0.15s, transform 0.15s; }
+  .tabs-icon button[aria-current="true"] .mod-icon-img { opacity: 1; transform: scale(1.06); }
 
   /* Sliders (Габариты) */
   .field-block { margin-top: 1.5rem; }
@@ -393,6 +395,7 @@
   .slider-row .slider-label { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; margin-bottom: 0.45rem; }
   .slider-row .slider-label-main { display: flex; align-items: center; gap: 0.5rem; }
   .slider-icon { width: 1.15rem; height: 1.15rem; color: var(--accent); flex-shrink: 0; }
+  .slider-icon-img { border-radius: 0.35rem; }
   .slider-row .slider-label .val { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
   .slider-row input[type="range"] {
     -webkit-appearance: none; appearance: none; width: 100%; height: 3px;
@@ -947,7 +950,7 @@
   const modal = document.getElementById("quizModal");
   const openBtn = document.getElementById("openQuiz");
 
-  const answers = { modification: "straight", width: 2500, length: 1400, color: null };
+  const answers = { modification: "straight", lengthMin: 2000, lengthMax: 2500, depth: 1400 };
 
   const typeStep = {
     label: "Шаг 1",
@@ -961,10 +964,13 @@
     onPick(v) { answers.type = v; if (v === "sofa") goToConfig(); else showResults(); }
   };
 
+  const DIM_ICON_LENGTH = '<img class="slider-icon slider-icon-img" src="assets/brand/icons/dim_length.png" alt="" />';
+  const DIM_ICON_WIDTH = '<img class="slider-icon slider-icon-img" src="assets/brand/icons/dim_width.png" alt="" />';
+
   const MODS = [
-    { label: "Прямой", value: "straight", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="10" width="19" height="7" rx="1.5"/><path d="M4 10V8.5a1 1 0 0 1 1-1h1.5M20 10V8.5a1 1 0 0 0-1-1h-1.5"/></svg>' },
-    { label: "Угловой", value: "corner", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8.5a1 1 0 0 1 1-1h5.5V3h7a1 1 0 0 1 1 1v10h6"/><rect x="3" y="14" width="7.5" height="7" rx="1.2"/><rect x="9.5" y="7.5" width="11" height="6.5" rx="1.2"/></svg>' },
-    { label: "П-образный", value: "ushape", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="6.5" height="17" rx="1.2"/><rect x="15" y="3.5" width="6.5" height="17" rx="1.2"/><rect x="7" y="14.5" width="10" height="6" rx="1.2"/></svg>' }
+    { label: "Прямой", value: "straight", icon: '<img class="mod-icon-img" src="assets/brand/icons/sofa_straight.png" alt="" />' },
+    { label: "Угловой", value: "corner", icon: '<img class="mod-icon-img" src="assets/brand/icons/sofa_corner.png" alt="" />' },
+    { label: "П-образный", value: "ushape", icon: '<img class="mod-icon-img" src="assets/brand/icons/sofa_ushape.png" alt="" />' }
   ];
 
   function goTo(stepKey) {
@@ -992,14 +998,19 @@
       <div class="field-block">
         <div class="field-title">Габариты</div>
         <div class="slider-row">
-          <div class="slider-label"><span class="slider-label-main"><svg class="slider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8v8M21 8v8M3 12h18M6 9l-3 3 3 3M18 9l3 3-3 3"/></svg>Длина</span><span class="val" id="lengthVal">${(answers.length / 10).toFixed(0)} см</span></div>
-          <input type="range" id="lengthSlider" min="90" max="190" step="5" value="${answers.length / 10}">
-          <div class="slider-minmax"><span>90 см</span><span>190 см</span></div>
+          <div class="slider-label"><span class="slider-label-main">${DIM_ICON_LENGTH}Длина, от</span><span class="val" id="lengthMinVal">${(answers.lengthMin / 10).toFixed(0)} см</span></div>
+          <input type="range" id="lengthMinSlider" min="170" max="390" step="5" value="${answers.lengthMin / 10}">
+          <div class="slider-minmax"><span>170 см</span><span>390 см</span></div>
         </div>
         <div class="slider-row">
-          <div class="slider-label"><span class="slider-label-main"><svg class="slider-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8M8 21h8M12 3v18M9 6 12 3l3 3M9 18l3 3 3-3"/></svg>Ширина</span><span class="val" id="widthVal">${(answers.width / 10).toFixed(0)} см</span></div>
-          <input type="range" id="widthSlider" min="170" max="390" step="5" value="${answers.width / 10}">
+          <div class="slider-label"><span class="slider-label-main">${DIM_ICON_LENGTH}Длина, до</span><span class="val" id="lengthMaxVal">${(answers.lengthMax / 10).toFixed(0)} см</span></div>
+          <input type="range" id="lengthMaxSlider" min="170" max="390" step="5" value="${answers.lengthMax / 10}">
           <div class="slider-minmax"><span>170 см</span><span>390 см</span></div>
+        </div>
+        <div class="slider-row">
+          <div class="slider-label"><span class="slider-label-main">${DIM_ICON_WIDTH}Ширина</span><span class="val" id="depthVal">${(answers.depth / 10).toFixed(0)} см</span></div>
+          <input type="range" id="depthSlider" min="90" max="190" step="5" value="${answers.depth / 10}">
+          <div class="slider-minmax"><span>90 см</span><span>190 см</span></div>
         </div>
       </div>
       <button class="quiz-back" id="qBack">&larr; Назад</button>
@@ -1011,40 +1022,23 @@
       answers.modification = btn.dataset.v;
       [...modal.querySelectorAll("#modTabs button")].forEach((b) => b.setAttribute("aria-current", String(b === btn)));
     });
-    modal.querySelector("#widthSlider").addEventListener("input", (e) => {
-      answers.width = Number(e.target.value) * 10;
-      modal.querySelector("#widthVal").textContent = e.target.value + " см";
+    modal.querySelector("#lengthMinSlider").addEventListener("input", (e) => {
+      let v = Number(e.target.value);
+      if (v * 10 > answers.lengthMax) { v = answers.lengthMax / 10; e.target.value = v; }
+      answers.lengthMin = v * 10;
+      modal.querySelector("#lengthMinVal").textContent = v + " см";
     });
-    modal.querySelector("#lengthSlider").addEventListener("input", (e) => {
-      answers.length = Number(e.target.value) * 10;
-      modal.querySelector("#lengthVal").textContent = e.target.value + " см";
+    modal.querySelector("#lengthMaxSlider").addEventListener("input", (e) => {
+      let v = Number(e.target.value);
+      if (v * 10 < answers.lengthMin) { v = answers.lengthMin / 10; e.target.value = v; }
+      answers.lengthMax = v * 10;
+      modal.querySelector("#lengthMaxVal").textContent = v + " см";
+    });
+    modal.querySelector("#depthSlider").addEventListener("input", (e) => {
+      answers.depth = Number(e.target.value) * 10;
+      modal.querySelector("#depthVal").textContent = e.target.value + " см";
     });
     modal.querySelector("#qBack").addEventListener("click", () => goTo("type"));
-    modal.querySelector("#qContinue").addEventListener("click", goToColor);
-    modal.querySelector("#qClose").addEventListener("click", closeQuiz);
-  }
-
-  function goToColor() {
-    modal.innerHTML = `
-      <div class="quiz-head"><h2 class="display">Выберите цвет ткани</h2><button class="quiz-close" id="qClose">&times;</button></div>
-      <div class="quiz-step-label">Шаг 3</div>
-      <div class="swatch-grid" id="quizSwatchGrid">${swatchGridHTML("qsw")}</div>
-      <button class="quiz-back" id="qBack">&larr; Назад</button>
-      <div class="quiz-sticky-footer"><button class="quiz-continue" id="qContinue">Показать модели</button></div>
-    `;
-    if (answers.color !== null) {
-      const el = modal.querySelector(`#qsw-${answers.color}`);
-      if (el) el.setAttribute("aria-pressed", "true");
-    }
-    modal.querySelector("#quizSwatchGrid").addEventListener("click", (e) => {
-      const btn = e.target.closest(".swatch-item");
-      if (!btn) return;
-      const already = btn.getAttribute("aria-pressed") === "true";
-      modal.querySelectorAll("#quizSwatchGrid .swatch-item").forEach((b) => b.setAttribute("aria-pressed", "false"));
-      btn.setAttribute("aria-pressed", String(!already));
-      answers.color = already ? null : Number(btn.dataset.i);
-    });
-    modal.querySelector("#qBack").addEventListener("click", goToConfig);
     modal.querySelector("#qContinue").addEventListener("click", showResults);
     modal.querySelector("#qClose").addEventListener("click", closeQuiz);
   }
@@ -1086,23 +1080,21 @@
     let results = PRODUCTS.filter((p) => p.category === type);
     if (type === "sofa") {
       results = results.filter((p) => matchesFormat(p.title, answers.modification));
-      // Sliders express available space: a sofa fits if it's at or under the selected
-      // width/length (small rounding allowance), biggest-fitting shown first.
+      // Длина is a user-set range (lengthMin–lengthMax) so results stay close to the
+      // requested size instead of surfacing every smaller sofa. Ширина (depth) still
+      // uses the "fits within available space" upper-bound model.
       const FIT_TOL = 30;
       results = results
         .map((p) => ({ p, w: widthOf(p.dims), l: depthOf(p.dims) }))
         .filter(({ w, l }) => w !== null && l !== null)
-        .filter(({ w, l }) => w <= answers.width + FIT_TOL && l <= answers.length + FIT_TOL)
+        .filter(({ w, l }) => w >= answers.lengthMin - FIT_TOL && w <= answers.lengthMax + FIT_TOL && l <= answers.depth + FIT_TOL)
         .sort((a, b) => (b.w + b.l) - (a.w + a.l))
         .map(({ p }) => p);
     }
     results = results.slice(0, 3);
-    const colorNote = type === "sofa" && answers.color !== null
-      ? `<div class="fabric-note">Предпочтение по цвету: ${FABRIC_SWATCHES[answers.color].name} — уточните у продавца, привязка тканей к моделям в разработке.</div>` : "";
 
     modal.innerHTML = `
       <div class="quiz-head"><h2 class="display">Подходящие модели</h2><button class="quiz-close" id="qClose">&times;</button></div>
-      ${colorNote}
       <div class="quiz-results">
         ${results.length ? results.map((p) => `
           <div class="quiz-result-card">
