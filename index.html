@@ -1,3 +1,4 @@
+<meta charset="utf-8" />
 <title>БРЕНД МЕБЕЛИ — каталог мебели</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
@@ -391,25 +392,43 @@
   /* Sliders (Габариты) */
   .field-block { margin-top: 1.5rem; }
   .field-block .field-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.9rem; }
-  .slider-row { margin-bottom: 1.3rem; }
-  .slider-row .slider-label { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; margin-bottom: 0.45rem; }
-  .slider-row .slider-label-main { display: flex; align-items: center; gap: 0.5rem; }
-  .slider-icon { width: 1.15rem; height: 1.15rem; color: var(--accent); flex-shrink: 0; }
-  .slider-icon-img { border-radius: 0.35rem; }
-  .slider-row .slider-label .val { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
-  .slider-row input[type="range"] {
-    -webkit-appearance: none; appearance: none; width: 100%; height: 3px;
-    border-radius: 999px; background: var(--line); outline: none; margin: 0;
+
+  /* Dual-range dimension filters (Ширина / Глубина / Высота) */
+  .dim-filter { border-bottom: 1px solid var(--line); padding-bottom: 1.1rem; margin-bottom: 1.1rem; }
+  .dim-filter:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dim-filter-head {
+    display: flex; justify-content: space-between; align-items: center; width: 100%;
+    font: inherit; font-size: 0.95rem; font-weight: 600; color: var(--ink);
+    background: none; border: none; padding: 0; margin-bottom: 0.9rem; cursor: pointer;
   }
-  .slider-row input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none; width: 22px; height: 22px; border-radius: 999px;
+  .dim-filter-head svg { width: 1rem; height: 1rem; color: var(--ink-soft); transition: transform 0.15s ease; flex-shrink: 0; }
+  .dim-filter.collapsed .dim-filter-head svg { transform: rotate(180deg); }
+  .dim-filter.collapsed .dim-filter-body { display: none; }
+  .dim-inputs { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.9rem; }
+  .dim-inputs input[type="number"] {
+    flex: 1; width: 0; font: inherit; font-size: 0.95rem; text-align: center; color: var(--ink);
+    padding: 0.6rem 0.4rem; border-radius: 10px; border: 1px solid var(--line); background: var(--bg);
+    -moz-appearance: textfield;
+  }
+  .dim-inputs input[type="number"]::-webkit-outer-spin-button,
+  .dim-inputs input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .range-slider { position: relative; height: 22px; margin-bottom: 0.35rem; }
+  .range-slider .range-track { position: absolute; top: 50%; left: 0; right: 0; height: 3px; background: var(--line); border-radius: 999px; transform: translateY(-50%); }
+  .range-slider .range-fill { position: absolute; top: 50%; height: 3px; background: var(--accent); border-radius: 999px; transform: translateY(-50%); }
+  .range-slider input[type="range"] {
+    position: absolute; top: 0; left: 0; width: 100%; height: 22px; margin: 0;
+    -webkit-appearance: none; appearance: none; background: none; pointer-events: none;
+  }
+  .range-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 20px; height: 20px; border-radius: 999px; pointer-events: auto;
     background: var(--accent); border: 3px solid var(--surface); box-shadow: 0 2px 8px var(--shadow); cursor: pointer;
   }
-  .slider-row input[type="range"]::-moz-range-thumb {
-    width: 22px; height: 22px; border-radius: 999px; border: 3px solid var(--surface);
+  .range-slider input[type="range"]::-moz-range-thumb {
+    width: 20px; height: 20px; border-radius: 999px; border: 3px solid var(--surface); pointer-events: auto;
     background: var(--accent); box-shadow: 0 2px 8px var(--shadow); cursor: pointer;
   }
-  .slider-row .slider-minmax { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--ink-soft); margin-top: 0.3rem; }
+  .range-slider input[type="range"]::-moz-range-track { background: none; }
+  .dim-filter .range-scale { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--ink-soft); }
 
   /* Swatches (Цвет ткани) — fabric-sample cards: outer rectangle frame, inner colored rectangle */
   .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(4.8rem, 1fr)); gap: 0.8rem 0.7rem; }
@@ -664,6 +683,7 @@
   }
   function widthOf(dims) { return numAt(dims, 0); }
   function depthOf(dims) { return numAt(dims, 1); }
+  function heightOf(dims) { return numAt(dims, 2); }
 
   function dimsTagsHTML(dims) {
     if (!dims) return `<span class="dims-unknown">Габариты уточняются</span>`;
@@ -950,7 +970,18 @@
   const modal = document.getElementById("quizModal");
   const openBtn = document.getElementById("openQuiz");
 
-  const answers = { modification: "straight", lengthMin: 2000, lengthMax: 2500, depth: 1400 };
+  const answers = {
+    modification: "straight",
+    widthMin: 1400, widthMax: 3800,
+    depthMin: 900, depthMax: 1900,
+    heightMin: 750, heightMax: 1100
+  };
+
+  const DIMS = [
+    { key: "width", title: "Ширина (см)", min: 140, max: 380 },
+    { key: "depth", title: "Глубина (см)", min: 90, max: 190 },
+    { key: "height", title: "Высота (см)", min: 75, max: 110 }
+  ];
 
   const typeStep = {
     label: "Шаг 1",
@@ -963,9 +994,6 @@
     ],
     onPick(v) { answers.type = v; if (v === "sofa") goToConfig(); else showResults(); }
   };
-
-  const DIM_ICON_LENGTH = '<img class="slider-icon slider-icon-img" src="assets/brand/icons/dim_length.png" alt="" />';
-  const DIM_ICON_WIDTH = '<img class="slider-icon slider-icon-img" src="assets/brand/icons/dim_width.png" alt="" />';
 
   const MODS = [
     { label: "Прямой", value: "straight", icon: '<img class="mod-icon-img" src="assets/brand/icons/sofa_straight.png" alt="" />' },
@@ -987,6 +1015,69 @@
     modal.querySelector("#qClose").addEventListener("click", closeQuiz);
   }
 
+  const CHEVRON_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg>';
+
+  function dimFilterHTML(d) {
+    // values stored in mm on `answers`, displayed/edited in cm (÷10)
+    const minCm = Math.round(answers[d.key + "Min"] / 10);
+    const maxCm = Math.round(answers[d.key + "Max"] / 10);
+    return `
+      <div class="dim-filter" id="dim-${d.key}">
+        <button class="dim-filter-head" data-toggle="${d.key}" type="button">
+          <span>${d.title}</span>${CHEVRON_ICON}
+        </button>
+        <div class="dim-filter-body">
+          <div class="dim-inputs">
+            <input type="number" id="${d.key}MinInput" min="${d.min}" max="${d.max}" value="${minCm}">
+            <input type="number" id="${d.key}MaxInput" min="${d.min}" max="${d.max}" value="${maxCm}">
+          </div>
+          <div class="range-slider">
+            <div class="range-track"></div>
+            <div class="range-fill" id="${d.key}Fill"></div>
+            <input type="range" id="${d.key}MinSlider" min="${d.min}" max="${d.max}" step="1" value="${minCm}">
+            <input type="range" id="${d.key}MaxSlider" min="${d.min}" max="${d.max}" step="1" value="${maxCm}">
+          </div>
+          <div class="range-scale"><span>${d.min}</span><span>${d.max}</span></div>
+        </div>
+      </div>`;
+  }
+
+  function updateDimFill(d) {
+    const minPct = ((answers[d.key + "Min"] / 10 - d.min) / (d.max - d.min)) * 100;
+    const maxPct = ((answers[d.key + "Max"] / 10 - d.min) / (d.max - d.min)) * 100;
+    const fill = modal.querySelector(`#${d.key}Fill`);
+    fill.style.left = minPct + "%";
+    fill.style.right = (100 - maxPct) + "%";
+  }
+
+  function wireDimFilter(d) {
+    const minSlider = modal.querySelector(`#${d.key}MinSlider`);
+    const maxSlider = modal.querySelector(`#${d.key}MaxSlider`);
+    const minInput = modal.querySelector(`#${d.key}MinInput`);
+    const maxInput = modal.querySelector(`#${d.key}MaxInput`);
+
+    function setMin(cm) {
+      cm = Math.min(Math.max(cm, d.min), answers[d.key + "Max"] / 10);
+      answers[d.key + "Min"] = cm * 10;
+      minSlider.value = cm; minInput.value = cm;
+      updateDimFill(d);
+    }
+    function setMax(cm) {
+      cm = Math.max(Math.min(cm, d.max), answers[d.key + "Min"] / 10);
+      answers[d.key + "Max"] = cm * 10;
+      maxSlider.value = cm; maxInput.value = cm;
+      updateDimFill(d);
+    }
+    minSlider.addEventListener("input", (e) => setMin(Number(e.target.value)));
+    maxSlider.addEventListener("input", (e) => setMax(Number(e.target.value)));
+    minInput.addEventListener("change", (e) => setMin(Number(e.target.value)));
+    maxInput.addEventListener("change", (e) => setMax(Number(e.target.value)));
+    modal.querySelector(`#dim-${d.key} .dim-filter-head`).addEventListener("click", () => {
+      modal.querySelector(`#dim-${d.key}`).classList.toggle("collapsed");
+    });
+    updateDimFill(d);
+  }
+
   function goToConfig() {
     modal.innerHTML = `
       <div class="quiz-head"><h2 class="display">Модификация и габариты</h2><button class="quiz-close" id="qClose">&times;</button></div>
@@ -997,21 +1088,7 @@
       </div>
       <div class="field-block">
         <div class="field-title">Габариты</div>
-        <div class="slider-row">
-          <div class="slider-label"><span class="slider-label-main">${DIM_ICON_LENGTH}Длина, от</span><span class="val" id="lengthMinVal">${(answers.lengthMin / 10).toFixed(0)} см</span></div>
-          <input type="range" id="lengthMinSlider" min="170" max="390" step="5" value="${answers.lengthMin / 10}">
-          <div class="slider-minmax"><span>170 см</span><span>390 см</span></div>
-        </div>
-        <div class="slider-row">
-          <div class="slider-label"><span class="slider-label-main">${DIM_ICON_LENGTH}Длина, до</span><span class="val" id="lengthMaxVal">${(answers.lengthMax / 10).toFixed(0)} см</span></div>
-          <input type="range" id="lengthMaxSlider" min="170" max="390" step="5" value="${answers.lengthMax / 10}">
-          <div class="slider-minmax"><span>170 см</span><span>390 см</span></div>
-        </div>
-        <div class="slider-row">
-          <div class="slider-label"><span class="slider-label-main">${DIM_ICON_WIDTH}Ширина</span><span class="val" id="depthVal">${(answers.depth / 10).toFixed(0)} см</span></div>
-          <input type="range" id="depthSlider" min="90" max="190" step="5" value="${answers.depth / 10}">
-          <div class="slider-minmax"><span>90 см</span><span>190 см</span></div>
-        </div>
+        ${DIMS.map(dimFilterHTML).join("")}
       </div>
       <button class="quiz-back" id="qBack">&larr; Назад</button>
       <div class="quiz-sticky-footer"><button class="quiz-continue" id="qContinue">Продолжить</button></div>
@@ -1022,22 +1099,7 @@
       answers.modification = btn.dataset.v;
       [...modal.querySelectorAll("#modTabs button")].forEach((b) => b.setAttribute("aria-current", String(b === btn)));
     });
-    modal.querySelector("#lengthMinSlider").addEventListener("input", (e) => {
-      let v = Number(e.target.value);
-      if (v * 10 > answers.lengthMax) { v = answers.lengthMax / 10; e.target.value = v; }
-      answers.lengthMin = v * 10;
-      modal.querySelector("#lengthMinVal").textContent = v + " см";
-    });
-    modal.querySelector("#lengthMaxSlider").addEventListener("input", (e) => {
-      let v = Number(e.target.value);
-      if (v * 10 < answers.lengthMin) { v = answers.lengthMin / 10; e.target.value = v; }
-      answers.lengthMax = v * 10;
-      modal.querySelector("#lengthMaxVal").textContent = v + " см";
-    });
-    modal.querySelector("#depthSlider").addEventListener("input", (e) => {
-      answers.depth = Number(e.target.value) * 10;
-      modal.querySelector("#depthVal").textContent = e.target.value + " см";
-    });
+    DIMS.forEach(wireDimFilter);
     modal.querySelector("#qBack").addEventListener("click", () => goTo("type"));
     modal.querySelector("#qContinue").addEventListener("click", showResults);
     modal.querySelector("#qClose").addEventListener("click", closeQuiz);
@@ -1080,15 +1142,19 @@
     let results = PRODUCTS.filter((p) => p.category === type);
     if (type === "sofa") {
       results = results.filter((p) => matchesFormat(p.title, answers.modification));
-      // Длина is a user-set range (lengthMin–lengthMax) so results stay close to the
-      // requested size instead of surfacing every smaller sofa. Ширина (depth) still
-      // uses the "fits within available space" upper-bound model.
+      // Ширина/Глубина/Высота are all user-set ranges (min–max, dragged explicitly by
+      // the visitor) rather than one auto-computed "target ± tolerance" band — that
+      // older model broke because straight- and corner-sofa depth cluster far apart
+      // (see project memory). Высота is only checked when a product actually has it.
       const FIT_TOL = 30;
       results = results
-        .map((p) => ({ p, w: widthOf(p.dims), l: depthOf(p.dims) }))
-        .filter(({ w, l }) => w !== null && l !== null)
-        .filter(({ w, l }) => w >= answers.lengthMin - FIT_TOL && w <= answers.lengthMax + FIT_TOL && l <= answers.depth + FIT_TOL)
-        .sort((a, b) => (b.w + b.l) - (a.w + a.l))
+        .map((p) => ({ p, w: widthOf(p.dims), d: depthOf(p.dims), h: heightOf(p.dims) }))
+        .filter(({ w, d }) => w !== null && d !== null)
+        .filter(({ w, d, h }) =>
+          w >= answers.widthMin - FIT_TOL && w <= answers.widthMax + FIT_TOL &&
+          d >= answers.depthMin - FIT_TOL && d <= answers.depthMax + FIT_TOL &&
+          (h === null || (h >= answers.heightMin - FIT_TOL && h <= answers.heightMax + FIT_TOL)))
+        .sort((a, b) => (b.w + b.d) - (a.w + a.d))
         .map(({ p }) => p);
     }
     results = results.slice(0, 3);
