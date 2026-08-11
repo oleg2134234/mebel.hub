@@ -321,9 +321,15 @@
   .home-tile .badge-sale.icon-badge {
     width: clamp(5rem, 22vw, 6.4rem); height: clamp(5rem, 22vw, 6.4rem);
   }
-  .home-tile .emoji-smiley {
-    font-size: clamp(3.4rem, 16vw, 4.6rem); line-height: 1;
+  .home-tile .emoji-combo { position: relative; display: inline-block; }
+  .home-tile .emoji-combo .face {
+    font-size: clamp(3.4rem, 16vw, 4.6rem); line-height: 1; display: block;
     filter: drop-shadow(0 6px 14px rgba(224,168,0,0.35));
+  }
+  .home-tile .emoji-combo .thumb {
+    position: absolute; left: -0.3em; bottom: -0.08em;
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.2));
   }
   .home-tile .badge-catalog { --badge-bg: rgba(59,111,201,0.14); }
   .home-tile .badge-catalog .cube, .home-tile .icon-catalog { color: #3b6fc9; }
@@ -532,7 +538,7 @@
     <div class="home-tagline">Вся мебельная индустрия — в одной точке</div>
     <div class="home-grid">
       <button class="home-tile" id="tileQuiz">
-        <span class="icon-badge badge-sale"><span class="emoji-smiley">😊</span></span>
+        <span class="icon-badge badge-sale"><span class="emoji-combo"><span class="face">😊</span><span class="thumb">👍</span></span></span>
         <span class="label">Начать продажу</span>
       </button>
       <button class="home-tile" id="tileCatalog">
