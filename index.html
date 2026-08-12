@@ -693,14 +693,15 @@
     if (!nums.length) return null;
     return nums.reduce((a, b) => a + b, 0) / nums.length;
   }
-  function widthOf(dims) { return numAt(dims, 0); }
-  function depthOf(dims) { return numAt(dims, 1); }
-  function heightOf(dims) { return numAt(dims, 2); }
+  // dims string is "Длина×Ширина×Высота" (mm). Длина = расстояние между подлокотниками,
+  // всегда больше ширины — это первое число. Высота (третье число) больше нигде не используется.
+  function lengthOf(dims) { return numAt(dims, 0); }
+  function widthOf(dims) { return numAt(dims, 1); }
 
   function dimsTagsHTML(dims) {
     if (!dims) return `<span class="dims-unknown">Габариты уточняются</span>`;
-    const parts = dims.split("×").slice(0, 3);
-    const labels = ["Ш", "Г", "В"];
+    const parts = dims.split("×").slice(0, 2);
+    const labels = ["Д", "Ш"];
     return `<div class="dims-tags">${parts.map((v, i) => `<span><b>${labels[i]}</b> ${v}</span>`).join("")}</div>`;
   }
 
@@ -984,15 +985,13 @@
 
   const answers = {
     modification: "straight",
-    widthMin: 1400, widthMax: 3800,
-    depthMin: 900, depthMax: 1900,
-    heightMin: 750, heightMax: 1100
+    lengthMin: 1400, lengthMax: 3800,
+    widthMin: 900, widthMax: 1900
   };
 
   const DIMS = [
-    { key: "width", title: "Ширина (см)", min: 140, max: 380 },
-    { key: "depth", title: "Глубина (см)", min: 90, max: 190 },
-    { key: "height", title: "Высота (см)", min: 75, max: 110 }
+    { key: "length", title: "Длина (см)", min: 140, max: 380 },
+    { key: "width", title: "Ширина (см)", min: 90, max: 190 }
   ];
 
   const typeStep = {
@@ -1154,19 +1153,19 @@
     let results = PRODUCTS.filter((p) => p.category === type);
     if (type === "sofa") {
       results = results.filter((p) => matchesFormat(p.title, answers.modification));
-      // Ширина/Глубина/Высота are all user-set ranges (min–max, dragged explicitly by
-      // the visitor) rather than one auto-computed "target ± tolerance" band — that
-      // older model broke because straight- and corner-sofa depth cluster far apart
-      // (see project memory). Высота is only checked when a product actually has it.
+      // Длина/Ширина are user-set ranges (min–max, dragged explicitly by the visitor)
+      // rather than one auto-computed "target ± tolerance" band — that older model broke
+      // because straight- and corner-sofa depth cluster far apart (see project memory).
+      // Длина = расстояние между подлокотниками (первое число в dims, всегда больше ширины).
+      // Высота убрана из подбора — она не участвует в фильтрации.
       const FIT_TOL = 30;
       results = results
-        .map((p) => ({ p, w: widthOf(p.dims), d: depthOf(p.dims), h: heightOf(p.dims) }))
-        .filter(({ w, d }) => w !== null && d !== null)
-        .filter(({ w, d, h }) =>
-          w >= answers.widthMin - FIT_TOL && w <= answers.widthMax + FIT_TOL &&
-          d >= answers.depthMin - FIT_TOL && d <= answers.depthMax + FIT_TOL &&
-          (h === null || (h >= answers.heightMin - FIT_TOL && h <= answers.heightMax + FIT_TOL)))
-        .sort((a, b) => (b.w + b.d) - (a.w + a.d))
+        .map((p) => ({ p, l: lengthOf(p.dims), w: widthOf(p.dims) }))
+        .filter(({ l, w }) => l !== null && w !== null)
+        .filter(({ l, w }) =>
+          l >= answers.lengthMin - FIT_TOL && l <= answers.lengthMax + FIT_TOL &&
+          w >= answers.widthMin - FIT_TOL && w <= answers.widthMax + FIT_TOL)
+        .sort((a, b) => (b.l + b.w) - (a.l + a.w))
         .map(({ p }) => p);
     }
     results = results.slice(0, 3);
