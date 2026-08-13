@@ -241,12 +241,18 @@
   .quiz-question { font-size: 1.05rem; margin: 0 0 1rem; text-wrap: balance; }
   .quiz-options { display: flex; flex-direction: column; gap: 0.55rem; }
   .quiz-options button {
+    display: flex; align-items: center; gap: 0.7rem;
     text-align: left; font: inherit; font-size: 0.94rem;
     padding: 0.75rem 1rem; border-radius: 12px; border: 1px solid var(--line);
     background: var(--bg); color: var(--ink); cursor: pointer;
     transition: border-color 0.15s, background 0.15s;
   }
   .quiz-options button:hover { border-color: var(--accent); background: var(--accent-soft); }
+  .quiz-opt-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2.1rem; height: 2.1rem; flex-shrink: 0; font-size: 1.25rem;
+    border-radius: 9px; background: var(--accent-soft);
+  }
   .quiz-back {
     margin-top: 1.2rem; background: none; border: none; color: var(--ink-soft);
     font: inherit; font-size: 0.85rem; cursor: pointer; padding: 0;
@@ -1000,10 +1006,10 @@
     label: "Шаг 1",
     question: "Что подбираем?",
     options: [
-      { label: "Диван", value: "sofa" },
-      { label: "Кресло", value: "armchair" },
-      { label: "Кровать", value: "bed" },
-      { label: "Матрас", value: "mattress" }
+      { label: "Диван", value: "sofa", icon: "🛋️" },
+      { label: "Кресло", value: "armchair", icon: "🪑" },
+      { label: "Кровать", value: "bed", icon: "🛏️" },
+      { label: "Матрас", value: "mattress", icon: "💤" }
     ],
     onPick(v) { answers.type = v; goToConfig(); }
   };
@@ -1020,7 +1026,7 @@
       <div class="quiz-head"><h2 class="display">Подбор мебели</h2><button class="quiz-close" id="qClose">&times;</button></div>
       <div class="quiz-step-label">${step.label}</div>
       <div class="quiz-question">${step.question}</div>
-      <div class="quiz-options">${step.options.map((o, i) => `<button data-i="${i}">${o.label}</button>`).join("")}</div>
+      <div class="quiz-options">${step.options.map((o, i) => `<button data-i="${i}">${o.icon ? `<span class="quiz-opt-icon">${o.icon}</span>` : ""}${o.label}</button>`).join("")}</div>
     `;
     modal.querySelectorAll(".quiz-options button").forEach((btn, i) => {
       btn.addEventListener("click", () => step.onPick(step.options[i].value));
