@@ -1176,10 +1176,9 @@
         w >= answers.widthMin - FIT_TOL && w <= answers.widthMax + FIT_TOL)
       .sort((a, b) => (b.l + b.w) - (a.l + a.w))
       .map(({ p }) => p);
-    results = results.slice(0, 3);
 
     modal.innerHTML = `
-      <div class="quiz-head"><h2 class="display">Подходящие модели</h2><button class="quiz-close" id="qClose">&times;</button></div>
+      <div class="quiz-head"><h2 class="display">Подходящие модели${results.length ? ` (${results.length})` : ""}</h2><button class="quiz-close" id="qClose">&times;</button></div>
       <div class="quiz-results">
         ${results.length ? results.map((p) => `
           <div class="quiz-result-card">
