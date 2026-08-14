@@ -379,6 +379,8 @@
   }
   .fabric-cat-table th { background: var(--surface-2); font-weight: 700; color: var(--ink-soft); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.03em; }
   .fabric-cat-table td { font-weight: 600; line-height: 1.65; }
+  .fabric-collection-link { color: var(--accent); text-decoration: none; border-bottom: 1px dashed var(--accent); }
+  .fabric-collection-link:hover { border-bottom-style: solid; }
 
   /* Supplier links (Подбор ткани) */
   .supplier-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr)); gap: 0.8rem; margin-bottom: 0.6rem; }
@@ -822,14 +824,6 @@
 
   const FABRIC_CATEGORIES = [
     {
-      brand: "Абсолют",
-      cats: {
-        2: ["BORA-A", "MONAKO-A", "NAPOLI-A", "LEVIS", "EASTON", "DAKOTA", "TOLEDO"],
-        3: ["KIOTO", "ANKONA"],
-        4: ["BORDO", "BOSTON", "TORONTO", "LAGOS-A", "GENEVA-A"]
-      }
-    },
-    {
       brand: "EGIDA",
       cats: {
         2: ["ШТОРМ"],
@@ -862,6 +856,50 @@
       }
     }
   ];
+  const FABRIC_LINKS = {
+    "Tesla": "https://viptextil.ru/catalog/mebelnie-tkani/rogojka/tesla/",
+    "Nice": "https://viptextil.ru/catalog/mebelnie-tkani/rogojka/nice_fabric/",
+    "Selfie": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/selfie/",
+    "Fresh": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/fresh/",
+    "Tenerife": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/tenerife/",
+    "Infinity": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/infinity/",
+    "Cosmo": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/cosmo/",
+    "Iceberg": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/iceberg/",
+    "Mega": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/mega/",
+    "Holiday": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/holiday/",
+    "Sensey": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/sensey/",
+    "Shape": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/shape/",
+    "Bali": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/bali/",
+    "Suffle": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/suffle/",
+    "Fresca": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/fresca/",
+    "Siesta": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/siesta/",
+    "Barni": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/barni/",
+    "Plush": "https://viptextil.ru/catalog/mebelnie-tkani/mikrovelyur/plush/",
+    "Uno": "https://viptextil.ru/catalog/mebelnie-tkani/rogojka/uno/",
+    "Florida": "https://viptextil.ru/catalog/mebelnie-tkani/rogojka/florida/",
+    "Buffalo": "https://viptextil.ru/catalog/mebelnie-tkani/iskusstvennaya-zamsha/buffalo/",
+    "ШТОРМ": "https://tkani.egida.ru/product-category/storm/",
+    "СОТБИ": "https://tkani.egida.ru/product-category/sotbby/",
+    "ФУРРИ": "https://tkani.egida.ru/product-category/furry/",
+    "СЕВЕН": "https://tkani.egida.ru/product-category/seven/",
+    "ДЖИДЖИЭЛ": "https://tkani.egida.ru/product-category/ggl/",
+    "ДЖОЯ": "https://tkani.egida.ru/product-category/joya/",
+    "НЕСС": "https://tkani.egida.ru/product-category/ness/",
+    "НЕББИ": "https://tkani.egida.ru/product-category/nebby/",
+    "ТАЙМЛЕСС": "https://tkani.egida.ru/product-category/timeless/",
+    "ПЛУТОН": "https://tkani.egida.ru/product-category/%d0%bf%d0%bb%d1%83%d1%82%d0%be%d0%bd/",
+    "ТЕДДИ": "https://tkani.egida.ru/product-category/teddy/",
+    "БРАССИ": "https://tkani.egida.ru/product-category/brassy/",
+    "НОЛА": "https://tkani.egida.ru/product-category/nola/",
+    "МАБОРО": "https://tkani.egida.ru/product-category/maboro/",
+    "ТАКОМА": "https://tkani.egida.ru/product-category/takoma/",
+    "БРАБУС": "https://tkani.egida.ru/product-category/brabus/",
+    "КЕЙТУР": "https://tkani.egida.ru/product-category/keytur/"
+  };
+  function fabricNameHTML(name) {
+    const url = FABRIC_LINKS[name];
+    return url ? `<a class="fabric-collection-link" href="${url}" target="_blank" rel="noopener">${name}</a>` : name;
+  }
   function fabricCatTableHTML(brandDef) {
     const catsPresent = Array.from({ length: 8 }, (_, i) => i + 2).filter((c) => brandDef.cats[c]);
     return `
@@ -870,7 +908,7 @@
         <div class="fabric-cat-table-wrap">
           <table class="fabric-cat-table">
             <thead><tr>${catsPresent.map((c) => `<th>${c} категория</th>`).join("")}</tr></thead>
-            <tbody><tr>${catsPresent.map((c) => `<td>${brandDef.cats[c].join("<br>")}</td>`).join("")}</tr></tbody>
+            <tbody><tr>${catsPresent.map((c) => `<td>${brandDef.cats[c].map(fabricNameHTML).join("<br>")}</td>`).join("")}</tr></tbody>
           </table>
         </div>
       </div>`;
@@ -880,8 +918,8 @@
   const SUPPLIER_LINKS = [
     { name: "Абсолют", url: "" },
     { name: "EGIDA", url: "https://tkani.egida.ru/%d0%ba%d0%be%d0%bb%d0%bb%d0%b5%d0%ba%d1%86%d0%b8%d0%b8/?fabrictype=" },
-    { name: "VipTextil", url: "https://msk.viptextil-store.ru/tkani/" },
-    { name: "СОЮЗ-М", url: "" }
+    { name: "VipTextil", url: "https://viptextil.ru/catalog/mebelnie-tkani/" },
+    { name: "СОЮЗ-М", url: "https://souz-m.ru/products/" }
   ];
   function supplierLinkHTML(s) {
     return s.url
