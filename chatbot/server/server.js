@@ -36,6 +36,14 @@ app.get("/api/health", (_req, res) => {
   res.json({ ok: true });
 });
 
+// Serves the embeddable widget from its single source of truth
+// (chatbot/widget/widget.js) so sites can point a <script> tag straight at
+// this backend instead of hosting a second copy of the file.
+app.get("/widget.js", (_req, res) => {
+  res.type("application/javascript");
+  res.sendFile(path.join(__dirname, "..", "widget", "widget.js"));
+});
+
 // Admin panel — lead list, status updates, manual broadcast. Gated by HTTP
 // Basic Auth (ADMIN_USER/ADMIN_PASS); returns 503 until those are set.
 app.use("/api/admin", adminAuth, adminRoutes);
