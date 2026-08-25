@@ -254,8 +254,9 @@
   .quiz-opt-icon {
     display: inline-flex; align-items: center; justify-content: center;
     width: 6.5rem; height: 6.5rem; flex-shrink: 0; font-size: 4.6rem;
-    border-radius: 18px; background: var(--accent-soft);
+    border-radius: 18px; background: var(--accent-soft); overflow: hidden;
   }
+  .quiz-opt-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
   .quiz-back {
     margin-top: 1.2rem; background: none; border: none; color: var(--ink-soft);
     font: inherit; font-size: 0.85rem; cursor: pointer; padding: 0;
@@ -399,14 +400,23 @@
   .supplier-link-note { font-size: 0.66rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.04em; flex: none; }
 
   /* Fabric filter: "Дома есть животные" / "Есть аллергия" */
-  .fabric-condition-toggles { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+  .fabric-condition-toggles { display: grid; grid-template-columns: repeat(2, 9rem); gap: 0.9rem; margin-bottom: 1.2rem; }
   .fabric-condition-btn {
-    font: inherit; font-size: 0.88rem; font-weight: 600; padding: 0.6rem 1rem;
-    border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink);
-    cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+    aspect-ratio: 1 / 1;
+    font: inherit; font-size: 0.85rem; font-weight: 600; text-align: center; padding: 0.7rem 0.5rem;
+    border-radius: 14px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink);
+    cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.15s;
   }
+  .fabric-condition-btn:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
   .fabric-condition-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-  .fabric-condition-btn .fc-emoji { font-size: 2.2rem; line-height: 1; vertical-align: middle; margin-right: 0.35rem; display: inline-block; }
+  .fabric-condition-btn .fc-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 4.4rem; height: 4.4rem; flex-shrink: 0;
+    border-radius: 14px; background: var(--accent-soft); overflow: hidden;
+  }
+  .fabric-condition-btn[aria-pressed="true"] .fc-icon { background: rgba(255,255,255,0.25); }
+  .fabric-condition-btn .fc-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
   .fabric-type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr)); gap: 0.9rem; }
   .fabric-type-card {
     border: 1.5px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem;
@@ -630,8 +640,8 @@
       <h2 class="fabric-cat-title">Подбор по условиям использования</h2>
       <p class="fabric-note">Отметьте, что важно для клиента, — карточки материалов ниже пересортируются: более подходящие ткани поднимутся наверх.</p>
       <div class="fabric-condition-toggles" id="fabricConditionToggles">
-        <button class="fabric-condition-btn" data-cond="pets" aria-pressed="false"><span class="fc-emoji">🐾</span>Дома есть животные</button>
-        <button class="fabric-condition-btn" data-cond="allergy" aria-pressed="false"><span class="fc-emoji">🤧</span>Есть аллергия</button>
+        <button class="fabric-condition-btn" data-cond="pets" aria-pressed="false"><span class="fc-icon"><img src="assets/brand/icons/cond_pets.jpg" alt="" /></span>Дома есть животные</button>
+        <button class="fabric-condition-btn" data-cond="allergy" aria-pressed="false"><span class="fc-icon"><img src="assets/brand/icons/cond_allergy.jpg" alt="" /></span>Есть аллергия</button>
       </div>
       <div class="fabric-type-grid" id="fabricTypeGrid"></div>
     </div>
@@ -940,6 +950,14 @@
         5: ["Conrad", "Vivian"],
         6: ["Chicago", "Prime", "Dallas", "Desert", "Nice", "Wendy"]
       }
+    },
+    {
+      // No official Apogey price-category (2–9) mapping yet for this supplier —
+      // rayestkani.ru's own catalog only exposes fabric type/density, not cost tier.
+      // Rendered as one flat list (flatLabel) instead of guessing a price category.
+      brand: "RAYES",
+      flat: ["SOFT", "VARNA", "MIDEA TOP", "STAR", "ZENA", "BORZ", "VERONA", "LINTERA", "BARHAT TOP", "NEW CRASH", "BRENDLY", "ELIZA", "SOFIA", "AGATA", "BRAVO", "RUBY"],
+      flatLabel: "Все коллекции (категория уточняется)"
     }
   ];
   const FABRIC_LINKS = {
@@ -1019,6 +1037,24 @@
       "Joy": "https://sarmacomplekt.ru/catalog/mikrovelyur/tkan_mikrovelyur_joy/",
       "Moire": "https://sarmacomplekt.ru/catalog/velyur/moire_kn/",
       "Nice": "https://sarmacomplekt.ru/catalog/velyur/tkan_mikrovelyur_nice_plaza/"
+    },
+    "RAYES": {
+      "SOFT": "https://rayestkani.ru/collection.php?id=soft",
+      "VARNA": "https://rayestkani.ru/collection.php?id=varna",
+      "MIDEA TOP": "https://rayestkani.ru/collection.php?id=mideatop",
+      "STAR": "https://rayestkani.ru/collection.php?id=star",
+      "ZENA": "https://rayestkani.ru/collection.php?id=zena",
+      "BORZ": "https://rayestkani.ru/collection.php?id=borz",
+      "VERONA": "https://rayestkani.ru/collection.php?id=verona",
+      "LINTERA": "https://rayestkani.ru/collection.php?id=lintera",
+      "BARHAT TOP": "https://rayestkani.ru/collection.php?id=barhat-top",
+      "NEW CRASH": "https://rayestkani.ru/collection.php?id=new-crash",
+      "BRENDLY": "https://rayestkani.ru/collection.php?id=brendly",
+      "ELIZA": "https://rayestkani.ru/collection.php?id=eliza",
+      "SOFIA": "https://rayestkani.ru/collection.php?id=sofia",
+      "AGATA": "https://rayestkani.ru/collection.php?id=agata",
+      "BRAVO": "https://rayestkani.ru/collection.php?id=bravo",
+      "RUBY": "https://rayestkani.ru/collection.php?id=ruby"
     }
   };
   function fabricNameHTML(brand, name) {
@@ -1026,6 +1062,18 @@
     return url ? `<a class="fabric-collection-link" href="${url}" target="_blank" rel="noopener">${name}</a>` : name;
   }
   function fabricCatTableHTML(brandDef) {
+    if (brandDef.flat) {
+      return `
+        <div class="fabric-brand-block">
+          <div class="fabric-brand-name">${brandDef.brand}</div>
+          <div class="fabric-cat-table-wrap">
+            <table class="fabric-cat-table">
+              <thead><tr><th>${brandDef.flatLabel || "Все коллекции"}</th></tr></thead>
+              <tbody><tr><td>${brandDef.flat.map((name) => fabricNameHTML(brandDef.brand, name)).join("<br>")}</td></tr></tbody>
+            </table>
+          </div>
+        </div>`;
+    }
     const catsPresent = Array.from({ length: 8 }, (_, i) => i + 2).filter((c) => brandDef.cats[c]);
     return `
       <div class="fabric-brand-block">
@@ -1100,7 +1148,8 @@
     { name: "Velvetex", url: "https://velvetex.ru/fabrics/" },
     { name: "RostGrad", url: "" },
     { name: "ARBEN", url: "https://arben-textile.ru/catalog/tkani/" },
-    { name: "Комплект", url: "" }
+    { name: "Комплект", url: "" },
+    { name: "RAYES", url: "https://rayestkani.ru/catalog.php" }
   ];
   function supplierLinkHTML(s) {
     return s.url
@@ -1241,10 +1290,10 @@
     label: "Шаг 1",
     question: "Что подбираем?",
     options: [
-      { label: "Диван", value: "sofa", icon: "🛋️" },
-      { label: "Кресло", value: "armchair", icon: "🪑" },
-      { label: "Кровать", value: "bed", icon: "🛏️" },
-      { label: "Матрас", value: "mattress", icon: "💤" }
+      { label: "Диван", value: "sofa", icon: '<img src="assets/brand/icons/type_sofa.jpg" alt="" />' },
+      { label: "Кресло", value: "armchair", icon: '<img src="assets/brand/icons/type_armchair.jpg" alt="" />' },
+      { label: "Кровать", value: "bed", icon: '<img src="assets/brand/icons/type_bed.jpg" alt="" />' },
+      { label: "Матрас", value: "mattress", icon: '<img src="assets/brand/icons/type_mattress.jpg" alt="" />' }
     ],
     onPick(v) { answers.type = v; goToConfig(); }
   };
