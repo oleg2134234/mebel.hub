@@ -492,40 +492,6 @@
   .supplier-link-arrow { color: var(--accent); font-size: 1rem; flex: none; }
   .supplier-link-note { font-size: 0.66rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.04em; flex: none; }
 
-  /* Fabric filter: "Дома есть животные" / "Есть аллергия" */
-  .fabric-condition-toggles { display: grid; grid-template-columns: repeat(2, 9rem); gap: 0.9rem; margin-bottom: 1.2rem; }
-  .fabric-condition-btn {
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
-    aspect-ratio: 1 / 1;
-    font: inherit; font-size: 0.85rem; font-weight: 600; text-align: center; padding: 0.7rem 0.5rem;
-    border-radius: 14px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink);
-    cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.15s;
-  }
-  .fabric-condition-btn:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
-  .fabric-condition-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-  .fabric-condition-btn .fc-icon {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 4.4rem; height: 4.4rem; flex-shrink: 0;
-    border-radius: 14px; background: var(--accent-soft); overflow: hidden;
-  }
-  .fabric-condition-btn[aria-pressed="true"] .fc-icon { background: rgba(255,255,255,0.25); }
-  .fabric-condition-btn .fc-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
-  .fabric-type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr)); gap: 0.9rem; }
-  .fabric-type-card {
-    border: 1.5px solid var(--line); border-radius: 14px; padding: 1rem 1.1rem;
-    background: var(--surface); transition: border-color 0.15s, transform 0.15s, opacity 0.15s;
-  }
-  .fabric-type-card.is-match { border-color: var(--accent); }
-  .fabric-type-card.is-dim { opacity: 0.45; }
-  .fabric-type-card .ftc-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.35rem; }
-  .fabric-type-card .ftc-desc { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 0.6rem; }
-  .fabric-type-card .ftc-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-  .fabric-type-card .ftc-tag {
-    font-size: 0.68rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 999px;
-    background: var(--accent-soft); color: var(--ink);
-  }
-  .fabric-type-card .ftc-tag.warn { background: rgba(180, 80, 40, 0.14); }
-
   /* Tabs (Модификация) */
   .tabs { display: flex; gap: 0.5rem; }
   .tabs button {
@@ -730,16 +696,6 @@
     <h1 class="home-title display">Подбор ткани</h1>
 
     <div class="fabric-cat-section" style="margin-top:0; padding-top:0; border-top:none;">
-      <h2 class="fabric-cat-title">Подбор по условиям использования</h2>
-      <p class="fabric-note">Отметьте, что важно для клиента, — карточки материалов ниже пересортируются: более подходящие ткани поднимутся наверх.</p>
-      <div class="fabric-condition-toggles" id="fabricConditionToggles">
-        <button class="fabric-condition-btn" data-cond="pets" aria-pressed="false"><span class="fc-icon"><img src="assets/brand/icons/cond_pets.jpg" alt="" /></span>Дома есть животные</button>
-        <button class="fabric-condition-btn" data-cond="allergy" aria-pressed="false"><span class="fc-icon"><img src="assets/brand/icons/cond_allergy.jpg" alt="" /></span>Есть аллергия</button>
-      </div>
-      <div class="fabric-type-grid" id="fabricTypeGrid"></div>
-    </div>
-
-    <div class="fabric-cat-section">
       <h2 class="fabric-cat-title">Категории тканей поставщиков</h2>
       <p class="fabric-note">Категория определяет тариф ткани в прайс-листе «Апогей» — от 2 (базовая) до 9 (премиум). Внутри категории — конкретные коллекции ткани у поставщика.</p>
       <div id="fabricCatBrands"></div>
@@ -1213,58 +1169,6 @@
       </div>`;
   }
   document.getElementById("fabricCatBrands").innerHTML = FABRIC_CATEGORIES.map(fabricCatTableHTML).join("");
-
-  // Fabric TYPES (weave/material, not supplier collection) rated for two common
-  // showroom questions: pets at home, and allergy sensitivity. Ratings follow
-  // standard upholstery-textile guidance: tight, low-pile, wipeable weaves suit
-  // both conditions best; long-pile weaves trap fur/dander and snag on claws.
-  const FABRIC_TYPES = [
-    { name: "Экозамша", desc: "Гладкая нетканая основа без ворса — когти не цепляются, влажная уборка одним движением.", pets: 3, allergy: 3 },
-    { name: "Рогожка", desc: "Плотное шахматное плетение без длинного ворса — устойчива к затяжкам и легко пылесосится.", pets: 3, allergy: 2 },
-    { name: "Флок", desc: "Короткий плотный ворс на клеевой основе — стойкий к истиранию, требует более частой чистки.", pets: 2, allergy: 2 },
-    { name: "Шенилл", desc: "Рельефная ворсовая пряжа — эффектная фактура, но ворс задерживает шерсть и пыль.", pets: 1, allergy: 1 },
-    { name: "Велюр", desc: "Мягкий короткий ворс — самый уязвимый вариант для когтей и накопления пыли/шерсти.", pets: 1, allergy: 1 },
-  ];
-  const RATING_LABEL = { 3: "Отлично подходит", 2: "Подходит", 1: "Не рекомендуется" };
-  function fabricTypeCardHTML(f) {
-    const petsTag = `<span class="ftc-tag${f.pets < 2 ? " warn" : ""}">🐾 ${RATING_LABEL[f.pets]}</span>`;
-    const allergyTag = `<span class="ftc-tag${f.allergy < 2 ? " warn" : ""}">🤧 ${RATING_LABEL[f.allergy]}</span>`;
-    return `<div class="fabric-type-card" data-pets="${f.pets}" data-allergy="${f.allergy}">
-      <div class="ftc-name">${f.name}</div>
-      <div class="ftc-desc">${f.desc}</div>
-      <div class="ftc-tags">${petsTag}${allergyTag}</div>
-    </div>`;
-  }
-  const fabricTypeGridEl = document.getElementById("fabricTypeGrid");
-  const activeConditions = new Set();
-  function renderFabricTypes() {
-    // Sort best-first for whichever condition(s) are active; otherwise keep catalog order.
-    let list = FABRIC_TYPES.slice();
-    if (activeConditions.size) {
-      list.sort((a, b) => {
-        const scoreA = [...activeConditions].reduce((s, c) => s + a[c], 0);
-        const scoreB = [...activeConditions].reduce((s, c) => s + b[c], 0);
-        return scoreB - scoreA;
-      });
-    }
-    fabricTypeGridEl.innerHTML = list.map(fabricTypeCardHTML).join("");
-    if (activeConditions.size) {
-      fabricTypeGridEl.querySelectorAll(".fabric-type-card").forEach((card) => {
-        const ok = [...activeConditions].every((c) => Number(card.dataset[c]) >= 2);
-        card.classList.toggle("is-match", ok);
-        card.classList.toggle("is-dim", !ok);
-      });
-    }
-  }
-  renderFabricTypes();
-  document.getElementById("fabricConditionToggles").addEventListener("click", (e) => {
-    const btn = e.target.closest(".fabric-condition-btn");
-    if (!btn) return;
-    const cond = btn.dataset.cond;
-    if (activeConditions.has(cond)) { activeConditions.delete(cond); btn.setAttribute("aria-pressed", "false"); }
-    else { activeConditions.add(cond); btn.setAttribute("aria-pressed", "true"); }
-    renderFabricTypes();
-  });
 
   const SUPPLIER_LINKS = [
     { name: "Абсолют", url: "" },
