@@ -1,6 +1,21 @@
+<!doctype html>
+<html lang="ru">
+<head>
 <meta charset="utf-8" />
-<title>БРЕНД МЕБЕЛИ — каталог мебели</title>
+<title>БРЕНД МЕБЕЛИ — каталог мебели «Апогей»</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Электронный каталог мягкой мебели фабрики «Апогей»: диваны, кресла, кровати и матрасы — реальные фото, точные размеры, механизмы раскладывания, подбор по цвету и типу ткани." />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#f5f0e6" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#17160f" media="(prefers-color-scheme: dark)" />
+<link rel="icon" href="assets/brand/logo.jpg" />
+<link rel="apple-touch-icon" href="assets/brand/logo.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="БРЕНД МЕБЕЛИ — каталог мебели «Апогей»" />
+<meta property="og:description" content="Диваны, кресла, кровати и матрасы фабрики «Апогей» — реальные фото, точные размеры, подбор за 30 секунд." />
+<meta property="og:image" content="assets/brand/logo.jpg" />
+<meta name="twitter:card" content="summary" />
 <style>
   :root {
     --bg: #f5f0e6;
@@ -571,9 +586,14 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; }
     .card, .quiz-btn { transition: none; }
   }
+
+  body.modal-open { overflow: hidden; }
 </style>
+</head>
+<body>
 
 <div class="screen active" id="homeScreen">
   <div class="home-header">
@@ -646,8 +666,8 @@
       <h2 class="fabric-cat-title">Подбор по условиям использования</h2>
       <p class="fabric-note">Отметьте, что важно для клиента, — карточки материалов ниже пересортируются: более подходящие ткани поднимутся наверх.</p>
       <div class="fabric-condition-toggles" id="fabricConditionToggles">
-        <button class="fabric-condition-btn" data-cond="pets" aria-pressed="false"><span class="fc-icon"><img src="assets/brand/icons/cond_pets.jpg" alt="" /></span>Дома есть животные</button>
-        <button class="fabric-condition-btn" data-cond="allergy" aria-pressed="false"><span class="fc-icon"><img src="assets/brand/icons/cond_allergy.jpg" alt="" /></span>Есть аллергия</button>
+        <button class="fabric-condition-btn" data-cond="pets" aria-pressed="false"><span class="fc-icon"><img src="assets/brand/icons/cond_pets.jpg" alt="" width="70" height="70" loading="lazy" decoding="async" /></span>Дома есть животные</button>
+        <button class="fabric-condition-btn" data-cond="allergy" aria-pressed="false"><span class="fc-icon"><img src="assets/brand/icons/cond_allergy.jpg" alt="" width="70" height="70" loading="lazy" decoding="async" /></span>Есть аллергия</button>
       </div>
       <div class="fabric-type-grid" id="fabricTypeGrid"></div>
     </div>
@@ -655,6 +675,7 @@
     <div class="fabric-cat-section">
       <h2 class="fabric-cat-title">Категории тканей поставщиков</h2>
       <p class="fabric-note">Категория определяет тариф ткани в прайс-листе «Апогей» — от 2 (базовая) до 9 (премиум). Внутри категории — конкретные коллекции ткани у поставщика.</p>
+      <div class="supplier-links" id="supplierLinks"></div>
       <div id="fabricCatBrands"></div>
     </div>
   </div>
@@ -698,11 +719,11 @@
 <div class="toast" id="toast"></div>
 
 <div class="quiz-overlay" id="quizOverlay">
-  <div class="quiz-modal" id="quizModal"></div>
+  <div class="quiz-modal" id="quizModal" role="dialog" aria-modal="true" aria-label="Подбор мебели"></div>
 </div>
 
 <div class="gallery-overlay" id="galleryOverlay">
-  <div class="gallery-modal">
+  <div class="gallery-modal" role="dialog" aria-modal="true" aria-label="Галерея модели">
     <div class="gallery-top">
       <span class="gallery-title display" id="galTitle">—</span>
       <div style="display:flex; align-items:center; gap:0.7rem;">
@@ -744,6 +765,14 @@
     other: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>'
   };
 
+  // Escape text/attribute values before dropping them into innerHTML. Product
+  // titles/descriptions are scraped from apogey-mebel.ru, so an "&" or "<" in a
+  // description must not be able to break markup.
+  const ESC_MAP = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ESC_MAP[c]);
+  }
+
   function numAt(dims, idx) {
     if (!dims) return null;
     const part = dims.split("×")[idx];
@@ -765,7 +794,7 @@
   }
 
   function mediaFor(p) {
-    if (IMAGES[p.id]) return `<img src="${IMAGES[p.id]}" alt="${p.title}" loading="lazy" />`;
+    if (IMAGES[p.id]) return `<img src="${esc(IMAGES[p.id])}" alt="${esc(p.title)}" loading="lazy" decoding="async" />`;
     return ICONS[p.category] || ICONS.other;
   }
 
@@ -774,14 +803,14 @@
     const hasGallery = !!GALLERIES[p.id];
     const badge = hasImg ? "" : `<span class="badge">Фото скоро</span>`;
     const catIcon = `<span class="cat-icon">${ICONS[p.category] || ICONS.other}</span>`;
-    const openAttr = hasGallery ? `onclick="openGallery(${p.id})" role="button" tabindex="0" style="cursor:pointer"` : "";
+    const openAttr = hasGallery ? `data-gallery="${p.id}" role="button" tabindex="0" aria-label="${esc(p.title)} — открыть галерею" style="cursor:pointer"` : "";
     return `
-      <div class="card" id="card-${p.id}" data-cat="${p.category}" data-name="${p.title.toLowerCase()}" ${openAttr}>
+      <div class="card" id="card-${p.id}" data-cat="${esc(p.category)}" data-name="${esc(p.title.toLowerCase())}" ${openAttr}>
         <div class="media">${badge}${hasImg ? catIcon : ""}${mediaFor(p)}</div>
         <div class="body">
-          <span class="cat">${CATS[p.category] || p.category}</span>
-          <span class="name">${p.title}</span>
-          ${p.desc ? `<span class="desc">${p.desc}</span>` : ""}
+          <span class="cat">${esc(CATS[p.category] || p.category)}</span>
+          <span class="name">${esc(p.title)}</span>
+          ${p.desc ? `<span class="desc">${esc(p.desc)}</span>` : ""}
           ${dimsTagsHTML(p.dims)}
           ${hasGallery ? (() => {
             const gs = GALLERIES[p.id].slides;
@@ -839,12 +868,59 @@
     render();
   });
 
+  // Delegated open for gallery cards — replaces the per-card inline onclick and
+  // adds keyboard activation (Enter / Space) for the role="button" cards.
+  function cardIdFrom(target) {
+    const card = target.closest(".card[data-gallery]");
+    return card ? Number(card.dataset.gallery) : null;
+  }
+  grid.addEventListener("click", (e) => {
+    const id = cardIdFrom(e.target);
+    if (id != null) openGallery(id);
+  });
+  grid.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" && e.key !== " " && e.key !== "Spacebar") return;
+    const id = cardIdFrom(e.target);
+    if (id != null) { e.preventDefault(); openGallery(id); }
+  });
+
   render();
 
   /* ---- Screens (home hub / catalog / fabric) ---- */
   function showScreen(id) {
     document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
+  }
+
+  /* ---- Modal helpers: scroll-lock, focus move/restore, focus trap ----
+     Shared by the quiz and the photo gallery. A small stack lets a dialog
+     opened from another dialog (gallery from quiz results) hand focus back to
+     whatever opened it, and only unlocks page scroll when nothing is open. */
+  const FOCUSABLE = 'button, a[href], input:not([type="hidden"]), textarea, select, [tabindex]:not([tabindex="-1"])';
+  const modalFocusStack = [];
+  function modalOpened(container) {
+    document.body.classList.add("modal-open");
+    modalFocusStack.push(document.activeElement);
+    requestAnimationFrame(() => {
+      const first = container.querySelector(FOCUSABLE);
+      (first || container).focus();
+    });
+  }
+  function modalClosed() {
+    const returnTo = modalFocusStack.pop();
+    if (!document.querySelector(".quiz-overlay.open, .gallery-overlay.open")) {
+      document.body.classList.remove("modal-open");
+    }
+    if (returnTo && typeof returnTo.focus === "function") returnTo.focus();
+  }
+  function trapFocus(e, container) {
+    if (e.key !== "Tab") return;
+    const items = [...container.querySelectorAll(FOCUSABLE)]
+      .filter((el) => !el.disabled && el.getClientRects().length > 0);
+    if (!items.length) return;
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
 
   const toastEl = document.getElementById("toast");
@@ -1159,11 +1235,11 @@
   ];
   function supplierLinkHTML(s) {
     return s.url
-      ? `<a class="supplier-link" href="${s.url}" target="_blank" rel="noopener">
-           <span>${s.name}</span><span class="supplier-link-arrow">&#8599;</span>
+      ? `<a class="supplier-link" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">
+           <span>${esc(s.name)}</span><span class="supplier-link-arrow">&#8599;</span>
          </a>`
       : `<span class="supplier-link pending">
-           <span>${s.name}</span><span class="supplier-link-note">Ссылка скоро</span>
+           <span>${esc(s.name)}</span><span class="supplier-link-note">Ссылка скоро</span>
          </span>`;
   }
   const supplierLinksEl = document.getElementById("supplierLinks");
@@ -1176,10 +1252,10 @@
       <div class="quiz-result-card">
         <div class="media" data-goto="${p.id}">${mediaFor(p)}</div>
         <div>
-          <div class="rname">${p.title}</div>
-          <div class="rdims">${p.dims ? p.dims + " мм" : "Габариты уточняются"}</div>
+          <div class="rname">${esc(p.title)}</div>
+          <div class="rdims">${p.dims ? esc(p.dims) + " мм" : "Габариты уточняются"}</div>
         </div>
-      </div>`).join("") : `<div class="quiz-empty-result">Пока нет моделей с подтверждённым цветом «${FABRIC_SWATCHES[colorIdx].name}» — база пополняется.</div>`;
+      </div>`).join("") : `<div class="quiz-empty-result">Пока нет моделей с подтверждённым цветом «${esc(FABRIC_SWATCHES[colorIdx].name)}» — база пополняется.</div>`;
     fabricResultsEl.querySelectorAll(".media[data-goto]").forEach((el) => {
       el.addEventListener("click", () => goToProduct(Number(el.dataset.goto)));
     });
@@ -1513,10 +1589,10 @@
           <div class="quiz-result-card">
             <div class="media" data-goto="${p.id}">${mediaFor(p)}</div>
             <div>
-              <div class="rname">${p.title}</div>
-              <div class="rdims">${p.dims ? p.dims + " мм" : "Габариты уточняются"}</div>
+              <div class="rname">${esc(p.title)}</div>
+              <div class="rdims">${p.dims ? esc(p.dims) + " мм" : "Габариты уточняются"}</div>
             </div>
-          </div>`).join("") : `<div class="quiz-empty-result">Точных совпадений нет — посмотрите весь раздел «${CATS[type] || type}» в каталоге.</div>`}
+          </div>`).join("") : `<div class="quiz-empty-result">Точных совпадений нет — посмотрите весь раздел «${esc(CATS[type] || type)}» в каталоге.</div>`}
       </div>
       <button class="quiz-restart" id="qRestart">Пройти заново</button>
     `;
@@ -1528,17 +1604,27 @@
   }
 
   function openQuiz() {
+    if (overlay.classList.contains("open")) return;
     overlay.classList.add("open");
     goTo("type");
+    modalOpened(modal);
   }
   function closeQuiz() {
+    if (!overlay.classList.contains("open")) return;
     overlay.classList.remove("open");
+    modalClosed();
   }
 
   openBtn.addEventListener("click", openQuiz);
   document.getElementById("tileQuiz").addEventListener("click", openQuiz);
   overlay.addEventListener("click", (e) => { if (e.target === overlay) closeQuiz(); });
-  window.addEventListener("keydown", (e) => { if (e.key === "Escape") { closeQuiz(); closeGallery(); } });
+  overlay.addEventListener("keydown", (e) => trapFocus(e, modal));
+  // Escape closes the topmost dialog only (gallery sits above the quiz).
+  window.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    if (galOverlay.classList.contains("open")) closeGallery();
+    else if (overlay.classList.contains("open")) closeQuiz();
+  });
 
   /* ---- Product photo gallery ---- */
   const galOverlay = document.getElementById("galleryOverlay");
@@ -1552,6 +1638,21 @@
   let galSlides = [];
   let galCurrent = 0;
 
+  // Slides are built with the real URL in data-src and only get a real src when
+  // they become the current slide or a neighbour. Opening a big gallery (e.g.
+  // «Бали 5» — 11 photos + 2 videos) no longer pulls ~20 MB up front.
+  function hydrateSlide(i) {
+    const slide = galTrack.children[i];
+    if (!slide) return;
+    slide.querySelectorAll("[data-src]").forEach((el) => {
+      el.setAttribute("src", el.dataset.src);
+      el.removeAttribute("data-src");
+    });
+  }
+  function hydrateAround(i) {
+    [i - 1, i, i + 1].forEach((n) => { if (n >= 0 && n < galSlides.length) hydrateSlide(n); });
+  }
+
   window.openGallery = function (id) {
     const g = GALLERIES[id];
     if (!g) return;
@@ -1559,17 +1660,22 @@
     galTitle.textContent = g.title;
     galTotal.textContent = galSlides.length;
     galTrack.innerHTML = galSlides.map((s) => s.type === "video"
-      ? `<div class="gallery-slide"><video src="${s.src}" controls loop playsinline></video></div>`
-      : `<div class="gallery-slide"><img src="${s.src}" alt="${s.name}" /></div>`).join("");
+      ? `<div class="gallery-slide"><video data-src="${esc(s.src)}" controls loop playsinline preload="none"></video></div>`
+      : `<div class="gallery-slide"><img data-src="${esc(s.src)}" alt="${esc(s.name)}" decoding="async" /></div>`).join("");
     galDots.innerHTML = galSlides.map((_, i) => `<button class="dot" aria-label="Слайд ${i + 1}"></button>`).join("");
     Array.from(galDots.children).forEach((d, i) => d.addEventListener("click", () => galGoTo(i)));
     galCurrent = 0;
+    hydrateAround(0);
     galRender();
     galOverlay.classList.add("open");
+    modalOpened(galOverlay.querySelector(".gallery-modal"));
   };
 
   function closeGallery() {
+    if (!galOverlay.classList.contains("open")) return;
     galOverlay.classList.remove("open");
+    galTrack.querySelectorAll("video").forEach((v) => v.pause());
+    modalClosed();
   }
 
   function galRender() {
@@ -1577,6 +1683,10 @@
     const s = galSlides[galCurrent];
     galCapName.textContent = s.name;
     galCapDesc.textContent = s.desc;
+    hydrateAround(galCurrent);
+    Array.from(galTrack.children).forEach((slide, i) => {
+      if (i !== galCurrent) { const v = slide.querySelector("video"); if (v) v.pause(); }
+    });
     Array.from(galDots.children).forEach((d, i) => d.setAttribute("aria-current", i === galCurrent ? "true" : "false"));
   }
 
@@ -1590,6 +1700,11 @@
   document.getElementById("galPrev").addEventListener("click", () => galGoTo(galCurrent - 1));
   document.getElementById("galNext").addEventListener("click", () => galGoTo(galCurrent + 1));
   galOverlay.addEventListener("click", (e) => { if (e.target === galOverlay) closeGallery(); });
+  galOverlay.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") { e.preventDefault(); galGoTo(galCurrent - 1); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); galGoTo(galCurrent + 1); }
+    else { trapFocus(e, galOverlay.querySelector(".gallery-modal")); }
+  });
 
   const galIo = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -1603,3 +1718,5 @@
     Array.from(galTrack.children).forEach((el) => galIo.observe(el));
   }).observe(galTrack, { childList: true });
 </script>
+</body>
+</html>
