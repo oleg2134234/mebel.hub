@@ -1,0 +1,6 @@
+# Локальные резервные zip-копии перед пушем (см. sync.ps1 / sync.sh)
+backups/
+
+# Системный мусор
+.DS_Store
+Thumbs.db

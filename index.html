@@ -43,15 +43,47 @@
     color-scheme: light;
   }
 
+  /* Единый шрифт проекта — Inter, самохостинг (assets/fonts/), без CDN.
+     Variable-начертание: один файл на все веса. Latin + Cyrillic отдельными
+     подмножествами. */
+  @font-face {
+    font-family: "Inter";
+    src: url("assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Inter";
+    src: url("assets/fonts/inter-cyrillic-wght-normal.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: swap;
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+
   * { box-sizing: border-box; }
+  /* Базовый кегль адаптивный: отталкивается от размера шрифта устройства/браузера
+     (единица rem), чуть подрастает на широких экранах и ограничен сверху, чтобы
+     не разъезжалось. Весь макет свёрстан в rem, поэтому меняется одним этим
+     правилом и уважает системную настройку размера шрифта. */
+  html {
+    font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+    -webkit-text-size-adjust: 100%;
+  }
   html, body { margin: 0; background: var(--bg); color: var(--ink); }
   body {
-    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     min-height: 100vh;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   h1, h2, h3, .display {
-    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
-    font-weight: 400;
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
   a { color: inherit; }
 
@@ -72,14 +104,31 @@
   .brand .word { font-size: 1.3rem; letter-spacing: 0.02em; }
   .brand .sub { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
 
-  nav.menu { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+  /* Меню категорий — цветные кнопки в одном стиле: прямоугольник со скруглением,
+     одинаковый размер и типографика, каждая категория своим цветом из общей
+     тёплой палитры проекта. Активная — обведена и с цветным ореолом. */
+  nav.menu { display: flex; gap: 0.4rem; flex-wrap: wrap; }
   nav.menu button {
-    font: inherit; font-size: 0.88rem; padding: 0.5rem 0.9rem; border-radius: 10px;
-    border: 1px solid transparent; background: transparent; color: var(--ink-soft);
-    cursor: pointer; transition: background 0.15s, color 0.15s;
+    font: inherit; font-size: 0.82rem; font-weight: 600; line-height: 1;
+    padding: 0.6rem 1.05rem; border-radius: 12px;
+    border: 2px solid transparent;
+    background: var(--c, var(--accent)); color: #fff;
+    cursor: pointer; white-space: nowrap;
+    transition: filter 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
+    -webkit-tap-highlight-color: transparent;
   }
-  nav.menu button:hover { background: var(--surface-2); color: var(--ink); }
-  nav.menu button[aria-current="true"] { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+  nav.menu button[data-cat="all"]      { --c: #55643f; }
+  nav.menu button[data-cat="sofa"]     { --c: #b05c3c; }
+  nav.menu button[data-cat="armchair"] { --c: #a97c2f; }
+  nav.menu button[data-cat="bed"]      { --c: #3f6b6b; }
+  nav.menu button[data-cat="mattress"] { --c: #7a4f63; }
+  nav.menu button[data-cat="other"]    { --c: #6b6250; }
+  nav.menu button:hover { filter: brightness(1.08); }
+  nav.menu button:active { transform: translateY(1px); }
+  nav.menu button[aria-current="true"] {
+    border-color: var(--ink);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 35%, transparent);
+  }
 
   .header-tools { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
   .search-box {
@@ -114,10 +163,20 @@
   .count-line {
     max-width: 1240px; margin: 0 auto; padding: 1.1rem clamp(1rem, 3vw, 2rem) 0;
     font-size: 0.82rem; color: var(--ink-soft);
+    display: flex; align-items: center; justify-content: space-between; gap: 0.8rem 1rem; flex-wrap: wrap;
   }
   .count-line strong { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .sort-box { display: inline-flex; align-items: center; gap: 0.45rem; margin-left: auto; }
+  .sort-box > span { white-space: nowrap; }
+  .sort-box select {
+    font: inherit; font-size: 0.82rem; font-weight: 600; color: var(--ink);
+    background: var(--surface); border: 1.5px solid var(--line); border-radius: 10px;
+    padding: 0.4rem 0.6rem; cursor: pointer;
+  }
+  .sort-box select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
-  /* Grid */
+  /* Grid — резиновый: столбцы добавляются сами по мере ширины экрана,
+     карточка везде одинаковая, структура и восприятие не меняются. */
   .grid {
     max-width: 1240px; margin: 0 auto;
     padding: 0.8rem clamp(1rem, 3vw, 2rem) clamp(2rem, 5vw, 3.5rem);
@@ -212,11 +271,30 @@
   .gallery-nav.prev { left: 0.9rem; }
   .gallery-nav.next { right: 0.9rem; }
   .gallery-caption { padding: 0.8rem 1.3rem 1.2rem; }
-  .gallery-caption .n { font-family: Georgia, "Iowan Old Style", serif; font-size: 1rem; }
+  .gallery-caption .n { font-weight: 600; font-size: 1rem; }
   .gallery-caption .d { font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.2rem; }
-  .gallery-dots { display: flex; gap: 0.4rem; padding: 0 1.3rem 1rem; flex-wrap: wrap; }
-  .gallery-dots .dot { width: 0.45rem; height: 0.45rem; border-radius: 999px; background: var(--line); border: none; cursor: pointer; padding: 0; }
-  .gallery-dots .dot[aria-current="true"] { background: var(--accent); width: 1.1rem; }
+  /* Навигация по галерее — крупные квадратные превью-миниатюры слайдов
+     (не точки). Горизонтальная лента с прокруткой. */
+  .gallery-dots {
+    display: flex; gap: 0.5rem; padding: 0.4rem 1.3rem 1rem;
+    overflow-x: auto; scroll-snap-type: x proximity;
+    scrollbar-width: thin; -webkit-overflow-scrolling: touch;
+  }
+  .gallery-dots .dot {
+    flex: none; width: 3.4rem; height: 3.4rem; padding: 0;
+    border-radius: 10px; overflow: hidden; scroll-snap-align: center;
+    border: 2px solid var(--line); background: var(--surface-2);
+    cursor: pointer; opacity: 0.5;
+    transition: opacity 0.12s ease, border-color 0.12s ease, transform 0.12s ease;
+  }
+  .gallery-dots .dot img,
+  .gallery-dots .dot video { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+  .gallery-dots .dot .dot-vid {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; height: 100%; background: #1b1b18; color: #fff; font-size: 1rem;
+  }
+  .gallery-dots .dot:hover { opacity: 0.85; }
+  .gallery-dots .dot[aria-current="true"] { opacity: 1; border-color: var(--accent); transform: translateY(-1px); }
 
   /* Quiz modal */
   .quiz-overlay {
@@ -227,8 +305,8 @@
   .quiz-overlay.open { display: flex; }
   .quiz-modal {
     background: var(--surface); border-radius: 20px; max-width: 560px; width: 100%;
-    max-height: 88vh; overflow-y: auto;
-    padding: clamp(1.3rem, 4vw, 2rem);
+    max-height: 92vh; overflow-y: auto;
+    padding: clamp(1.2rem, 4vw, 2rem);
     box-shadow: 0 30px 80px rgba(0,0,0,0.35);
   }
   .quiz-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 0.3rem; }
@@ -237,11 +315,13 @@
     border: none; background: var(--surface-2); color: var(--ink); width: 2rem; height: 2rem;
     border-radius: 999px; cursor: pointer; font-size: 1rem; line-height: 1;
   }
-  .quiz-step-label { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 1rem; }
-  .quiz-question { font-size: 1.05rem; margin: 0 0 1rem; text-wrap: balance; }
+  .quiz-step-label { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 0.7rem; }
+  .quiz-question { font-size: 1.05rem; margin: 0 0 0.8rem; text-wrap: balance; }
   /* Square tile grid — used for the quiz "Что подбираем?" step so every option
      reads as an equal, tappable square (matches the home-grid tile language). */
   .quiz-options { display: grid; grid-template-columns: repeat(2, minmax(0, 9rem)); gap: 0.8rem; justify-content: center; }
+  /* Шаг «Что подбираем?»: без подписей-шагов и вопроса, равные поля вокруг сетки. */
+  .quiz-options-type { margin-top: 1.4rem; margin-bottom: 0.2rem; }
   .quiz-options button {
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.35rem;
     aspect-ratio: 1 / 1; width: 100%;
@@ -316,35 +396,39 @@
   .home-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.8rem, 3vw, 1.1rem);
   }
+  /* Плитки одного размера. Иконка и подпись выровнены между всеми плитками:
+     иконка — в фиксированной по высоте зоне, подпись — в зоне на 2 строки,
+     поэтому 1- и 2-строчные названия не сдвигают иконку. */
   .home-tile {
     aspect-ratio: 1 / 1; border: 1.5px solid var(--line); border-radius: 14px;
     background: var(--surface); cursor: pointer;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.65rem;
-    font: inherit; color: var(--ink); text-align: center; padding: 0.9rem;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.7rem;
+    font: inherit; color: var(--ink); text-align: center; padding: 1rem 0.9rem;
     transition: border-color 0.15s, background 0.15s, transform 0.15s;
   }
   .home-tile:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
   .home-tile .icon-badge {
-    width: clamp(3.8rem, 18vw, 5rem); height: clamp(3.8rem, 18vw, 5rem);
-    border-radius: 1.15rem; flex: none;
+    width: clamp(4.6rem, 26vw, 6.8rem); height: clamp(4.6rem, 26vw, 6.8rem);
+    border-radius: 1.35rem; flex: none;
     display: flex; align-items: center; justify-content: center;
     background: var(--badge-bg, var(--accent-soft));
   }
   .home-tile .cube {
-    width: 58%; height: 58%; color: var(--accent);
+    width: 64%; height: 64%; color: var(--accent);
   }
   .home-tile .badge-sale { --badge-bg: transparent; }
-  .home-tile .badge-sale.icon-badge {
-    width: clamp(5rem, 22vw, 6.4rem); height: clamp(5rem, 22vw, 6.4rem);
+  .home-tile .emoji-combo {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; height: 100%;
   }
-  .home-tile .emoji-combo { position: relative; display: inline-block; }
   .home-tile .emoji-combo .face {
-    font-size: clamp(3.4rem, 16vw, 4.6rem); line-height: 1; display: block;
+    font-size: clamp(3.6rem, 19vw, 5rem); line-height: 1; display: block;
     filter: drop-shadow(0 6px 14px rgba(224,168,0,0.35));
   }
   .home-tile .emoji-combo .thumb {
-    position: absolute; left: -0.3em; bottom: -0.08em;
-    font-size: clamp(1.7rem, 8vw, 2.3rem);
+    position: absolute; left: -0.15em; bottom: 0;
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
     filter: drop-shadow(0 3px 8px rgba(0,0,0,0.2));
   }
   .home-tile .badge-catalog { --badge-bg: rgba(59,111,201,0.14); }
@@ -355,7 +439,10 @@
   .home-tile .badge-color .cube, .home-tile .icon-fabric { color: #a9539c; }
   .home-tile .badge-fabric { --badge-bg: rgba(47,143,122,0.14); }
   .home-tile .badge-fabric .cube, .home-tile .icon-fabricroll { color: #2f8f7a; }
-  .home-tile .label { font-size: 0.92rem; font-weight: 600; line-height: 1.25; }
+  .home-tile .label {
+    font-size: 0.92rem; font-weight: 600; line-height: 1.25;
+    min-height: 2.5em; display: flex; align-items: center; justify-content: center;
+  }
   .home-tile.locked { cursor: pointer; opacity: 0.55; }
   .home-tile.locked .cube { color: var(--ink-soft); }
   .home-tile.locked .lock-note {
@@ -453,8 +540,8 @@
   .tabs-icon button[aria-current="true"] .mod-icon-svg { color: var(--accent-ink); opacity: 1; transform: scale(1.08); }
 
   /* Sliders (Габариты) */
-  .field-block { margin-top: 1.5rem; }
-  .field-block .field-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.9rem; }
+  .field-block { margin-top: 1.1rem; }
+  .field-block .field-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; }
 
   /* Dual-range dimension filters (Ширина / Глубина / Высота) */
   .dim-filter { border-bottom: 1px solid var(--line); padding-bottom: 1.1rem; margin-bottom: 1.1rem; }
@@ -686,7 +773,17 @@
     <h1 class="display">Мягкая мебель фабрики «Апогей»</h1>
     <p>Диваны, кресла, кровати и матрасы собственного производства. Данные — с сайта apogey-mebel.ru; фото пока есть не у всех моделей.</p>
   </div>
-  <div class="count-line" id="countLine"></div>
+  <div class="count-line" id="countLine">
+    <span id="countText"></span>
+    <label class="sort-box">
+      <span>Сортировка:</span>
+      <select id="sortSelect">
+        <option value="az">Название: А–Я</option>
+        <option value="za">Название: Я–А</option>
+        <option value="orig">Как в каталоге</option>
+      </select>
+    </label>
+  </div>
 
   <div class="grid" id="grid"></div>
 
@@ -760,7 +857,7 @@
   function dimsTagsHTML(dims) {
     if (!dims) return `<span class="dims-unknown">Габариты уточняются</span>`;
     const parts = dims.split("×").slice(0, 2);
-    const labels = ["Д", "Ш"];
+    const labels = ["Длина", "Ширина"];
     return `<div class="dims-tags">${parts.map((v, i) => `<span><b>${labels[i]}</b> ${v}</span>`).join("")}</div>`;
   }
 
@@ -795,15 +892,25 @@
   }
 
   const grid = document.getElementById("grid");
-  const countLine = document.getElementById("countLine");
+  const countText = document.getElementById("countText");
+  const sortSelect = document.getElementById("sortSelect");
   const menu = document.getElementById("menu");
   const search = document.getElementById("search");
 
   let activeCat = "all";
   let query = "";
+  let sortMode = "az";   // по умолчанию — по алфавиту названия
 
   function norm(s) {
     return (s || "").toLowerCase().replace(/ё/g, "е");
+  }
+
+  const nameCmp = new Intl.Collator("ru", { numeric: true, sensitivity: "base" });
+
+  function sortProducts(list) {
+    if (sortMode === "az") return list.slice().sort((a, b) => nameCmp.compare(a.title, b.title));
+    if (sortMode === "za") return list.slice().sort((a, b) => nameCmp.compare(b.title, a.title));
+    return list; // "orig" — порядок из PRODUCTS
   }
 
   function render() {
@@ -818,11 +925,15 @@
         norm(p.desc).includes(query);
       return catOk && qOk;
     });
-    grid.innerHTML = filtered.length
-      ? filtered.map(cardHTML).join("")
+    const ordered = sortProducts(filtered);
+    grid.innerHTML = ordered.length
+      ? ordered.map(cardHTML).join("")
       : `<div class="empty">Ничего не найдено — попробуйте другой запрос.</div>`;
-    countLine.innerHTML = `<strong>${filtered.length}</strong> моделей`;
+    countText.innerHTML = `<strong>${ordered.length}</strong> моделей`;
   }
+
+  sortSelect.value = sortMode;
+  sortSelect.addEventListener("change", () => { sortMode = sortSelect.value; render(); });
 
   const cats = ["all", ...Object.keys(CATS).filter((c) => PRODUCTS.some((p) => p.category === c))];
   menu.innerHTML = cats.map((c) => `<button data-cat="${c}" aria-current="${c === "all"}">${c === "all" ? "Все" : CATS[c]}</button>`).join("");
@@ -838,6 +949,15 @@
     query = norm(search.value.trim());
     render();
   });
+
+  // Открытие каталога всегда показывает все модели: сбрасываем категорию и поиск.
+  function resetCatalog() {
+    activeCat = "all";
+    query = "";
+    search.value = "";
+    [...menu.children].forEach((b) => b.setAttribute("aria-current", String(b.dataset.cat === "all")));
+    render();
+  }
 
   render();
 
@@ -1193,7 +1313,7 @@
     renderFabricResults(already ? null : Number(btn.dataset.i));
   });
 
-  document.getElementById("tileCatalog").addEventListener("click", () => showScreen("catalogScreen"));
+  document.getElementById("tileCatalog").addEventListener("click", () => { resetCatalog(); showScreen("catalogScreen"); });
   document.getElementById("tileFabric").addEventListener("click", () => showScreen("fabricScreen"));
   document.getElementById("tileTips").addEventListener("click", () => showScreen("tipsScreen"));
   document.getElementById("tileSupplier").addEventListener("click", () => showScreen("supplierScreen"));
@@ -1316,9 +1436,7 @@
     const step = typeStep;
     modal.innerHTML = `
       <div class="quiz-head"><h2 class="display">Подбор мебели</h2><button class="quiz-close" id="qClose">&times;</button></div>
-      <div class="quiz-step-label">${step.label}</div>
-      <div class="quiz-question">${step.question}</div>
-      <div class="quiz-options">${step.options.map((o, i) => `<button data-i="${i}">${o.icon ? `<span class="quiz-opt-icon">${o.icon}</span>` : ""}${o.label}</button>`).join("")}</div>
+      <div class="quiz-options quiz-options-type">${step.options.map((o, i) => `<button data-i="${i}">${o.icon ? `<span class="quiz-opt-icon">${o.icon}</span>` : ""}${o.label}</button>`).join("")}</div>
     `;
     modal.querySelectorAll(".quiz-options button").forEach((btn, i) => {
       btn.addEventListener("click", () => step.onPick(step.options[i].value));
@@ -1561,7 +1679,12 @@
     galTrack.innerHTML = galSlides.map((s) => s.type === "video"
       ? `<div class="gallery-slide"><video src="${s.src}" controls loop playsinline></video></div>`
       : `<div class="gallery-slide"><img src="${s.src}" alt="${s.name}" /></div>`).join("");
-    galDots.innerHTML = galSlides.map((_, i) => `<button class="dot" aria-label="Слайд ${i + 1}"></button>`).join("");
+    galDots.innerHTML = galSlides.map((s, i) => {
+      const inner = s.type === "video"
+        ? `<span class="dot-vid">▶</span>`
+        : `<img src="${s.src}" alt="" loading="lazy" />`;
+      return `<button class="dot" aria-label="Слайд ${i + 1}: ${s.name}">${inner}</button>`;
+    }).join("");
     Array.from(galDots.children).forEach((d, i) => d.addEventListener("click", () => galGoTo(i)));
     galCurrent = 0;
     galRender();
@@ -1578,6 +1701,8 @@
     galCapName.textContent = s.name;
     galCapDesc.textContent = s.desc;
     Array.from(galDots.children).forEach((d, i) => d.setAttribute("aria-current", i === galCurrent ? "true" : "false"));
+    const activeDot = galDots.children[galCurrent];
+    if (activeDot) activeDot.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
   }
 
   function galGoTo(i) {
