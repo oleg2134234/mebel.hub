@@ -526,17 +526,18 @@
   /* Верхний блок: две крупные кнопки-условия «Дома есть животные» / «Есть аллергия» */
   .fabric-condition-toggles { display: grid; grid-template-columns: repeat(2, minmax(0, 12rem)); gap: 0.9rem; margin-bottom: 1.4rem; }
   .fabric-condition-btn {
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
-    aspect-ratio: 1 / 1; padding: 6%;
-    font: inherit; font-size: 0.85rem; font-weight: 600; text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.35rem;
+    aspect-ratio: 1 / 1; padding: 4%;
+    font: inherit; font-size: 0.8rem; font-weight: 600; text-align: center; line-height: 1.15;
     border-radius: 16px; border: 2px solid var(--line); background: var(--surface); color: var(--ink);
     cursor: pointer; transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.15s;
   }
   .fabric-condition-btn:hover { border-color: var(--accent); transform: translateY(-2px); }
   .fabric-condition-btn[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  /* Иконка занимает ~3/4 плитки (правило проекта для всех иконок в рамке). */
   .fabric-condition-btn .fc-icon {
     display: inline-flex; align-items: center; justify-content: center;
-    width: 62%; aspect-ratio: 1 / 1; border-radius: 16%;
+    width: 74%; aspect-ratio: 1 / 1; border-radius: 16%;
     background: var(--accent-soft); overflow: hidden;
   }
   .fabric-condition-btn[aria-pressed="true"] .fc-icon { background: rgba(255,255,255,0.22); }
