@@ -376,21 +376,25 @@
     margin-top: 1.2rem; background: none; border: none; color: var(--ink-soft);
     font: inherit; font-size: 0.85rem; cursor: pointer; padding: 0;
   }
-  .quiz-results { display: flex; flex-direction: column; gap: 0.8rem; }
+  /* Результаты подбора — визуально: крупная картинка модели, название мелко.
+     Клиенту важно увидеть диван, а не читать наименование и размеры. */
+  .quiz-results { display: flex; flex-direction: column; gap: 0.9rem; }
   .quiz-result-card {
-    display: flex; gap: 0.8rem; border: 1px solid var(--line); border-radius: 14px; padding: 0.7rem;
-    text-decoration: none; color: inherit; align-items: center;
+    border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+    text-decoration: none; color: inherit; cursor: pointer; display: block;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .quiz-result-card:hover { border-color: var(--accent); }
-  .quiz-result-card .media { cursor: pointer; }
+  .quiz-result-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 12px 26px var(--shadow); }
   .quiz-result-card .media {
-    width: 4.5rem; height: 4.5rem; border-radius: 10px; background: var(--surface-2); flex: none;
+    width: 100%; aspect-ratio: 3 / 2; background: var(--surface-2);
     display: flex; align-items: center; justify-content: center; overflow: hidden;
   }
-  .quiz-result-card .media img { width: 100%; height: 100%; object-fit: cover; }
-  .quiz-result-card .media svg { width: 45%; height: 45%; color: var(--ink-soft); opacity: 0.55; }
-  .quiz-result-card .rname { font-size: 0.95rem; }
-  .quiz-result-card .rdims { font-size: 0.78rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .quiz-result-card .media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .quiz-result-card .media svg { width: 28%; height: 28%; color: var(--ink-soft); opacity: 0.5; }
+  .quiz-result-card .rname {
+    font-size: 0.78rem; font-weight: 600; color: var(--ink-soft);
+    padding: 0.5rem 0.75rem 0.6rem;
+  }
   .quiz-empty-result { font-size: 0.9rem; color: var(--ink-soft); }
   .quiz-restart {
     margin-top: 1rem; font: inherit; font-size: 0.88rem; font-weight: 600;
@@ -1240,14 +1244,11 @@
     if (colorIdx === null) { fabricResultsEl.innerHTML = ""; return; }
     const matches = PRODUCTS.filter((p) => p.colorIdx === colorIdx);
     fabricResultsEl.innerHTML = matches.length ? matches.map((p) => `
-      <div class="quiz-result-card">
-        <div class="media" data-goto="${p.id}">${mediaFor(p)}</div>
-        <div>
-          <div class="rname">${p.title}</div>
-          <div class="rdims">${p.dims ? p.dims + " мм" : "Габариты уточняются"}</div>
-        </div>
+      <div class="quiz-result-card" data-goto="${p.id}">
+        <div class="media">${mediaFor(p)}</div>
+        <div class="rname">${p.title}</div>
       </div>`).join("") : `<div class="quiz-empty-result">Пока нет моделей с подтверждённым цветом «${FABRIC_SWATCHES[colorIdx].name}» — база пополняется.</div>`;
-    fabricResultsEl.querySelectorAll(".media[data-goto]").forEach((el) => {
+    fabricResultsEl.querySelectorAll(".quiz-result-card[data-goto]").forEach((el) => {
       el.addEventListener("click", () => goToProduct(Number(el.dataset.goto)));
     });
   }
@@ -1575,17 +1576,14 @@
       <div class="quiz-head"><h2 class="display">Подходящие модели${results.length ? ` (${results.length})` : ""}</h2><button class="quiz-close" id="qClose">&times;</button></div>
       <div class="quiz-results">
         ${results.length ? results.map((p) => `
-          <div class="quiz-result-card">
-            <div class="media" data-goto="${p.id}">${mediaFor(p)}</div>
-            <div>
-              <div class="rname">${p.title}</div>
-              <div class="rdims">${p.dims ? p.dims + " мм" : "Габариты уточняются"}</div>
-            </div>
+          <div class="quiz-result-card" data-goto="${p.id}">
+            <div class="media">${mediaFor(p)}</div>
+            <div class="rname">${p.title}</div>
           </div>`).join("") : `<div class="quiz-empty-result">Точных совпадений нет — посмотрите весь раздел «${CATS[type] || type}» в каталоге.</div>`}
       </div>
       <button class="quiz-restart" id="qRestart">Пройти заново</button>
     `;
-    modal.querySelectorAll(".quiz-result-card .media[data-goto]").forEach((el) => {
+    modal.querySelectorAll(".quiz-result-card[data-goto]").forEach((el) => {
       el.addEventListener("click", () => goToProduct(Number(el.dataset.goto)));
     });
     modal.querySelector("#qClose").addEventListener("click", closeQuiz);
