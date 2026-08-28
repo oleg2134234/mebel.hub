@@ -1339,7 +1339,7 @@
   function goTo(stepKey) {
     const step = typeStep;
     modal.innerHTML = `
-      <div class="quiz-head"><h2 class="display">Подбор мебели</h2><button class="quiz-close" id="qClose">&times;</button></div>
+      <div class="quiz-head" style="justify-content:flex-end"><button class="quiz-close" id="qClose">&times;</button></div>
       <div class="quiz-options quiz-options-type">${step.options.map((o, i) => `<button data-i="${i}">${o.icon ? `<span class="quiz-opt-icon">${o.icon}</span>` : ""}${o.label}</button>`).join("")}</div>
     `;
     modal.querySelectorAll(".quiz-options button").forEach((btn, i) => {
