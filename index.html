@@ -90,19 +90,30 @@
   /* Header */
   header.site {
     position: sticky; top: 0; z-index: 20;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
+    transition: padding 0.18s ease;
   }
   .header-inner {
     max-width: 1240px; margin: 0 auto;
-    padding: 0.9rem clamp(1rem, 3vw, 2rem);
-    display: flex; align-items: center; gap: 1.5rem;
+    padding: 0.6rem clamp(1rem, 3vw, 2rem);
+    display: flex; align-items: center; gap: 0.7rem 1.1rem;
     flex-wrap: wrap;
   }
-  .brand { display: flex; flex-direction: column; gap: 0.1rem; margin-right: auto; }
-  .brand .word { font-size: 1.3rem; letter-spacing: 0.02em; }
-  .brand .sub { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .brand { display: flex; flex-direction: column; gap: 0.05rem; margin-right: auto; min-width: 0; }
+  .brand .word { font-size: 1.05rem; letter-spacing: 0.02em; }
+  .brand .sub { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+
+  /* Компактный режим шапки — включается при прокрутке каталога вниз:
+     прячем подпись и уменьшаем кнопки, чтобы шапка не занимала пол-экрана. */
+  header.site.compact .header-inner { padding-top: 0.35rem; padding-bottom: 0.35rem; }
+  header.site.compact .brand .sub { display: none; }
+  header.site.compact .brand .word { font-size: 0.92rem; }
+  header.site.compact .brand-logo.small { width: 1.8rem; height: 1.8rem; }
+  header.site.compact nav.menu button { padding: 0.4rem 0.7rem; font-size: 0.74rem; border-radius: 9px; }
+  header.site.compact .quiz-btn { padding: 0.4rem 0.8rem; font-size: 0.78rem; }
+  header.site.compact .search-box { padding: 0.32rem 0.75rem; min-width: 10rem; }
 
   /* Меню категорий — цветные кнопки в одном стиле: прямоугольник со скруглением,
      одинаковый размер и типографика, каждая категория своим цветом из общей
@@ -304,9 +315,10 @@
   }
   .quiz-overlay.open { display: flex; }
   .quiz-modal {
-    background: var(--surface); border-radius: 20px; max-width: 560px; width: 100%;
+    position: relative;
+    background: var(--surface); border-radius: 20px; max-width: 480px; width: 100%;
     max-height: 92vh; overflow-y: auto;
-    padding: clamp(1.2rem, 4vw, 2rem);
+    padding: clamp(1.1rem, 4vw, 1.6rem);
     box-shadow: 0 30px 80px rgba(0,0,0,0.35);
   }
   .quiz-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 0.3rem; }
@@ -315,13 +327,30 @@
     border: none; background: var(--surface-2); color: var(--ink); width: 2rem; height: 2rem;
     border-radius: 999px; cursor: pointer; font-size: 1rem; line-height: 1;
   }
+  /* Маленький крестик в самом углу модалки (для шага выбора типа мебели). */
+  .quiz-close-corner {
+    position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2;
+    width: 1.6rem; height: 1.6rem; font-size: 0.85rem;
+    background: color-mix(in srgb, var(--surface-2) 80%, transparent);
+  }
   .quiz-step-label { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 0.7rem; }
   .quiz-question { font-size: 1.05rem; margin: 0 0 0.8rem; text-wrap: balance; }
   /* Square tile grid — used for the quiz "Что подбираем?" step so every option
      reads as an equal, tappable square (matches the home-grid tile language). */
   .quiz-options { display: grid; grid-template-columns: repeat(2, minmax(0, 9rem)); gap: 0.8rem; justify-content: center; }
-  /* Шаг «Что подбираем?»: без подписей-шагов и вопроса, равные поля вокруг сетки. */
-  .quiz-options-type { margin-top: 1.4rem; margin-bottom: 0.2rem; }
+  /* Шаг «Что подбираем?»: квадратная сетка 2×2 во всю ширину, равные поля до краёв.
+     Иконка занимает ~3/4 клетки и масштабируется вместе с ней (размер в %). */
+  .quiz-options-type {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(0.7rem, 3vw, 1rem);
+    justify-content: stretch;
+    margin: 0;
+  }
+  .quiz-options-type button { padding: 5%; gap: 0.25rem; font-size: 0.8rem; }
+  .quiz-options-type .quiz-opt-icon {
+    width: 80%; height: auto; aspect-ratio: 1 / 1;
+    border-radius: 16%;
+  }
   .quiz-options button {
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.35rem;
     aspect-ratio: 1 / 1; width: 100%;
@@ -682,7 +711,7 @@
   </div>
   <div class="fabric-screen-body">
     <h1 class="home-title display">Подбор по цвету</h1>
-    <div class="fabric-note">Демо-набор цветов — привязка есть только у моделей, чей реальный цвет ткани подтверждён по референсным фото; остальные постепенно добавим.</div>
+    <div class="fabric-note">Выберите цвет — ниже покажем подходящие модели.</div>
     <div class="swatch-grid" id="fabricSwatchGrid"></div>
     <div class="quiz-results" id="fabricResults" style="margin-top: 1.6rem;"></div>
   </div>
@@ -921,7 +950,21 @@
   function showScreen(id) {
     document.querySelectorAll(".screen").forEach((s) => s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
+    window.scrollTo(0, 0);
+    updateHeaderCompact();
   }
+
+  // Шапка каталога сжимается при прокрутке вниз, чтобы не занимать пол-экрана.
+  function updateHeaderCompact() {
+    const compact = window.scrollY > 64;
+    document.querySelectorAll("header.site").forEach((h) => h.classList.toggle("compact", compact));
+  }
+  let headerTick = false;
+  window.addEventListener("scroll", () => {
+    if (headerTick) return;
+    headerTick = true;
+    requestAnimationFrame(() => { updateHeaderCompact(); headerTick = false; });
+  }, { passive: true });
 
   const toastEl = document.getElementById("toast");
   let toastTimer = null;
@@ -1339,7 +1382,7 @@
   function goTo(stepKey) {
     const step = typeStep;
     modal.innerHTML = `
-      <div class="quiz-head" style="justify-content:flex-end"><button class="quiz-close" id="qClose">&times;</button></div>
+      <button class="quiz-close quiz-close-corner" id="qClose">&times;</button>
       <div class="quiz-options quiz-options-type">${step.options.map((o, i) => `<button data-i="${i}">${o.icon ? `<span class="quiz-opt-icon">${o.icon}</span>` : ""}${o.label}</button>`).join("")}</div>
     `;
     modal.querySelectorAll(".quiz-options button").forEach((btn, i) => {
