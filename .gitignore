@@ -4,3 +4,6 @@ backups/
 # Системный мусор
 .DS_Store
 Thumbs.db
+
+# Локальный конфиг предпросмотра Claude Code
+.claude/
