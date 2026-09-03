@@ -232,7 +232,18 @@
   }
   .dims-tags span b { color: var(--ink); font-weight: 700; }
   .dims-unknown { font-size: 0.8rem; color: var(--ink-soft); margin-top: auto; padding-top: 0.3rem; }
-  .card .desc { font-size: 0.82rem; color: var(--ink-soft); }
+  .card .desc {
+    font-size: 0.82rem; color: var(--ink-soft);
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+  .product-facts { display: flex; flex-wrap: wrap; gap: 0.32rem; margin-top: 0.2rem; }
+  .product-fact {
+    display: inline-flex; align-items: center; min-height: 1.65rem;
+    padding: 0.2rem 0.48rem; border-radius: 999px;
+    background: var(--accent-soft); color: var(--ink);
+    font-size: 0.69rem; font-weight: 600; line-height: 1.15;
+  }
 
   .empty {
     max-width: 1240px; margin: 0 auto; padding: 3rem clamp(1rem, 3vw, 2rem);
@@ -281,7 +292,7 @@
   }
   .gallery-nav.prev { left: 0.9rem; }
   .gallery-nav.next { right: 0.9rem; }
-  .gallery-caption { padding: 0.8rem 1.3rem 1.2rem; }
+  .gallery-caption { padding: 0.7rem 1.3rem 0.55rem; }
   .gallery-caption .n { font-weight: 600; font-size: 1rem; }
   .gallery-caption .d { font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.2rem; }
   /* Навигация по галерее — крупные квадратные превью-миниатюры слайдов
@@ -289,8 +300,9 @@
   .gallery-dots {
     display: flex; gap: 0.5rem; padding: 0.4rem 1.3rem 1rem;
     overflow-x: auto; scroll-snap-type: x proximity;
-    scrollbar-width: thin; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
   }
+  .gallery-dots::-webkit-scrollbar { display: none; }
   .gallery-dots .dot {
     flex: none; width: 3.4rem; height: 3.4rem; padding: 0;
     border-radius: 10px; overflow: hidden; scroll-snap-align: center;
@@ -690,6 +702,33 @@
   @media (prefers-reduced-motion: reduce) {
     .card, .quiz-btn { transition: none; }
   }
+  @media (max-width: 600px) {
+    header.site .header-inner { padding: 0.5rem 0.85rem 0.65rem; gap: 0.5rem; }
+    header.site .brand { margin-right: 0; flex: 1; }
+    header.site .brand .sub { display: none; }
+    header.site .brand-logo.small { width: 2rem; height: 2rem; }
+    header.site .brand .word { font-size: 0.88rem; }
+    header.site nav.menu {
+      order: 3; width: 100%; overflow-x: auto; flex-wrap: nowrap;
+      padding-bottom: 0.1rem; scrollbar-width: none;
+    }
+    header.site nav.menu::-webkit-scrollbar { display: none; }
+    header.site nav.menu button { padding: 0.5rem 0.8rem; flex: none; }
+    header.site .header-tools { order: 4; width: 100%; flex-wrap: nowrap; }
+    header.site .search-box { min-width: 0; flex: 1; padding: 0.38rem 0.7rem; }
+    header.site .quiz-btn { padding: 0.48rem 0.72rem; font-size: 0; }
+    header.site .quiz-btn::after { content: "Подобрать"; font-size: 0.76rem; }
+    .intro { padding-top: 1rem; }
+    .intro h1 { font-size: 1.45rem; }
+    .intro p { font-size: 0.86rem; }
+    .gallery-overlay { padding: 0; }
+    .gallery-modal { max-width: none; height: 100dvh; max-height: 100dvh; border-radius: 0; }
+    .gallery-top { padding: 0.75rem 0.9rem 0.35rem; }
+    .gallery-track { height: min(55dvh, 540px); border-radius: 10px; }
+    .gallery-caption { padding: 0.65rem 0.9rem 0.4rem; }
+    .gallery-dots { padding: 0.35rem 0.9rem 0.75rem; }
+    .gallery-nav { width: 2.35rem; height: 2.35rem; }
+  }
 </style>
 
 <div class="screen active" id="homeScreen">
@@ -798,7 +837,7 @@
 
   <div class="intro">
     <h1 class="display">Мягкая мебель фабрики «Апогей»</h1>
-    <p>Диваны, кресла, кровати и матрасы собственного производства. Данные — с сайта apogey-mebel.ru; фото пока есть не у всех моделей.</p>
+    <p>Диваны, кресла, кровати и матрасы фабрики «Апогей». Сравнивайте размеры, механизмы и варианты спального места.</p>
   </div>
   <div class="count-line" id="countLine">
     <span id="countText"></span>
@@ -807,6 +846,8 @@
       <select id="sortSelect">
         <option value="az">Название: А–Я</option>
         <option value="za">Название: Я–А</option>
+        <option value="lengthAsc">Сначала компактные</option>
+        <option value="lengthDesc">Сначала крупные</option>
         <option value="orig">Как в каталоге</option>
       </select>
     </label>
@@ -814,9 +855,7 @@
 
   <div class="grid" id="grid"></div>
 
-  <footer class="site">
-    Каталог собран автоматически с apogey-mebel.ru · Реф. модель с полным фотонабором — «Бали 5 ДК с оттоманкой»
-  </footer>
+  <footer class="site">Характеристики и комплектацию модели уточняйте перед оформлением заказа.</footer>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -893,6 +932,36 @@
     return ICONS[p.category] || ICONS.other;
   }
 
+  function shortDescription(desc) {
+    if (!desc) return "";
+    const sentences = desc.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || [desc];
+    let result = "";
+    for (const sentence of sentences) {
+      if (result && (result + sentence).trim().length > 185) break;
+      result += sentence;
+      if (result.trim().length >= 105) break;
+    }
+    return result.trim();
+  }
+
+  function productFactsHTML(p) {
+    const text = `${p.title}. ${p.desc || ""}`;
+    const facts = [];
+    const format = /п-образ/i.test(text) || /ДКУ-П/i.test(text)
+      ? "П-образный"
+      : (/углов|оттоман|ДКУ/i.test(text) ? "Угловой" : (p.category === "sofa" ? "Прямой" : ""));
+    if (format) facts.push(format);
+    const mechanism = text.match(/\b(выкатная еврокнижка|тик-так|клик-кляк|еврокнижка|выкатной|дельфин|аккордеон|книжка)\b/i);
+    if (mechanism) facts.push(mechanism[1]);
+    const sleeper = text.match(/Спальное место\s*(?:\([^)]*\)\s*)?[:—-]?\s*([0-9][0-9×xх/()–-]*)\s*мм/i);
+    if (sleeper) facts.push(`Спальное ${sleeper[1].replace(/[xх]/g, "×")} мм`);
+    if (/бельев(ой|ые|ого) (короб|ящик|ящики)/i.test(text)) facts.push("Есть хранение");
+    const visible = facts.slice(0, 3);
+    return visible.length
+      ? `<div class="product-facts">${visible.map((f) => `<span class="product-fact">${f}</span>`).join("")}</div>`
+      : "";
+  }
+
   function cardHTML(p) {
     const hasImg = !!IMAGES[p.id];
     const hasGallery = !!GALLERIES[p.id];
@@ -905,7 +974,8 @@
         <div class="body">
           <span class="cat">${CATS[p.category] || p.category}</span>
           <span class="name">${p.title}</span>
-          ${p.desc ? `<span class="desc">${p.desc}</span>` : ""}
+          ${p.desc ? `<span class="desc" title="${p.desc.replace(/"/g, "&quot;")}">${shortDescription(p.desc)}</span>` : `<span class="desc">Описание готовится</span>`}
+          ${productFactsHTML(p)}
           ${dimsTagsHTML(p.dims)}
           ${hasGallery ? (() => {
             const gs = GALLERIES[p.id].slides;
@@ -937,6 +1007,8 @@
   function sortProducts(list) {
     if (sortMode === "az") return list.slice().sort((a, b) => nameCmp.compare(a.title, b.title));
     if (sortMode === "za") return list.slice().sort((a, b) => nameCmp.compare(b.title, a.title));
+    if (sortMode === "lengthAsc") return list.slice().sort((a, b) => (lengthOf(a.dims) || Infinity) - (lengthOf(b.dims) || Infinity));
+    if (sortMode === "lengthDesc") return list.slice().sort((a, b) => (lengthOf(b.dims) || -Infinity) - (lengthOf(a.dims) || -Infinity));
     return list; // "orig" — порядок из PRODUCTS
   }
 
@@ -1698,6 +1770,7 @@
   };
 
   function closeGallery() {
+    galTrack.querySelectorAll("video").forEach((video) => video.pause());
     galOverlay.classList.remove("open");
   }
 
@@ -1721,6 +1794,11 @@
   document.getElementById("galPrev").addEventListener("click", () => galGoTo(galCurrent - 1));
   document.getElementById("galNext").addEventListener("click", () => galGoTo(galCurrent + 1));
   galOverlay.addEventListener("click", (e) => { if (e.target === galOverlay) closeGallery(); });
+  window.addEventListener("keydown", (e) => {
+    if (!galOverlay.classList.contains("open")) return;
+    if (e.key === "ArrowLeft") galGoTo(galCurrent - 1);
+    if (e.key === "ArrowRight") galGoTo(galCurrent + 1);
+  });
 
   const galIo = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
