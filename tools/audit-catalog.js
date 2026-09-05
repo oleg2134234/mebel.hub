@@ -30,7 +30,7 @@ const canonical = [
   [/^Видео:/, 50], [/^Общий вид(?: \(студия\))?$/, 60], [/^Вид спереди$/, 61],
   [/^Ракурс 3\/4$/, 62], [/^Вид сбоку$/, 63], [/^Вид сзади$/, 64],
   [/^В разложенном виде$/, 70], [/^Раскладка$/, 71], [/^Спальное место$/, 72],
-  [/^Бельевой (?:ящик|короб)/, 80], [/^Практичность$/, 90],
+  [/^Бельев(?:ой|ые) (?:ящик|короб)/, 80], [/^Преимущества и особенности$/, 85], [/^Практичность$/, 90],
 ];
 const rank = (name) => canonical.find(([re]) => re.test(name))?.[1];
 
@@ -41,6 +41,7 @@ for (const p of PRODUCTS) {
   if (dims.length < 2 || !/\d/.test(dims[0]) || !/\d/.test(dims[1])) {
     add("critical", "dims", label, `Некорректные обязательные габариты: ${p.dims || "пусто"}`);
   }
+  if (p.dimensionsPending) add("warning", "dimensions-pending", label, "Габариты требуют подтверждения; товар исключён из подбора по размерам");
   if (!p.desc) add("warning", "description", label, "Описание отсутствует");
   if (!IMAGES[id]) add("critical", "hero", label, "Нет главного изображения");
   else if (!fs.existsSync(path.join(root, IMAGES[id]))) add("critical", "missing-file", label, `Нет файла ${IMAGES[id]}`);
@@ -62,6 +63,7 @@ for (const p of PRODUCTS) {
       if (current < previous) add("critical", "slide-order", label, `Нарушение порядка перед «${slide.name}»`);
       previous = Math.max(previous, current);
     }
+    if (slide.type === "features" && (!Array.isArray(slide.features) || slide.features.length < 2 || slide.features.some((f) => !f.title || !f.text))) add("critical", "features-content", label, "Неполный слайд преимуществ");
     const mediaPath = path.join(root, slide.src);
     if (!fs.existsSync(mediaPath)) add("critical", "missing-file", label, `Нет файла ${slide.src}`);
     else if (fs.statSync(mediaPath).size > 5 * 1024 * 1024) add("warning", "large-media", label, `${slide.src}: ${(fs.statSync(mediaPath).size / 1048576).toFixed(1)} МБ`);

@@ -265,7 +265,7 @@
   }
   .gallery-overlay.open { display: flex; }
   .gallery-modal {
-    background: var(--surface); border-radius: 20px; max-width: 640px; width: 100%;
+    background: var(--surface); border-radius: 20px; max-width: 70rem; width: 100%;
     max-height: 94vh; overflow: hidden; display: flex; flex-direction: column;
     box-shadow: 0 30px 80px rgba(0,0,0,0.4);
   }
@@ -278,13 +278,24 @@
   }
   .gallery-stage { position: relative; display: flex; align-items: center; padding: 0.3rem 0.6rem; }
   .gallery-track {
-    display: flex; width: 100%; height: min(58vh, 620px); overflow-x: auto; overflow-y: hidden;
+    display: flex; width: 100%; height: min(64vh, 46rem); overflow-x: auto; overflow-y: hidden;
     scroll-snap-type: x mandatory; scroll-behavior: smooth; border-radius: 14px;
     -webkit-overflow-scrolling: touch; scrollbar-width: none;
   }
   .gallery-track::-webkit-scrollbar { display: none; }
   .gallery-slide { flex: 0 0 100%; scroll-snap-align: center; display: flex; align-items: center; justify-content: center; background: #fff; }
   .gallery-slide img, .gallery-slide video { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .gallery-slide.features-slide { display: grid; grid-template-rows: minmax(0, 1fr) auto; padding: clamp(0.7rem, 2vw, 1.5rem); gap: 0.7rem; color: var(--ink); background: var(--surface); overflow-y: auto; }
+  .features-slide > img { width: 100%; height: 100%; min-height: 0; object-fit: contain; background: #fff; border-radius: 0.7rem; }
+  .feature-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
+  .feature-list h3 { font-size: 0.9rem; margin: 0 0 0.3rem; }
+  .feature-list p { font-size: 0.78rem; line-height: 1.4; margin: 0; color: var(--ink-soft); }
+  #card-91 .media img { object-fit: contain; background: #fff; }
+  @media (max-width: 520px) {
+    .feature-list { grid-template-columns: 1fr; gap: 0.55rem; }
+    .feature-list h3 { font-size: 0.8rem; margin-bottom: 0.1rem; }
+    .feature-list p { font-size: 0.7rem; }
+  }
   .gallery-nav {
     position: absolute; top: 50%; translate: 0 -50%; width: 2.6rem; height: 2.6rem; border-radius: 999px;
     border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 1rem; cursor: pointer;
@@ -919,6 +930,32 @@
   GALLERIES[121].slides = [0, 1, 2, 5, 3, 4].map((index) => GALLERIES[121].slides[index]);
   GALLERIES[204].slides.push(GALLERIES[204].slides.splice(5, 1)[0]);
 
+  // Catalog remediation, step 01: Lorton. See docs/catalog/CHANGELOG.md.
+  const lorton = PRODUCTS.find((p) => p.id === 91);
+  lorton.dims = "2580×1600×800";
+  lorton.displayDimsCm = "258×160×80";
+  lorton.sleeperCm = "212×160";
+  lorton.desc = "Угловой диван с оттоманкой и крупными приспинными подушками. Горчичная обивка, широкие мягкие подлокотники и бельевые короба в основании. Габариты 258×160×80 см, спальное место 212×160 см.";
+  IMAGES[91] = "assets/lorton-dku-o/slide1_hero.jpg";
+  GALLERIES[91].slides = GALLERIES[91].slides.filter((s) => s.name !== "Размеры");
+  GALLERIES[91].slides.splice(2, 0, {
+    src: "assets/lorton-dku-o/slide_dims-v2.png", name: "Размеры",
+    desc: "Размеры в сантиметрах. Габариты 258×160 см; высота 80 см. Спальное место 212×160 см. Визуализация: обе части спинки опущены в ровную поверхность."
+  });
+  GALLERIES[91].slides.forEach((s) => {
+    if (s.name === "Раскладка") { s.name = "Бельевые ящики"; s.desc = "Открытые короба в основании дивана — место для хранения постельных принадлежностей."; }
+  });
+  GALLERIES[91].slides.push({
+    type: "features", name: "Преимущества и особенности",
+    src: "assets/lorton-dku-o/slide1_hero.jpg",
+    desc: "Оттоманка, крупные приспинные подушки и хранение в основании — особенности показанной модели.",
+    features: [
+      { title: "Оттоманка для отдыха", text: "Можно вытянуть ноги, не раскладывая диван." },
+      { title: "Крупные подушки", text: "Мягкая опора для спины и выразительный силуэт." },
+      { title: "Хранение в основании", text: "Бельевые короба для постельных принадлежностей." }
+    ]
+  });
+
   const CATS = {
     sofa: "Диваны",
     armchair: "Кресла",
@@ -1004,12 +1041,12 @@
           <span class="name">${p.title}</span>
           ${p.desc ? `<span class="desc" title="${p.desc.replace(/"/g, "&quot;")}">${shortDescription(p.desc)}</span>` : `<span class="desc">Описание готовится</span>`}
           ${productFactsHTML(p)}
-          ${dimsTagsHTML(p.dims)}
+          ${p.displayDimsCm ? `<div class="dims-tags"><span><b>Габариты</b> ${escapeHTML(p.displayDimsCm)} см</span><span><b>Спальное место</b> ${escapeHTML(p.sleeperCm)} см</span></div>` : (p.dimensionsPending ? `<span class="dims-unknown">Габариты уточняются</span>` : dimsTagsHTML(p.dims))}
           ${hasGallery ? (() => {
             const gs = GALLERIES[p.id].slides;
             const hasVideo = gs.some((s) => s.type === "video");
             const n = gs.length;
-            const label = hasVideo ? `${n} медиа (есть видео)` : `${n} фото`;
+            const label = gs.some((s) => s.type === "features") ? `${n} слайдов${hasVideo ? " (есть видео)" : ""}` : (hasVideo ? `${n} медиа (есть видео)` : `${n} фото`);
             return `<span class="badge" style="position:static; align-self:flex-start; margin-top:0.2rem;">${label} — смотреть →</span>`;
           })() : ""}
         </div>
@@ -1702,7 +1739,7 @@
 
   function showResults() {
     const type = answers.type;
-    let results = PRODUCTS.filter((p) => p.category === type);
+    let results = PRODUCTS.filter((p) => p.category === type && !p.dimensionsPending);
     if (type === "sofa") {
       results = results.filter((p) => matchesFormat(p.title, answers.modification, p.desc));
     }
@@ -1776,13 +1813,18 @@
   let galSlides = [];
   let galCurrent = 0;
 
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
   window.openGallery = function (id) {
     const g = GALLERIES[id];
     if (!g) return;
     galSlides = g.slides;
     galTitle.textContent = g.title;
     galTotal.textContent = galSlides.length;
-    galTrack.innerHTML = galSlides.map((s) => s.type === "video"
+    galTrack.innerHTML = galSlides.map((s) => s.type === "features"
+      ? `<div class="gallery-slide features-slide"><img src="${escapeHTML(s.src)}" alt="${escapeHTML(g.title)}" /><div class="feature-list">${s.features.map((f) => `<section><h3>${escapeHTML(f.title)}</h3><p>${escapeHTML(f.text)}</p></section>`).join("")}</div></div>`
+      : s.type === "video"
       ? `<div class="gallery-slide"><video src="${s.src}" controls loop playsinline></video></div>`
       : `<div class="gallery-slide"><img src="${s.src}" alt="${s.name}" /></div>`).join("");
     galDots.innerHTML = galSlides.map((s, i) => {

@@ -7,3 +7,13 @@ Thumbs.db
 
 # Локальный конфиг предпросмотра Claude Code
 .claude/
+
+# Local Ozon API credentials
+.env.ozon
+*.env.ozon
+
+# Private Ozon exports and cost analysis
+outputs/ozon-*/
+
+# Внутренние материалы проверки каталога: не публикуются и не коммитятся
+audit-output/
