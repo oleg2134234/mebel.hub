@@ -12,6 +12,9 @@ Thumbs.db
 .env.ozon
 *.env.ozon
 
+# Kie.ai API key
+kie_api_key.txt
+
 # Private Ozon exports and cost analysis
 outputs/ozon-*/
 
