@@ -980,8 +980,21 @@
     if (!nums.length) return null;
     return nums.reduce((a, b) => a + b, 0) / nums.length;
   }
+  // Some SKUs list a "min-max" range (e.g. "1390-1990") meaning the model is available
+  // across several real width variants spanning that span — not one variant sized at the
+  // midpoint. rangeAt keeps both endpoints so range-based checks (size-fit filter) can test
+  // overlap instead of collapsing to a single, possibly non-existent, average value.
+  function rangeAt(dims, idx) {
+    if (!dims) return null;
+    const part = dims.split("×")[idx];
+    if (!part) return null;
+    const nums = part.split(/[–-]/).map(Number).filter((n) => !isNaN(n));
+    if (!nums.length) return null;
+    return [Math.min(...nums), Math.max(...nums)];
+  }
   // dims string is "Длина×Ширина×Высота" (mm). Длина = расстояние между подлокотниками,
   // всегда больше ширины — это первое число. Высота (третье число) больше нигде не используется.
+  // Used for sorting only, where an averaged midpoint is a fine approximation of "how big".
   function lengthOf(dims) { return numAt(dims, 0); }
   function widthOf(dims) { return numAt(dims, 1); }
 
@@ -993,7 +1006,7 @@
   }
 
   function mediaFor(p) {
-    if (IMAGES[p.id]) return `<img src="${IMAGES[p.id]}" alt="${p.title}" loading="lazy" />`;
+    if (IMAGES[p.id]) return `<img src="${IMAGES[p.id]}" alt="${escapeHTML(p.title)}" loading="lazy" />`;
     return ICONS[p.category] || ICONS.other;
   }
 
@@ -1016,10 +1029,13 @@
       ? "П-образный"
       : (/углов|оттоман|ДКУ/i.test(text) ? "Угловой" : (p.category === "sofa" ? "Прямой" : ""));
     if (format) facts.push(format);
-    const mechanism = text.match(/\b(выкатная еврокнижка|тик-так|клик-кляк|еврокнижка|выкатной|дельфин|аккордеон|книжка)\b/i);
+    // No \b here: JS regex \b only recognizes ASCII word chars, so a boundary between a
+    // space/quote and a Cyrillic letter never matches — \b silently dropped every Cyrillic
+    // mechanism name (e.g. "Тик-так" in "Механизм «Тик-так».").
+    const mechanism = text.match(/(выкатная еврокнижка|тик-так|клик-кляк|еврокнижка|выкатной|дельфин|аккордеон|книжка)/i);
     if (mechanism) facts.push(mechanism[1]);
-    const sleeper = text.match(/Спальное место\s*(?:\([^)]*\)\s*)?[:—-]?\s*([0-9][0-9×xх/()–-]*)\s*мм/i);
-    if (sleeper) facts.push(`Спальное ${sleeper[1].replace(/[xх]/g, "×")} мм`);
+    const sleeper = text.match(/Спальное место\s*(?:\([^)]*\)\s*)?[:—-]?\s*([0-9][0-9×xх/()–-]*)\s*(мм|см)/i);
+    if (sleeper) facts.push(`Спальное ${sleeper[1].replace(/[xх]/g, "×")} ${sleeper[2].toLowerCase()}`);
     if (/бельев(ой|ые|ого) (короб|ящик|ящики)/i.test(text)) facts.push("Есть хранение");
     const visible = facts.slice(0, 3);
     return visible.length
@@ -1034,12 +1050,12 @@
     const catIcon = `<span class="cat-icon">${ICONS[p.category] || ICONS.other}</span>`;
     const openAttr = hasGallery ? `onclick="openGallery(${p.id})" role="button" tabindex="0" style="cursor:pointer"` : "";
     return `
-      <div class="card" id="card-${p.id}" data-cat="${p.category}" data-name="${p.title.toLowerCase()}" ${openAttr}>
+      <div class="card" id="card-${p.id}" data-cat="${p.category}" data-name="${escapeHTML(p.title.toLowerCase())}" ${openAttr}>
         <div class="media">${badge}${hasImg ? catIcon : ""}${mediaFor(p)}</div>
         <div class="body">
           <span class="cat">${CATS[p.category] || p.category}</span>
-          <span class="name">${p.title}</span>
-          ${p.desc ? `<span class="desc" title="${p.desc.replace(/"/g, "&quot;")}">${shortDescription(p.desc)}</span>` : `<span class="desc">Описание готовится</span>`}
+          <span class="name">${escapeHTML(p.title)}</span>
+          ${p.desc ? `<span class="desc" title="${escapeHTML(p.desc)}">${escapeHTML(shortDescription(p.desc))}</span>` : `<span class="desc">Описание готовится</span>`}
           ${productFactsHTML(p)}
           ${p.displayDimsCm ? `<div class="dims-tags"><span><b>Габариты</b> ${escapeHTML(p.displayDimsCm)} см</span><span><b>Спальное место</b> ${escapeHTML(p.sleeperCm)} см</span></div>` : (p.dimensionsPending ? `<span class="dims-unknown">Габариты уточняются</span>` : dimsTagsHTML(p.dims))}
           ${hasGallery ? (() => {
@@ -1535,12 +1551,12 @@
   const answers = {
     modification: "straight",
     lengthMin: 800, lengthMax: 3800,
-    widthMin: 700, widthMax: 1900
+    widthMin: 700, widthMax: 2000
   };
 
   const DIMS = [
     { key: "length", title: "Длина (см)", min: 80, max: 380 },
-    { key: "width", title: "Ширина (см)", min: 70, max: 190 }
+    { key: "width", title: "Ширина (см)", min: 70, max: 200 }
   ];
 
   // Standard Russian retail mattress widths (cm) at the catalog's standard 200 cm
@@ -1759,14 +1775,20 @@
       // and corner-sofa depth cluster far apart (see project memory).
       // Длина = наибольшее из двух напольных измерений (для дивана — расстояние между
       // подлокотниками), всегда больше или равна ширине. Высота в подборе не участвует.
-      const FIT_TOL = 30;
+      // A SKU's dims can be a "min-max" span covering several real width variants (e.g.
+      // beds sized 139/159/179/199 cm stored as "1390-1990"). Match by range overlap
+      // against the user's explicit min/max, not a single averaged midpoint — averaging
+      // collapsed that example to 169 cm, a width that doesn't exist, and either hid or
+      // wrongly surfaced every real variant. No added tolerance: the visitor's dragged
+      // bounds are the actual constraint (available space), so a model outside them by
+      // any amount does not belong in the results.
       results = results
-        .map((p) => ({ p, l: lengthOf(p.dims), w: widthOf(p.dims) }))
-        .filter(({ l, w }) => l !== null && w !== null)
-        .filter(({ l, w }) =>
-          l >= answers.lengthMin - FIT_TOL && l <= answers.lengthMax + FIT_TOL &&
-          w >= answers.widthMin - FIT_TOL && w <= answers.widthMax + FIT_TOL)
-        .sort((a, b) => (b.l + b.w) - (a.l + a.w))
+        .map((p) => ({ p, lRange: rangeAt(p.dims, 0), wRange: rangeAt(p.dims, 1) }))
+        .filter(({ lRange, wRange }) => lRange && wRange)
+        .filter(({ lRange, wRange }) =>
+          lRange[1] >= answers.lengthMin && lRange[0] <= answers.lengthMax &&
+          wRange[1] >= answers.widthMin && wRange[0] <= answers.widthMax)
+        .sort((a, b) => (b.lRange[1] + b.wRange[1]) - (a.lRange[1] + a.wRange[1]))
         .map(({ p }) => p);
     }
 
