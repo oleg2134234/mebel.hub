@@ -349,6 +349,12 @@
     padding: clamp(1.1rem, 4vw, 1.6rem);
     box-shadow: 0 30px 80px rgba(0,0,0,0.35);
   }
+  .quiz-modal.quiz-modal-type {
+    width: min(92vw, 92dvh, 480px);
+    aspect-ratio: 1 / 1;
+    max-height: none;
+    overflow: hidden;
+  }
   .quiz-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 0.3rem; }
   .quiz-head h2 { font-size: 1.3rem; margin: 0; }
   .quiz-close {
@@ -374,7 +380,7 @@
     justify-content: stretch;
     margin: 0;
   }
-  .quiz-options-type button { padding: 5%; gap: 0.25rem; font-size: 0.8rem; }
+  .quiz-options-type button { padding: 5%; gap: 0.35rem; }
   .quiz-options-type .quiz-opt-icon {
     width: 80%; height: auto; aspect-ratio: 1 / 1;
     border-radius: 16%;
@@ -388,6 +394,7 @@
     transition: border-color 0.15s, background 0.15s, transform 0.15s;
   }
   .quiz-options button:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
+  .quiz-options.quiz-options-type button { font-size: clamp(1rem, 3.5vw, 1.15rem); font-weight: 500; }
   .quiz-opt-icon {
     display: inline-flex; align-items: center; justify-content: center;
     width: 5.6rem; height: 5.6rem; flex-shrink: 0; font-size: 4rem;
@@ -396,9 +403,34 @@
   .quiz-opt-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
   @media (max-width: 600px) {
     .quiz-modal { max-height: 94vh; padding: 1rem; }
+    .quiz-modal.quiz-modal-type { width: min(94vw, 94dvh); max-height: none; }
     .quiz-options { grid-template-columns: repeat(2, minmax(0, 7rem)); gap: 0.6rem; }
     .quiz-opt-icon { width: 4.3rem; height: 4.3rem; font-size: 3.1rem; }
-    .quiz-options button { padding: 0.3rem 0.25rem; font-size: 0.62rem; gap: 0.25rem; }
+    .quiz-options button { padding: 0.3rem 0.25rem; font-size: 0.75rem; gap: 0.25rem; }
+    .quiz-options.quiz-options-type button { font-size: 1rem; }
+    .quiz-modal.quiz-modal-config {
+      width: calc(100vw - 1rem); max-width: 30rem; max-height: calc(100dvh - 1rem);
+      padding: 0.75rem 0.9rem; overflow: hidden;
+    }
+    .quiz-modal-config .quiz-head { margin-bottom: 0; align-items: center; }
+    .quiz-modal-config .quiz-head h2 { font-size: 1.12rem; }
+    .quiz-modal-config .quiz-step-label { margin: 0.1rem 0 0.35rem; font-size: 0.68rem; }
+    .quiz-modal-config .field-block { margin-top: 0.55rem; }
+    .quiz-modal-config .field-block .field-title { margin-bottom: 0.35rem; font-size: 0.86rem; }
+    .quiz-modal-config .tabs-icon { gap: 0.4rem; }
+    .quiz-modal-config .tabs-icon button { aspect-ratio: auto; min-height: 5rem; padding: 0.35rem 0.25rem; gap: 0.2rem; font-size: 0.76rem; }
+    .quiz-modal-config .mod-icon-svg { width: 2rem; height: 2rem; }
+    .quiz-modal-config .dim-filter { padding-bottom: 0.45rem; margin-bottom: 0.45rem; }
+    .quiz-modal-config .dim-filter-head { margin-bottom: 0.35rem; font-size: 0.85rem; }
+    .quiz-modal-config .dim-inputs { gap: 0.45rem; margin-bottom: 0.3rem; }
+    .quiz-modal-config .dim-inputs input[type="number"] { padding: 0.4rem 0.3rem; font-size: 0.85rem; }
+    .quiz-modal-config .range-slider { height: 18px; margin-bottom: 0.1rem; }
+    .quiz-modal-config .range-slider input[type="range"] { height: 18px; }
+    .quiz-modal-config .range-slider input[type="range"]::-webkit-slider-thumb { width: 17px; height: 17px; }
+    .quiz-modal-config .range-slider input[type="range"]::-moz-range-thumb { width: 17px; height: 17px; }
+    .quiz-modal-config .quiz-back { margin-top: 0.45rem; font-size: 0.76rem; }
+    .quiz-modal-config .quiz-sticky-footer { position: static; margin: 0.55rem 0 0; padding: 0.55rem 0 0; }
+    .quiz-modal-config .quiz-continue { padding: 0.62rem 1rem; font-size: 0.86rem; }
   }
   .quiz-back {
     margin-top: 1.2rem; background: none; border: none; color: var(--ink-soft);
@@ -1601,6 +1633,8 @@
 
   function goTo(stepKey) {
     const step = typeStep;
+    modal.classList.remove("quiz-modal-config");
+    modal.classList.add("quiz-modal-type");
     modal.innerHTML = `
       <button class="quiz-close quiz-close-corner" id="qClose">&times;</button>
       <div class="quiz-options quiz-options-type">${step.options.map((o, i) => `<button data-i="${i}">${o.icon ? `<span class="quiz-opt-icon">${o.icon}</span>` : ""}${o.label}</button>`).join("")}</div>
@@ -1675,6 +1709,8 @@
   }
 
   function goToConfig() {
+    modal.classList.remove("quiz-modal-type");
+    modal.classList.add("quiz-modal-config");
     const isSofa = answers.type === "sofa";
     const isMattress = answers.type === "mattress";
     modal.innerHTML = `
@@ -1759,6 +1795,8 @@
   }
 
   function showResults() {
+    modal.classList.remove("quiz-modal-type");
+    modal.classList.remove("quiz-modal-config");
     const type = answers.type;
     let results = PRODUCTS.filter((p) => p.category === type && !p.dimensionsPending);
     if (type === "sofa") {
