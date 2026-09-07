@@ -306,6 +306,11 @@
   .gallery-caption { padding: 0.7rem 1.3rem 0.55rem; }
   .gallery-caption .n { font-weight: 600; font-size: 1rem; }
   .gallery-caption .d { font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.2rem; }
+  .gallery-share {
+    border: 1px solid var(--line); background: var(--surface-2); color: var(--ink);
+    border-radius: 999px; padding: 0.48rem 0.8rem; cursor: pointer; font: inherit;
+    font-size: 0.82rem; font-weight: 600;
+  }
   /* Навигация по галерее — крупные квадратные превью-миниатюры слайдов
      (не точки). Горизонтальная лента с прокруткой. */
   .gallery-dots {
@@ -880,6 +885,7 @@
     <div class="gallery-top">
       <span class="gallery-title display" id="galTitle">—</span>
       <div style="display:flex; align-items:center; gap:0.7rem;">
+        <button class="gallery-share" id="galShare" type="button">Поделиться карточкой</button>
         <span class="gallery-count"><strong id="galPos">1</strong> / <span id="galTotal">1</span></span>
         <button class="gallery-close" id="galClose" aria-label="Закрыть">&times;</button>
       </div>
@@ -1833,13 +1839,23 @@
   const galCapDesc = document.getElementById("galCapDesc");
   let galSlides = [];
   let galCurrent = 0;
+  let galProductId = null;
 
   function escapeHTML(value) {
     return String(value).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   }
-  window.openGallery = function (id) {
+  function setProductUrl(id) {
+    const url = new URL(window.location.href);
+    if (id == null) url.searchParams.delete("product");
+    else url.searchParams.set("product", id);
+    history.replaceState({}, "", url);
+  }
+
+  window.openGallery = function (id, updateUrl = true) {
     const g = GALLERIES[id];
     if (!g) return;
+    galProductId = Number(id);
+    if (updateUrl) setProductUrl(galProductId);
     galSlides = g.slides;
     galTitle.textContent = g.title;
     galTotal.textContent = galSlides.length;
@@ -1860,10 +1876,33 @@
     galOverlay.classList.add("open");
   };
 
-  function closeGallery() {
+  function closeGallery(updateUrl = true) {
     galTrack.querySelectorAll("video").forEach((video) => video.pause());
     galOverlay.classList.remove("open");
+    galProductId = null;
+    if (updateUrl) setProductUrl(null);
   }
+
+  document.getElementById("galShare").addEventListener("click", async () => {
+    if (galProductId == null) return;
+    setProductUrl(galProductId);
+    const product = PRODUCTS.find((item) => item.id === galProductId);
+    const shareData = {
+      title: product ? product.title : "Карточка товара",
+      text: product ? `${product.title} — карточка товара` : "Карточка товара",
+      url: window.location.href
+    };
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(shareData.url);
+        showToast("Ссылка на товар скопирована");
+      }
+    } catch {
+      if (!navigator.share) window.prompt("Скопируйте ссылку на товар", shareData.url);
+    }
+  });
 
   function galRender() {
     galPos.textContent = galCurrent + 1;
@@ -1902,4 +1941,7 @@
   new MutationObserver(() => {
     Array.from(galTrack.children).forEach((el) => galIo.observe(el));
   }).observe(galTrack, { childList: true });
+
+  const linkedProductId = Number(new URLSearchParams(window.location.search).get("product"));
+  if (linkedProductId && GALLERIES[linkedProductId]) goToProduct(linkedProductId);
 </script>
