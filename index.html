@@ -397,11 +397,14 @@
   .quiz-options.quiz-options-type button { font-size: clamp(1rem, 3.5vw, 1.15rem); font-weight: 500; }
   /* Крупные плитки выбора размера — кровать (только ширина) и матрас (Ш×Д).
      Стиль как у шага «Что подбираем?»: квадрат с рамкой, крупное читаемое число.
-     У матраса «×200» уходит второй строкой мелким шрифтом (.q-sub). */
-  .quiz-options.quiz-options-size button { font-size: clamp(1.9rem, 9vw, 2.6rem); font-weight: 700; line-height: 1; letter-spacing: 0.01em; gap: 0.15rem; }
-  .quiz-options.quiz-options-size .q-sub { font-size: 0.4em; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-soft); }
-  /* Нечётную последнюю плитку (5 размеров → 2 + 2 + 1) центрируем по строке. */
-  .quiz-options-size button:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 0.4rem); }
+     Раскладка 3 в ряд (flex с переносом, по центру): 5–6 размеров помещаются
+     в модалку без прокрутки. У матраса «×200» уходит второй строкой (.q-sub). */
+  .quiz-options.quiz-options-size { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.55rem; }
+  .quiz-options.quiz-options-size button {
+    flex: 0 0 calc((100% - 1.1rem) / 3); aspect-ratio: 1.18 / 1; min-height: 0;
+    font-size: clamp(1.5rem, 5.5vw, 2.1rem); font-weight: 700; line-height: 1; letter-spacing: 0.01em; gap: 0.1rem;
+  }
+  .quiz-options.quiz-options-size .q-sub { font-size: 0.42em; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-soft); }
   /* Выбранный размер (кровать/матрас) — заливка акцентом. */
   .quiz-options button[aria-current="true"] { border-color: var(--accent); background: var(--accent-soft); }
   .quiz-opt-icon {
@@ -417,7 +420,7 @@
     .quiz-opt-icon { width: 4.3rem; height: 4.3rem; font-size: 3.1rem; }
     .quiz-options button { padding: 0.3rem 0.25rem; font-size: 0.75rem; gap: 0.25rem; }
     .quiz-options.quiz-options-type button { font-size: 1rem; }
-    .quiz-options.quiz-options-size button { font-size: 2rem; }
+    .quiz-options.quiz-options-size button { font-size: 1.75rem; }
     .quiz-modal.quiz-modal-config {
       width: calc(100vw - 1rem); max-width: 30rem; max-height: calc(100dvh - 1rem);
       padding: 0.75rem 0.9rem; overflow: hidden;
@@ -686,7 +689,10 @@
   .swatch-item[aria-pressed="true"] .swatch-fill .check { display: flex; }
   .swatch-item .swatch-name { font-size: 0.72rem; color: var(--ink-soft); text-align: center; }
 
-  .quiz-sticky-footer { position: sticky; bottom: -2rem; margin: 1.4rem -2rem -2rem; padding: 1rem 2rem; background: var(--surface); border-top: 1px solid var(--line); }
+  /* Прилипающий футер «выкидывается» за паддинг модалки, чтобы фон дотягивался
+     до краёв. Величина выхода = паддинг .quiz-modal (clamp 1.1–1.6rem), иначе
+     футер шире содержимого и появляется лишняя полоса прокрутки. */
+  .quiz-sticky-footer { position: sticky; bottom: 0; margin: 1.4rem calc(clamp(1.1rem, 4vw, 1.6rem) * -1) calc(clamp(1.1rem, 4vw, 1.6rem) * -1); padding: 1rem clamp(1.1rem, 4vw, 1.6rem); background: var(--surface); border-top: 1px solid var(--line); }
   .quiz-continue {
     width: 100%; font: inherit; font-size: 0.94rem; font-weight: 600;
     padding: 0.75rem 1.1rem; border-radius: 999px; border: none;
