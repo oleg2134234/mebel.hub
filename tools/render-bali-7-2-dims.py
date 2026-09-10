@@ -1,20 +1,21 @@
-# Two dimension slides for Бали 7.2, built on REAL photos (real floor, real perspective).
+# Two dimension slides for Бали 7.2.
 #
-# ALGORITHM (Oleg, 10.09.2026 — use this for every "Размеры" slide):
-#   1. Take the sofa's projection onto the floor — the quad of its four ground corners
-#      FL (front-left), FR (front-right), BR (back-right), BL (back-left).
-#   2. For each measured side, offset OUTWARD from that floor-projection edge by a fixed
-#      distance, large enough to clear the sofa and its ground shadow.
-#   3. Draw the dimension line on that offset, strictly PARALLEL to the floor-projection edge,
-#      both ends the same perpendicular distance out. Circle at each end, dark pill + white cm.
-#   Length and depth lines share the front corner -> they read as an "L" (see tools/dims-style-ref.jpg).
-from PIL import Image, ImageDraw, ImageFont
+# ALGORITHM (Oleg, 10.09.2026): sofa projection onto the floor -> offset outward from a
+# footprint edge -> dimension line parallel to that edge, on the floor, clear of the sofa.
+# Length + depth leave the shared front corner -> "L" (tools/dims-style-ref.jpg).
+#
+# The footprint corners are DETECTED from a white cut-out of the sofa (mustard vs #FFF), so
+# the length line always reaches the true corners and the depth line sits on the real end.
+import sys
 from math import hypot
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 BASE = r"C:/Users/user/Claude/mebel.hub/assets/bali-7-2"
 OUT_W = 1200
-INK = (38, 40, 46)
-PAD = 170  # white margin added around the photo so offset lines/pills never clip
+INK = (32, 34, 40)
+PAD = 200
+DEBUG = "--debug" in sys.argv
 
 
 def font(sz):
@@ -26,8 +27,73 @@ def font(sz):
     return ImageFont.load_default()
 
 
+def largest_blob(mask):
+    from collections import deque
+    h, w = mask.shape
+    seen = np.zeros_like(mask, bool)
+    best, best_n = None, 0
+    for sy, sx in np.argwhere(mask):
+        if seen[sy, sx]:
+            continue
+        q = deque([(sy, sx)])
+        seen[sy, sx] = True
+        comp = []
+        while q:
+            y, x = q.popleft()
+            comp.append((y, x))
+            for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+                ny, nx = y + dy, x + dx
+                if 0 <= ny < h and 0 <= nx < w and mask[ny, nx] and not seen[ny, nx]:
+                    seen[ny, nx] = True
+                    q.append((ny, nx))
+        if len(comp) > best_n:
+            best_n, best = len(comp), comp
+    out = np.zeros_like(mask)
+    if best:
+        ys, xs = zip(*best)
+        out[np.array(ys), np.array(xs)] = True
+    return out
+
+
+def sofa_mask(img):
+    hsv = np.asarray(img.convert("HSV")).astype(np.float32)
+    H, S, V = hsv[..., 0] * 360 / 255, hsv[..., 1] / 255, hsv[..., 2] / 255
+    m = (H >= 26) & (H <= 62) & (S >= 0.32) & (V >= 0.28)
+    m = np.asarray(Image.fromarray((m * 255).astype("uint8")).filter(ImageFilter.MedianFilter(5))) > 127
+    m = np.asarray(Image.fromarray((m * 255).astype("uint8")).filter(ImageFilter.MaxFilter(7))) > 127
+    m = largest_blob(m)
+    return m
+
+
+def footprint(img, end_band=0.11):
+    """FL, FR (front floor corners) and BR (back-right floor corner) in image px."""
+    m = sofa_mask(img)
+    h, w = m.shape
+    bottom = np.full(w, -1)
+    for x in range(w):
+        ys = np.where(m[:, x])[0]
+        if ys.size:
+            bottom[x] = ys.max()
+    cols = np.where(bottom >= 0)[0]
+    x_lo, x_hi = int(cols[0]), int(cols[-1])
+    # robust corner y: median of a few columns at each extreme
+    yl = int(np.median(bottom[x_lo:x_lo + 12][bottom[x_lo:x_lo + 12] >= 0]))
+    yr = int(np.median(bottom[x_hi - 12:x_hi][bottom[x_hi - 12:x_hi] >= 0]))
+    FL = (float(x_lo), float(yl))
+    FR = (float(x_hi), float(yr))
+    # BR: highest silhouette point within the right end band -> back-right floor corner
+    bx0 = int(x_hi - (x_hi - x_lo) * end_band)
+    seg = bottom[bx0:x_hi + 1]
+    xs = np.arange(bx0, x_hi + 1)[seg >= 0]
+    ys = seg[seg >= 0]
+    k = int(np.argmin(ys))
+    BR = (float(xs[k]), float(ys[k]))
+    if BR[1] >= FR[1] - 12:            # end face barely visible -> nudge a synthetic depth
+        BR = (FR[0] + 34, FR[1] - 58)
+    return FL, FR, BR
+
+
 def outward_normal(A, B, ref):
-    """Unit normal to A->B pointing AWAY from ref point (the sofa body centre)."""
     dx, dy = B[0] - A[0], B[1] - A[1]
     L = hypot(dx, dy) or 1.0
     nx, ny = -dy / L, dx / L
@@ -37,16 +103,15 @@ def outward_normal(A, B, ref):
     return nx, ny
 
 
-def dim_line(draw, A, B, ref, label, d, fnt, pill_along=0.5, pill_extra=(0, 0), r=8):
-    """A,B = the two floor-projection corners of the measured side. Offset outward by d."""
+def dim_line(draw, A, B, ref, label, d, fnt, pill_t=0.5, pill_extra=(0, 0), r=8):
     nx, ny = outward_normal(A, B, ref)
     A2 = (A[0] + nx * d, A[1] + ny * d)
     B2 = (B[0] + nx * d, B[1] + ny * d)
     draw.line([A2, B2], fill=INK, width=5)
     for c in (A2, B2):
         draw.ellipse([c[0] - r, c[1] - r, c[0] + r, c[1] + r], fill=INK)
-    cx = A2[0] + (B2[0] - A2[0]) * pill_along + pill_extra[0]
-    cy = A2[1] + (B2[1] - A2[1]) * pill_along + pill_extra[1]
+    cx = A2[0] + (B2[0] - A2[0]) * pill_t + pill_extra[0]
+    cy = A2[1] + (B2[1] - A2[1]) * pill_t + pill_extra[1]
     tb = draw.textbbox((0, 0), label, font=fnt)
     tw, th = tb[2] - tb[0], tb[3] - tb[1]
     px, py = 22, 13
@@ -55,51 +120,42 @@ def dim_line(draw, A, B, ref, label, d, fnt, pill_along=0.5, pill_extra=(0, 0), 
     draw.text((cx - tw / 2 - tb[0], cy - th / 2 - tb[1]), label, font=fnt, fill="white")
 
 
-def build(src, floor, sides, crop, out_name):
+def build(src, floor, length_label, depth_label, d_len, d_dep, crop, out_name,
+          pill_len_t=0.42, pill_dep_extra=(28, 0)):
     im = Image.open(f"{BASE}/{src}").convert("RGB")
     r = OUT_W / im.width
     im = im.resize((OUT_W, round(im.height * r)), Image.LANCZOS)
+    FL, FR, BR = floor["FL"], floor["FR"], floor["BR"]
+    print(f"  {out_name}: FL={FL} FR={FR} BR={BR}")
+
     canvas = Image.new("RGB", (im.width + 2 * PAD, im.height + PAD), "white")
     canvas.paste(im, (PAD, 0))
-    off = lambda p: (p[0] + PAD, p[1])
-    FL, FR, BR, BL = (off(floor[k]) for k in ("FL", "FR", "BR", "BL"))
-    ref = ((FL[0] + FR[0] + BR[0] + BL[0]) / 4, (FL[1] + FR[1] + BR[1] + BL[1]) / 4 - 120)
+    o = lambda p: (p[0] + PAD, p[1])
+    FL, FR, BR = o(FL), o(FR), o(BR)
+    ref = ((FL[0] + FR[0]) / 2, (FL[1] + FR[1]) / 2 - 170)
     d = ImageDraw.Draw(canvas)
     fnt = font(46)
-    for s in sides:
-        A, B = {"FL": FL, "FR": FR, "BR": BR, "BL": BL}[s["a"]], {"FL": FL, "FR": FR, "BR": BR, "BL": BL}[s["b"]]
-        dim_line(d, A, B, ref, s["label"], s["d"], fnt,
-                 s.get("pill_along", 0.5), s.get("pill_extra", (0, 0)))
-    if crop:
-        x0, y0, x1, y1 = crop
-        canvas = canvas.crop((x0 + PAD if x0 == 0 else x0, y0, x1 + PAD if x1 == OUT_W else x1, y1)) \
-            if False else canvas.crop(crop)
-    canvas.save(f"{BASE}/{out_name}", quality=92)
-    print("wrote", out_name, canvas.size)
+    if DEBUG:
+        for P, c in ((FL, (255, 0, 0)), (FR, (0, 190, 0)), (BR, (0, 90, 255))):
+            d.ellipse([P[0] - 10, P[1] - 10, P[0] + 10, P[1] + 10], outline=c, width=4)
+        d.line([FL, FR], fill=(255, 0, 255), width=2)
+        d.line([FR, BR], fill=(255, 0, 255), width=2)
+    dim_line(d, FL, FR, ref, length_label, d_len, fnt, pill_t=pill_len_t, pill_extra=(0, 6))
+    dim_line(d, FR, BR, ref, depth_label, d_dep, fnt, pill_t=0.5, pill_extra=pill_dep_extra)
+    canvas.crop(crop).save(f"{BASE}/{out_name}", quality=92)
+    print("wrote", out_name)
 
 
-# ---------------- FOLDED (folded34_src.jpg — real photo rotated to 3/4) : габариты корпуса ----------------
-# 3/4 from front-left: front edge FL->FR = длина 256, right end FR->BR = глубина 137, L at FR.
-build(
-    "folded34_src.jpg",
-    floor=dict(FL=(110, 720), FR=(900, 645), BR=(985, 600), BL=(95, 690)),
-    sides=[
-        dict(a="FL", b="FR", label="256", d=84, pill_along=0.42, pill_extra=(0, 8)),
-        dict(a="FR", b="BR", label="137", d=74, pill_along=0.5, pill_extra=(24, 2)),
-    ],
-    crop=(60, 300, 1200 + 2 * PAD - 10, 896 + PAD),
-    out_name="slide_dims_folded.jpg",
-)
-
-# ---------------- UNFOLDED (slide_unfolded.jpg, real photo, person removed) : спальное место ----------------
-# clear 3/4 from front-left: front edge FL->FR = длина, left edge FL->BL = глубина, share FL (L-shape).
-build(
-    "slide_unfolded.jpg",
-    floor=dict(FL=(291, 694), FR=(974, 678), BR=(1006, 590), BL=(223, 447)),
-    sides=[
-        dict(a="FL", b="FR", label="200", d=84, pill_along=0.46, pill_extra=(0, 8)),
-        dict(a="FL", b="BL", label="190", d=74, pill_along=0.52, pill_extra=(-28, 0)),
-    ],
-    crop=(120, 300, 1200 + 2 * PAD - 10, 896 + PAD),
-    out_name="slide_dims_unfolded.jpg",
-)
+# corners hand-read on the white cut-out grid (1200-wide image space), verified with --debug
+print("folded:")
+build("dims_cut_folded.png",
+      floor=dict(FL=(100, 770), FR=(942, 686), BR=(1012, 648)),
+      length_label="256", depth_label="137", d_len=52, d_dep=50,
+      crop=(40, 250, OUT_W + 2 * PAD - 20, 896 + PAD), out_name="slide_dims_folded.jpg",
+      pill_dep_extra=(30, 0))
+print("unfolded:")
+build("dims_cut_unfolded.png",
+      floor=dict(FL=(288, 732), FR=(972, 702), BR=(1016, 618)),
+      length_label="200", depth_label="190", d_len=52, d_dep=50,
+      crop=(60, 250, OUT_W + 2 * PAD - 20, 896 + PAD), out_name="slide_dims_unfolded.jpg",
+      pill_dep_extra=(32, 0))
