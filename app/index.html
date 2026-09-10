@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Бренд Мебели — приложение</title>
+
+<!-- Если открыто уже как установленное приложение — сразу в каталог, без мигания лендинга -->
+<script>
+  (function () {
+    try {
+      var standalone =
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.matchMedia("(display-mode: fullscreen)").matches ||
+        window.matchMedia("(display-mode: minimal-ui)").matches ||
+        window.navigator.standalone === true;
+      if (standalone) window.location.replace("../");
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="theme-color" content="#55643f" />
+<meta name="description" content="Установка приложения каталога мебели «Бренд Мебели» на экран смартфона." />
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Бренд Мебели" />
+
+<style>
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../assets/fonts/inter-cyrillic-wght-normal.woff2") format("woff2");
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../assets/fonts/inter-latin-wght-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215;
+  }
+
+  :root {
+    --bg: #f3ede1;
+    --surface: #ffffff;
+    --ink: #2c2a1e;
+    --ink-soft: #6f6a54;
+    --accent: #55643f;
+    --accent-ink: #ffffff;
+    --accent-soft: #e2e6d3;
+    --line: rgba(44, 42, 30, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1b16;
+      --surface: #26251f;
+      --ink: #ece7d8;
+      --ink-soft: #a5a08c;
+      --accent: #9aae74;
+      --accent-ink: #1c1b16;
+      --accent-soft: #333526;
+      --line: rgba(236, 231, 216, 0.16);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font-family: "Inter", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(1.25rem + env(safe-area-inset-top)) 1.25rem calc(1.25rem + env(safe-area-inset-bottom));
+  }
+
+  .card {
+    width: 100%;
+    max-width: 26rem;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 1.9rem 1.5rem 1.6rem;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+    text-align: center;
+  }
+
+  .logo {
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 1.4rem;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+  h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 0.25rem;
+  }
+  .tagline {
+    margin: 0 auto 1.4rem;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    max-width: 20rem;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    font: inherit;
+    font-size: 1.02rem;
+    font-weight: 600;
+    padding: 0.95rem 1.2rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-primary:active { transform: translateY(1px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--line);
+    margin-top: 0.6rem;
+    font-weight: 500;
+  }
+  .btn[hidden] { display: none; }
+
+  .note {
+    margin-top: 1.1rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    text-align: left;
+    background: var(--accent-soft);
+    border-radius: 14px;
+    padding: 0.85rem 0.95rem;
+  }
+  .note[hidden] { display: none; }
+  .note b { color: var(--ink); }
+  .note ol { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+  .note li { margin: 0.15rem 0; }
+  .note .ios-share {
+    display: inline-flex; width: 1.05em; height: 1.05em; vertical-align: -0.2em;
+  }
+
+  .perks {
+    list-style: none;
+    margin: 1.2rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+    text-align: left;
+  }
+  .perks li {
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .perks svg { flex: none; width: 1.15rem; height: 1.15rem; color: var(--accent); margin-top: 0.1rem; }
+
+  .status {
+    margin-top: 1rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--accent);
+    min-height: 1.2em;
+  }
+</style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="icons/icon-192.png" alt="Бренд Мебели" width="88" height="88" />
+    <h1>Бренд Мебели</h1>
+    <p class="tagline">Каталог мягкой мебели фабрики «Апогей» — на экране вашего смартфона.</p>
+
+    <button class="btn btn-primary" id="installBtn" hidden>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 12 5 5 5-5"/><path d="M5 21h14"/></svg>
+      Установить приложение
+    </button>
+
+    <a class="btn btn-ghost" href="../" id="openBtn">Просто открыть каталог</a>
+
+    <div class="status" id="status" role="status"></div>
+
+    <div class="note" id="iosNote" hidden>
+      <b>Как добавить на экран «Домой»:</b>
+      <ol>
+        <li>Нажмите
+          <svg class="ios-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+          «Поделиться» внизу браузера
+        </li>
+        <li>Выберите «На экран «Домой»»</li>
+        <li>Подтвердите — «Добавить»</li>
+      </ol>
+    </div>
+
+    <div class="note" id="manualNote" hidden>
+      <b>Как установить:</b> откройте меню браузера (⋮) и выберите
+      «Установить приложение» или «Добавить на главный экран».
+    </div>
+
+    <ul class="perks">
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M12 18h.01"/></svg>
+        Иконка запуска прямо на экране «Домой»
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+        Открывается на весь экран, без адресной строки
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-3 7h5l-3 7"/><circle cx="12" cy="12" r="10"/></svg>
+        Быстрый доступ к каталогу, поиску и подбору
+      </li>
+    </ul>
+  </main>
+
+<script>
+  (function () {
+    "use strict";
+    var installBtn = document.getElementById("installBtn");
+    var iosNote = document.getElementById("iosNote");
+    var manualNote = document.getElementById("manualNote");
+    var statusEl = document.getElementById("status");
+    var deferredPrompt = null;
+
+    var ua = navigator.userAgent || "";
+    var isIOS = /iphone|ipad|ipod/i.test(ua) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    var installed = false;
+
+    // Регистрируем service worker (нужен для установки и офлайн-оболочки).
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("sw.js").catch(function () {});
+      });
+    }
+
+    function showManualHint() {
+      if (installed) return;
+      if (isIOS) iosNote.hidden = false;
+      else manualNote.hidden = false;
+    }
+    // Если через 1.5 с браузер не предложил установку — показываем ручную подсказку.
+    var hintTimer = setTimeout(showManualHint, 1500);
+
+    window.addEventListener("beforeinstallprompt", function (e) {
+      e.preventDefault();
+      deferredPrompt = e;
+      clearTimeout(hintTimer);
+      iosNote.hidden = true;
+      manualNote.hidden = true;
+      installBtn.hidden = false;
+    });
+
+    installBtn.addEventListener("click", function () {
+      if (!deferredPrompt) return;
+      installBtn.disabled = true;
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(function (choice) {
+        deferredPrompt = null;
+        installBtn.disabled = false;
+        if (choice && choice.outcome === "accepted") {
+          statusEl.textContent = "Устанавливаю…";
+        } else {
+          statusEl.textContent = "";
+          installBtn.hidden = true;
+          showManualHint();
+        }
+      });
+    });
+
+    window.addEventListener("appinstalled", function () {
+      installed = true;
+      deferredPrompt = null;
+      installBtn.hidden = true;
+      iosNote.hidden = true;
+      manualNote.hidden = true;
+      statusEl.textContent = "Готово! Открываю каталог…";
+      setTimeout(function () { window.location.replace("../"); }, 1200);
+    });
+
+    // Уже установлено и открыто в обычной вкладке — предложим просто открыть.
+    if (window.matchMedia("(display-mode: standalone)").matches) {
+      window.location.replace("../");
+    }
+  })();
+</script>
+</body>
+</html>
