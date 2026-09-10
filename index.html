@@ -395,6 +395,15 @@
   }
   .quiz-options button:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-2px); }
   .quiz-options.quiz-options-type button { font-size: clamp(1rem, 3.5vw, 1.15rem); font-weight: 500; }
+  /* Крупные плитки выбора размера — кровать (только ширина) и матрас (Ш×Д).
+     Стиль как у шага «Что подбираем?»: квадрат с рамкой, крупное читаемое число.
+     У матраса «×200» уходит второй строкой мелким шрифтом (.q-sub). */
+  .quiz-options.quiz-options-size button { font-size: clamp(1.9rem, 9vw, 2.6rem); font-weight: 700; line-height: 1; letter-spacing: 0.01em; gap: 0.15rem; }
+  .quiz-options.quiz-options-size .q-sub { font-size: 0.4em; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-soft); }
+  /* Нечётную последнюю плитку (5 размеров → 2 + 2 + 1) центрируем по строке. */
+  .quiz-options-size button:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 0.4rem); }
+  /* Выбранный размер (кровать/матрас) — заливка акцентом. */
+  .quiz-options button[aria-current="true"] { border-color: var(--accent); background: var(--accent-soft); }
   .quiz-opt-icon {
     display: inline-flex; align-items: center; justify-content: center;
     width: 5.6rem; height: 5.6rem; flex-shrink: 0; font-size: 4rem;
@@ -408,6 +417,7 @@
     .quiz-opt-icon { width: 4.3rem; height: 4.3rem; font-size: 3.1rem; }
     .quiz-options button { padding: 0.3rem 0.25rem; font-size: 0.75rem; gap: 0.25rem; }
     .quiz-options.quiz-options-type button { font-size: 1rem; }
+    .quiz-options.quiz-options-size button { font-size: 2rem; }
     .quiz-modal.quiz-modal-config {
       width: calc(100vw - 1rem); max-width: 30rem; max-height: calc(100dvh - 1rem);
       padding: 0.75rem 0.9rem; overflow: hidden;
@@ -1599,6 +1609,12 @@
   const MATTRESS_SIZES = [80, 90, 120, 140, 160, 180];
   answers.mattressWidth = 160;
 
+  // Стандартные ширины спального места кроватей (см). Кровать, как и матрас,
+  // получает быстрый выбор фиксированного размера вместо свободных ползунков
+  // Длина/Ширина — см. goToConfig() и showResults().
+  const BED_SIZES = [90, 120, 140, 160, 180];
+  answers.bedWidth = 160;
+
   function parseRange(dims, idx) {
     // e.g. "2000×800–1800×230–240" — idx 1 is the "800–1800" width range (mm).
     if (!dims) return null;
@@ -1711,6 +1727,7 @@
     modal.classList.add("quiz-modal-config");
     const isSofa = answers.type === "sofa";
     const isMattress = answers.type === "mattress";
+    const isBed = answers.type === "bed";
     modal.innerHTML = `
       <div class="quiz-head"><h2 class="display">${isSofa ? "Модификация и габариты" : "Габариты"}</h2><button class="quiz-close" id="qClose">&times;</button></div>
       <div class="quiz-step-label">Шаг 2</div>
@@ -1722,7 +1739,11 @@
       ${isMattress ? `
       <div class="field-block">
         <div class="field-title">Размер матраса (Ш×Д, см)</div>
-        <div class="quiz-options" id="mattressSizes">${MATTRESS_SIZES.map((w) => `<button data-w="${w}" aria-current="${w === answers.mattressWidth}">${w}×200</button>`).join("")}</div>
+        <div class="quiz-options quiz-options-size" id="mattressSizes">${MATTRESS_SIZES.map((w) => `<button data-w="${w}" aria-current="${w === answers.mattressWidth}">${w}<span class="q-sub">×200</span></button>`).join("")}</div>
+      </div>` : isBed ? `
+      <div class="field-block">
+        <div class="field-title">Ширина спального места, см</div>
+        <div class="quiz-options quiz-options-size" id="bedSizes">${BED_SIZES.map((w) => `<button data-w="${w}" aria-current="${w === answers.bedWidth}">${w}</button>`).join("")}</div>
       </div>` : `
       <div class="field-block">
         <div class="field-title">Габариты</div>
@@ -1739,12 +1760,13 @@
         [...modal.querySelectorAll("#modTabs button")].forEach((b) => b.setAttribute("aria-current", String(b === btn)));
       });
     }
-    if (isMattress) {
-      const sizesEl = modal.querySelector("#mattressSizes");
+    if (isMattress || isBed) {
+      const sizesEl = modal.querySelector(isBed ? "#bedSizes" : "#mattressSizes");
+      const key = isBed ? "bedWidth" : "mattressWidth";
       sizesEl.addEventListener("click", (e) => {
         const btn = e.target.closest("button");
         if (!btn) return;
-        answers.mattressWidth = Number(btn.dataset.w);
+        answers[key] = Number(btn.dataset.w);
         [...sizesEl.children].forEach((b) => b.setAttribute("aria-current", String(b === btn)));
       });
     } else {
@@ -1801,9 +1823,9 @@
       results = results.filter((p) => matchesFormat(p.title, answers.modification, p.desc));
     }
 
-    if (type === "mattress") {
+    if (type === "mattress" || type === "bed") {
       // Fixed-size pick: does this SKU's width range (mm) cover the chosen width?
-      const wantMm = answers.mattressWidth * 10;
+      const wantMm = (type === "bed" ? answers.bedWidth : answers.mattressWidth) * 10;
       results = results.filter((p) => {
         const range = parseRange(p.dims, 1);
         return range && wantMm >= range[0] - 10 && wantMm <= range[1] + 10;
