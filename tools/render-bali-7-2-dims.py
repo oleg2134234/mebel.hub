@@ -78,16 +78,16 @@ def build(src, floor, sides, crop, out_name):
     print("wrote", out_name, canvas.size)
 
 
-# ---------------- FOLDED (real_general.jpg 1200x900) : габариты корпуса ----------------
-# near-frontal photo -> only the front edge projects cleanly; depth 137 & height 98 go in
-# the slide caption (same rule as height). One length line along the floor projection.
+# ---------------- FOLDED (folded34_src.jpg — real photo rotated to 3/4) : габариты корпуса ----------------
+# 3/4 from front-left: front edge FL->FR = длина 256, right end FR->BR = глубина 137, L at FR.
 build(
-    "real_general.jpg",
-    floor=dict(FL=(80, 672), FR=(947, 703), BR=(985, 660), BL=(52, 648)),
+    "folded34_src.jpg",
+    floor=dict(FL=(110, 720), FR=(900, 645), BR=(985, 600), BL=(95, 690)),
     sides=[
-        dict(a="FL", b="FR", label="256", d=86, pill_along=0.42, pill_extra=(0, 8)),
+        dict(a="FL", b="FR", label="256", d=84, pill_along=0.42, pill_extra=(0, 8)),
+        dict(a="FR", b="BR", label="137", d=74, pill_along=0.5, pill_extra=(24, 2)),
     ],
-    crop=(150, 355, 1200 + 2 * PAD - 30, 900 + PAD),
+    crop=(60, 300, 1200 + 2 * PAD - 10, 896 + PAD),
     out_name="slide_dims_folded.jpg",
 )
 
