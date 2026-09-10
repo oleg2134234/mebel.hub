@@ -1,27 +1,27 @@
 # -*- coding: utf-8 -*-
 """Джой 7 ДКУ-О (id 226) — размерные выноски на белых панелях.
 
-Раскладка выносок повторяет утверждённый стиль серии «Джой» (см. joy-1-dku-o/slide3_dims):
-  сложенный вид  — длина по переднему краю пола ОТ КРАЯ ДО КРАЯ + глубина коротким
-                   отрезком от переднего левого угла (уголком «L»);
-  разложенный    — ширина спального по переднему краю пола ОТ КРАЯ ДО КРАЯ +
-                   глубина 198 верхней выноской над спинкой (левый торец перекрыт валиком).
-Линии строятся детерминированно: концы = A+n*d, B+n*d (общая нормаль n, общий отступ d),
-у каждого конца — тонкая выносная линия до реального угла габарита.
+Раскладка по образцу Олега (нарисован от руки 10.09.2026, "не трогай линии и их расположение"):
+  сложенный вид  — длина 377 прямой линией ПОД диваном во всю ширину, от края до края;
+                   глубина 180 короткой диагональю у кушетки сверху-справа, параллельно торцу.
+  разложенный    — ширина спального 174 прямой линией ПОД платформой во всю ширину;
+                   глубина 198 короткой диагональю у левого торца снизу-слева, параллельно грани.
+Линии строятся детерминированно, у каждого конца — тонкая выносная линия до реального угла габарита.
 
-Источники: joy7_dims_{folded,unfolded}_white.png (Nano Banana, серый фон -> белый).
+Источники: assets/joy-7-dku-o/dims_white_{folded,unfolded}.jpg
+          (панели из старого slide3_dims.jpg, серый фон убран до белого через Nano Banana).
 Числа: PRODUCTS[226].dims 3770x1800x855 -> сложенный 377 x 180 (высота 86 -> подпись);
        desc "Спальное место 1740x1980" -> 174 (ширина) x 198 (глубина).
 """
 import math
 from PIL import Image, ImageDraw, ImageFont
 
-SCR = r"C:\Users\user\AppData\Local\Temp\claude\C--Users-user-Claude\bc2bb7c1-0199-4207-ad09-a45bc538b76e\scratchpad"
 DEST = r"C:\Users\user\Claude\mebel.hub\assets\joy-7-dku-o"
 INK = (58, 42, 38)
 LW = 6            # основная размерная линия
 EW = 3           # выносная линия
-DOT = 14
+DOT = 15         # кружок на конце линии
+EXT = False      # выносные линии к углам габарита (Олег 10.09.2026: не нужны, стиль как у др. слайдов)
 FONT_PATH = r"C:\Windows\Fonts\arialbd.ttf"
 
 
@@ -54,11 +54,11 @@ def dim(draw, A, B, d, want, label, font, pill_t=0.5, ext_gap=14):
     n = pick_norm(u, want)
     P1 = (A[0]+n[0]*d, A[1]+n[1]*d)
     P2 = (B[0]+n[0]*d, B[1]+n[1]*d)
-    # выносные линии (с маленьким зазором от предмета)
-    for C, P in ((A, P1), (B, P2)):
-        (uc), Lc = unit(C, P)
-        draw.line([(C[0]+uc[0]*ext_gap, C[1]+uc[1]*ext_gap),
-                   (P[0]+uc[0]*8, P[1]+uc[1]*8)], fill=INK, width=EW)
+    if EXT:
+        for C, P in ((A, P1), (B, P2)):
+            (uc), Lc = unit(C, P)
+            draw.line([(C[0]+uc[0]*ext_gap, C[1]+uc[1]*ext_gap),
+                       (P[0]+uc[0]*8, P[1]+uc[1]*8)], fill=INK, width=EW)
     draw.line([P1, P2], fill=INK, width=LW)
     for P in (P1, P2):
         draw.ellipse([P[0]-DOT, P[1]-DOT, P[0]+DOT, P[1]+DOT], fill=INK)
@@ -66,25 +66,28 @@ def dim(draw, A, B, d, want, label, font, pill_t=0.5, ext_gap=14):
 
 
 def dim_explicit(draw, P1, P2, anchors, label, font, pill_t=0.5, ext_gap=14):
-    """Размерная линия по явным концам P1,P2; выносные линии к явным якорям anchors=(a1,a2)."""
-    for C, P in zip(anchors, (P1, P2)):
-        (uc), Lc = unit(C, P)
-        draw.line([(C[0]+uc[0]*ext_gap, C[1]+uc[1]*ext_gap),
-                   (P[0]-uc[0]*8, P[1]-uc[1]*8)], fill=INK, width=EW)
+    """Размерная линия по явным концам P1,P2 (anchors — для опциональных выносных линий)."""
+    if EXT:
+        for C, P in zip(anchors, (P1, P2)):
+            (uc), Lc = unit(C, P)
+            draw.line([(C[0]+uc[0]*ext_gap, C[1]+uc[1]*ext_gap),
+                       (P[0]-uc[0]*8, P[1]-uc[1]*8)], fill=INK, width=EW)
     draw.line([P1, P2], fill=INK, width=LW)
     for P in (P1, P2):
         draw.ellipse([P[0]-DOT, P[1]-DOT, P[0]+DOT, P[1]+DOT], fill=INK)
     pill(draw, (P1[0]+(P2[0]-P1[0])*pill_t, P1[1]+(P2[1]-P1[1])*pill_t), label, font)
 
 
+_DRAFTS = {}
+
+
 def load(tag):
-    im = Image.open(f"{SCR}\\joy7_dims_{tag}_white.png").convert("RGB")
+    im = Image.open(f"{DEST}\\dims_white_{tag}.jpg").convert("RGB")
     return im, ImageDraw.Draw(im), ImageFont.truetype(FONT_PATH, 58)
 
 
 def save_draft(im, tag):
-    out = f"{SCR}\\joy7_dims_{tag}_draft.png"
-    im.save(out); print("draft", tag, im.size)
+    _DRAFTS[tag] = im; print("draft", tag, im.size)
 
 
 # ================= FOLDED (по образцу Олега) =================
@@ -98,7 +101,8 @@ save_draft(im, "folded")
 
 # ================= UNFOLDED (по образцу Олега) =================
 # ширина спального 174 — прямой линией ПОД платформой во всю ширину, от края до края;
-# глубина 198 — короткой диагональю по перспективе у левого торца снизу-слева, параллельно боковой грани.
+# глубина 198 — короткой диагональю у левого торца снизу-слева. Расположение как в прошлой версии,
+# менять не нужно (Олег: "расположение линий менять не нужно, просто проставь размеры").
 im, d, font = load("unfolded")
 dim(d, (420, 995), (2380, 978), 165, '+y', "174", font, pill_t=0.52)
 dim_explicit(d, (226, 850), (501, 418), anchors=((445, 990), (720, 558)),
@@ -108,7 +112,7 @@ save_draft(im, "unfolded")
 
 # ================= финальные слайды =================
 def finalize(tag, box):
-    im = Image.open(f"{SCR}\\joy7_dims_{tag}_draft.png").convert("RGB").crop(box)
+    im = _DRAFTS[tag].convert("RGB").crop(box)
     w = 1500; h = round(im.height*w/im.width)
     im = im.resize((w, h), Image.LANCZOS)
     canvas = Image.new("RGB", (w, h), "white"); canvas.paste(im, (0, 0))
