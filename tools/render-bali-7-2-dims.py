@@ -1,18 +1,23 @@
-# Builds TWO separate dimension slides for Бали 7.2:
-#   assets/bali-7-2/slide_dims_folded.jpg    — folded sofa + габариты корпуса (длина, глубина)
-#   assets/bali-7-2/slide_dims_unfolded.jpg  — unfolded sofa + спальное место (длина, ширина)
-# Callouts are computed geometrically: each line is parallel to the measured floor edge A->B,
-# pushed outward by a constant perpendicular offset (never crossing the sofa), circles at the
-# ends, a dark pill with a white number (cm, no units). Height is NOT on the slides.
+# Two dimension slides for Бали 7.2, built on REAL photos (real floor, real perspective).
+#
+# ALGORITHM (Oleg, 10.09.2026 — use this for every "Размеры" slide):
+#   1. Take the sofa's projection onto the floor — the quad of its four ground corners
+#      FL (front-left), FR (front-right), BR (back-right), BL (back-left).
+#   2. For each measured side, offset OUTWARD from that floor-projection edge by a fixed
+#      distance, large enough to clear the sofa and its ground shadow.
+#   3. Draw the dimension line on that offset, strictly PARALLEL to the floor-projection edge,
+#      both ends the same perpendicular distance out. Circle at each end, dark pill + white cm.
+#   Length and depth lines share the front corner -> they read as an "L" (see tools/dims-style-ref.jpg).
 from PIL import Image, ImageDraw, ImageFont
 from math import hypot
-import numpy as np
 
 BASE = r"C:/Users/user/Claude/mebel.hub/assets/bali-7-2"
 OUT_W = 1200
-GRAPHITE = (44, 46, 52)
+INK = (38, 40, 46)
+PAD = 170  # white margin added around the photo so offset lines/pills never clip
 
-def load_font(sz):
+
+def font(sz):
     for p in (r"C:/Windows/Fonts/segoeuib.ttf", r"C:/Windows/Fonts/arialbd.ttf"):
         try:
             return ImageFont.truetype(p, sz)
@@ -20,75 +25,81 @@ def load_font(sz):
             pass
     return ImageFont.load_default()
 
-def purify(im):
-    a = np.asarray(im.convert("RGB")).astype(np.int16)
-    mx = a.max(axis=2); mn = a.min(axis=2)
-    bg = (mn > 234) & ((mx - mn) < 16)
-    a[bg] = [255, 255, 255]
-    return Image.fromarray(a.astype(np.uint8))
 
-def edge_callout(draw, A, B, label, font, d, side, pill_shift=(0, 0), r=8):
-    """Line parallel to A->B, offset by d along the outward unit normal (side = +1/-1).
-    Circles at both ends; a centered dark pill with white `label`."""
+def outward_normal(A, B, ref):
+    """Unit normal to A->B pointing AWAY from ref point (the sofa body centre)."""
     dx, dy = B[0] - A[0], B[1] - A[1]
     L = hypot(dx, dy) or 1.0
-    nx, ny = -dy / L * side, dx / L * side
+    nx, ny = -dy / L, dx / L
+    mx, my = (A[0] + B[0]) / 2, (A[1] + B[1]) / 2
+    if (mx + nx - ref[0]) ** 2 + (my + ny - ref[1]) ** 2 < (mx - nx - ref[0]) ** 2 + (my - ny - ref[1]) ** 2:
+        nx, ny = -nx, -ny
+    return nx, ny
+
+
+def dim_line(draw, A, B, ref, label, d, fnt, pill_along=0.5, pill_extra=(0, 0), r=8):
+    """A,B = the two floor-projection corners of the measured side. Offset outward by d."""
+    nx, ny = outward_normal(A, B, ref)
     A2 = (A[0] + nx * d, A[1] + ny * d)
     B2 = (B[0] + nx * d, B[1] + ny * d)
-    draw.line([A2, B2], fill=GRAPHITE, width=3)
+    draw.line([A2, B2], fill=INK, width=5)
     for c in (A2, B2):
-        draw.ellipse([c[0] - r, c[1] - r, c[0] + r, c[1] + r], fill=GRAPHITE)
-    cx = (A2[0] + B2[0]) / 2 + pill_shift[0]
-    cy = (A2[1] + B2[1]) / 2 + pill_shift[1]
-    tb = draw.textbbox((0, 0), label, font=font)
+        draw.ellipse([c[0] - r, c[1] - r, c[0] + r, c[1] + r], fill=INK)
+    cx = A2[0] + (B2[0] - A2[0]) * pill_along + pill_extra[0]
+    cy = A2[1] + (B2[1] - A2[1]) * pill_along + pill_extra[1]
+    tb = draw.textbbox((0, 0), label, font=fnt)
     tw, th = tb[2] - tb[0], tb[3] - tb[1]
-    padx, pady = 20, 12
-    box = [cx - tw / 2 - padx, cy - th / 2 - pady, cx + tw / 2 + padx, cy + th / 2 + pady]
-    draw.rounded_rectangle(box, radius=(box[3] - box[1]) / 2, fill=GRAPHITE)
-    draw.text((cx - tw / 2 - tb[0], cy - th / 2 - tb[1]), label, font=font, fill=(255, 255, 255))
+    px, py = 22, 13
+    box = [cx - tw / 2 - px, cy - th / 2 - py, cx + tw / 2 + px, cy + th / 2 + py]
+    draw.rounded_rectangle(box, radius=(box[3] - box[1]) / 2, fill=INK)
+    draw.text((cx - tw / 2 - tb[0], cy - th / 2 - tb[1]), label, font=fnt, fill="white")
 
-PAD_BOTTOM = 150  # white room so bottom pills never clip
 
-def build(src, edges, crop, out_name):
-    im = purify(Image.open(f"{BASE}/{src}")).convert("RGB")
+def build(src, floor, sides, crop, out_name):
+    im = Image.open(f"{BASE}/{src}").convert("RGB")
     r = OUT_W / im.width
     im = im.resize((OUT_W, round(im.height * r)), Image.LANCZOS)
-    canvas = Image.new("RGB", (OUT_W, im.height + PAD_BOTTOM), (255, 255, 255))
-    canvas.paste(im, (0, 0))
-    im = canvas
-    d = ImageDraw.Draw(im)
-    font = load_font(46)
-    for e in edges:
-        edge_callout(d, e["A"], e["B"], e["label"], font, e["d"], e["side"], e.get("shift", (0, 0)))
+    canvas = Image.new("RGB", (im.width + 2 * PAD, im.height + PAD), "white")
+    canvas.paste(im, (PAD, 0))
+    off = lambda p: (p[0] + PAD, p[1])
+    FL, FR, BR, BL = (off(floor[k]) for k in ("FL", "FR", "BR", "BL"))
+    ref = ((FL[0] + FR[0] + BR[0] + BL[0]) / 4, (FL[1] + FR[1] + BR[1] + BL[1]) / 4 - 120)
+    d = ImageDraw.Draw(canvas)
+    fnt = font(46)
+    for s in sides:
+        A, B = {"FL": FL, "FR": FR, "BR": BR, "BL": BL}[s["a"]], {"FL": FL, "FR": FR, "BR": BR, "BL": BL}[s["b"]]
+        dim_line(d, A, B, ref, s["label"], s["d"], fnt,
+                 s.get("pill_along", 0.5), s.get("pill_extra", (0, 0)))
     if crop:
-        im = im.crop(crop)
-    im.save(f"{BASE}/{out_name}", quality=92)
-    print("wrote", out_name, im.size)
+        x0, y0, x1, y1 = crop
+        canvas = canvas.crop((x0 + PAD if x0 == 0 else x0, y0, x1 + PAD if x1 == OUT_W else x1, y1)) \
+            if False else canvas.crop(crop)
+    canvas.save(f"{BASE}/{out_name}", quality=92)
+    print("wrote", out_name, canvas.size)
 
-OFFSET = 56  # one shared perpendicular offset for every line, per the 10.09.2026 rule
 
-# ---------- FOLDED: габариты корпуса ----------  (panel: shadow-free cut, 1200x896)
+# ---------------- FOLDED (real_general.jpg 1200x900) : габариты корпуса ----------------
+# near-frontal photo -> only the front edge projects cleanly; depth 137 & height 98 go in
+# the slide caption (same rule as height). One length line along the floor projection.
 build(
-    "dims_src_folded.png",
-    edges=[
-        # длина 256 — параллельно передней нижней грани, от левого угла проекции до правого
-        dict(A=(140, 665), B=(1000, 703), label="256", d=OFFSET, side=1, shift=(0, 4)),
-        # глубина 137 — параллельно правой нижней грани (торцу), вынесена вправо-вниз
-        dict(A=(1000, 700), B=(1085, 655), label="137", d=OFFSET, side=1, shift=(20, 0)),
+    "real_general.jpg",
+    floor=dict(FL=(80, 672), FR=(947, 703), BR=(985, 660), BL=(52, 648)),
+    sides=[
+        dict(a="FL", b="FR", label="256", d=86, pill_along=0.42, pill_extra=(0, 8)),
     ],
-    crop=(0, 270, 1200, 852),
+    crop=(150, 355, 1200 + 2 * PAD - 30, 900 + PAD),
     out_name="slide_dims_folded.jpg",
 )
 
-# ---------- UNFOLDED: спальное место ----------  (panel: clean white v4, 1200x896)
+# ---------------- UNFOLDED (slide_unfolded.jpg, real photo, person removed) : спальное место ----------------
+# clear 3/4 from front-left: front edge FL->FR = длина, left edge FL->BL = глубина, share FL (L-shape).
 build(
-    "dims_src_unfolded.png",
-    edges=[
-        # длина спального 200 — параллельно передней нижней грани
-        dict(A=(135, 645), B=(1000, 745), label="200", d=OFFSET, side=1, shift=(0, 4)),
-        # ширина спального 190 — параллельно правой нижней грани (торцу)
-        dict(A=(1000, 745), B=(1090, 690), label="190", d=OFFSET, side=1, shift=(20, 0)),
+    "slide_unfolded.jpg",
+    floor=dict(FL=(291, 694), FR=(974, 678), BR=(1006, 590), BL=(223, 447)),
+    sides=[
+        dict(a="FL", b="FR", label="200", d=84, pill_along=0.46, pill_extra=(0, 8)),
+        dict(a="FL", b="BL", label="190", d=74, pill_along=0.52, pill_extra=(-28, 0)),
     ],
-    crop=(0, 300, 1200, 884),
+    crop=(120, 300, 1200 + 2 * PAD - 10, 896 + PAD),
     out_name="slide_dims_unfolded.jpg",
 )
