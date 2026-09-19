@@ -841,6 +841,15 @@
     .gallery-dots { padding: 0.35rem 0.9rem 0.75rem; }
     .gallery-nav { width: 2.35rem; height: 2.35rem; }
   }
+  /* Страница увеличена жестом или открыта «версией для ПК»: окно подгоняется
+     под видимую часть экрана (JS galFit), раскладка — как на телефоне. */
+  .gallery-overlay.compact { padding: 0; }
+  .gallery-overlay.compact .gallery-modal { max-width: none; height: 100%; max-height: 100%; border-radius: 0; }
+  .gallery-overlay.compact .gallery-top { padding: 0.75rem 0.9rem 0.35rem; }
+  .gallery-overlay.compact .gallery-track { height: calc(var(--gal-vh, 100vh) * 0.55); border-radius: 10px; }
+  .gallery-overlay.compact .gallery-caption { padding: 0.65rem 0.9rem 0.4rem; }
+  .gallery-overlay.compact .gallery-dots { padding: 0.35rem 0.9rem 0.75rem; }
+  .gallery-overlay.compact .gallery-nav { width: 2.35rem; height: 2.35rem; }
 </style>
 
 <div class="screen active" id="homeScreen">
@@ -2035,7 +2044,31 @@
     galCurrent = 0;
     galRender();
     galOverlay.classList.add("open");
+    galFit();
   };
+
+  // Если страницу увеличили жестом (или открыта «версия для ПК»), fixed-окно
+  // растягивается на всю страницу и края уходят за экран. Подгоняем окно под
+  // видимую область visualViewport.
+  function galFit() {
+    const vv = window.visualViewport;
+    const s = galOverlay.style;
+    const zoomed = !!vv && (vv.scale > 1.01 || vv.width < window.innerWidth - 1);
+    if (zoomed && galOverlay.classList.contains("open")) {
+      s.inset = "auto";
+      s.left = vv.offsetLeft + "px";
+      s.top = vv.offsetTop + "px";
+      s.width = vv.width + "px";
+      s.height = vv.height + "px";
+      s.setProperty("--gal-vh", vv.height + "px");
+      galOverlay.classList.toggle("compact", vv.width <= 600);
+    } else {
+      s.inset = s.left = s.top = s.width = s.height = "";
+      s.removeProperty("--gal-vh");
+      galOverlay.classList.remove("compact");
+    }
+  }
+  window.addEventListener("resize", galFit);
 
   function closeGallery(updateUrl = true) {
     galTrack.querySelectorAll("video").forEach((video) => video.pause());
