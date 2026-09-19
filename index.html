@@ -522,21 +522,6 @@
     display: flex; align-items: center; justify-content: center;
   }
   .home-header-actions { display: flex; align-items: center; gap: 0.45rem; flex: none; }
-  .home-install-btn {
-    height: 2.55rem; padding: 0.14rem 0.72rem 0.14rem 0.18rem;
-    border: 1px solid var(--line); border-radius: 999px;
-    background: var(--surface); color: var(--ink); text-decoration: none;
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.28rem;
-    font-size: 0.66rem; font-weight: 650; line-height: 1; white-space: nowrap;
-    box-shadow: 0 0.25rem 0.7rem rgba(44, 42, 30, 0.08);
-    transition: border-color 0.15s, background 0.15s, transform 0.15s;
-  }
-  .home-install-btn .text { line-height: 1.18; text-align: left; }
-  .home-install-btn:hover { border-color: var(--accent); background: var(--accent-soft); transform: translateY(-1px); }
-  .home-install-btn img {
-    display: block; width: 2.3rem; height: 2.3rem; object-fit: contain;
-    transform: scale(1.3); transform-origin: center;
-  }
   @media (max-width: 600px) {
     .home-header { gap: 0.45rem; }
     .home-header .word {
@@ -544,9 +529,6 @@
       letter-spacing: 0.01em;
     }
     .home-header-actions { gap: 0.3rem; }
-    .home-install-btn { width: 2.4rem; height: 2.4rem; padding: 0; }
-    .home-install-btn img { width: 2.25rem; height: 2.25rem; transform: scale(1.32); }
-    .home-install-btn .text { display: none; }
   }
   .home-body { max-width: 640px; margin: 0 auto; padding: 1.6rem clamp(1rem, 4vw, 1.5rem) 3rem; }
   .home-title { font-size: clamp(1.3rem, 3.4vw, 1.7rem); margin: 0 0 1.3rem; text-wrap: balance; }
@@ -868,10 +850,6 @@
       <span class="word display">БРЕНД МЕБЕЛИ</span>
     </div>
     <div class="home-header-actions">
-      <a class="home-install-btn" id="tileInstall" href="app/" aria-label="Установить на смартфон" title="Установить на смартфон">
-        <img src="assets/ui-icons/install-app-3d.png" width="256" height="256" alt="" aria-hidden="true" />
-        <span class="text">Установить<br />на смартфон</span>
-      </a>
       <button class="home-search-btn" id="homeSearchBtn" aria-label="Поиск">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       </button>
@@ -896,10 +874,10 @@
         <span class="icon-badge" aria-hidden="true"><img class="home-icon-3d" src="assets/ui-icons/home-fabric-picker-3d.png" width="512" height="512" alt="" /></span>
         <span class="label">Подбор ткани</span>
       </button>
-      <button class="home-tile" id="tileTips">
-        <span class="icon-badge badge-tips"><svg class="cube icon-tips" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.7 10.74c.5.4.7 1 .7 1.62V16h6v-.64c0-.62.2-1.22.7-1.62A6 6 0 0 0 12 3z"/><path d="M12 3v0" stroke="#e0a52c" stroke-width="2.4"/></svg></span>
-        <span class="label">Советы начинающему</span>
-      </button>
+      <a class="home-tile home-tile--3d" id="tileInstall" href="app/" style="text-decoration:none">
+        <span class="icon-badge" aria-hidden="true"><img class="home-icon-3d" src="assets/ui-icons/install-app-3d.png" width="256" height="256" alt="" /></span>
+        <span class="label">Установить приложение</span>
+      </a>
     </div>
   </div>
 </div>
@@ -1623,7 +1601,6 @@
 
   document.getElementById("tileCatalog").addEventListener("click", () => { resetCatalog(); showScreen("catalogScreen"); });
   document.getElementById("tileFabric").addEventListener("click", () => showScreen("fabricScreen"));
-  document.getElementById("tileTips").addEventListener("click", () => showScreen("tipsScreen"));
   document.getElementById("tileSupplier").addEventListener("click", () => showScreen("supplierScreen"));
   document.getElementById("catalogBack").addEventListener("click", () => showScreen("homeScreen"));
   document.getElementById("fabricBack").addEventListener("click", () => showScreen("homeScreen"));
