@@ -120,42 +120,48 @@ def dim_line(draw, A, B, ref, label, d, fnt, pill_t=0.5, pill_extra=(0, 0), r=8)
     draw.text((cx - tw / 2 - tb[0], cy - th / 2 - tb[1]), label, font=fnt, fill="white")
 
 
-def build(src, floor, length_label, depth_label, d_len, d_dep, crop, out_name,
-          pill_len_t=0.42, pill_dep_extra=(28, 0)):
+def build(src, corner, other, back, length_label, depth_label, d_len, d_dep, crop, out_name,
+          pill_len_extra=(0, 10), pill_dep_extra=(-36, 0)):
+    """L-corner sits at `corner`. Length line: corner -> `other` (the far front corner).
+    Depth line: corner -> `back` (the back corner on the corner's own side)."""
     im = Image.open(f"{BASE}/{src}").convert("RGB")
     r = OUT_W / im.width
     im = im.resize((OUT_W, round(im.height * r)), Image.LANCZOS)
-    FL, FR, BR = floor["FL"], floor["FR"], floor["BR"]
-    print(f"  {out_name}: FL={FL} FR={FR} BR={BR}")
+    C, O, B = corner, other, back
+    print(f"  {out_name}: corner={C} other={O} back={B}")
 
     canvas = Image.new("RGB", (im.width + 2 * PAD, im.height + PAD), "white")
     canvas.paste(im, (PAD, 0))
-    o = lambda p: (p[0] + PAD, p[1])
-    FL, FR, BR = o(FL), o(FR), o(BR)
-    ref = ((FL[0] + FR[0]) / 2, (FL[1] + FR[1]) / 2 - 170)
+    off = lambda p: (p[0] + PAD, p[1])
+    C, O, B = off(C), off(O), off(B)
+    ref = ((C[0] + O[0]) / 2, min(C[1], O[1]) - 190)   # sofa body is "up" from the front edge
     d = ImageDraw.Draw(canvas)
     fnt = font(46)
     if DEBUG:
-        for P, c in ((FL, (255, 0, 0)), (FR, (0, 190, 0)), (BR, (0, 90, 255))):
-            d.ellipse([P[0] - 10, P[1] - 10, P[0] + 10, P[1] + 10], outline=c, width=4)
-        d.line([FL, FR], fill=(255, 0, 255), width=2)
-        d.line([FR, BR], fill=(255, 0, 255), width=2)
-    dim_line(d, FL, FR, ref, length_label, d_len, fnt, pill_t=pill_len_t, pill_extra=(0, 6))
-    dim_line(d, FR, BR, ref, depth_label, d_dep, fnt, pill_t=0.5, pill_extra=pill_dep_extra)
+        for P, col in ((C, (255, 0, 0)), (O, (0, 190, 0)), (B, (0, 90, 255))):
+            d.ellipse([P[0] - 10, P[1] - 10, P[0] + 10, P[1] + 10], outline=col, width=4)
+        d.line([C, O], fill=(255, 0, 255), width=2)
+        d.line([C, B], fill=(255, 0, 255), width=2)
+    dim_line(d, C, O, ref, length_label, d_len, fnt, pill_t=0.5, pill_extra=pill_len_extra)
+    dim_line(d, C, B, ref, depth_label, d_dep, fnt, pill_t=0.5, pill_extra=pill_dep_extra)
     canvas.crop(crop).save(f"{BASE}/{out_name}", quality=92)
     print("wrote", out_name)
 
 
-# corners hand-read on the white cut-out grid (1200-wide image space), verified with --debug
+# per Oleg's markup:
+#   folded   — L-corner at FRONT-RIGHT: length along the front (to front-left),
+#              depth along the RIGHT end (to back-right).
+#   unfolded — L-corner at FRONT-LEFT:  length along the front (to front-right),
+#              depth along the LEFT side (to back-left).
 print("folded:")
 build("dims_cut_folded.png",
-      floor=dict(FL=(100, 770), FR=(942, 686), BR=(1012, 648)),
-      length_label="256", depth_label="137", d_len=52, d_dep=50,
-      crop=(40, 250, OUT_W + 2 * PAD - 20, 896 + PAD), out_name="slide_dims_folded.jpg",
-      pill_dep_extra=(30, 0))
+      corner=(1000, 666), other=(96, 748), back=(1064, 612),
+      length_label="256", depth_label="137", d_len=50, d_dep=46,
+      crop=(20, 250, OUT_W + 2 * PAD - 20, 896 + PAD), out_name="slide_dims_folded.jpg",
+      pill_len_extra=(0, 12), pill_dep_extra=(40, 0))
 print("unfolded:")
 build("dims_cut_unfolded.png",
-      floor=dict(FL=(288, 732), FR=(972, 702), BR=(1016, 618)),
-      length_label="200", depth_label="190", d_len=52, d_dep=50,
-      crop=(60, 250, OUT_W + 2 * PAD - 20, 896 + PAD), out_name="slide_dims_unfolded.jpg",
-      pill_dep_extra=(32, 0))
+      corner=(292, 738), other=(974, 720), back=(205, 586),
+      length_label="200", depth_label="190", d_len=50, d_dep=46,
+      crop=(20, 250, OUT_W + 2 * PAD - 20, 896 + PAD), out_name="slide_dims_unfolded.jpg",
+      pill_len_extra=(0, 12), pill_dep_extra=(-40, 0))

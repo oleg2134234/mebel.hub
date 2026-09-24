@@ -1,0 +1,36 @@
+{
+  "id": 233,
+  "title": "Тахта Найс",
+  "slides": [
+    {
+      "src": "assets/tahta-nice/real_general.jpg",
+      "name": "Общий вид",
+      "desc": "Реальное фото компактной тахты «Найс» в бирюзовом велюре."
+    },
+    {
+      "src": "assets/tahta-nice/slide_dims.jpg",
+      "name": "Размеры",
+      "desc": "Габариты: 1600×760 мм. Спальное место: 760×2000 мм."
+    },
+    {
+      "src": "assets/tahta-nice/real_side.jpg",
+      "name": "Вид сбоку",
+      "desc": "Реальное фото товара, боковой ракурс и высокие опоры."
+    },
+    {
+      "src": "assets/tahta-nice/real_unfolded.jpg",
+      "name": "Спальное место",
+      "desc": "Тахта в разложенном виде, спальное место 760×2000 мм."
+    },
+    {
+      "src": "assets/tahta-nice/real_storage.jpg",
+      "name": "Практичность",
+      "desc": "Вместительный бельевой короб в основании тахты."
+    },
+    {
+      "src": "assets/tahta-nice/supplier_card.jpg",
+      "name": "Карточка поставщика",
+      "desc": "Исходная карточка поставщика с подтверждёнными размерами модели."
+    }
+  ]
+}
