@@ -1094,6 +1094,13 @@
       category: "sofa",
       memberIds: [220, 221, 222, 223, 224, 225, 226],
       description: "Модульные прямые и угловые диваны в едином дизайне. Выберите подходящую конфигурацию и откройте её полную карточку."
+    },
+    {
+      id: "real",
+      title: "Реал",
+      category: "mattress",
+      memberIds: [254, 255, 256],
+      description: "Беспружинные матрасы шириной 80–180 см. Сравните высоту, допустимую нагрузку и наполнение трёх вариантов."
     }
   ];
   const expandedSeries = new Set();
@@ -1268,20 +1275,29 @@
   function seriesCardHTML(series, members) {
     const expanded = expandedSeries.has(series.id);
     const previews = members.slice(0, 3);
+    const isMattress = series.category === "mattress";
     const straightCount = members.filter((p) => !/углов|оттоман|ДКУ/i.test(`${p.title} ${p.desc || ""}`)).length;
     const cornerCount = members.length - straightCount;
     const previewImages = previews.map((p) => {
       const src = IMAGES[p.id];
       return src ? `<img src="${src}" alt="${escapeHTML(p.title)}" />` : `<span aria-hidden="true">${ICONS[p.category] || ICONS.other}</span>`;
     }).join("");
-    const modelButtons = members.map((p) => `
+    const modelButtons = members.map((p) => {
+      const height = p.desc?.match(/высота\s*([0-9.,–-]+)\s*см/i)?.[1];
+      const load = p.desc?.match(/нагрузка\s*([0-9.,–-]+)\s*кг/i)?.[1];
+      const variant = isMattress ? p.title.replace(/^Реал\s+|\s+Матрас$/gi, "") : p.title;
+      const meta = isMattress
+        ? [height && `Высота ${height} см`, load && `до ${load} кг`].filter(Boolean).join(" · ")
+        : seriesDims(p);
+      return `
       <button class="series-model" type="button" onclick="openGallery(${p.id})" aria-label="Открыть карточку ${escapeHTML(p.title)}">
         ${IMAGES[p.id] ? `<img src="${IMAGES[p.id]}" alt="" />` : `<span aria-hidden="true">${ICONS[p.category] || ICONS.other}</span>`}
         <span class="series-model-copy">
-          <span class="series-model-name">${escapeHTML(p.title)}</span>
-          <span class="series-model-dims">${escapeHTML(seriesDims(p))}</span>
+          <span class="series-model-name">${escapeHTML(variant)}</span>
+          <span class="series-model-dims">${escapeHTML(meta)}</span>
         </span>
-      </button>`).join("");
+      </button>`;
+    }).join("");
     return `
       <article class="card series-card${expanded ? " is-expanded" : ""}" id="series-${series.id}" data-series="${series.id}">
         <div class="series-media">
@@ -1289,13 +1305,19 @@
           <span class="series-badge">Серия · ${members.length} ${members.length >= 2 && members.length <= 4 ? "модели" : "моделей"}</span>
         </div>
         <div class="body">
-          <span class="cat">Серия диванов</span>
+          <span class="cat">${isMattress ? "Серия матрасов" : "Серия диванов"}</span>
           <span class="name">${escapeHTML(series.title)}</span>
           <span class="desc">${escapeHTML(series.description)}</span>
           <div class="series-summary">
-            ${straightCount ? `<span>${straightCount} прямых</span>` : ""}
-            ${cornerCount ? `<span>${cornerCount} угловых</span>` : ""}
-            <span>${members.length} конфигураций</span>
+            ${isMattress ? `
+              <span>Ширина 80–180 см</span>
+              <span>Высота 17–24 см</span>
+              <span>Нагрузка 90–140 кг</span>
+            ` : `
+              ${straightCount ? `<span>${straightCount} прямых</span>` : ""}
+              ${cornerCount ? `<span>${cornerCount} угловых</span>` : ""}
+              <span>${members.length} конфигураций</span>
+            `}
           </div>
           <div class="series-models">${modelButtons}</div>
           ${members.length > 4 ? `<button class="series-toggle" type="button" data-series-toggle="${series.id}" onclick="toggleSeries(event, '${series.id}')">${expanded ? "Свернуть" : `Показать все ${members.length} моделей`}</button>` : ""}
@@ -1382,7 +1404,7 @@
         cards.push(cardHTML(product));
         return;
       }
-      const members = ordered.filter((item) => series.memberIds.includes(item.id));
+      const members = series.memberIds.map((id) => ordered.find((item) => item.id === id)).filter(Boolean);
       // A single search result should remain a normal product card; grouping is useful
       // only when the customer can actually compare two or more related models.
       if (members.length < 2) {
