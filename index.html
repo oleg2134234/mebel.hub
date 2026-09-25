@@ -1100,7 +1100,40 @@
       title: "Реал",
       category: "mattress",
       memberIds: [254, 255, 256],
-      description: "Беспружинные матрасы шириной 80–180 см. Сравните высоту, допустимую нагрузку и наполнение трёх вариантов."
+      description: "Беспружинные матрасы шириной 80–180 см. Сравните высоту, допустимую нагрузку и наполнение трёх вариантов.",
+      summary: ["Ширина 80–180 см", "Высота 17–24 см", "Нагрузка 90–140 кг"]
+    },
+    {
+      id: "nova",
+      title: "Нова",
+      category: "mattress",
+      memberIds: [174, 215],
+      description: "Матрасы шириной 80–180 см и высотой 23–24 см. Выберите подходящую модель и откройте её полную карточку.",
+      summary: ["Ширина 80–180 см", "Высота 23–24 см", "2 модели"]
+    },
+    {
+      id: "orto",
+      title: "Орто",
+      category: "mattress",
+      memberIds: [257, 258, 259],
+      description: "Матрасы на независимом пружинном блоке «Соты». Сравните три варианта по высоте, нагрузке и наполнению.",
+      summary: ["Ширина 80–180 см", "Высота 18–22 см", "Нагрузка 120–140 кг"]
+    },
+    {
+      id: "optima",
+      title: "Оптима",
+      category: "mattress",
+      memberIds: [260, 261, 262, 263, 264, 265],
+      description: "Матрасы на независимом пружинном блоке. Сравните базовые, двусторонние и облегчённые варианты одной линейки.",
+      summary: ["Ширина 80–180 см", "Высота 18–24 см", "Нагрузка 90–140 кг"]
+    },
+    {
+      id: "elit",
+      title: "Элит",
+      category: "mattress",
+      memberIds: [266, 267],
+      description: "Матрасы на независимом мультипакетном блоке 512 пружин/м². Два варианта наполнения при одинаковой высоте и нагрузке.",
+      summary: ["Ширина 80–180 см", "Высота 24–25 см", "Нагрузка 140 кг"]
     }
   ];
   const expandedSeries = new Set();
@@ -1283,9 +1316,16 @@
       return src ? `<img src="${src}" alt="${escapeHTML(p.title)}" />` : `<span aria-hidden="true">${ICONS[p.category] || ICONS.other}</span>`;
     }).join("");
     const modelButtons = members.map((p) => {
-      const height = p.desc?.match(/высота\s*([0-9.,–-]+)\s*см/i)?.[1];
+      const height = p.desc?.match(/высота\s*([0-9.,–-]+)\s*см/i)?.[1]
+        || p.dims?.split("×")[2]?.replace(/–/g, "-").split("-").map((value) => Number(value) / 10).join("–");
       const load = p.desc?.match(/нагрузка\s*([0-9.,–-]+)\s*кг/i)?.[1];
-      const variant = isMattress ? p.title.replace(/^Реал\s+|\s+Матрас$/gi, "") : p.title;
+      let variant = p.title;
+      if (isMattress) {
+        if (variant.toLocaleLowerCase("ru").startsWith(`${series.title.toLocaleLowerCase("ru")} `)) {
+          variant = variant.slice(series.title.length).trim();
+        }
+        variant = variant.replace(/\s+Матрас$/i, "");
+      }
       const meta = isMattress
         ? [height && `Высота ${height} см`, load && `до ${load} кг`].filter(Boolean).join(" · ")
         : seriesDims(p);
@@ -1310,9 +1350,7 @@
           <span class="desc">${escapeHTML(series.description)}</span>
           <div class="series-summary">
             ${isMattress ? `
-              <span>Ширина 80–180 см</span>
-              <span>Высота 17–24 см</span>
-              <span>Нагрузка 90–140 кг</span>
+              ${(series.summary || []).map((item) => `<span>${escapeHTML(item)}</span>`).join("")}
             ` : `
               ${straightCount ? `<span>${straightCount} прямых</span>` : ""}
               ${cornerCount ? `<span>${cornerCount} угловых</span>` : ""}
