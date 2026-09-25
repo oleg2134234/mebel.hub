@@ -37,11 +37,6 @@ canvas.save(OUTPUT, quality=94, subsampling=0)
 for path in (ROOT / "index.html", ROOT / "work" / "tahta-nice" / "card.json"):
     text = path.read_text(encoding="utf-8")
     text = text.replace("assets/tahta-nice/slide_dims-v3.svg", "assets/tahta-nice/slide_dims-v3.jpg")
-    if path.name == "index.html":
-        old_product = '{"id": 233, "title": "Тахта Найс", "category": "sofa", "dims": "1600×760", "desc": "Компактная тахта-кровать в бирюзовой велюровой обивке. Габариты 1600×760 мм, спальное место 760×2000 мм. Съёмный подголовник, простроченное сиденье, высокие опоры и бельевой короб в основании.", "colorIdx": 12}'
-        new_product = old_product[:-1] + ', "displayDimsCm": "160 × 76", "sleeperCm": "76 × 200"}'
-        if old_product in text:
-            text = text.replace(old_product, new_product, 1)
     path.write_text(text, encoding="utf-8")
 
 old_svg = ASSETS / "slide_dims-v3.svg"
