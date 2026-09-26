@@ -1109,7 +1109,7 @@
       category: "mattress",
       memberIds: [174, 215],
       description: "Матрасы шириной 80–180 см и высотой 23–24 см. Выберите подходящую модель и откройте её полную карточку.",
-      summary: ["Ширина 80–180 см", "Высота 23–24 см", "2 модели"]
+      summary: ["Ширина 80–180 см", "Высота 23–24 см", "Нагрузка 120–140 кг"]
     },
     {
       id: "orto",
@@ -1179,8 +1179,30 @@
   // Safe structural fixes from the 03.09.2026 audit.
   const nova2Mattress = PRODUCTS.find((product) => product.id === 174);
   if (nova2Mattress) {
-    nova2Mattress.desc = "Матрас серии «Нова 2». Доступная ширина — от 800 до 1800 мм, длина — 2000 мм, высота — 230–240 мм.";
+    nova2Mattress.desc = "Двусторонний матрас серии «Нова 2». Ширина 80–180 см, длина 200 см, высота 23–24 см. Допустимая нагрузка по сторонам — 140/120 кг.";
   }
+  IMAGES[174] = "assets/nova-2-matras/slide1_hero-v2.png";
+  IMAGES[215] = "assets/nova-3-matras/slide1_hero-v2.png";
+  GALLERIES[174].slides[0].src = IMAGES[174];
+  GALLERIES[215].slides[0].src = IMAGES[215];
+  const refreshedMattressInteriors = {
+    254: "assets/real-soft-matras/slide1_interior-v2.png",
+    255: "assets/real-medium-matras/slide1_interior-v2.png",
+    256: "assets/real-hard-matras/slide1_interior-v2.png",
+    257: "assets/orto-soft-matras/slide1_interior-v2.png",
+    258: "assets/orto-medium-matras/slide1_interior-v2.png",
+    259: "assets/orto-hard-matras/slide1_interior-v2.png",
+    260: "assets/optima-soft-matras/slide1_interior-v2.png",
+    261: "assets/optima-duo-matras/slide1_interior-v2.png",
+    262: "assets/optima-medium-matras/slide1_interior-v2.png",
+    263: "assets/optima-hard-new-matras/slide1_interior-v2.png",
+    264: "assets/optima-duo-lite-matras/slide1_interior-v2.png",
+    265: "assets/optima-medium-lite-matras/slide1_interior-v2.png"
+  };
+  Object.entries(refreshedMattressInteriors).forEach(([id, src]) => {
+    IMAGES[id] = src;
+    GALLERIES[id].slides[0].src = src;
+  });
   GALLERIES[121].slides = [0, 1, 2, 5, 3, 4].map((index) => GALLERIES[121].slides[index]);
 
   // Catalog remediation, step 01: Lorton. See docs/catalog/CHANGELOG.md.
@@ -1305,6 +1327,34 @@
     return values.length >= 2 ? `${values.join(" × ")} см` : "Размеры уточняются";
   }
 
+  function mmPartToCm(part) {
+    if (!part) return "";
+    return part
+      .replace(/[0-9]+(?:[.,][0-9]+)?/g, (value) => String(Number(value.replace(",", ".")) / 10).replace(".", ","))
+      .replace(/-/g, "–");
+  }
+
+  function mattressSpecs(p) {
+    const parts = p.dims?.split("×") || [];
+    const width = mmPartToCm(parts[1]);
+    const heightFromDescription = p.desc?.match(/высота\s*([0-9.,–-]+)\s*см/i)?.[1];
+    const height = (heightFromDescription || mmPartToCm(parts[2])).replace(/-/g, "–");
+    const load = (p.desc?.match(/нагрузка(?:\s+по\s+сторонам)?\s*(?:—|-|:)?\s*([0-9.,/–-]+)\s*кг/i)?.[1] || "").replace(/-/g, "–");
+    return { width, height, load };
+  }
+
+  function mattressSpecsHTML(p) {
+    const specs = mattressSpecs(p);
+    const items = [
+      specs.width && `<span><b>Ширина</b> ${escapeHTML(specs.width)} см</span>`,
+      specs.height && `<span><b>Высота</b> ${escapeHTML(specs.height)} см</span>`,
+      specs.load && `<span><b>Нагрузка</b> ${escapeHTML(specs.load)} кг</span>`
+    ].filter(Boolean);
+    return items.length
+      ? `<div class="dims-tags">${items.join("")}</div>`
+      : `<span class="dims-unknown">Характеристики уточняются</span>`;
+  }
+
   function seriesCardHTML(series, members) {
     const expanded = expandedSeries.has(series.id);
     const previews = members.slice(0, 3);
@@ -1316,9 +1366,7 @@
       return src ? `<img src="${src}" alt="${escapeHTML(p.title)}" />` : `<span aria-hidden="true">${ICONS[p.category] || ICONS.other}</span>`;
     }).join("");
     const modelButtons = members.map((p) => {
-      const height = p.desc?.match(/высота\s*([0-9.,–-]+)\s*см/i)?.[1]
-        || p.dims?.split("×")[2]?.replace(/–/g, "-").split("-").map((value) => Number(value) / 10).join("–");
-      const load = p.desc?.match(/нагрузка\s*([0-9.,–-]+)\s*кг/i)?.[1];
+      const specs = mattressSpecs(p);
       let variant = p.title;
       if (isMattress) {
         if (variant.toLocaleLowerCase("ru").startsWith(`${series.title.toLocaleLowerCase("ru")} `)) {
@@ -1327,7 +1375,11 @@
         variant = variant.replace(/\s+Матрас$/i, "");
       }
       const meta = isMattress
-        ? [height && `Высота ${height} см`, load && `до ${load} кг`].filter(Boolean).join(" · ")
+        ? [
+            specs.width && `Ширина ${specs.width} см`,
+            specs.height && `Высота ${specs.height} см`,
+            specs.load && `Нагрузка ${specs.load} кг`
+          ].filter(Boolean).join(" · ")
         : seriesDims(p);
       return `
       <button class="series-model" type="button" onclick="openGallery(${p.id})" aria-label="Открыть карточку ${escapeHTML(p.title)}">
@@ -1385,7 +1437,7 @@
           <span class="name">${escapeHTML(p.title)}</span>
           ${p.desc ? `<span class="desc" title="${escapeHTML(p.desc)}">${escapeHTML(shortDescription(p.desc))}</span>` : `<span class="desc">Описание готовится</span>`}
           ${productFactsHTML(p)}
-          ${p.displayDimsCm ? `<div class="dims-tags"><span><b>Габариты</b> ${escapeHTML(p.displayDimsCm)} см</span><span><b>Спальное место</b> ${escapeHTML(p.sleeperCm)} см</span></div>` : (p.dimensionsPending ? `<span class="dims-unknown">Габариты уточняются</span>` : dimsTagsHTML(p.dims))}
+          ${p.category === "mattress" ? mattressSpecsHTML(p) : (p.displayDimsCm ? `<div class="dims-tags"><span><b>Габариты</b> ${escapeHTML(p.displayDimsCm)} см</span><span><b>Спальное место</b> ${escapeHTML(p.sleeperCm)} см</span></div>` : (p.dimensionsPending ? `<span class="dims-unknown">Габариты уточняются</span>` : dimsTagsHTML(p.dims)))}
           ${hasGallery ? (() => {
             const gs = GALLERIES[p.id].slides;
             const hasVideo = gs.some((s) => s.type === "video");
