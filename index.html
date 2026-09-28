@@ -354,11 +354,30 @@
   .feature-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
   .feature-list h3 { font-size: 0.9rem; margin: 0 0 0.3rem; }
   .feature-list p { font-size: 0.78rem; line-height: 1.4; margin: 0; color: var(--ink-soft); }
+  .gallery-slide.mechanism-slide {
+    display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 0.9rem;
+    padding: clamp(0.75rem, 2vw, 1.35rem); color: var(--ink); background: var(--surface-2);
+  }
+  .mechanism-head { display: flex; align-items: center; justify-content: space-between; gap: 0.7rem; }
+  .mechanism-head strong { font-size: clamp(1rem, 2vw, 1.35rem); }
+  .mechanism-badge { border-radius: 999px; padding: 0.38rem 0.7rem; background: var(--accent-soft); color: var(--accent); font-size: 0.78rem; font-weight: 700; white-space: nowrap; }
+  .mechanism-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; min-height: 0; }
+  .mechanism-step { position: relative; display: grid; grid-template-rows: minmax(0, 1fr) auto; min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 1rem; background: #fff; }
+  .mechanism-step img { width: 100%; height: 100%; min-height: 0; object-fit: contain; background: #fff; }
+  .mechanism-step-copy { padding: 0.65rem 0.7rem 0.75rem; border-top: 1px solid var(--line); }
+  .mechanism-step-copy b { display: block; margin-bottom: 0.18rem; font-size: 0.78rem; color: var(--accent); }
+  .mechanism-step-copy span { display: block; font-size: clamp(0.72rem, 1.4vw, 0.88rem); line-height: 1.32; }
+  .mechanism-arrow { position: absolute; top: 0.55rem; right: 0.55rem; display: grid; place-items: center; width: 2.35rem; height: 2.35rem; border-radius: 999px; background: rgba(35, 38, 37, 0.88); color: #fff; font-size: 1.35rem; font-weight: 700; box-shadow: 0 5px 14px rgba(0,0,0,.18); }
   #card-91 .media img { object-fit: contain; background: #fff; }
   @media (max-width: 520px) {
     .feature-list { grid-template-columns: 1fr; gap: 0.55rem; }
     .feature-list h3 { font-size: 0.8rem; margin-bottom: 0.1rem; }
     .feature-list p { font-size: 0.7rem; }
+    .gallery-slide.mechanism-slide { overflow-y: auto; grid-template-rows: auto auto; }
+    .mechanism-head { align-items: flex-start; }
+    .mechanism-steps { grid-template-columns: 1fr; }
+    .mechanism-step { grid-template-columns: 42% 1fr; grid-template-rows: minmax(7rem, auto); }
+    .mechanism-step-copy { border-top: 0; border-left: 1px solid var(--line); display: flex; flex-direction: column; justify-content: center; }
   }
   .gallery-nav {
     position: absolute; top: 50%; translate: 0 -50%; width: 2.6rem; height: 2.6rem; border-radius: 999px;
@@ -1229,6 +1248,68 @@
       { title: "Крупные подушки", text: "Мягкая опора для спины и выразительный силуэт." },
       { title: "Хранение в основании", text: "Бельевые короба для постельных принадлежностей." }
     ]
+  });
+
+  // Типовые схематичные видео раскладки больше не показываем. Реальная съёмка
+  // правильного перехода конкретной модели из собранного вида в разложенный
+  // остаётся в карточке.
+  Object.values(GALLERIES).forEach((gallery) => {
+    gallery.slides = gallery.slides.filter((slide) =>
+      !(slide.type === "video" && /^Схематичное видео раскладки/i.test(slide.desc || ""))
+    );
+  });
+
+  // Пошаговая раскладка: реальные кадры конкретной модели + подтверждённая
+  // последовательность движения её механизма. Средний кадр объясняет действие,
+  // но не изображает выдуманное промежуточное состояние дивана.
+  const MECHANISM_STEPS = {
+    "Тик-так": ["Диван полностью собран", "Приподнимите сиденье и перенесите его вперёд", "Опустите спинку в освободившееся место"],
+    "Еврокнижка": ["Диван полностью собран", "Выдвиньте сиденье вперёд", "Опустите спинку в освободившееся место"],
+    "Выкатная еврокнижка": ["Диван полностью собран", "Выкатите сиденье вперёд", "Разложите секции в ровное спальное место"],
+    "Выкатной": ["Диван полностью собран", "Выдвиньте нижний блок вперёд", "Последовательно разложите секции"],
+    "Дельфин": ["Диван полностью собран", "Выкатите скрытую секцию вперёд", "Поднимите платформу за петлю до уровня сиденья"],
+    "Пума": ["Диван полностью собран", "Приподнимите и перенесите сиденье вперёд", "Нижняя секция поднимется на освободившееся место"],
+    "Аккордеон": ["Диван полностью собран", "Приподнимите сиденье до фиксации", "Потяните секции вперёд до полного раскрытия"],
+    "Книжка": ["Диван полностью собран", "Поднимите сиденье до щелчка", "Опустите обе половины в ровную плоскость"],
+    "Клик-кляк": ["Диван полностью собран", "Поднимите сиденье до щелчка механизма", "Опустите сиденье и спинку в положение для сна"]
+  };
+  const MECHANISM_ARROWS = {
+    "Тик-так": ["", "↗", "↓"], "Еврокнижка": ["", "→", "↓"],
+    "Выкатная еврокнижка": ["", "→", "↘"], "Выкатной": ["", "→", "↗"],
+    "Дельфин": ["", "→", "↑"], "Пума": ["", "↗", "↑"],
+    "Аккордеон": ["", "↑", "→"], "Книжка": ["", "↑", "↓"],
+    "Клик-кляк": ["", "↑", "↓"]
+  };
+  const MECHANISM_PRODUCTS = {
+    "Тик-так": [232]
+  };
+  const mechanismByProduct = {};
+  Object.entries(MECHANISM_PRODUCTS).forEach(([mechanism, ids]) => ids.forEach((id) => { mechanismByProduct[id] = mechanism; }));
+  Object.entries(mechanismByProduct).forEach(([id, mechanism]) => {
+    const gallery = GALLERIES[id];
+    if (!gallery || gallery.slides.some((slide) => slide.type === "mechanism")) return;
+    const imageSlides = gallery.slides.filter((slide) => slide.type !== "video" && slide.type !== "features");
+    const closed = imageSlides.find((slide) => /^(Общий вид|Вид спереди)$/.test(slide.name)) || imageSlides[0];
+    const opened = imageSlides.find((slide) => /^(В разложенном виде|Спальное место)$/.test(slide.name))
+      || imageSlides.find((slide) => slide.name === "Раскладка")
+      || imageSlides.find((slide) => /^Размеры/.test(slide.name))
+      || closed;
+    const steps = MECHANISM_STEPS[mechanism];
+    const arrows = MECHANISM_ARROWS[mechanism];
+    const slide = {
+      type: "mechanism", name: "Как раскладывается", mechanism,
+      src: closed.src,
+      desc: `Пошаговая раскладка механизма «${mechanism}». Начальный и конечный кадры относятся к этой модели.`,
+      steps: [
+        { src: closed.src, text: steps[0], arrow: arrows[0] },
+        { src: closed.src, text: steps[1], arrow: arrows[1] },
+        { src: opened.src, text: steps[2], arrow: arrows[2] }
+      ]
+    };
+    const cutawayIndex = gallery.slides.findIndex((item) => item.name === "Разрез");
+    const sizeIndexes = gallery.slides.map((item, index) => /^Размеры/.test(item.name) ? index : -1).filter((index) => index >= 0);
+    const insertAfter = cutawayIndex >= 0 ? cutawayIndex : (sizeIndexes.length ? Math.max(...sizeIndexes) : 1);
+    gallery.slides.splice(insertAfter + 1, 0, slide);
   });
 
   const CATS = {
@@ -2303,7 +2384,9 @@
     galSlides = g.slides;
     galTitle.textContent = g.title;
     galTotal.textContent = galSlides.length;
-    galTrack.innerHTML = galSlides.map((s) => s.type === "features"
+    galTrack.innerHTML = galSlides.map((s) => s.type === "mechanism"
+      ? `<div class="gallery-slide mechanism-slide"><div class="mechanism-head"><strong>Как раскладывается</strong><span class="mechanism-badge">${escapeHTML(s.mechanism)}</span></div><div class="mechanism-steps">${s.steps.map((step, index) => `<section class="mechanism-step"><img src="${escapeHTML(step.src)}" alt="${escapeHTML(g.title)} — шаг ${index + 1}" />${step.arrow ? `<span class="mechanism-arrow" aria-hidden="true">${escapeHTML(step.arrow)}</span>` : ""}<div class="mechanism-step-copy"><b>Шаг ${index + 1}</b><span>${escapeHTML(step.text)}</span></div></section>`).join("")}</div></div>`
+      : s.type === "features"
       ? `<div class="gallery-slide features-slide"><img src="${escapeHTML(s.src)}" alt="${escapeHTML(g.title)}" /><div class="feature-list">${s.features.map((f) => `<section><h3>${escapeHTML(f.title)}</h3><p>${escapeHTML(f.text)}</p></section>`).join("")}</div></div>`
       : s.type === "video"
       ? `<div class="gallery-slide"><video src="${s.src}" controls loop playsinline></video></div>`
