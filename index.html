@@ -1153,6 +1153,64 @@
       memberIds: [266, 267],
       description: "Матрасы на независимом мультипакетном блоке 512 пружин/м². Два варианта наполнения при одинаковой высоте и нагрузке.",
       summary: ["Ширина 80–180 см", "Высота 24–25 см", "Нагрузка 140 кг"]
+    },
+    {
+      id: "kvadro-beds",
+      title: "Квадро",
+      category: "bed",
+      memberIds: [239, 120, 121, 240],
+      description: "Кровати с геометричной стёжкой изголовья. Выберите исполнение с подъёмным механизмом или без него и откройте полную карточку модели.",
+      summary: ["Спальное место 120–180 × 200 см", "4 исполнения", "С подъёмным механизмом и без"],
+      displayNames: {
+        239: "Комфорт",
+        120: "Классика",
+        121: "Комфорт на высоких опорах",
+        240: "Классика на высоких опорах"
+      }
+    },
+    {
+      id: "kordova-beds",
+      title: "Кордова",
+      category: "bed",
+      memberIds: [211, 242, 106, 245, 241, 243, 244, 246],
+      description: "Кровати с высоким мягким изголовьем: двуспальные модели шириной 120–180 см и компактные односпальные версии 90 × 200 см.",
+      summary: ["Спальное место 90–180 × 200 см", "8 исполнений", "Высокое изголовье"],
+      displayNames: {
+        211: "Вертикаль",
+        242: "Геометрия",
+        106: "Ритм",
+        245: "Контур",
+        241: "Вертикаль · Компакт 90",
+        243: "Геометрия · Компакт 90",
+        244: "Ритм · Компакт 90",
+        246: "Контур · Компакт 90"
+      }
+    },
+    {
+      id: "kordova-ns-beds",
+      title: "Кордова НС",
+      category: "bed",
+      memberIds: [247, 248, 249, 250],
+      description: "Кровати серии «Кордова» с низким изголовьем. Сравните четыре исполнения с подъёмным механизмом, бельевым отсеком или высокими опорами.",
+      summary: ["Спальное место 120–180 × 200 см", "Высота изголовья 88 см", "4 исполнения"],
+      displayNames: {
+        247: "Комфорт",
+        248: "Лайт",
+        249: "Комфорт на высоких опорах",
+        250: "Лайт на высоких опорах"
+      }
+    },
+    {
+      id: "mono-beds",
+      title: "Моно",
+      category: "bed",
+      memberIds: [252, 253],
+      description: "Кровати с лаконичным мягким изголовьем. Два исполнения для спального места шириной 140, 160 или 180 см.",
+      summary: ["Спальное место 140–180 × 200 см", "2 исполнения", "С подъёмным механизмом и без"],
+      displayNames: {
+        252: "С подъёмным механизмом",
+        253: "На ортопедическом основании"
+      }
     }
   ];
   const expandedSeries = new Set();
@@ -1440,6 +1498,7 @@
     const expanded = expandedSeries.has(series.id);
     const previews = members.slice(0, 3);
     const isMattress = series.category === "mattress";
+    const isBed = series.category === "bed";
     const straightCount = members.filter((p) => !/углов|оттоман|ДКУ/i.test(`${p.title} ${p.desc || ""}`)).length;
     const cornerCount = members.length - straightCount;
     const previewImages = previews.map((p) => {
@@ -1448,12 +1507,12 @@
     }).join("");
     const modelButtons = members.map((p) => {
       const specs = mattressSpecs(p);
-      let variant = p.title;
-      if (isMattress) {
+      let variant = series.displayNames?.[p.id] || p.title;
+      if (isMattress || isBed) {
         if (variant.toLocaleLowerCase("ru").startsWith(`${series.title.toLocaleLowerCase("ru")} `)) {
           variant = variant.slice(series.title.length).trim();
         }
-        variant = variant.replace(/\s+Матрас$/i, "");
+        if (isMattress) variant = variant.replace(/\s+Матрас$/i, "");
       }
       const meta = isMattress
         ? [
@@ -1478,11 +1537,11 @@
           <span class="series-badge">Серия · ${members.length} ${members.length >= 2 && members.length <= 4 ? "модели" : "моделей"}</span>
         </div>
         <div class="body">
-          <span class="cat">${isMattress ? "Серия матрасов" : "Серия диванов"}</span>
+          <span class="cat">${isMattress ? "Серия матрасов" : isBed ? "Серия кроватей" : "Серия диванов"}</span>
           <span class="name">${escapeHTML(series.title)}</span>
           <span class="desc">${escapeHTML(series.description)}</span>
           <div class="series-summary">
-            ${isMattress ? `
+            ${isMattress || isBed ? `
               ${(series.summary || []).map((item) => `<span>${escapeHTML(item)}</span>`).join("")}
             ` : `
               ${straightCount ? `<span>${straightCount} прямых</span>` : ""}
@@ -1567,6 +1626,13 @@
       return catOk && qOk;
     });
     const ordered = sortProducts(filtered);
+    if (activeCat === "bed") {
+      ordered.sort((a, b) => {
+        const aInSeries = PRODUCT_SERIES.some((series) => series.category === "bed" && series.memberIds.includes(a.id));
+        const bInSeries = PRODUCT_SERIES.some((series) => series.category === "bed" && series.memberIds.includes(b.id));
+        return Number(bInSeries) - Number(aInSeries);
+      });
+    }
     const renderedSeries = new Set();
     const cards = [];
     ordered.forEach((product) => {
