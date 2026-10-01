@@ -1,0 +1,13 @@
+import fs from "node:fs/promises";
+const base="https://apogey-mebel.ru/catalog?categories=1%2C2%2C3%2C4%2C5%2C6&page=1";
+const html=await (await fetch(base)).text();
+const sp=html.match(/<script[^>]+src="([^"]+main\.[^"]+\.js)"/i)[1];
+const js=await (await fetch(new URL(sp,base))).text();
+const token=js.match(/Ho="([^"]+)"/)[1];
+const all=[];let page=1,pc=1;
+do{const u=new URL("https://admin.apogey-mebel.ru/api/furnitures");
+u.searchParams.set("populate","*");u.searchParams.set("pagination[pageSize]","100");u.searchParams.set("pagination[page]",page);
+const r=await fetch(u,{headers:{Authorization:`Bearer ${token}`}});const p=await r.json();pc=p.meta.pagination.pageCount;all.push(...p.data);page++;}while(page<=pc);
+await fs.writeFile("all.json",JSON.stringify(all,null,1));
+console.log(all.length, Object.keys(all[0].attributes));
+console.log(JSON.stringify(all.find(x=>x.id==92),null,1).slice(0,4000));
