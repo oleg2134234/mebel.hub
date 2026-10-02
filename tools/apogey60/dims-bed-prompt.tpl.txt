@@ -1,0 +1,18 @@
+Create one clean vertical 3:4 furniture-catalog dimensions image of the exact bed shown in Image 1, on a clean warm-white studio background.
+
+PRODUCT IDENTITY — ABSOLUTE PRIORITY
+Image 1 is the authoritative reference for the bed. Use that exact bed without redesigning, improving, simplifying, widening, narrowing, stretching, or replacing any part. Preserve exactly its construction, proportions, headboard shape and panel layout, stitching and seams, upholstery color and texture, mattress, base, legs and every visible detail. Keep the same front three-quarter camera angle as Image 1. The whole bed is fully visible, large in the frame, centered, not cropped, with clear empty floor space around it for the annotations.
+
+DIMENSION ANNOTATIONS
+Use thin dark-charcoal lines, one small solid filled circle at each end, and a dark rounded capsule centered on each line with bold white numerals. Numerals only, in centimeters. No extension or leader lines.
+1. Length line labelled “@L1@” on the floor along the long visible bottom edge of the bed (the side receding away from the camera toward the headboard), precisely parallel to that edge in image perspective.
+2. Width line labelled “@D1@” on the floor along the short visible bottom edge of the bed (the foot end), precisely parallel to that edge in image perspective. The length and width lines start from the same nearest projected floor corner and form a clean perspective-aligned corner.
+3. Height line labelled “@F@”: a strictly vertical line in the empty background beside the bed, from floor level up to the level of the top edge of the headboard.
+
+GEOMETRY CHECK — MANDATORY
+Every dimension line must follow the bed’s actual projected floor geometry. Never align a line to the image frame unless the corresponding bed edge is also parallel to the frame. No arbitrary horizontal or diagonal lines. No line, endpoint circle, or number capsule may cross, touch, overlap, or float over the bed, its legs, upholstery, mattress, headboard, or contact shadow. Keep all annotations outside the silhouette with a small even gap.
+
+Do not add a title, product name, explanatory text, arrows, logos, watermark, decor, people, pets, or other furniture. The only visible text is exactly “@L1@”, “@D1@”, “@F@”.
+COLOR LOCK: keep every color and texture exactly as in Image 1. STYLE LOCK: every line end is a small SOLID filled dark circle. Exactly three lines and three labels, no repeats.
+Final self-check: the bed is identical to Image 1; the camera angle is unchanged; the length and width lines are parallel to the real bed edges in perspective; the height line is vertical; annotations do not overlap the bed.
+LABEL ASSIGNMENT IS FIXED, do not swap: the WIDTH line “@D1@” is the one parallel to the headboard (along the foot end / long front face of the bed seen by the camera); the LENGTH line “@L1@” is the one along the side edge that runs from the foot end back toward the headboard. The height line “@F@” is vertical.

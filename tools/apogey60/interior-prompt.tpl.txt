@@ -1,0 +1,16 @@
+Create a photorealistic, high-end vertical interior-design magazine photograph for a premium furniture catalog, featuring the exact sofa shown in Image 1.
+
+PRODUCT IDENTITY — ABSOLUTE PRIORITY: treat Image 1 as the authoritative reference. Preserve exactly the product design, silhouette, proportions, construction, module and cushion layout, seam positions, feet, textures and every visible detail. Do not redesign, simplify or restyle the sofa. COLOR LOCK (critical): the upholstery keeps the exact color of Image 1 — @COLOR@ — never shifted toward any other hue, even though the room is warm. Use Image 2 only as a secondary reference for its real appearance. The sofa stands in its folded (assembled) state.
+(добавлять при необходимости: BACKREST LOCK — столько секций спинки, сколько на Image 1; CONFIGURATION LOCK — оттоманка на той же стороне, не зеркалить)
+
+CAMERA ANGLE (critical, user requirement): show the sofa in a clear front three-quarter view, turned about 35 degrees relative to the camera, exactly like Image 1 — its long front and one side end are both clearly visible. Never a straight frontal (face-on) view. => Image 1 брать кадр 3/4 (в dims-picks.json это urls[0]), Image 2 — кадр «спереди».
+
+STYLING: a beautiful, aspirational, professionally styled @STYLE@ living room that makes people want to buy this sofa. Warm natural floor with a soft wool rug under the front part of the sofa, tasteful wall art or a niche behind the sofa (hung well above it, not touching it), a large plant in a ceramic planter beside the sofa at a clear distance, a statement pendant or floor lamp, sheer linen curtains, a low round coffee table with books and a candle placed in front of the sofa at a distance. One or two textured cushions in a harmonious tone on the sofa, arranged so that the sofa construction stays fully readable. A harmonious palette that complements the sofa color.
+
+LIGHT AND CAMERA: soft golden daylight from a large window on the left, gentle long shadows, rich depth, 50–70mm lens at eye level, straight verticals, crisp, editorial quality.
+
+FRAMING: the sofa is the dominant subject and is COMPLETELY visible from end to end, leaving at least 10 percent of empty floor and wall at BOTH the left and the right side of the frame. Nothing may cover, touch or cross the sofa's edges; no part of the sofa may touch the image border.
+
+No people, pets, text, logos, labels, measurements, watermarks, duplicated parts, invented stitching or structural changes.
+
+СТИЛИ (@STYLE@) — каждый раз РАЗНЫЙ, не повторять (требование пользователя): Scandinavian-japandi; warm-modern earthy (терракота, травертин, арочная ниша); Parisian-modern (молдинги, паркет «ёлочка», латунь, изумрудный бархат, арочное зеркало); loft (кирпич, чёрный металл, бетон); neoclassic; Mediterranean; scandinavian-forest и т. п. Файл Syntx: Nano Banana Pro, 3:4, 2K.

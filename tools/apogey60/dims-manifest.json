@@ -1,0 +1,4401 @@
+[
+ {
+  "localId": 270,
+  "webId": 92,
+  "category": "Диваны",
+  "title": "АДЕЛЬ 2 МДК",
+  "slug": "adel-2-mdk",
+  "folded_mm": {
+   "length": 1410,
+   "depth_or_widths": [
+    1050
+   ]
+  },
+  "sleep": {
+   "length_mm": 1970,
+   "width_mm": 1200,
+   "src": "СПАЛЬНОЕ МЕСТО 1200 х 1970 мм"
+  },
+  "media": [
+   {
+    "id": 1402,
+    "name": "IMG_9182.JPEG",
+    "url": "/uploads/IMG_9182_55d90b29f8.JPEG",
+    "w": 1600,
+    "h": 900,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1251,
+    "name": "IMG_9394.PNG",
+    "url": "/uploads/IMG_9394_de44d103a1.PNG",
+    "w": 3740,
+    "h": 2104,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1252,
+    "name": "IMG_9395.PNG",
+    "url": "/uploads/IMG_9395_ecb2926c4c.PNG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": []
+ },
+ {
+  "localId": 271,
+  "webId": 93,
+  "category": "Кресла",
+  "title": "АДЕЛЬ 2 Кресло-кровать",
+  "slug": "adel-2-kreslo-krovat",
+  "folded_mm": {
+   "length": 930,
+   "depth_or_widths": [
+    1050
+   ]
+  },
+  "sleep": {
+   "length_mm": 1970,
+   "width_mm": 700,
+   "src": "СПАЛЬНОЕ МЕСТО 700х 1970 мм"
+  },
+  "media": [
+   {
+    "id": 1403,
+    "name": "IMG_9183.JPEG",
+    "url": "/uploads/IMG_9183_b56bdb3bf7.JPEG",
+    "w": 955,
+    "h": 537,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1253,
+    "name": "IMG_9398.PNG",
+    "url": "/uploads/IMG_9398_b865dcb21d.PNG",
+    "w": 3958,
+    "h": 2227,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1254,
+    "name": "IMG_9399.PNG",
+    "url": "/uploads/IMG_9399_2d505b2808.PNG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1404,
+    "name": "IMG_9184.JPEG",
+    "url": "/uploads/IMG_9184_b2bb103fcf.JPEG",
+    "w": 1600,
+    "h": 900,
+    "ext": ".JPEG"
+   }
+  ],
+  "risks": [
+   "media=4 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 272,
+  "webId": 177,
+  "category": "Диваны",
+  "title": "АДЕЛЬ 2 1500 ДК",
+  "slug": "adel-2-1500-dk",
+  "folded_mm": {
+   "length": 1740,
+   "depth_or_widths": [
+    1050
+   ]
+  },
+  "sleep": {
+   "length_mm": 1970,
+   "width_mm": 1500,
+   "src": "СПАЛЬНОЕ МЕСТО 1500 х 1970 мм"
+  },
+  "media": [
+   {
+    "id": 1914,
+    "name": "F4982AB4-E0E6-4E17-BBE9-DF4FAC2C920C.JPG",
+    "url": "/uploads/F4982_AB_4_E0_E6_4_E17_BBE_9_DF_4_FAC_2_C920_C_e2989e3e20.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1912,
+    "name": "480300BF-556E-4AD7-8AFE-9C36F0C03CDC.JPG",
+    "url": "/uploads/480300_BF_556_E_4_AD_7_8_AFE_9_C36_F0_C03_CDC_5379b046ad.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1910,
+    "name": "578D9B43-71CB-4C83-821E-755269EAD929.JPG",
+    "url": "/uploads/578_D9_B43_71_CB_4_C83_821_E_755269_EAD_929_b6fe24640d.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1911,
+    "name": "8196BBAD-DEEF-4FB2-BDB2-8587CA040D0F.JPG",
+    "url": "/uploads/8196_BBAD_DEEF_4_FB_2_BDB_2_8587_CA_040_D0_F_4712f43e15.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1916,
+    "name": "FD2C4BC6-CE0A-4AFE-9D34-DCAC77CEE19C.JPG",
+    "url": "/uploads/FD_2_C4_BC_6_CE_0_A_4_AFE_9_D34_DCAC_77_CEE_19_C_386ef5add6.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1915,
+    "name": "54FACD5A-10A3-4E98-9217-0074F72E8178.JPG",
+    "url": "/uploads/54_FACD_5_A_10_A3_4_E98_9217_0074_F72_E8178_a6456cb18b.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1913,
+    "name": "AA209FBF-917B-42E9-B89D-8C80CC49BFE9.JPG",
+    "url": "/uploads/AA_209_FBF_917_B_42_E9_B89_D_8_C80_CC_49_BFE_9_fcd49a8273.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 273,
+  "webId": 178,
+  "category": "Диваны",
+  "title": "АДЕЛЬ 4 1500 ДК",
+  "slug": "adel-4-1500-dk",
+  "folded_mm": {
+   "length": 1740,
+   "depth_or_widths": [
+    1050
+   ]
+  },
+  "sleep": {
+   "length_mm": 1970,
+   "width_mm": 1500,
+   "src": "СПАЛЬНОЕ МЕСТО 1500 х 1970 мм"
+  },
+  "media": [
+   {
+    "id": 1920,
+    "name": "7840A22B-2A69-40E0-AC0A-4BF1BCCE4973.JPG",
+    "url": "/uploads/7840_A22_B_2_A69_40_E0_AC_0_A_4_BF_1_BCCE_4973_fb71ee8a91.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1917,
+    "name": "9F7A439D-4DE7-43F2-808B-0113084AAEE6.JPG",
+    "url": "/uploads/9_F7_A439_D_4_DE_7_43_F2_808_B_0113084_AAEE_6_543f13dac4.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1923,
+    "name": "F13DBFD3-26F9-4EFA-9683-868F56A7A1D2.JPG",
+    "url": "/uploads/F13_DBFD_3_26_F9_4_EFA_9683_868_F56_A7_A1_D2_5fba4b8bec.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1918,
+    "name": "52395634-12D5-4865-B380-7AA86FB07D37.JPG",
+    "url": "/uploads/52395634_12_D5_4865_B380_7_AA_86_FB_07_D37_739c328762.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1922,
+    "name": "B4E692CC-E265-4341-9D2D-4AEBC7D7C800.JPG",
+    "url": "/uploads/B4_E692_CC_E265_4341_9_D2_D_4_AEBC_7_D7_C800_08f754165f.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1921,
+    "name": "D5848918-9DC4-4FF9-A153-8C09A63532E0.JPG",
+    "url": "/uploads/D5848918_9_DC_4_4_FF_9_A153_8_C09_A63532_E0_6d0ed3200f.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1919,
+    "name": "D162469F-5648-4446-A169-70B714AAD91F.JPG",
+    "url": "/uploads/D162469_F_5648_4446_A169_70_B714_AAD_91_F_29276c2514.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 274,
+  "webId": 8,
+  "category": "Диваны",
+  "title": "БАЛИ 4 ДК",
+  "slug": "bali-4-dk",
+  "folded_mm": {
+   "length": 2550,
+   "depth_or_widths": [
+    1050
+   ]
+  },
+  "sleep": {
+   "length_mm": 2020,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 2020 х 1600 мм"
+  },
+  "media": [
+   {
+    "id": 839,
+    "name": "IMG_3718.JPEG",
+    "url": "/uploads/IMG_3718_0ad5cbc029.JPEG",
+    "w": 3463,
+    "h": 1948,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 841,
+    "name": "IMG_3701.PNG",
+    "url": "/uploads/IMG_3701_cc3bfa9795.PNG",
+    "w": 2525,
+    "h": 1420,
+    "ext": ".PNG"
+   },
+   {
+    "id": 840,
+    "name": "IMG_3703.PNG",
+    "url": "/uploads/IMG_3703_7d9ea5aac2.PNG",
+    "w": 2816,
+    "h": 1604,
+    "ext": ".PNG"
+   },
+   {
+    "id": 843,
+    "name": "IMG_3702.PNG",
+    "url": "/uploads/IMG_3702_68ca5f7681.PNG",
+    "w": 3838,
+    "h": 2159,
+    "ext": ".PNG"
+   },
+   {
+    "id": 844,
+    "name": "IMG_3699.PNG",
+    "url": "/uploads/IMG_3699_658b194dbe.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 845,
+    "name": "IMG_3698.PNG",
+    "url": "/uploads/IMG_3698_1b8d907f46.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 842,
+    "name": "IMG_3700.PNG",
+    "url": "/uploads/IMG_3700_c6ea1e8a7d.PNG",
+    "w": 3942,
+    "h": 2217,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1130,
+    "name": "IMG_5103.JPEG",
+    "url": "/uploads/IMG_5103_cf41d11870.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   }
+  ],
+  "risks": [
+   "media=8 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 275,
+  "webId": 48,
+  "category": "Кресла",
+  "title": "БАЛИ 4 Кресло",
+  "slug": "bali-4-kreslo",
+  "folded_mm": {
+   "length": 1540,
+   "depth_or_widths": [
+    1080
+   ]
+  },
+  "sleep": {
+   "length_mm": 1600,
+   "width_mm": 1000,
+   "src": "СПАЛЬНОЕ МЕСТО 1600 х 1000 мм"
+  },
+  "media": [
+   {
+    "id": 885,
+    "name": "IMG_3831.JPEG",
+    "url": "/uploads/IMG_3831_57e282dd6c.JPEG",
+    "w": 1921,
+    "h": 1081,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 860,
+    "name": "IMG_3759.PNG",
+    "url": "/uploads/IMG_3759_1ea4d7fef4.PNG",
+    "w": 3959,
+    "h": 2227,
+    "ext": ".PNG"
+   },
+   {
+    "id": 862,
+    "name": "IMG_3760.PNG",
+    "url": "/uploads/IMG_3760_42805f8df2.PNG",
+    "w": 3974,
+    "h": 2111,
+    "ext": ".PNG"
+   },
+   {
+    "id": 863,
+    "name": "IMG_3761.PNG",
+    "url": "/uploads/IMG_3761_5eef72586a.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 861,
+    "name": "IMG_3762.PNG",
+    "url": "/uploads/IMG_3762_4e6858c42f.PNG",
+    "w": 3972,
+    "h": 2234,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=5 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 276,
+  "webId": 50,
+  "category": "Диваны",
+  "title": "БАЛИ 4 ДК без боковин",
+  "slug": "bali-4-dk-bez-bokovin",
+  "folded_mm": {
+   "length": 2030,
+   "depth_or_widths": [
+    1000
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 2000 х 1600 мм"
+  },
+  "media": [
+   {
+    "id": 1090,
+    "name": "IMG_5021.JPEG",
+    "url": "/uploads/IMG_5021_a973c2ec98.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 850,
+    "name": "IMG_3733.PNG",
+    "url": "/uploads/IMG_3733_ac6b297ae0.PNG",
+    "w": 3973,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 847,
+    "name": "IMG_3735.PNG",
+    "url": "/uploads/IMG_3735_e6adcf8d22.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 851,
+    "name": "IMG_3736.PNG",
+    "url": "/uploads/IMG_3736_d663eec693.PNG",
+    "w": 3969,
+    "h": 2233,
+    "ext": ".PNG"
+   },
+   {
+    "id": 852,
+    "name": "IMG_3737.PNG",
+    "url": "/uploads/IMG_3737_645b501dc8.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 849,
+    "name": "IMG_3738.PNG",
+    "url": "/uploads/IMG_3738_fc3502ee47.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 848,
+    "name": "IMG_3739.PNG",
+    "url": "/uploads/IMG_3739_d016b30c93.PNG",
+    "w": 3935,
+    "h": 2213,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 277,
+  "webId": 54,
+  "category": "Диваны",
+  "title": "БАЛИ 4 ДК с оттоманкой",
+  "slug": "bali-4-dk-s-ottomankoy",
+  "folded_mm": {
+   "length": 3550,
+   "depth_or_widths": [
+    1650
+   ]
+  },
+  "sleep": {
+   "length_mm": 3000,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 3000 х 1600 мм"
+  },
+  "media": [
+   {
+    "id": 1219,
+    "name": "IMG_7765.JPEG",
+    "url": "/uploads/IMG_7765_cb44735f75.JPEG",
+    "w": 2819,
+    "h": 1586,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1223,
+    "name": "IMG_7766.PNG",
+    "url": "/uploads/IMG_7766_bf545f20fa.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1222,
+    "name": "IMG_7767.PNG",
+    "url": "/uploads/IMG_7767_b44f8c41a5.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1224,
+    "name": "IMG_7768.PNG",
+    "url": "/uploads/IMG_7768_1aa67e8160.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1225,
+    "name": "IMG_7769.PNG",
+    "url": "/uploads/IMG_7769_1a30223b94.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1221,
+    "name": "IMG_7770.PNG",
+    "url": "/uploads/IMG_7770_3f7724b68c.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1220,
+    "name": "IMG_7771.PNG",
+    "url": "/uploads/IMG_7771_e22684d4b3.PNG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 278,
+  "webId": 51,
+  "category": "Диваны",
+  "title": "БАЛИ 4.1 ДК",
+  "slug": "bali-4-1-dk",
+  "folded_mm": {
+   "length": 3550,
+   "depth_or_widths": [
+    1080
+   ]
+  },
+  "sleep": {
+   "length_mm": 3020,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 3020 х 1600 мм"
+  },
+  "media": [
+   {
+    "id": 1092,
+    "name": "IMG_5025.JPEG",
+    "url": "/uploads/IMG_5025_81dce129ec.JPEG",
+    "w": 3326,
+    "h": 1871,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 870,
+    "name": "IMG_3771.PNG",
+    "url": "/uploads/IMG_3771_c3528758e8.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 865,
+    "name": "IMG_3772.PNG",
+    "url": "/uploads/IMG_3772_184975609d.PNG",
+    "w": 2824,
+    "h": 1588,
+    "ext": ".PNG"
+   },
+   {
+    "id": 866,
+    "name": "IMG_3773.PNG",
+    "url": "/uploads/IMG_3773_61c92cd66a.PNG",
+    "w": 2549,
+    "h": 1434,
+    "ext": ".PNG"
+   },
+   {
+    "id": 869,
+    "name": "IMG_3774.PNG",
+    "url": "/uploads/IMG_3774_f579d4096b.PNG",
+    "w": 2703,
+    "h": 1521,
+    "ext": ".PNG"
+   },
+   {
+    "id": 867,
+    "name": "IMG_3775.PNG",
+    "url": "/uploads/IMG_3775_f90f039f0a.PNG",
+    "w": 2564,
+    "h": 1442,
+    "ext": ".PNG"
+   },
+   {
+    "id": 868,
+    "name": "IMG_3776.PNG",
+    "url": "/uploads/IMG_3776_a30e680e09.PNG",
+    "w": 2787,
+    "h": 1567,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 279,
+  "webId": 197,
+  "category": "Диваны",
+  "title": "БАЛИ 7-2 ДКУ-О",
+  "slug": "bali-7-2-dku-o",
+  "folded_mm": {
+   "length": 3630,
+   "depth_or_widths": [
+    1885
+   ]
+  },
+  "sleep": {
+   "length_mm": 3030,
+   "width_mm": 1885,
+   "src": "СПАЛЬНОЕ МЕСТО 1885 х 3030 мм"
+  },
+  "media": [
+   {
+    "id": 2064,
+    "name": "586B8F8F-7D9F-4C62-A49E-1B148582EFF9.JPG",
+    "url": "/uploads/586_B8_F8_F_7_D9_F_4_C62_A49_E_1_B148582_EFF_9_7a3032d489.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2063,
+    "name": "8B59CFDB-E9B5-499F-80B5-638420D0968B.JPG",
+    "url": "/uploads/8_B59_CFDB_E9_B5_499_F_80_B5_638420_D0968_B_d5005f2721.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2066,
+    "name": "14157CFB-ED86-4117-9B1D-C507F93275AF.JPG",
+    "url": "/uploads/14157_CFB_ED_86_4117_9_B1_D_C507_F93275_AF_a8ee7062f8.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2067,
+    "name": "60786459-0BEA-4CF0-BE33-B2D574CAF29F.JPG",
+    "url": "/uploads/60786459_0_BEA_4_CF_0_BE_33_B2_D574_CAF_29_F_01f617da60.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2069,
+    "name": "BFC4096A-637A-43D0-BC53-ACC4275FE7C5.JPG",
+    "url": "/uploads/BFC_4096_A_637_A_43_D0_BC_53_ACC_4275_FE_7_C5_24c0e89e43.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2065,
+    "name": "39282EF9-0E74-445F-B4AB-7E87D71A6E32.JPG",
+    "url": "/uploads/39282_EF_9_0_E74_445_F_B4_AB_7_E87_D71_A6_E32_02d32f1b64.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2068,
+    "name": "FD1682CD-6ADE-414A-AB90-5E1B2307AC97.JPG",
+    "url": "/uploads/FD_1682_CD_6_ADE_414_A_AB_90_5_E1_B2307_AC_97_f9e5b5e5dd.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2062,
+    "name": "46991DCA-4917-46F3-8CC9-87F61B859A2F.JPG",
+    "url": "/uploads/46991_DCA_4917_46_F3_8_CC_9_87_F61_B859_A2_F_16c1069e9a.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=8 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 280,
+  "webId": 198,
+  "category": "Диваны",
+  "title": "Бруно ДКУ-П",
+  "slug": "bruno-dku-p",
+  "folded_mm": {
+   "length": 3940,
+   "depth_or_widths": [
+    1700
+   ]
+  },
+  "sleep": {
+   "length_mm": 2170,
+   "width_mm": 1700,
+   "src": "СПАЛЬНОЕ МЕСТО 1700 х 2170 мм"
+  },
+  "media": [
+   {
+    "id": 2070,
+    "name": "841009E7-AFA6-4C75-9AEF-713D2E1F0100.JPG",
+    "url": "/uploads/841009_E7_AFA_6_4_C75_9_AEF_713_D2_E1_F0100_85444fdc23.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2072,
+    "name": "BrunoDKU-P_front.JPG",
+    "url": "/uploads/Bruno_DKU_P_front_9ab3904fd5.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2073,
+    "name": "BrunoDKU-P_leftII.JPG",
+    "url": "/uploads/Bruno_DKU_P_left_II_cd57d23dbe.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2071,
+    "name": "BrunoDKU-P_back.JPG",
+    "url": "/uploads/Bruno_DKU_P_back_22b8e09e12.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2075,
+    "name": "BrunoDKU-P_left.JPG",
+    "url": "/uploads/Bruno_DKU_P_left_40044d5b5c.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2076,
+    "name": "BrunoDKU-P_sleep.JPG",
+    "url": "/uploads/Bruno_DKU_P_sleep_00c758fcc6.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2074,
+    "name": "BrunoDKU-P_sleep_dop.JPG",
+    "url": "/uploads/Bruno_DKU_P_sleep_dop_b084caa04f.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 281,
+  "webId": 38,
+  "category": "Кресла",
+  "title": "КЛИК - КЛЯК 8 Кресло",
+  "slug": "klik-klyak-8-kreslo",
+  "folded_mm": {
+   "length": 1100,
+   "depth_or_widths": [
+    1000
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1120,
+    "name": "IMG_5082.JPEG",
+    "url": "/uploads/IMG_5082_87e9c1f79a.JPEG",
+    "w": 2745,
+    "h": 1544,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1121,
+    "name": "IMG_5083.PNG",
+    "url": "/uploads/IMG_5083_42b2071b1c.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1122,
+    "name": "IMG_5084.PNG",
+    "url": "/uploads/IMG_5084_0134290cfb.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить"
+  ]
+ },
+ {
+  "localId": 282,
+  "webId": 88,
+  "category": "Диваны",
+  "title": "ЛОРТОН 2 ДК",
+  "slug": "lorton-2-dk",
+  "folded_mm": {
+   "length": 2580,
+   "depth_or_widths": [
+    1100
+   ]
+  },
+  "sleep": {
+   "length_mm": 2120,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 2120 х 1600 мм"
+  },
+  "media": [
+   {
+    "id": 1275,
+    "name": "IMG_4186.JPEG",
+    "url": "/uploads/IMG_4186_d845dfeb5a.JPEG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1195,
+    "name": "IMG_7710.PNG",
+    "url": "/uploads/IMG_7710_4cc96b04fe.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1193,
+    "name": "IMG_7711.PNG",
+    "url": "/uploads/IMG_7711_5494841cf3.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1197,
+    "name": "IMG_7712.PNG",
+    "url": "/uploads/IMG_7712_5bd287f3a4.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1196,
+    "name": "IMG_7713.PNG",
+    "url": "/uploads/IMG_7713_d072d95ad0.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1194,
+    "name": "IMG_7714.PNG",
+    "url": "/uploads/IMG_7714_8618591958.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1192,
+    "name": "IMG_7715.PNG",
+    "url": "/uploads/IMG_7715_f080528b99.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 283,
+  "webId": 199,
+  "category": "Диваны",
+  "title": "ЛОТОС 1 ДКУ",
+  "slug": "lotos-1-dku",
+  "folded_mm": {
+   "length": 2500,
+   "depth_or_widths": [
+    1660
+   ]
+  },
+  "sleep": {
+   "length_mm": 2150,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 2150 х 1600 мм"
+  },
+  "media": [
+   {
+    "id": 2077,
+    "name": "D5DB5D3D-08CF-43CF-8B8B-AED43363FDDC.JPG",
+    "url": "/uploads/D5_DB_5_D3_D_08_CF_43_CF_8_B8_B_AED_43363_FDDC_9d9134e4a4.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2080,
+    "name": "Lotos1_front.JPG",
+    "url": "/uploads/Lotos1_front_528e5d6a01.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2079,
+    "name": "Lotos1_leftII.JPG",
+    "url": "/uploads/Lotos1_left_II_42bdc0d4e6.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2078,
+    "name": "Lotos1_back.JPG",
+    "url": "/uploads/Lotos1_back_17181a80f6.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2081,
+    "name": "Lotos1_left.JPG",
+    "url": "/uploads/Lotos1_left_9ddd5ce53b.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2083,
+    "name": "Lotos1_sleep.JPG",
+    "url": "/uploads/Lotos1_sleep_0a66e1b236.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2082,
+    "name": "Lotos1_open.JPG",
+    "url": "/uploads/Lotos1_open_4364afa65a.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 284,
+  "webId": 47,
+  "category": "Диваны",
+  "title": "МАРТИН 2 ДКУ",
+  "slug": "martin-2-dku",
+  "folded_mm": {
+   "length": 2570,
+   "depth_or_widths": [
+    1890
+   ]
+  },
+  "sleep": {
+   "length_mm": 1980,
+   "width_mm": 1300,
+   "src": "СПАЛЬНОЕ МЕСТО 1980 х 1300 мм"
+  },
+  "media": [
+   {
+    "id": 1132,
+    "name": "IMG_6473.JPEG",
+    "url": "/uploads/IMG_6473_61b9f3dcd5.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1094,
+    "name": "IMG_5029.JPEG",
+    "url": "/uploads/IMG_5029_6bc8ed98d3.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1076,
+    "name": "IMG_4964.PNG",
+    "url": "/uploads/IMG_4964_16b51db395.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1072,
+    "name": "IMG_4965.PNG",
+    "url": "/uploads/IMG_4965_6de9946c3e.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1074,
+    "name": "IMG_4966.PNG",
+    "url": "/uploads/IMG_4966_45a4fa8241.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1073,
+    "name": "IMG_4967.PNG",
+    "url": "/uploads/IMG_4967_a0c27fbe6d.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1075,
+    "name": "IMG_4968.PNG",
+    "url": "/uploads/IMG_4968_b97a291d02.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 285,
+  "webId": 75,
+  "category": "Диваны",
+  "title": "МАРТИН 3 ДКУ",
+  "slug": "martin-3-dku",
+  "folded_mm": {
+   "length": 3330,
+   "depth_or_widths": [
+    1670
+   ]
+  },
+  "sleep": {
+   "length_mm": 2130,
+   "width_mm": 1300,
+   "src": "СПАЛЬНОЕ МЕСТО 2130 х 1300 мм"
+  },
+  "media": [
+   {
+    "id": 1098,
+    "name": "IMG_5042.JPEG",
+    "url": "/uploads/IMG_5042_4c760f6ff5.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1102,
+    "name": "IMG_5043.PNG",
+    "url": "/uploads/IMG_5043_9836ce2897.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1100,
+    "name": "IMG_5044.PNG",
+    "url": "/uploads/IMG_5044_5ef5715092.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1099,
+    "name": "IMG_5045.PNG",
+    "url": "/uploads/IMG_5045_79c1950016.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1101,
+    "name": "IMG_5046.PNG",
+    "url": "/uploads/IMG_5046_8e44757a3a.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1103,
+    "name": "IMG_5047.PNG",
+    "url": "/uploads/IMG_5047_c59d6d0393.PNG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 286,
+  "webId": 154,
+  "category": "Кровати",
+  "title": "МОНО 3",
+  "slug": "mono-3",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1780,
+    "name": "B2573264-A404-4ABA-B4C3-65E836D3BAB7.JPG",
+    "url": "/uploads/B2573264_A404_4_ABA_B4_C3_65_E836_D3_BAB_7_5508e5672e.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1781,
+    "name": "DAC1B8F1-2DF5-490C-8F47-77AFC9B40880.JPG",
+    "url": "/uploads/DAC_1_B8_F1_2_DF_5_490_C_8_F47_77_AFC_9_B40880_78b2aa32ed.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1775,
+    "name": "0A69B136-3ECF-4408-84D9-10DD9316B23A.JPG",
+    "url": "/uploads/0_A69_B136_3_ECF_4408_84_D9_10_DD_9316_B23_A_79d38118e4.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1776,
+    "name": "47FCFF8F-88FA-4BB7-953D-A5BF260CBED1.JPG",
+    "url": "/uploads/47_FCFF_8_F_88_FA_4_BB_7_953_D_A5_BF_260_CBED_1_8477926a36.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1778,
+    "name": "C6DEA526-C786-4A6C-A9C3-08D0FFAFA587.JPG",
+    "url": "/uploads/C6_DEA_526_C786_4_A6_C_A9_C3_08_D0_FFAFA_587_ff64c2938e.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1779,
+    "name": "CCE7B783-67F0-48B3-9F54-B7B71DB723D2.JPG",
+    "url": "/uploads/CCE_7_B783_67_F0_48_B3_9_F54_B7_B71_DB_723_D2_b98eb31b0b.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1777,
+    "name": "131B478B-8EE3-4E32-8380-54732434DE6D.JPG",
+    "url": "/uploads/131_B478_B_8_EE_3_4_E32_8380_54732434_DE_6_D_05b60e001a.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 287,
+  "webId": 155,
+  "category": "Кровати",
+  "title": "МОНО 4",
+  "slug": "mono-4",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1787,
+    "name": "8E634D20-A858-4505-AD71-2BF25797A883.JPG",
+    "url": "/uploads/8_E634_D20_A858_4505_AD_71_2_BF_25797_A883_65200c4536.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1786,
+    "name": "90D76435-527F-4980-B42D-5BA49696CF6C.JPG",
+    "url": "/uploads/90_D76435_527_F_4980_B42_D_5_BA_49696_CF_6_C_c4e73f8b3e.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1785,
+    "name": "79211F7D-2CD1-4ECB-B313-24A1AF784A6B.JPG",
+    "url": "/uploads/79211_F7_D_2_CD_1_4_ECB_B313_24_A1_AF_784_A6_B_438dfb589e.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1783,
+    "name": "BC88D4A7-9441-414E-A491-E5EC16D96EFF.JPG",
+    "url": "/uploads/BC_88_D4_A7_9441_414_E_A491_E5_EC_16_D96_EFF_3c3f209180.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1782,
+    "name": "3B2945D2-64F5-412A-B77B-5A356952B9B0.JPG",
+    "url": "/uploads/3_B2945_D2_64_F5_412_A_B77_B_5_A356952_B9_B0_a6a0ff29d8.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1784,
+    "name": "7BAE3625-19D4-4825-8F3B-E48C1F2C1832.JPG",
+    "url": "/uploads/7_BAE_3625_19_D4_4825_8_F3_B_E48_C1_F2_C1832_1547295037.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 288,
+  "webId": 19,
+  "category": "Кровати",
+  "title": "МОНТАНА 1",
+  "slug": "montana-1",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 755,
+    "name": "_Кровать Монтана 1_Интерьер.jpg",
+    "url": "/uploads/Krovat_Montana_1_Interer_3acef6ce0f.jpg",
+    "w": 3400,
+    "h": 3100,
+    "ext": ".jpg"
+   },
+   {
+    "id": 758,
+    "name": "Montana1_left.png",
+    "url": "/uploads/Montana1_left_96263c627d.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 760,
+    "name": "Montana1_front.png",
+    "url": "/uploads/Montana1_front_b86874d82b.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 757,
+    "name": "Montana1_leftII.png",
+    "url": "/uploads/Montana1_left_II_ad564d68e1.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 756,
+    "name": "Montana1_back.png",
+    "url": "/uploads/Montana1_back_f4f3202cb9.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 759,
+    "name": "Montana1_left_ortoped.png",
+    "url": "/uploads/Montana1_left_ortoped_a0fe478673.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 761,
+    "name": "Montana1_open.png",
+    "url": "/uploads/Montana1_open_3f83c3bf5a.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 289,
+  "webId": 24,
+  "category": "Кровати",
+  "title": "МОНТАНА 2",
+  "slug": "montana-2",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1279,
+    "name": "IMG_4200.JPEG",
+    "url": "/uploads/IMG_4200_0589d8bd4f.JPEG",
+    "w": 3974,
+    "h": 2649,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 765,
+    "name": "Montana2_left.png",
+    "url": "/uploads/Montana2_left_e2ceccd358.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 766,
+    "name": "Montana2_front.png",
+    "url": "/uploads/Montana2_front_2ef2f34328.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 764,
+    "name": "Montana2_leftII.png",
+    "url": "/uploads/Montana2_left_II_0da2d99e9a.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 762,
+    "name": "Montana2_back.png",
+    "url": "/uploads/Montana2_back_3b8aa3e08f.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 763,
+    "name": "Montana2_left_ortoped.png",
+    "url": "/uploads/Montana2_left_ortoped_91c4f72000.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 290,
+  "webId": 21,
+  "category": "Кровати",
+  "title": "МОНТАНА 3",
+  "slug": "montana-3",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1277,
+    "name": "IMG_4196.JPEG",
+    "url": "/uploads/IMG_4196_179f817714.JPEG",
+    "w": 3400,
+    "h": 1912,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 769,
+    "name": "Montana3_left.png",
+    "url": "/uploads/Montana3_left_3669915ffc.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 771,
+    "name": "Montana3_front.png",
+    "url": "/uploads/Montana3_front_852f0b31a3.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 768,
+    "name": "Montana3_leftII.png",
+    "url": "/uploads/Montana3_left_II_959f333fed.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 767,
+    "name": "Montana3_back.png",
+    "url": "/uploads/Montana3_back_4219a4032b.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 770,
+    "name": "Montana3_ortoped.png",
+    "url": "/uploads/Montana3_ortoped_b8943d9651.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 772,
+    "name": "Montana3_open.png",
+    "url": "/uploads/Montana3_open_2d00af55d4.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 291,
+  "webId": 22,
+  "category": "Кровати",
+  "title": "МОНТАНА 4",
+  "slug": "montana-4",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1278,
+    "name": "IMG_4198.JPEG",
+    "url": "/uploads/IMG_4198_b7d3390a99.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 776,
+    "name": "Montana4_left.png",
+    "url": "/uploads/Montana4_left_fc0bfb9095.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 775,
+    "name": "Montana4_front.png",
+    "url": "/uploads/Montana4_front_004901d133.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 777,
+    "name": "Montana4_leftII.png",
+    "url": "/uploads/Montana4_left_II_6e6715c875.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 773,
+    "name": "Montana4_back.png",
+    "url": "/uploads/Montana4_back_af2ee2411d.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 774,
+    "name": "Montana4_ortoped.png",
+    "url": "/uploads/Montana4_ortoped_ef10cd88db.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 292,
+  "webId": 20,
+  "category": "Кровати",
+  "title": "НЕВАДА 2",
+  "slug": "nevada-2",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1281,
+    "name": "IMG_4204.JPEG",
+    "url": "/uploads/IMG_4204_e57bbcf9cf.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 741,
+    "name": "Nevada2_left.png",
+    "url": "/uploads/Nevada2_left_fc8d35e5e2.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 742,
+    "name": "Nevada2_front.png",
+    "url": "/uploads/Nevada2_front_c725a8ff15.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 739,
+    "name": "Nevada2_leftII.png",
+    "url": "/uploads/Nevada2_left_II_08293437cf.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 738,
+    "name": "Nevada2_back.png",
+    "url": "/uploads/Nevada2_back_0496fc800d.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 740,
+    "name": "Nevada2_left_ortoped.png",
+    "url": "/uploads/Nevada2_left_ortoped_436d838e8a.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 293,
+  "webId": 25,
+  "category": "Кровати",
+  "title": "НЕВАДА 3",
+  "slug": "nevada-3",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1282,
+    "name": "IMG_4206.JPEG",
+    "url": "/uploads/IMG_4206_76ca62da12.JPEG",
+    "w": 3400,
+    "h": 1912,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 745,
+    "name": "Nevada3_left.png",
+    "url": "/uploads/Nevada3_left_8a69b24a50.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 748,
+    "name": "Nevada3_front.png",
+    "url": "/uploads/Nevada3_front_c090e03993.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 743,
+    "name": "Nevada3_leftII.png",
+    "url": "/uploads/Nevada3_left_II_f878175432.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 744,
+    "name": "Nevada3_back.png",
+    "url": "/uploads/Nevada3_back_36271a9ddf.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 746,
+    "name": "Nevada3_ortoped.png",
+    "url": "/uploads/Nevada3_ortoped_a26e77ba09.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 747,
+    "name": "Nevada3_open.png",
+    "url": "/uploads/Nevada3_open_3aeda4b131.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 294,
+  "webId": 26,
+  "category": "Кровати",
+  "title": "НЕВАДА 4",
+  "slug": "nevada-4",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1133,
+    "name": "IMG_6656.JPEG",
+    "url": "/uploads/IMG_6656_480249c063.JPEG",
+    "w": 3400,
+    "h": 1912,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 752,
+    "name": "Nevada4_left.png",
+    "url": "/uploads/Nevada4_left_d47265d33c.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 754,
+    "name": "Nevada4_front.png",
+    "url": "/uploads/Nevada4_front_81349b84c9.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 751,
+    "name": "Nevada4_leftII.png",
+    "url": "/uploads/Nevada4_left_II_0ca34bec96.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 750,
+    "name": "Nevada4_back.png",
+    "url": "/uploads/Nevada4_back_6929216e45.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 753,
+    "name": "Nevada4_ortoped.png",
+    "url": "/uploads/Nevada4_ortoped_40e30cab5a.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 295,
+  "webId": 173,
+  "category": "Матрасы",
+  "title": "НОВА 1 Матрас",
+  "slug": "nova-1-matras",
+  "folded_mm": {
+   "length": 800,
+   "depth_or_widths": [
+    2000
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1898,
+    "name": "EE6862F5-84C9-4D92-9483-99FEF0C0869C.JPG",
+    "url": "/uploads/EE_6862_F5_84_C9_4_D92_9483_99_FEF_0_C0869_C_4d0151e94c.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "матрас: нет сложенного/разложенного вида — слайд скриптом, не Syntx",
+   "media=1 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 296,
+  "webId": 40,
+  "category": "Диваны",
+  "title": "ОСТИН ДК",
+  "slug": "ostin-dk",
+  "folded_mm": {
+   "length": 2490,
+   "depth_or_widths": [
+    1170
+   ]
+  },
+  "sleep": {
+   "length_mm": 1900,
+   "width_mm": 1700,
+   "src": "СПАЛЬНОЕ МЕСТО 1900 х 1700 мм"
+  },
+  "media": [
+   {
+    "id": 938,
+    "name": "IMG_4105.JPEG",
+    "url": "/uploads/IMG_4105_4d28d31b0d.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 943,
+    "name": "IMG_4106.PNG",
+    "url": "/uploads/IMG_4106_95d009877c.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 939,
+    "name": "IMG_4107.PNG",
+    "url": "/uploads/IMG_4107_724255ae09.PNG",
+    "w": 2928,
+    "h": 1647,
+    "ext": ".PNG"
+   },
+   {
+    "id": 940,
+    "name": "IMG_4108.PNG",
+    "url": "/uploads/IMG_4108_abecf6ea02.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 942,
+    "name": "IMG_4109.PNG",
+    "url": "/uploads/IMG_4109_62eb8b67ae.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 941,
+    "name": "IMG_4110.PNG",
+    "url": "/uploads/IMG_4110_b90c377fbb.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 944,
+    "name": "IMG_4111.PNG",
+    "url": "/uploads/IMG_4111_e5feda41c4.PNG",
+    "w": 2988,
+    "h": 1681,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 297,
+  "webId": 41,
+  "category": "Диваны",
+  "title": "ОСТИН ДКУ",
+  "slug": "ostin-dku",
+  "folded_mm": {
+   "length": 2700,
+   "depth_or_widths": [
+    1700
+   ]
+  },
+  "sleep": {
+   "length_mm": 2150,
+   "width_mm": 1700,
+   "src": "СПАЛЬНОЕ МЕСТО 2150 х 1700 мм"
+  },
+  "media": [
+   {
+    "id": 949,
+    "name": "IMG_4120.JPEG",
+    "url": "/uploads/IMG_4120_b7f982afc1.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 948,
+    "name": "IMG_4121.PNG",
+    "url": "/uploads/IMG_4121_605183349f.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 945,
+    "name": "IMG_4122.PNG",
+    "url": "/uploads/IMG_4122_6848d04629.PNG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".PNG"
+   },
+   {
+    "id": 946,
+    "name": "IMG_4123.PNG",
+    "url": "/uploads/IMG_4123_4b212aaa58.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 947,
+    "name": "IMG_4124.PNG",
+    "url": "/uploads/IMG_4124_e203896dcb.PNG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".PNG"
+   },
+   {
+    "id": 952,
+    "name": "IMG_4126.PNG",
+    "url": "/uploads/IMG_4126_f7b831a469.PNG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".PNG"
+   },
+   {
+    "id": 950,
+    "name": "IMG_4125.PNG",
+    "url": "/uploads/IMG_4125_05e646db78.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 951,
+    "name": "IMG_4127.PNG",
+    "url": "/uploads/IMG_4127_b2abb155a2.PNG",
+    "w": 3126,
+    "h": 1758,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1293,
+    "name": "IMG_4292.PNG",
+    "url": "/uploads/IMG_4292_c8c518f18b.PNG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=9 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 298,
+  "webId": 71,
+  "category": "Диваны",
+  "title": "ОСТИН 2 ДК",
+  "slug": "ostin-2-dk",
+  "folded_mm": {
+   "length": 2690,
+   "depth_or_widths": [
+    1170
+   ]
+  },
+  "sleep": {
+   "length_mm": 2180,
+   "width_mm": 1700,
+   "src": "СПАЛЬНОЕ МЕСТО 2180 х 1700 мм"
+  },
+  "media": [
+   {
+    "id": 974,
+    "name": "IMG_4616.JPEG",
+    "url": "/uploads/IMG_4616_eff3daef5f.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 975,
+    "name": "IMG_4617.PNG",
+    "url": "/uploads/IMG_4617_12efab4e37.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 977,
+    "name": "IMG_4618.PNG",
+    "url": "/uploads/IMG_4618_e02b1445ba.PNG",
+    "w": 3464,
+    "h": 2309,
+    "ext": ".PNG"
+   },
+   {
+    "id": 978,
+    "name": "IMG_4619.PNG",
+    "url": "/uploads/IMG_4619_fbbccc89b5.PNG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".PNG"
+   },
+   {
+    "id": 976,
+    "name": "IMG_4620.PNG",
+    "url": "/uploads/IMG_4620_45670542bc.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 979,
+    "name": "IMG_4621.PNG",
+    "url": "/uploads/IMG_4621_536ccece19.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 980,
+    "name": "IMG_4622.PNG",
+    "url": "/uploads/IMG_4622_05e5229d14.PNG",
+    "w": 2967,
+    "h": 1669,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1283,
+    "name": "IMG_4213.PNG",
+    "url": "/uploads/IMG_4213_23fb1eca95.PNG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=8 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 299,
+  "webId": 116,
+  "category": "Матрасы",
+  "title": "РЕАЛ МЕДИУМ ЛАЙТ Матрас",
+  "slug": "real-medium-layt-matras",
+  "folded_mm": {
+   "length": 800,
+   "depth_or_widths": [
+    2000
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1716,
+    "name": "IMG_1616.JPEG",
+    "url": "/uploads/IMG_1616_77311984ff.JPEG",
+    "w": 911,
+    "h": 608,
+    "ext": ".JPEG"
+   }
+  ],
+  "risks": [
+   "матрас: нет сложенного/разложенного вида — слайд скриптом, не Syntx",
+   "media=1 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 300,
+  "webId": 115,
+  "category": "Матрасы",
+  "title": "РЕАЛ СОФТ ЛАЙТ Матрас",
+  "slug": "real-soft-layt-matras",
+  "folded_mm": {
+   "length": 800,
+   "depth_or_widths": [
+    2000
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1718,
+    "name": "IMG_1617.JPEG",
+    "url": "/uploads/IMG_1617_0795452629.JPEG",
+    "w": 829,
+    "h": 608,
+    "ext": ".JPEG"
+   }
+  ],
+  "risks": [
+   "матрас: нет сложенного/разложенного вида — слайд скриптом, не Syntx",
+   "media=1 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 301,
+  "webId": 169,
+  "category": "Кровати",
+  "title": "РИЦА 1 900",
+  "slug": "rica-1-900",
+  "folded_mm": {
+   "length": 1000,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 900,
+   "src": "СПАЛЬНОЕ МЕСТО 900 х 2000"
+  },
+  "media": [
+   {
+    "id": 1877,
+    "name": "341C5D96-AD4B-4052-9828-0C9F0DA749BA.JPG",
+    "url": "/uploads/341_C5_D96_AD_4_B_4052_9828_0_C9_F0_DA_749_BA_604f32a106.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1874,
+    "name": "659E7F45-87D8-4D15-963D-8B80A59276E6.JPG",
+    "url": "/uploads/659_E7_F45_87_D8_4_D15_963_D_8_B80_A59276_E6_e9a905e206.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1876,
+    "name": "3B78ABAC-2FF4-432E-9FB6-1DA77549C229.JPG",
+    "url": "/uploads/3_B78_ABAC_2_FF_4_432_E_9_FB_6_1_DA_77549_C229_c92e87483d.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1878,
+    "name": "D9DC642C-8DB0-4CC9-B6DC-1BEE072BDCF3.JPG",
+    "url": "/uploads/D9_DC_642_C_8_DB_0_4_CC_9_B6_DC_1_BEE_072_BDCF_3_6374ef3be1.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1873,
+    "name": "184D8A79-E963-4EF3-97D5-E186EB9ED218.JPG",
+    "url": "/uploads/184_D8_A79_E963_4_EF_3_97_D5_E186_EB_9_ED_218_2d932daaf8.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1872,
+    "name": "35C6F410-13B1-4DD5-87D5-3EBEB55BC2B8.JPG",
+    "url": "/uploads/35_C6_F410_13_B1_4_DD_5_87_D5_3_EBEB_55_BC_2_B8_4dbcd41121.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1875,
+    "name": "0677DD72-7623-47D4-83FE-C20976B86FE2.JPG",
+    "url": "/uploads/0677_DD_72_7623_47_D4_83_FE_C20976_B86_FE_2_4d97665302.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 302,
+  "webId": 28,
+  "category": "Кровати",
+  "title": "РИЦА 2",
+  "slug": "rica-2",
+  "folded_mm": {
+   "length": 1390,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 784,
+    "name": "_Кровать Рица 1_Интерьер.jpg",
+    "url": "/uploads/Krovat_Ricza_1_Interer_6622bd4608.jpg",
+    "w": 4096,
+    "h": 3112,
+    "ext": ".jpg"
+   },
+   {
+    "id": 789,
+    "name": "ritza2_left.png",
+    "url": "/uploads/ritza2_left_83f0c718a0.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 790,
+    "name": "ritza2_front.png",
+    "url": "/uploads/ritza2_front_7553b8dc1e.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 788,
+    "name": "ritza2_leftII.png",
+    "url": "/uploads/ritza2_left_II_6a1c5f8858.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 787,
+    "name": "ritza2_back.png",
+    "url": "/uploads/ritza2_back_46d51f0d73.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 791,
+    "name": "ritza2_left_ortoped.png",
+    "url": "/uploads/ritza2_left_ortoped_2b490eebdf.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 786,
+    "name": "ritza2_left_crop.jpg",
+    "url": "/uploads/ritza2_left_crop_6d90f63261.jpg",
+    "w": 1768,
+    "h": 1004,
+    "ext": ".jpg"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 303,
+  "webId": 170,
+  "category": "Кровати",
+  "title": "РИЦА 2 900",
+  "slug": "rica-2-900",
+  "folded_mm": {
+   "length": 1000,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 900,
+   "src": "СПАЛЬНОЕ МЕСТО 900 х 2000"
+  },
+  "media": [
+   {
+    "id": 1883,
+    "name": "341C5D96-AD4B-4052-9828-0C9F0DA749BA.JPG",
+    "url": "/uploads/341_C5_D96_AD_4_B_4052_9828_0_C9_F0_DA_749_BA_77f2e9d9a9.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1880,
+    "name": "C8E68A78-5E83-4D9C-BD7D-3BC85CE8287B.JPG",
+    "url": "/uploads/C8_E68_A78_5_E83_4_D9_C_BD_7_D_3_BC_85_CE_8287_B_5ed9cca786.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1881,
+    "name": "3CEB6E52-AC7E-43F8-B399-D84131CAA8E6.JPG",
+    "url": "/uploads/3_CEB_6_E52_AC_7_E_43_F8_B399_D84131_CAA_8_E6_92558f2d6e.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1884,
+    "name": "5BAFD9DE-408B-4CAD-B4EF-DCBE525806AC.JPG",
+    "url": "/uploads/5_BAFD_9_DE_408_B_4_CAD_B4_EF_DCBE_525806_AC_963913089e.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1879,
+    "name": "3115F8F4-FE01-4EC2-9873-3ADEBF177381.JPG",
+    "url": "/uploads/3115_F8_F4_FE_01_4_EC_2_9873_3_ADEBF_177381_8c2cb856eb.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1882,
+    "name": "31092902-720C-4F88-B403-88F4EFD0627C.JPG",
+    "url": "/uploads/31092902_720_C_4_F88_B403_88_F4_EFD_0627_C_ac7e58fc61.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 304,
+  "webId": 29,
+  "category": "Кровати",
+  "title": "РИЦА 3",
+  "slug": "rica-3",
+  "folded_mm": {
+   "length": 1390,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1134,
+    "name": "IMG_6658.JPEG",
+    "url": "/uploads/IMG_6658_24a7716ded.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 796,
+    "name": "Кровать Рица 3_Интерьер.jpg",
+    "url": "/uploads/Krovat_Ricza_3_Interer_61a2a034b3.jpg",
+    "w": 4096,
+    "h": 3112,
+    "ext": ".jpg"
+   },
+   {
+    "id": 797,
+    "name": "ritza3_left.png",
+    "url": "/uploads/ritza3_left_63fb19182d.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 795,
+    "name": "ritza3_front.png",
+    "url": "/uploads/ritza3_front_8fda75d07a.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 793,
+    "name": "ritza3_back_mat.png",
+    "url": "/uploads/ritza3_back_mat_9082e42354.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 794,
+    "name": "ritza3_left_ortoped.png",
+    "url": "/uploads/ritza3_left_ortoped_b0ee65ffd7.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 798,
+    "name": "ritza3_left_open.png",
+    "url": "/uploads/ritza3_left_open_d12adce3a1.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 792,
+    "name": "ritza_left_crop.jpg",
+    "url": "/uploads/ritza_left_crop_25020280b9.jpg",
+    "w": 1768,
+    "h": 1004,
+    "ext": ".jpg"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=8 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 305,
+  "webId": 171,
+  "category": "Кровати",
+  "title": "РИЦА 3 900",
+  "slug": "rica-3-900",
+  "folded_mm": {
+   "length": 1000,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 900,
+   "src": "СПАЛЬНОЕ МЕСТО 900 х 2000"
+  },
+  "media": [
+   {
+    "id": 1888,
+    "name": "C1AC2358-A929-4285-AC40-24484E030335.JPG",
+    "url": "/uploads/C1_AC_2358_A929_4285_AC_40_24484_E030335_776b31f63d.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1886,
+    "name": "3A5217C0-4204-4512-9704-D209D3651C2D.JPG",
+    "url": "/uploads/3_A5217_C0_4204_4512_9704_D209_D3651_C2_D_dadffd0ba4.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1887,
+    "name": "3202F4BF-2D4D-41BD-BB91-1185954D68FD.JPG",
+    "url": "/uploads/3202_F4_BF_2_D4_D_41_BD_BB_91_1185954_D68_FD_096d5ca536.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1885,
+    "name": "474D25C2-A917-41D8-93F8-2820293B85ED.JPG",
+    "url": "/uploads/474_D25_C2_A917_41_D8_93_F8_2820293_B85_ED_ef21d20fe4.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1889,
+    "name": "F97D55F8-F44F-4034-8A43-A55DA249821C.JPG",
+    "url": "/uploads/F97_D55_F8_F44_F_4034_8_A43_A55_DA_249821_C_6992bd56ac.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1890,
+    "name": "FFB4E316-4DE4-409E-80EA-3A502ED57AC4.JPG",
+    "url": "/uploads/FFB_4_E316_4_DE_4_409_E_80_EA_3_A502_ED_57_AC_4_e90a3f1f83.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 306,
+  "webId": 30,
+  "category": "Кровати",
+  "title": "РИЦА 4",
+  "slug": "rica-4",
+  "folded_mm": {
+   "length": 1390,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": null,
+  "media": [
+   {
+    "id": 1134,
+    "name": "IMG_6658.JPEG",
+    "url": "/uploads/IMG_6658_24a7716ded.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 796,
+    "name": "Кровать Рица 3_Интерьер.jpg",
+    "url": "/uploads/Krovat_Ricza_3_Interer_61a2a034b3.jpg",
+    "w": 4096,
+    "h": 3112,
+    "ext": ".jpg"
+   },
+   {
+    "id": 803,
+    "name": "ritza4_left.png",
+    "url": "/uploads/ritza4_left_4f122dec08.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 805,
+    "name": "ritza4_front.png",
+    "url": "/uploads/ritza4_front_b12278e074.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 802,
+    "name": "ritza4_leftII.png",
+    "url": "/uploads/ritza4_left_II_5fed58a0e9.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 801,
+    "name": "ritza4_back.png",
+    "url": "/uploads/ritza4_back_4294c1590d.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 804,
+    "name": "ritza4_left_ortoped.png",
+    "url": "/uploads/ritza4_left_ortoped_5967d2ed77.png",
+    "w": 3400,
+    "h": 2500,
+    "ext": ".png"
+   },
+   {
+    "id": 800,
+    "name": "ritza4_left_crop.jpg",
+    "url": "/uploads/ritza4_left_crop_ca03f0b505.jpg",
+    "w": 1768,
+    "h": 1004,
+    "ext": ".jpg"
+   }
+  ],
+  "risks": [
+   "нет «СПАЛЬНОЕ МЕСТО» в преимуществах API — размер спального места подтвердить",
+   "media=8 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 307,
+  "webId": 172,
+  "category": "Кровати",
+  "title": "РИЦА 4 900",
+  "slug": "rica-4-900",
+  "folded_mm": {
+   "length": 1000,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 900,
+   "src": "СПАЛЬНОЕ МЕСТО 900 х 2000"
+  },
+  "media": [
+   {
+    "id": 1895,
+    "name": "4478D715-2EBC-4493-8BDC-2EDC1F20EDE4.JPG",
+    "url": "/uploads/4478_D715_2_EBC_4493_8_BDC_2_EDC_1_F20_EDE_4_e7f2a24e2f.JPG",
+    "w": 3400,
+    "h": 1912,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1893,
+    "name": "B28AE3EC-1356-45F6-931F-3212E926C256.JPG",
+    "url": "/uploads/B28_AE_3_EC_1356_45_F6_931_F_3212_E926_C256_2b5abe011d.JPG",
+    "w": 3400,
+    "h": 1912,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1894,
+    "name": "336A615D-3BDE-409F-B170-62BA00AB4F43.JPG",
+    "url": "/uploads/336_A615_D_3_BDE_409_F_B170_62_BA_00_AB_4_F43_cf49f76195.JPG",
+    "w": 3400,
+    "h": 1912,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1891,
+    "name": "9B100D09-5F13-4EE5-986C-FA9BEC4F8FF5.JPG",
+    "url": "/uploads/9_B100_D09_5_F13_4_EE_5_986_C_FA_9_BEC_4_F8_FF_5_1757133ee2.JPG",
+    "w": 3400,
+    "h": 1912,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1892,
+    "name": "99BBC28E-E79A-4503-A80D-098CCE28B76A.JPG",
+    "url": "/uploads/99_BBC_28_E_E79_A_4503_A80_D_098_CCE_28_B76_A_bbbc6f562a.JPG",
+    "w": 3400,
+    "h": 1912,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=5 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 308,
+  "webId": 70,
+  "category": "Кровати",
+  "title": "РИЦА ДЕТСКАЯ",
+  "slug": "rica-detskaya",
+  "folded_mm": {
+   "length": 2150,
+   "depth_or_widths": [
+    990
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 900,
+   "src": "СПАЛЬНОЕ МЕСТО 900 х 2000"
+  },
+  "media": [
+   {
+    "id": 733,
+    "name": "_Кровать Рица детская_Интерьер.jpg",
+    "url": "/uploads/Krovat_Ricza_detskaya_Interer_733f3e14eb.jpg",
+    "w": 4096,
+    "h": 3112,
+    "ext": ".jpg"
+   },
+   {
+    "id": 735,
+    "name": "Кровать Рица детская.png",
+    "url": "/uploads/Krovat_Ricza_detskaya_c65c530bb0.png",
+    "w": 4096,
+    "h": 3112,
+    "ext": ".png"
+   },
+   {
+    "id": 736,
+    "name": "Кровать Рица детская_прямо.png",
+    "url": "/uploads/Krovat_Ricza_detskaya_pryamo_b500b6539c.png",
+    "w": 4096,
+    "h": 3112,
+    "ext": ".png"
+   },
+   {
+    "id": 734,
+    "name": "Кровать Рица детская_сзади.png",
+    "url": "/uploads/Krovat_Ricza_detskaya_szadi_aea52e1cf3.png",
+    "w": 4096,
+    "h": 3112,
+    "ext": ".png"
+   },
+   {
+    "id": 737,
+    "name": "Кровать Рица детская_открытая.png",
+    "url": "/uploads/Krovat_Ricza_detskaya_otkrytaya_89ca7bbbc2.png",
+    "w": 4096,
+    "h": 3112,
+    "ext": ".png"
+   }
+  ],
+  "risks": [
+   "media=5 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 309,
+  "webId": 194,
+  "category": "Диваны",
+  "title": "САНДРА 2 ДКУ",
+  "slug": "sandra-2-dku",
+  "folded_mm": {
+   "length": 2450,
+   "depth_or_widths": [
+    1560
+   ]
+  },
+  "sleep": {
+   "length_mm": 2140,
+   "width_mm": 1500,
+   "src": "СПАЛЬНОЕ МЕСТО 1500 х 2140 мм"
+  },
+  "media": [
+   {
+    "id": 2038,
+    "name": "47F94D77-F24F-405D-9BC6-6160EE95345C.JPG",
+    "url": "/uploads/47_F94_D77_F24_F_405_D_9_BC_6_6160_EE_95345_C_a37d6c8193.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2043,
+    "name": "Sandra2DKU_front.JPG",
+    "url": "/uploads/Sandra2_DKU_front_53bda81cfe.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2040,
+    "name": "Sandra2DKU_leftII.JPG",
+    "url": "/uploads/Sandra2_DKU_left_II_8f24bb1a91.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2039,
+    "name": "Sandra2DKU_back.JPG",
+    "url": "/uploads/Sandra2_DKU_back_cf96253f08.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2042,
+    "name": "Sandra2DKU_left.JPG",
+    "url": "/uploads/Sandra2_DKU_left_5baa8a0073.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2044,
+    "name": "Sandra2DKU_sleep.JPG",
+    "url": "/uploads/Sandra2_DKU_sleep_5ad5afa2c2.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2045,
+    "name": "Sandra2DKU_open_otomanka.JPG",
+    "url": "/uploads/Sandra2_DKU_open_otomanka_19ec8d9b16.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2041,
+    "name": "Sandra2DKU_open_box.JPG",
+    "url": "/uploads/Sandra2_DKU_open_box_034d412b8d.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=8 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 310,
+  "webId": 136,
+  "category": "Кровати",
+  "title": "СОТЫ 2",
+  "slug": "soty-2",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 1400,
+   "src": "СПАЛЬНОЕ МЕСТО 1400 х 2000"
+  },
+  "media": [
+   {
+    "id": 1595,
+    "name": "IMG_2278.JPEG",
+    "url": "/uploads/IMG_2278_757f1be8a8.JPEG",
+    "w": 1280,
+    "h": 720,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1600,
+    "name": "IMG_2279.JPEG",
+    "url": "/uploads/IMG_2279_b5b788cfb9.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1598,
+    "name": "IMG_2280.JPEG",
+    "url": "/uploads/IMG_2280_b49e5b3432.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1596,
+    "name": "IMG_2281.JPEG",
+    "url": "/uploads/IMG_2281_d019c49a86.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1599,
+    "name": "IMG_2282.JPEG",
+    "url": "/uploads/IMG_2282_afacb2f858.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1597,
+    "name": "IMG_2283.JPEG",
+    "url": "/uploads/IMG_2283_62cbca90ff.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   }
+  ],
+  "risks": [
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 311,
+  "webId": 137,
+  "category": "Кровати",
+  "title": "СОТЫ 3",
+  "slug": "soty-3",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 1400,
+   "src": "СПАЛЬНОЕ МЕСТО 1400 х 2000"
+  },
+  "media": [
+   {
+    "id": 1602,
+    "name": "IMG_2291.JPEG",
+    "url": "/uploads/IMG_2291_f71617e545.JPEG",
+    "w": 1280,
+    "h": 720,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1603,
+    "name": "IMG_2292.JPEG",
+    "url": "/uploads/IMG_2292_027dada633.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1604,
+    "name": "IMG_2293.JPEG",
+    "url": "/uploads/IMG_2293_d9b366d335.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1606,
+    "name": "IMG_2294.JPEG",
+    "url": "/uploads/IMG_2294_dd9a048b79.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1601,
+    "name": "IMG_2295.JPEG",
+    "url": "/uploads/IMG_2295_a1b0d9182c.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1605,
+    "name": "IMG_2296.JPEG",
+    "url": "/uploads/IMG_2296_4fe9de2a46.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1607,
+    "name": "IMG_2297.JPEG",
+    "url": "/uploads/IMG_2297_3cb2053c3c.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 312,
+  "webId": 138,
+  "category": "Кровати",
+  "title": "СОТЫ 4",
+  "slug": "soty-4",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 1400,
+   "src": "СПАЛЬНОЕ МЕСТО 1400 х 2000"
+  },
+  "media": [
+   {
+    "id": 1619,
+    "name": "IMG_2266.JPEG",
+    "url": "/uploads/IMG_2266_db2dbb9860.JPEG",
+    "w": 1280,
+    "h": 720,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1614,
+    "name": "IMG_2332.JPEG",
+    "url": "/uploads/IMG_2332_93181f233f.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1618,
+    "name": "IMG_2333.JPEG",
+    "url": "/uploads/IMG_2333_f025b080ae.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1615,
+    "name": "IMG_2334.JPEG",
+    "url": "/uploads/IMG_2334_15e8cb4d9e.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1617,
+    "name": "IMG_2335.JPEG",
+    "url": "/uploads/IMG_2335_fdaf7d67a2.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   }
+  ],
+  "risks": [
+   "media=5 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 313,
+  "webId": 74,
+  "category": "Диваны",
+  "title": "СОФИЯ 2  ДКУ о",
+  "slug": "sofiya-2-dku-o",
+  "folded_mm": {
+   "length": 2250,
+   "depth_or_widths": [
+    1720
+   ]
+  },
+  "sleep": {
+   "length_mm": 2200,
+   "width_mm": 1360,
+   "src": "СПАЛЬНОЕ МЕСТО 2200 х 1360 мм"
+  },
+  "media": [
+   {
+    "id": 994,
+    "name": "IMG_4713.JPEG",
+    "url": "/uploads/IMG_4713_5802f6fd8c.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 998,
+    "name": "IMG_4714.PNG",
+    "url": "/uploads/IMG_4714_701ba75361.PNG",
+    "w": 3500,
+    "h": 1969,
+    "ext": ".PNG"
+   },
+   {
+    "id": 993,
+    "name": "IMG_4715.PNG",
+    "url": "/uploads/IMG_4715_a2a0d3db00.PNG",
+    "w": 3249,
+    "h": 1828,
+    "ext": ".PNG"
+   },
+   {
+    "id": 995,
+    "name": "IMG_4716.PNG",
+    "url": "/uploads/IMG_4716_9657a4679c.PNG",
+    "w": 3500,
+    "h": 1969,
+    "ext": ".PNG"
+   },
+   {
+    "id": 997,
+    "name": "IMG_4717.PNG",
+    "url": "/uploads/IMG_4717_7c31ce65a3.PNG",
+    "w": 3500,
+    "h": 1969,
+    "ext": ".PNG"
+   },
+   {
+    "id": 996,
+    "name": "IMG_4718.PNG",
+    "url": "/uploads/IMG_4718_7e7fc1b148.PNG",
+    "w": 3500,
+    "h": 1969,
+    "ext": ".PNG"
+   },
+   {
+    "id": 999,
+    "name": "IMG_4719.PNG",
+    "url": "/uploads/IMG_4719_1b694669ad.PNG",
+    "w": 3500,
+    "h": 1969,
+    "ext": ".PNG"
+   },
+   {
+    "id": 982,
+    "name": "IMG_4654.PNG",
+    "url": "/uploads/IMG_4654_45fe62d1bb.PNG",
+    "w": 2635,
+    "h": 1482,
+    "ext": ".PNG"
+   },
+   {
+    "id": 984,
+    "name": "IMG_4662.PNG",
+    "url": "/uploads/IMG_4662_750c39c9d4.PNG",
+    "w": 3000,
+    "h": 1687,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=9 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 314,
+  "webId": 73,
+  "category": "Диваны",
+  "title": "СОФИЯ 2.1 ДКУ",
+  "slug": "sofiya-2-1-dku",
+  "folded_mm": {
+   "length": 3000,
+   "depth_or_widths": [
+    1720
+   ]
+  },
+  "sleep": {
+   "length_mm": 3000,
+   "width_mm": 1360,
+   "src": "СПАЛЬНОЕ МЕСТО 3000 х 1360 мм"
+  },
+  "media": [
+   {
+    "id": 986,
+    "name": "IMG_4698.JPEG",
+    "url": "/uploads/IMG_4698_e6fb4d02bc.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 989,
+    "name": "IMG_4699.PNG",
+    "url": "/uploads/IMG_4699_ff0e39c8d6.PNG",
+    "w": 3500,
+    "h": 1969,
+    "ext": ".PNG"
+   },
+   {
+    "id": 988,
+    "name": "IMG_4700.PNG",
+    "url": "/uploads/IMG_4700_7406a93ca5.PNG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".PNG"
+   },
+   {
+    "id": 987,
+    "name": "IMG_4701.PNG",
+    "url": "/uploads/IMG_4701_bdc4a115e4.PNG",
+    "w": 3500,
+    "h": 1969,
+    "ext": ".PNG"
+   },
+   {
+    "id": 990,
+    "name": "IMG_4702.PNG",
+    "url": "/uploads/IMG_4702_2ed121c644.PNG",
+    "w": 3500,
+    "h": 1969,
+    "ext": ".PNG"
+   },
+   {
+    "id": 992,
+    "name": "IMG_4704.PNG",
+    "url": "/uploads/IMG_4704_195ab53b23.PNG",
+    "w": 3500,
+    "h": 1969,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1416,
+    "name": "IMG_0916.JPEG",
+    "url": "/uploads/IMG_0916_345407b03a.JPEG",
+    "w": 1280,
+    "h": 720,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1420,
+    "name": "IMG_0925.JPEG",
+    "url": "/uploads/IMG_0925_244cf67ca8.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1418,
+    "name": "IMG_0923.JPEG",
+    "url": "/uploads/IMG_0923_cb67cd1f9e.JPEG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1417,
+    "name": "IMG_0922.JPEG",
+    "url": "/uploads/IMG_0922_0e1d848518.JPEG",
+    "w": 3000,
+    "h": 1687,
+    "ext": ".JPEG"
+   }
+  ],
+  "risks": [
+   "media=10 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 315,
+  "webId": 192,
+  "category": "Диваны",
+  "title": "СОФТ 1 ДКУ-О",
+  "slug": "soft-1-dku-o",
+  "folded_mm": {
+   "length": 2620,
+   "depth_or_widths": [
+    1650
+   ]
+  },
+  "sleep": {
+   "length_mm": 1980,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 1600х 1980 мм"
+  },
+  "media": [
+   {
+    "id": 2020,
+    "name": "812FB014-B718-4EE1-9D9C-692692DBF0A1.JPG",
+    "url": "/uploads/812_FB_014_B718_4_EE_1_9_D9_C_692692_DBF_0_A1_d7b450ba37.JPG",
+    "w": 2000,
+    "h": 1125,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2024,
+    "name": "Soft1DKU-O_front.JPG",
+    "url": "/uploads/Soft1_DKU_O_front_c572a65813.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2023,
+    "name": "Soft1DKU-O_leftII.JPG",
+    "url": "/uploads/Soft1_DKU_O_left_II_ca6d3cd987.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2021,
+    "name": "Soft1DKU-O_back.JPG",
+    "url": "/uploads/Soft1_DKU_O_back_08cc0de66a.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2026,
+    "name": "Soft1DKU-O_left.JPG",
+    "url": "/uploads/Soft1_DKU_O_left_e8e34c1a07.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2022,
+    "name": "Soft1DKU-O_sleep.JPG",
+    "url": "/uploads/Soft1_DKU_O_sleep_1207f12607.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2025,
+    "name": "Soft1DKU-O_open_box.JPG",
+    "url": "/uploads/Soft1_DKU_O_open_box_43519341c9.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 316,
+  "webId": 187,
+  "category": "Диваны",
+  "title": "СОФТ 2 ДК",
+  "slug": "soft-2-dk",
+  "folded_mm": {
+   "length": 2440,
+   "depth_or_widths": [
+    1150
+   ]
+  },
+  "sleep": {
+   "length_mm": 1980,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 1600х 1980 мм"
+  },
+  "media": [
+   {
+    "id": 1981,
+    "name": "9A8F95A9-232F-48DD-BA1B-B139478840DD.JPG",
+    "url": "/uploads/9_A8_F95_A9_232_F_48_DD_BA_1_B_B139478840_DD_0bb3714c2e.JPG",
+    "w": 1024,
+    "h": 576,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1985,
+    "name": "6D6F893A-7D3C-4C8A-909A-D820F7C96CE8.JPG",
+    "url": "/uploads/6_D6_F893_A_7_D3_C_4_C8_A_909_A_D820_F7_C96_CE_8_404812b4bb.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1987,
+    "name": "308BAB35-2311-4995-A506-9457322AE713.JPG",
+    "url": "/uploads/308_BAB_35_2311_4995_A506_9457322_AE_713_cb88dcb0b2.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1983,
+    "name": "63DBE1B3-B59C-44E2-B5E8-244DCEDE8A61.JPG",
+    "url": "/uploads/63_DBE_1_B3_B59_C_44_E2_B5_E8_244_DCEDE_8_A61_d10d5dc682.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1982,
+    "name": "971573DC-B7E8-464B-A35D-3544416F1171.JPG",
+    "url": "/uploads/971573_DC_B7_E8_464_B_A35_D_3544416_F1171_fd4356a1df.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1989,
+    "name": "CDB0751A-E5ED-4456-AE1A-53D196AD1DDA.JPG",
+    "url": "/uploads/CDB_0751_A_E5_ED_4456_AE_1_A_53_D196_AD_1_DDA_64dda91311.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1984,
+    "name": "19F56F48-1F0B-46BA-903F-7BD432DA1DD2.JPG",
+    "url": "/uploads/19_F56_F48_1_F0_B_46_BA_903_F_7_BD_432_DA_1_DD_2_4bef9792b0.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 317,
+  "webId": 191,
+  "category": "Диваны",
+  "title": "СОФТ 3 ДКУ-О",
+  "slug": "soft-3-dku-o",
+  "folded_mm": {
+   "length": 2440,
+   "depth_or_widths": [
+    1650
+   ]
+  },
+  "sleep": {
+   "length_mm": 1980,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 1600х 1980 мм"
+  },
+  "media": [
+   {
+    "id": 2013,
+    "name": "A1F5A7E4-2010-4F50-8187-AA1AD84C568D.JPG",
+    "url": "/uploads/A1_F5_A7_E4_2010_4_F50_8187_AA_1_AD_84_C568_D_a9c6959201.JPG",
+    "w": 964,
+    "h": 542,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2017,
+    "name": "Soft3DKU-O_front.JPG",
+    "url": "/uploads/Soft3_DKU_O_front_bfe3937609.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2018,
+    "name": "Soft3DKU-O_leftII.JPG",
+    "url": "/uploads/Soft3_DKU_O_left_II_7ab557a325.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2015,
+    "name": "Soft3DKU-O_back.JPG",
+    "url": "/uploads/Soft3_DKU_O_back_18a1e7361a.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2019,
+    "name": "Soft3DKU-O_left.JPG",
+    "url": "/uploads/Soft3_DKU_O_left_2964678bb1.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2016,
+    "name": "Soft3DKU-O_sleep.JPG",
+    "url": "/uploads/Soft3_DKU_O_sleep_17145baf3e.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2014,
+    "name": "Soft3DKU-O_open_box.JPG",
+    "url": "/uploads/Soft3_DKU_O_open_box_ceae0ba0e6.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 318,
+  "webId": 189,
+  "category": "Диваны",
+  "title": "СОФТ 4 ДК",
+  "slug": "soft-4-dk",
+  "folded_mm": {
+   "length": 2800,
+   "depth_or_widths": [
+    1150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2970,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 1600х 2970 мм"
+  },
+  "media": [
+   {
+    "id": 1997,
+    "name": "1D5B96A4-D940-4B9E-9529-3143A3A167F4.JPG",
+    "url": "/uploads/1_D5_B96_A4_D940_4_B9_E_9529_3143_A3_A167_F4_812edb0b86.JPG",
+    "w": 994,
+    "h": 559,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2002,
+    "name": "Soft4DK_front.JPG",
+    "url": "/uploads/Soft4_DK_front_13d4965941.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2003,
+    "name": "Soft4DK_leftII.JPG",
+    "url": "/uploads/Soft4_DK_left_II_00a0ca22b4.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2000,
+    "name": "Soft4DK_back.JPG",
+    "url": "/uploads/Soft4_DK_back_e14735a77a.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2004,
+    "name": "Soft4DK_left.JPG",
+    "url": "/uploads/Soft4_DK_left_2b5ec10715.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 2001,
+    "name": "Soft4DK_left_sleep.JPG",
+    "url": "/uploads/Soft4_DK_left_sleep_ff840cf4bf.JPG",
+    "w": 4096,
+    "h": 2458,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1999,
+    "name": "CE656E06-2785-42D2-B8EB-1199A4380DC2.JPG",
+    "url": "/uploads/CE_656_E06_2785_42_D2_B8_EB_1199_A4380_DC_2_1f0e3027ed.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1998,
+    "name": "B997C887-172E-4149-8923-7DA5758228E4.JPG",
+    "url": "/uploads/B997_C887_172_E_4149_8923_7_DA_5758228_E4_fcc4cca36c.JPG",
+    "w": 1024,
+    "h": 576,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=8 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 319,
+  "webId": 188,
+  "category": "Диваны",
+  "title": "СОФТ 5 ДК",
+  "slug": "soft-5-dk",
+  "folded_mm": {
+   "length": 2620,
+   "depth_or_widths": [
+    1150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2970,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 1600х 2970 мм"
+  },
+  "media": [
+   {
+    "id": 1990,
+    "name": "3C7D0283-0885-4083-B9E0-A1700807225D.JPG",
+    "url": "/uploads/3_C7_D0283_0885_4083_B9_E0_A1700807225_D_fbf95e95ec.JPG",
+    "w": 1024,
+    "h": 576,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1994,
+    "name": "88E182FF-25BD-47E6-A624-9568FB9EF100.JPG",
+    "url": "/uploads/88_E182_FF_25_BD_47_E6_A624_9568_FB_9_EF_100_663cad704b.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1992,
+    "name": "B63FADC9-5DBA-4A26-A440-EE1A8D341997.JPG",
+    "url": "/uploads/B63_FADC_9_5_DBA_4_A26_A440_EE_1_A8_D341997_d369747132.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1993,
+    "name": "9CC70FA3-D1A2-4445-AB29-80FB830860E5.JPG",
+    "url": "/uploads/9_CC_70_FA_3_D1_A2_4445_AB_29_80_FB_830860_E5_6a609c46ff.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1991,
+    "name": "4BB5952C-2DC7-4EF0-A5F4-9AFAA2F48F05.JPG",
+    "url": "/uploads/4_BB_5952_C_2_DC_7_4_EF_0_A5_F4_9_AFAA_2_F48_F05_675a10e62b.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1995,
+    "name": "F7F86117-F9D4-4876-987A-07F91914C607.JPG",
+    "url": "/uploads/F7_F86117_F9_D4_4876_987_A_07_F91914_C607_1a217137e8.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1996,
+    "name": "8BA19668-B812-42BE-9F2D-277EB0DEF5F3.JPG",
+    "url": "/uploads/8_BA_19668_B812_42_BE_9_F2_D_277_EB_0_DEF_5_F3_b7f03f6b0b.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 320,
+  "webId": 186,
+  "category": "Диваны",
+  "title": "СОФТ 6 ДКУ-ОО",
+  "slug": "soft-6-dku-oo",
+  "folded_mm": {
+   "length": 3610,
+   "depth_or_widths": [
+    1650
+   ]
+  },
+  "sleep": {
+   "length_mm": 2970,
+   "width_mm": 1600,
+   "src": "СПАЛЬНОЕ МЕСТО 1600х 2970 мм"
+  },
+  "media": [
+   {
+    "id": 1976,
+    "name": "DD1DF16F-D9FC-42E0-9D70-C0461E47A899.JPG",
+    "url": "/uploads/DD_1_DF_16_F_D9_FC_42_E0_9_D70_C0461_E47_A899_e3654c24b1.JPG",
+    "w": 1024,
+    "h": 576,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1974,
+    "name": "625A5001-58BB-4CEF-9BCA-E3B0C3565A4D.JPG",
+    "url": "/uploads/625_A5001_58_BB_4_CEF_9_BCA_E3_B0_C3565_A4_D_7f5b7c0a92.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1979,
+    "name": "846FBD9D-7F38-48EE-B249-CB61D1E8E636.JPG",
+    "url": "/uploads/846_FBD_9_D_7_F38_48_EE_B249_CB_61_D1_E8_E636_487d7db740.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1980,
+    "name": "94B2D0ED-89BC-4544-B619-23DA148A3C7A.JPG",
+    "url": "/uploads/94_B2_D0_ED_89_BC_4544_B619_23_DA_148_A3_C7_A_1e0f02e7a2.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1975,
+    "name": "6E387740-B417-49B8-9B02-7B9D83D18BC3.JPG",
+    "url": "/uploads/6_E387740_B417_49_B8_9_B02_7_B9_D83_D18_BC_3_549ef9b850.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1978,
+    "name": "541807E8-4972-4955-BBAC-4BB56014D9CE.JPG",
+    "url": "/uploads/541807_E8_4972_4955_BBAC_4_BB_56014_D9_CE_0baa9620fa.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1977,
+    "name": "32F7705F-06C3-47D8-BB92-417F00F001C7.JPG",
+    "url": "/uploads/32_F7705_F_06_C3_47_D8_BB_92_417_F00_F001_C7_bbaca5a97a.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 321,
+  "webId": 65,
+  "category": "Диваны",
+  "title": "ФИНКА  ДК с хромированными боковинами",
+  "slug": "finka-dk-s-hromirovannymi-bokovinami",
+  "folded_mm": {
+   "length": 2140,
+   "depth_or_widths": [
+    1090
+   ]
+  },
+  "sleep": {
+   "length_mm": 1970,
+   "width_mm": 1380,
+   "src": "СПАЛЬНОЕ МЕСТО 1970 х 1380 мм"
+  },
+  "media": [
+   {
+    "id": 1093,
+    "name": "IMG_5027.JPEG",
+    "url": "/uploads/IMG_5027_305d54c42b.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1053,
+    "name": "IMG_4834.PNG",
+    "url": "/uploads/IMG_4834_daa8724a58.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1050,
+    "name": "IMG_4835.PNG",
+    "url": "/uploads/IMG_4835_1cd73e144e.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1052,
+    "name": "IMG_4836.PNG",
+    "url": "/uploads/IMG_4836_306c1d3c45.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1054,
+    "name": "IMG_4837.PNG",
+    "url": "/uploads/IMG_4837_9f8065df72.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1051,
+    "name": "IMG_4838.PNG",
+    "url": "/uploads/IMG_4838_276f3dc61b.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1055,
+    "name": "IMG_4839.PNG",
+    "url": "/uploads/IMG_4839_ec9f090f7b.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1056,
+    "name": "IMG_4840.PNG",
+    "url": "/uploads/IMG_4840_948bf8e567.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=8 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 322,
+  "webId": 76,
+  "category": "Диваны",
+  "title": "ФИНКА  ДКУ с хромированными боковинами",
+  "slug": "finka-dku-s-hromirovannymi-bokovinami",
+  "folded_mm": {
+   "length": 3050,
+   "depth_or_widths": [
+    1800
+   ]
+  },
+  "sleep": {
+   "length_mm": 2900,
+   "width_mm": 1380,
+   "src": "СПАЛЬНОЕ МЕСТО 2900 х 1380 мм"
+  },
+  "media": [
+   {
+    "id": 1104,
+    "name": "IMG_5056.JPEG",
+    "url": "/uploads/IMG_5056_ef9329bd55.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1109,
+    "name": "IMG_5057.PNG",
+    "url": "/uploads/IMG_5057_431abfb606.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1105,
+    "name": "IMG_5058.PNG",
+    "url": "/uploads/IMG_5058_c1e6f0c709.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1108,
+    "name": "IMG_5059.PNG",
+    "url": "/uploads/IMG_5059_7d910b0476.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1107,
+    "name": "IMG_5060.PNG",
+    "url": "/uploads/IMG_5060_f92b0e5ce3.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1106,
+    "name": "IMG_5061.PNG",
+    "url": "/uploads/IMG_5061_5c308b89d1.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1110,
+    "name": "IMG_5062.PNG",
+    "url": "/uploads/IMG_5062_1f6ac90438.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1111,
+    "name": "IMG_5063.PNG",
+    "url": "/uploads/IMG_5063_8789c8fc0a.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=8 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 323,
+  "webId": 176,
+  "category": "Диваны",
+  "title": "ФИНКА 18 ДК",
+  "slug": "finka-18-dk",
+  "folded_mm": {
+   "length": 2000,
+   "depth_or_widths": [
+    1050
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 1400,
+   "src": "СПАЛЬНОЕ МЕСТО 2000 х 1400 мм"
+  },
+  "media": [
+   {
+    "id": 1907,
+    "name": "30AF68CB-AA1F-4828-BBC3-E55399768F17.JPG",
+    "url": "/uploads/30_AF_68_CB_AA_1_F_4828_BBC_3_E55399768_F17_5e565d3ee6.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1904,
+    "name": "13FA9B61-48F8-4C25-BF1F-FB81A1609F7F.JPG",
+    "url": "/uploads/13_FA_9_B61_48_F8_4_C25_BF_1_F_FB_81_A1609_F7_F_a64c22f4df.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1903,
+    "name": "27AB36CD-AA40-4F28-9F9E-33FCEDE03138.JPG",
+    "url": "/uploads/27_AB_36_CD_AA_40_4_F28_9_F9_E_33_FCEDE_03138_3318fa7bd9.JPG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1905,
+    "name": "2D16F71F-992B-4C1E-A643-6688CAB13680.JPG",
+    "url": "/uploads/2_D16_F71_F_992_B_4_C1_E_A643_6688_CAB_13680_3e0a74f61f.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1908,
+    "name": "755E4AD4-B294-4A21-BFBD-FAFC0A9FC9CB.JPG",
+    "url": "/uploads/755_E4_AD_4_B294_4_A21_BFBD_FAFC_0_A9_FC_9_CB_5262acb69b.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1909,
+    "name": "Finka18_sleep.JPG",
+    "url": "/uploads/Finka18_sleep_31b295c188.JPG",
+    "w": 3273,
+    "h": 2032,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1906,
+    "name": "B59632DC-911B-44D3-A7CA-B8E6808E2CDA.JPG",
+    "url": "/uploads/B59632_DC_911_B_44_D3_A7_CA_B8_E6808_E2_CDA_b9a9b1e583.JPG",
+    "w": 4096,
+    "h": 2304,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 324,
+  "webId": 95,
+  "category": "Диваны",
+  "title": "ФИНКА 3 ДК с хромированными боковинами",
+  "slug": "finka-3-dk-s-hromirovannymi-bokovinami",
+  "folded_mm": {
+   "length": 2100,
+   "depth_or_widths": [
+    1040
+   ]
+  },
+  "sleep": {
+   "length_mm": 1970,
+   "width_mm": 1400,
+   "src": "СПАЛЬНОЕ МЕСТО 1970 х 1400 мм"
+  },
+  "media": [
+   {
+    "id": 1401,
+    "name": "IMG_9181.JPEG",
+    "url": "/uploads/IMG_9181_806b70b421.JPEG",
+    "w": 1600,
+    "h": 900,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1263,
+    "name": "IMG_0854.PNG",
+    "url": "/uploads/IMG_0854_2eb4bf3242.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1262,
+    "name": "IMG_0853.PNG",
+    "url": "/uploads/IMG_0853_10d1b5e0bf.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": []
+ },
+ {
+  "localId": 325,
+  "webId": 68,
+  "category": "Диваны",
+  "title": "ФИНКА 5 ДК",
+  "slug": "finka-5-dk",
+  "folded_mm": {
+   "length": 1950,
+   "depth_or_widths": [
+    1050
+   ]
+  },
+  "sleep": {
+   "length_mm": 1950,
+   "width_mm": 1420,
+   "src": "СПАЛЬНОЕ МЕСТО 1950 х 1420 мм"
+  },
+  "media": [
+   {
+    "id": 1025,
+    "name": "IMG_4785.JPEG",
+    "url": "/uploads/IMG_4785_e83928a759.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1029,
+    "name": "IMG_4786.PNG",
+    "url": "/uploads/IMG_4786_996af0dbef.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1026,
+    "name": "IMG_4787.PNG",
+    "url": "/uploads/IMG_4787_0a1827ab56.PNG",
+    "w": 3150,
+    "h": 1772,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1031,
+    "name": "IMG_4788.PNG",
+    "url": "/uploads/IMG_4788_0fecc59481.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1028,
+    "name": "IMG_4789.PNG",
+    "url": "/uploads/IMG_4789_d01e10dc26.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1027,
+    "name": "IMG_4790.PNG",
+    "url": "/uploads/IMG_4790_e10385a178.PNG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1032,
+    "name": "IMG_4792.PNG",
+    "url": "/uploads/IMG_4792_e685f18e31.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 326,
+  "webId": 69,
+  "category": "Диваны",
+  "title": "ФИНКА 5 ДК на НПБ",
+  "slug": "finka-5-dk-na-npb",
+  "folded_mm": {
+   "length": 1950,
+   "depth_or_widths": [
+    1050
+   ]
+  },
+  "sleep": {
+   "length_mm": 1950,
+   "width_mm": 1420,
+   "src": "СПАЛЬНОЕ МЕСТО 1950 х 1420 мм"
+  },
+  "media": [
+   {
+    "id": 1033,
+    "name": "IMG_4801.JPEG",
+    "url": "/uploads/IMG_4801_1fe14a3dc0.JPEG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPEG"
+   },
+   {
+    "id": 1038,
+    "name": "IMG_4802.PNG",
+    "url": "/uploads/IMG_4802_b5b283968f.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1035,
+    "name": "IMG_4803.PNG",
+    "url": "/uploads/IMG_4803_02d7f8526f.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1039,
+    "name": "IMG_4805.PNG",
+    "url": "/uploads/IMG_4805_0b3ac68dab.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1034,
+    "name": "IMG_4806.PNG",
+    "url": "/uploads/IMG_4806_de4012b044.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1036,
+    "name": "IMG_4807.PNG",
+    "url": "/uploads/IMG_4807_5c75ea2cfd.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   },
+   {
+    "id": 1040,
+    "name": "IMG_4808.PNG",
+    "url": "/uploads/IMG_4808_29bfb7d2a1.PNG",
+    "w": 3273,
+    "h": 1841,
+    "ext": ".PNG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 327,
+  "webId": 156,
+  "category": "Кровати",
+  "title": "ЭКЛИПС 1",
+  "slug": "eklips-1",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 1400,
+   "src": "СПАЛЬНОЕ МЕСТО 1400 х 2000"
+  },
+  "media": [
+   {
+    "id": 1793,
+    "name": "B2C4BCB0-31DA-4443-8843-8DF88D07B57A.JPG",
+    "url": "/uploads/B2_C4_BCB_0_31_DA_4443_8843_8_DF_88_D07_B57_A_a916a18bfc.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1794,
+    "name": "C11D0F87-45B0-47A0-95BD-BBDCDD1ACD8B.JPG",
+    "url": "/uploads/C11_D0_F87_45_B0_47_A0_95_BD_BBDCDD_1_ACD_8_B_962da32b62.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1791,
+    "name": "ABAD3CBF-9A3B-4128-BDDC-2CDD22844154.JPG",
+    "url": "/uploads/ABAD_3_CBF_9_A3_B_4128_BDDC_2_CDD_22844154_084ffb5fb8.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1792,
+    "name": "7408196E-3CD8-4ABB-9384-D518C4361E5D.JPG",
+    "url": "/uploads/7408196_E_3_CD_8_4_ABB_9384_D518_C4361_E5_D_9ce5d983d0.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1788,
+    "name": "65B67BC1-7C41-468A-90F0-0E284ED5554C.JPG",
+    "url": "/uploads/65_B67_BC_1_7_C41_468_A_90_F0_0_E284_ED_5554_C_3803837b2f.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1789,
+    "name": "94A08D0D-D0AD-4DBE-A698-79AEAEACBA2F.JPG",
+    "url": "/uploads/94_A08_D0_D_D0_AD_4_DBE_A698_79_AEAEACBA_2_F_059c108ab6.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1790,
+    "name": "A2F5E054-00BB-4E86-A1B8-4B55E021A722.JPG",
+    "url": "/uploads/A2_F5_E054_00_BB_4_E86_A1_B8_4_B55_E021_A722_c076ecfcf0.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=7 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 328,
+  "webId": 157,
+  "category": "Кровати",
+  "title": "ЭКЛИПС 2",
+  "slug": "eklips-2",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 1400,
+   "src": "СПАЛЬНОЕ МЕСТО 1400 х 2000"
+  },
+  "media": [
+   {
+    "id": 1800,
+    "name": "B2C4BCB0-31DA-4443-8843-8DF88D07B57A.JPG",
+    "url": "/uploads/B2_C4_BCB_0_31_DA_4443_8843_8_DF_88_D07_B57_A_a4e2b8692e.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1797,
+    "name": "899373FD-7C74-40E1-AB66-013166285091.JPG",
+    "url": "/uploads/899373_FD_7_C74_40_E1_AB_66_013166285091_3338698d5a.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1798,
+    "name": "3948620D-2DF8-4877-81F0-5B92187E2DA7.JPG",
+    "url": "/uploads/3948620_D_2_DF_8_4877_81_F0_5_B92187_E2_DA_7_32b79e59e1.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1796,
+    "name": "A53BB72D-0B18-4CAC-BA4B-977AB22971A8.JPG",
+    "url": "/uploads/A53_BB_72_D_0_B18_4_CAC_BA_4_B_977_AB_22971_A8_e5808df4c6.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1795,
+    "name": "7AC3C788-47ED-4CD9-8EE2-9A339666409B.JPG",
+    "url": "/uploads/7_AC_3_C788_47_ED_4_CD_9_8_EE_2_9_A339666409_B_eb563c48c0.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1799,
+    "name": "F3F2D0BD-0246-4973-BC77-A223413AC02E.JPG",
+    "url": "/uploads/F3_F2_D0_BD_0246_4973_BC_77_A223413_AC_02_E_c7602c711d.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ },
+ {
+  "localId": 329,
+  "webId": 159,
+  "category": "Кровати",
+  "title": "ЭКЛИПС 4",
+  "slug": "eklips-4",
+  "folded_mm": {
+   "length": 1590,
+   "depth_or_widths": [
+    2150
+   ]
+  },
+  "sleep": {
+   "length_mm": 2000,
+   "width_mm": 1400,
+   "src": "СПАЛЬНОЕ МЕСТО 1400 х 2000"
+  },
+  "media": [
+   {
+    "id": 1813,
+    "name": "365AD0F0-B7A7-4542-85D4-E889E9580A35.JPG",
+    "url": "/uploads/365_AD_0_F0_B7_A7_4542_85_D4_E889_E9580_A35_3eb4214a35.JPG",
+    "w": 3464,
+    "h": 1948,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1810,
+    "name": "7592092D-C3C6-4BD6-B251-17BFBE5D8AA4.JPG",
+    "url": "/uploads/7592092_D_C3_C6_4_BD_6_B251_17_BFBE_5_D8_AA_4_f5fefd7fc5.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1811,
+    "name": "3CEEAAF9-F8C3-4547-ABDC-FF6F2650AB60.JPG",
+    "url": "/uploads/3_CEEAAF_9_F8_C3_4547_ABDC_FF_6_F2650_AB_60_0001335e3a.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1808,
+    "name": "9EBE088B-DC64-4C69-8CFF-EEC9C7673ECA.JPG",
+    "url": "/uploads/9_EBE_088_B_DC_64_4_C69_8_CFF_EEC_9_C7673_ECA_be7431f10e.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1809,
+    "name": "A1C2244C-8ADE-49D7-BBDE-B5E857E26A4C.JPG",
+    "url": "/uploads/A1_C2244_C_8_ADE_49_D7_BBDE_B5_E857_E26_A4_C_1637aebb4d.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   },
+   {
+    "id": 1812,
+    "name": "B10A0598-39F3-4F4C-9A62-23F6B23089AA.JPG",
+    "url": "/uploads/B10_A0598_39_F3_4_F4_C_9_A62_23_F6_B23089_AA_df02e23d8d.JPG",
+    "w": 3974,
+    "h": 2235,
+    "ext": ".JPG"
+   }
+  ],
+  "risks": [
+   "media=6 (ожидалось 3: интерьер, сложен., разложен.)"
+  ]
+ }
+]

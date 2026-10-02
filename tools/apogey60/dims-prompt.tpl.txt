@@ -1,0 +1,21 @@
+Create one vertical 3:4 furniture-catalog dimensions slide with exactly two stacked panels on a clean warm-white studio background.
+
+PRODUCT IDENTITY — ABSOLUTE PRIORITY
+Image 1 is the authoritative reference for the sofa in its folded state. Use that exact sofa without redesigning, improving, simplifying, widening, narrowing, stretching, or replacing any part. Preserve exactly its construction, overall proportions, width-to-depth ratio, armrest shape and thickness, light wood trim, upholstery color and texture, seam positions, panel count, backrest shape, seat divisions, front rail, feet, and every visible structural detail.
+Image 2 is the authoritative reference for the same sofa in its unfolded state. Preserve the real transformation and every structural detail from Image 2. Do not invent a different mechanism or sleeping platform.
+
+LAYOUT AND CAMERA
+Top panel: the exact folded sofa from Image 1, fully visible, at its original natural front three-quarter angle.
+Bottom panel: the exact same sofa unfolded as in Image 2, fully visible. Rotate/reframe the unfolded sofa only as needed so its camera position, viewing direction, perspective, scale, and front three-quarter angle match the top panel exactly. It must look like the same fixed camera photographed the sofa before and after unfolding. Do not alter the sofa itself while matching the angle.
+Keep generous empty floor space below and beside each sofa for dimension annotations. Do not crop any part.
+
+DIMENSION ANNOTATIONS
+Use thin dark-charcoal lines, one small solid circle at each end, and a dark rounded capsule centered on each line with bold white numerals. Numerals only, in centimeters. No extension or leader lines.
+Top panel: length line labelled “@L1@” on the floor below the sofa, precisely parallel to the visible front bottom edge in image perspective; depth line labelled “@D1@” on the floor beside the sofa, precisely parallel to the visible side bottom edge receding from the camera. The lines form a clean perspective-aligned corner.
+Bottom panel: line labelled “@F@” along the FRONT edge of the unfolded sleeping platform (the edge nearest the camera), precisely parallel to the front bottom edge of the sofa; line labelled “@S@” along the SIDE edge of the platform receding away from the camera, precisely parallel to the visible side bottom edge. The two lines form the same perspective-aligned corner as the real platform edges.
+
+GEOMETRY CHECK — MANDATORY
+Every dimension line must follow the sofa’s actual projected floor geometry. Never align a line to the image frame unless the corresponding sofa edge is also parallel to the frame. No arbitrary horizontal or diagonal lines. No line, endpoint circle, or number capsule may cross, touch, overlap, or float over the sofa, feet, upholstery, wooden trim, sleeping surface, or contact shadow. Keep all annotations outside the silhouette on the floor with a small even gap.
+
+Do not add a title, product name, height dimension, explanatory text, arrows, logos, watermark, decor, people, pets, or other furniture. The only visible text is exactly “@L1@”, “@D1@”, “@F@”, “@S@”.
+Final self-check: both panels show the identical sofa model; folded and unfolded views use the same camera angle; construction and proportions are unchanged; all four dimension lines are parallel to their corresponding real edges in perspective; annotations do not overlap the product.
