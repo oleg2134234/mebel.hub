@@ -14,7 +14,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "271": {
-  "view": "",
+  "view": "a front three-quarter view from the front-right at about 35 degrees",
   "kind": "armchair",
   "title": "Адель 2 Кресло-кровать",
   "slug": "adel-2-kreslo-krovat",
@@ -24,8 +24,8 @@
   "who": "An elderly man with glasses",
   "act": "arm_crossword",
   "pet": "a white rabbit",
-  "action": "An elderly man with glasses in cozy home clothes is solving a crossword with a pencil, glasses on, while a white rabbit sits calmly on their lap.",
-  "config": "This is a single armchair: do not turn it into a sofa."
+  "action": "An elderly man with glasses in cozy home clothes is sitting back in the armchair solving a crossword with a pencil, while a white rabbit sits calmly on a small footstool at his feet.",
+  "config": "This is a single armchair: do not turn it into a sofa. It is an armchair with dark brown wooden side panels on both sides and a tufted seat and back exactly as in Image 1."
  },
  "272": {
   "view": "",
@@ -70,18 +70,18 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "275": {
-  "view": "",
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "armchair",
   "title": "Бали 4 Кресло",
   "slug": "bali-4-kreslo",
   "ref": "/uploads/IMG_3759_1ea4d7fef4.PNG",
   "color": "khaki olive-beige fabric with dark wooden armrest tops",
-  "style": "Scandinavian forest (pale pine paneling, green plants, wool throw, window view of pine trees)",
+  "style": "Scandinavian forest (pale pine paneling, green plants, window view of pine trees)",
   "who": "A teenage girl",
   "act": "arm_draw",
   "pet": "a guinea pig",
-  "action": "A teenage girl in cozy home clothes is sitting comfortably with a sketchbook and colored pencils, while a guinea pig sits on their lap.",
-  "config": "This is a single armchair: do not turn it into a sofa."
+  "action": "A teenage girl in cozy home clothes is sitting sideways in the armchair with her legs over one armrest, sketching in a sketchbook, while a guinea pig sits on the other armrest.",
+  "config": "This is a single armchair: do not turn it into a sofa. It is a low armchair with a tufted back and dark wooden armrest tops exactly as in Image 1."
  },
  "276": {
   "view": "",
@@ -154,7 +154,7 @@
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "281": {
-  "view": "",
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "armchair",
   "title": "Клик-Кляк 8 Кресло",
   "slug": "klik-klyak-8-kreslo",
@@ -164,8 +164,8 @@
   "who": "A girl about 8 years old",
   "act": "arm_story",
   "pet": "a ginger kitten",
-  "action": "A girl about 8 years old in cozy home clothes is holding a picture book open and showing it to a ginger kitten, who sits on their lap.",
-  "config": "This is a single armchair: do not turn it into a sofa."
+  "action": "A girl about 8 years old in cozy home clothes is sitting in the armchair showing a picture book to a ginger kitten that sits on her lap.",
+  "config": "This is a single armchair: do not turn it into a sofa. It is a click-clack armchair with a high back, wing-like folding side flaps and slim chrome legs exactly as in Image 1."
  },
  "282": {
   "view": "",
@@ -300,7 +300,7 @@
   "slug": "montana-4",
   "ref": "/uploads/Montana4_left_fc0bfb9095.png",
   "color": "olive khaki-green fabric",
-  "style": "cozy cabin (wood-paneled walls, plaid throw, warm lantern, wool rug)",
+  "style": "cozy cabin (wood-paneled walls, warm lantern, wool rug)",
   "who": "A bearded man in his thirties",
   "act": "bed_phone",
   "pet": "a pug",
@@ -560,21 +560,21 @@
   "config": "The headboard has a hexagonal honeycomb panel pattern exactly as in Image 1."
  },
  "313": {
-  "view": "",
+  "view": "a front three-quarter view from the front-right at about 35 degrees",
   "kind": "sofa",
   "title": "София 2 ДКУ-О",
   "slug": "sofiya-2-dku-o",
   "ref": "/uploads/IMG_4717_7c31ce65a3.PNG",
   "color": "light sky-blue upholstery on the seats and backrest with a grey base",
-  "style": "Scandi-boho (white walls, macrame wall hanging, pampas grass, sheepskin throw)",
+  "style": "Scandi-boho (white walls, macrame wall hanging, pampas grass, woven rug)",
   "who": "A young woman",
   "act": "music",
   "pet": "a ginger cat",
-  "action": "A young woman in cozy home clothes is listening to music with large headphones and eyes closed, while a ginger cat sleeps curled up beside them.",
-  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
+  "action": "A young woman in cozy home clothes is lying on her back on the chaise (pouf) end of the sofa with headphones on and eyes closed, one arm hanging down, while a ginger cat sleeps on the seat next to her feet.",
+  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1. Modular low sofa: three tufted backrest cushions each with a small lumbar pillow, a light sky-blue seat and backrest part on a GREY base, a pouf-like chaise at the left; keep the two-tone colors (blue top, grey base)."
  },
  "314": {
-  "view": "",
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "sofa",
   "title": "София 2.1 ДКУ",
   "slug": "sofiya-2-1-dku",
@@ -584,11 +584,11 @@
   "who": "A man in his thirties",
   "act": "snack",
   "pet": "a corgi",
-  "action": "A man in his thirties in cozy home clothes is enjoying a small plate of snacks and a cup of cocoa, while a corgi lies stretched out beside them.",
-  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
+  "action": "A man in his thirties in cozy home clothes is sitting at the right end of the sofa eating popcorn from a bowl and laughing at something on a TV that is outside the frame, in front of him beyond the camera (no TV is visible), while a corgi sits upright on the rug next to the sofa looking up at the bowl.",
+  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1. Modular low sofa: four tufted backrest cushions each with a small pillow, a lilac-pink seat and backrest part on a GREY base, a chaise at the left; keep the two-tone colors (pink top, grey base)."
  },
  "315": {
-  "view": "",
+  "view": "a front three-quarter view from the front-right at about 35 degrees",
   "kind": "sofa",
   "title": "Софт 1 ДКУ-О",
   "slug": "soft-1-dku-o",
@@ -598,39 +598,39 @@
   "who": "A woman in her forties",
   "act": "nap",
   "pet": "a grey tabby cat",
-  "action": "A woman in her forties in cozy home clothes is dozing off with eyes closed and a cushion under the head, while a grey tabby cat sleeps curled up beside them.",
-  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
+  "action": "A woman in her forties in cozy home clothes is lying asleep on the long chaise part of the sofa with a cushion under her head, while a grey tabby cat sleeps curled up on the seat by her feet.",
+  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1. Low modular sofa with a very long chaise at the front, soft rectangular low backrests and only one boxy armrest at the right end; there is no high backrest on the chaise."
  },
  "316": {
-  "view": "",
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "sofa",
   "title": "Софт 2 ДК",
   "slug": "soft-2-dk",
   "ref": "/uploads/971573_DC_B7_E8_464_B_A35_D_3544416_F1171_fd4356a1df.JPG",
   "color": "dusty rose-mocha fabric",
-  "style": "boho-cottage (rattan accents, woven basket with blankets, many plants)",
+  "style": "boho-cottage (rattan accents, woven basket, many plants)",
   "who": "A father and his daughter about 9 years old",
   "act": "f_board",
   "pet": "a beagle puppy",
-  "action": "A father and his daughter about 9 years old in cozy home clothes are playing a card game on a small tray between them, while a beagle puppy lies stretched out beside them.",
-  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
+  "action": "A father and his daughter about 9 years old in cozy home clothes are sitting on the rug in front of the sofa, leaning back against it and assembling a jigsaw puzzle on a low table, while a beagle puppy sits between them.",
+  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules. Straight sofa with two rectangular backrest cushions and boxy square armrests, hidden feet."
  },
  "317": {
-  "view": "",
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "sofa",
   "title": "Софт 3 ДКУ-О",
   "slug": "soft-3-dku-o",
   "ref": "/uploads/Soft3_DKU_O_left_2964678bb1.JPG",
   "color": "olive sage-green fabric",
-  "style": "cozy cabin (wood-paneled walls, stone fireplace with a gentle fire, plaid blanket, warm lamp)",
+  "style": "cozy cabin (wood-paneled walls, stone fireplace with a gentle fire, warm lamp)",
   "who": "A teenage boy",
   "act": "laptop",
   "pet": "a black cat",
-  "action": "A teenage boy in cozy home clothes is working on a laptop resting on the knees with a mug nearby, while a black cat sleeps curled up beside them.",
-  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
+  "action": "A teenage boy in cozy home clothes is sprawled across the chaise part of the sofa playing a game on a tablet held in both hands, while a black cat sits on the backrest behind him.",
+  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1. Low modular corner sofa with a chaise at the front right, two rectangular backrest cushions and boxy armrests at both ends."
  },
  "318": {
-  "view": "",
+  "view": "a nearly frontal view with only a slight angle",
   "kind": "sofa",
   "title": "Софт 4 ДК",
   "slug": "soft-4-dk",
@@ -640,11 +640,11 @@
   "who": "A bearded man in his thirties",
   "act": "guitar",
   "pet": "a Siamese cat",
-  "action": "A bearded man in his thirties in cozy home clothes is softly playing an acoustic guitar, while a Siamese cat sleeps curled up beside them.",
-  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
+  "action": "A bearded man in his thirties in cozy home clothes is sitting at the left end of the low sofa painting a small wooden bird figurine with a thin brush on a lap tray, while a Siamese cat sleeps on the seat beside him.",
+  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules. Very low straight sofa with NO armrests at all and two flat rectangular backrest cushions; the seat is a plain low platform."
  },
  "319": {
-  "view": "",
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "sofa",
   "title": "Софт 5 ДК",
   "slug": "soft-5-dk",
@@ -654,11 +654,11 @@
   "who": "An elderly woman with grey hair",
   "act": "tablet",
   "pet": "a white rabbit",
-  "action": "An elderly woman with grey hair in cozy home clothes is watching something on a tablet propped on the knees, while a white rabbit sits calmly beside them, nose twitching.",
-  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
+  "action": "An elderly woman with grey hair in cozy home clothes is sitting at the right end of the sofa next to its armrest, video-calling relatives on a tablet and waving, while a white rabbit sits on the seat beside her.",
+  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules. Low straight sofa with two rectangular backrest cushions and ONE boxy armrest at the right end only."
  },
  "320": {
-  "view": "",
+  "view": "a nearly frontal view with only a slight angle",
   "kind": "sofa",
   "title": "Софт 6 ДКУ-ОО",
   "slug": "soft-6-dku-oo",
@@ -668,11 +668,11 @@
   "who": "A man in his forties",
   "act": "stretch",
   "pet": "a Maine Coon cat",
-  "action": "A man in his forties in cozy home clothes is relaxing with arms behind the head, legs stretched out and eyes closed, while a Maine Coon cat sleeps curled up beside them.",
-  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
+  "action": "A man in his forties in cozy home clothes is lying stretched out on one of the deep chaise sections of the U-shaped sofa with his arms behind his head, looking at the ceiling, while a Maine Coon cat sits upright on the middle seat.",
+  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1. Low U-shaped modular sofa with three backrest cushions in the middle and deep chaise sections on both sides, mottled marble-pattern velvet."
  },
  "321": {
-  "view": "",
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "sofa",
   "title": "Финка ДК с хромированными боковинами",
   "slug": "finka-dk-s-hromirovannymi-bokovinami",
@@ -682,11 +682,11 @@
   "who": "A couple, a man and a woman in their forties",
   "act": "f_tea",
   "pet": "a calico cat",
-  "action": "A couple, a man and a woman in their forties in cozy home clothes are chatting over cups of tea and cocoa, while a calico cat sleeps curled up beside them.",
-  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
+  "action": "A couple, a man and a woman in their forties in cozy home clothes are sitting close together in the middle of the sofa sharing a pot of tea and laughing, while a calico cat sleeps on the seat at the left end.",
+  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules. Click-clack sofa with a tall tufted backrest, a low seat, two small cylindrical armrest cushions with chrome fittings and slim chrome legs."
  },
  "322": {
-  "view": "",
+  "view": "a front three-quarter view from the front-right at about 35 degrees",
   "kind": "sofa",
   "title": "Финка ДКУ с хромированными боковинами",
   "slug": "finka-dku-s-hromirovannymi-bokovinami",
@@ -696,11 +696,11 @@
   "who": "A young woman",
   "act": "cuddle",
   "pet": "a grey lop-eared rabbit",
-  "action": "A young woman in cozy home clothes is cuddling and gently stroking a grey lop-eared rabbit, who sits on the lap, while looking out of the window at the evening.",
-  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
+  "action": "A young woman in cozy home clothes is sitting cross-legged on the chaise part of the sofa, gently stroking a grey lop-eared rabbit on her lap and looking out of the window at the evening.",
+  "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1. Click-clack corner sofa: tufted backrest, a chaise on the right, chrome fittings and slim chrome legs."
  },
  "323": {
-  "view": "",
+  "view": "a front three-quarter view from the front-right at about 35 degrees",
   "kind": "sofa",
   "title": "Финка 18 ДК",
   "slug": "finka-18-dk",
@@ -710,11 +710,11 @@
   "who": "A teenage girl",
   "act": "phone",
   "pet": "a ginger cat",
-  "action": "A teenage girl in cozy home clothes is relaxing with a smartphone in hand, smiling at the screen, while a ginger cat sleeps curled up beside them.",
-  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
+  "action": "A teenage girl in cozy home clothes is sitting at the left end of the sofa with her knees up, texting on a smartphone, while a ginger cat sits on the backrest behind her looking over her shoulder.",
+  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules. Click-clack sofa with a tufted backrest, two small decorative cushions and curved black legs."
  },
  "324": {
-  "view": "",
+  "view": "a nearly frontal view with only a slight angle",
   "kind": "sofa",
   "title": "Финка 3 ДК с хромированными боковинами",
   "slug": "finka-3-dk-s-hromirovannymi-bokovinami",
@@ -724,25 +724,25 @@
   "who": "Two boys about 8 and 10 years old",
   "act": "f_movie",
   "pet": "a dachshund",
-  "action": "Two boys about 8 and 10 years old in cozy home clothes are watching a movie together on a TV that is outside the frame, in front of them beyond the camera (no TV is visible in the picture), looking toward the camera side with a bowl of popcorn between them, while a dachshund lies stretched out beside them.",
-  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
+  "action": "Two boys about 8 and 10 years old in cozy home clothes are sitting side by side on the sofa watching a movie on a TV that is outside the frame, in front of them beyond the camera (no TV is visible), with a bowl of popcorn between them, while a dachshund lies on the rug in front of the sofa.",
+  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules. Click-clack sofa with two tufted backrest sections, chrome armrest handles and chrome legs."
  },
  "325": {
-  "view": "",
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "sofa",
   "title": "Финка 5 ДК",
   "slug": "finka-5-dk",
   "ref": "/uploads/IMG_4788_0fecc59481.PNG",
   "color": "raspberry red fabric",
-  "style": "hygge winter evening (many candles, wool blankets, snowy window, warm string lights)",
+  "style": "hygge winter evening (many candles, snowy window, warm string lights)",
   "who": "A girl about 8 years old",
   "act": "homework",
   "pet": "a guinea pig",
-  "action": "A girl about 8 years old in cozy home clothes is doing homework with an open notebook on the lap, while a guinea pig sits on their lap.",
-  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
+  "action": "A girl about 8 years old in cozy home clothes is lying on her stomach across the sofa seat with her feet over the armrest, coloring a drawing with crayons on a pillow, while a guinea pig sits on the seat beside the drawing.",
+  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules. Click-clack sofa with a distinctive pattern of interlinked rounded rectangles (chain-like quilting) stitched on the backrest and seat; keep this exact pattern."
  },
  "326": {
-  "view": "",
+  "view": "a front three-quarter view from the front-right at about 35 degrees",
   "kind": "sofa",
   "title": "Финка 5 ДК на НПБ",
   "slug": "finka-5-dk-na-npb",
@@ -752,8 +752,8 @@
   "who": "A woman in her forties",
   "act": "tea",
   "pet": "a grey British shorthair cat",
-  "action": "A woman in her forties in cozy home clothes is sipping tea from a large mug held in both hands, looking dreamily at the window, while a grey British shorthair cat sleeps curled up beside them.",
-  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
+  "action": "A woman in her forties in cozy home clothes is sitting cross-legged in the middle of the sofa meditating with her eyes closed and hands resting on her knees, while a grey British shorthair cat sleeps curled up on the seat at the right end.",
+  "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules. Click-clack sofa with a distinctive pattern of dark wavy wood-grain lines stitched across the whole backrest and seat; keep this exact pattern."
  },
  "327": {
   "view": "",

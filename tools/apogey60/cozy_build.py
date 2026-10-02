@@ -42,7 +42,7 @@ STYLE = {
  272: "classic-modern (wall moldings, herringbone parquet, brass table lamp, velvet curtains)",
  273: "dark and moody (charcoal walls, picture rail with framed art, candles, brass lamp)",
  274: "coastal (whitewashed wood walls, pale blue accents, jute rug, rope table lamp, seashells)",
- 275: "Scandinavian forest (pale pine paneling, green plants, wool throw, window view of pine trees)",
+ 275: "Scandinavian forest (pale pine paneling, green plants, window view of pine trees)",
  276: "japandi (low wooden coffee table, paper lantern lamp, ceramic vase with dry branches)",
  277: "pastel modern (soft pink and sage color-blocked walls, arched mirror, ceramic table lamp)",
  278: "warm Tuscan (stone wall, wooden beams, terracotta pots, candles)",
@@ -57,11 +57,11 @@ STYLE = {
  297: "Moroccan-inspired (patterned tiles, lantern lamps, kilim rug, brass tray table)",
  298: "English country (chintz curtains, wood paneling, brass reading lamp, patterned rug)",
  309: "country house (wide plank floor, whitewashed beams, window to the garden at dusk, wildflowers)",
- 313: "Scandi-boho (white walls, macrame wall hanging, pampas grass, sheepskin throw)",
+ 313: "Scandi-boho (white walls, macrame wall hanging, pampas grass, woven rug)",
  314: "bookish eclectic (floor-to-ceiling bookshelves, rolling ladder, reading lamp, Persian rug)",
  315: "Japanese minimal (low shoji-style screen, bonsai, paper floor lamp, natural fiber rug)",
- 316: "boho-cottage (rattan accents, woven basket with blankets, many plants)",
- 317: "cozy cabin (wood-paneled walls, stone fireplace with a gentle fire, plaid blanket, warm lamp)",
+ 316: "boho-cottage (rattan accents, woven basket, many plants)",
+ 317: "cozy cabin (wood-paneled walls, stone fireplace with a gentle fire, warm lamp)",
  318: "Mediterranean (white lime-washed walls, terracotta tiles, arched niche, olive tree in a pot)",
  319: "art-deco (deep green walls, brass accents, fluted glass lamp, geometric rug)",
  320: "industrial-chic (concrete wall, steel-framed window, Edison bulb pendant, leather pouf)",
@@ -69,7 +69,7 @@ STYLE = {
  322: "airy attic (sloped wood-beam ceiling, skylight with dusk sky, string lights)",
  323: "vintage library (dark wood shelves, green banker lamp, leather-bound books)",
  324: "loft (soft brick wall, black metal floor lamp, wooden floor, large leafy plant)",
- 325: "hygge winter evening (many candles, wool blankets, snowy window, warm string lights)",
+ 325: "hygge winter evening (many candles, snowy window, warm string lights)",
  326: "modern bohemian (terracotta color-blocked wall, cane furniture, hanging plants)",
  # кровати (спальни)
  286: "warm-modern earthy (beige plaster walls, travertine bedside table, arched mirror)",
@@ -77,7 +77,7 @@ STYLE = {
  288: "Italian modern (fluted panels, marble nightstand, sculptural lamp)",
  289: "coastal (whitewashed boards, pale blue accents, jute rug, rope lamp)",
  290: "classic-modern (wall moldings, herringbone parquet, brass sconces, velvet curtains)",
- 291: "cozy cabin (wood-paneled walls, plaid throw, warm lantern, wool rug)",
+ 291: "cozy cabin (wood-paneled walls, warm lantern, wool rug)",
  292: "mid-century modern (walnut nightstand with tapered legs, sunburst mirror, teak floor)",
  293: "romantic (sheer curtains, fairy lights, pampas grass, soft rug)",
  294: "art-deco (deep green wall, brass lamp, geometric rug)",
@@ -99,6 +99,8 @@ STYLE = {
 
 from cozy_scenes import ACT, SC, PP, pet_kind
 from cozy_custom import CUSTOM
+from cozy_custom2 import CUSTOM2, SOFA_DETAIL
+CUSTOM.update(CUSTOM2)
 DETAIL = {}
 for i in (286, 287): DETAIL[i] = "The headboard is a plain flat rectangular panel with a thin piped border — NO tufting, NO square quilting, NO buttons; the base is plain upholstery."
 for i in (288, 289, 290, 291): DETAIL[i] = "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
@@ -119,7 +121,8 @@ def build():
         view = ""
         k = PP[pet_kind(pet)]; pp = k[1] if kind == "bed" else k[0]
         action = ACT[act].format(w=who + (" in cozy home clothes" if not who.startswith(("A couple", "Two", "A mother", "A father", "A grandmother")) else " in cozy home clothes"), p=pet, pp=pp, pp_arm=k[2])
-        config = DETAIL.get(i, "") if kind == "bed" else (ARMCH if kind == "armchair" else (CORNERS if i in CORNER else STRAIGHT))
+        config = DETAIL.get(i, "") if kind == "bed" else (ARMCH if kind == "armchair" else (CORNERS if i in CORNER else STRAIGHT)) + " " + SOFA_DETAIL.get(i, "")
+        config = config.strip()
         if i in CUSTOM: action, view = CUSTOM[i]
         cards[i] = dict(view=view, kind=kind, title=G[str(i)]["title"], slug=G[str(i)]["slides"][0]["src"].split("/")[1], ref=ref, color=COLOR[i],
                         style=STYLE[i], who=who, act=act, pet=pet, action=action, config=config)
