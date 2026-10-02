@@ -1,0 +1,13 @@
+Create a photorealistic vertical 3:4 lifestyle photograph for a premium furniture catalog: the exact bed shown in Image 1, placed in a cozy bedroom in the evening.
+
+PRODUCT IDENTITY — ABSOLUTE PRIORITY: Image 1 is the authoritative reference. Preserve exactly the product design, silhouette, proportions, construction, the headboard shape and its panel / stitching pattern, the upholstered base, side rails, legs, textures and every visible detail. Do not redesign, simplify or restyle the bed, and do not add tufting, buttons, quilting, panel divisions or stitching that are not visible in Image 1: plain surfaces stay plain. @CONFIG@ COLOR LOCK (critical): the upholstery of the headboard and base is exactly @COLOR@ — the same color as in Image 1, with zero hue shift. This is more important than the scene styling and the warm evening light: the warm lamp light must not tint the bed toward orange or yellow. Keep the same camera angle as Image 1.
+
+SCENE: the bed is dressed with plain neutral white linen bedding and two pillows; no blankets or throws lie over the bed's edges, so the upholstered base stays fully visible. @ACTION@ The people and the pet stay on the sides and the foot area, so the headboard, the upholstered base and the legs remain clearly visible; nothing covers the edges of the bed.
+
+SETTING: a @STYLE@ bedroom, designed so that its colors and materials flatter and harmonize with the @COLOR@ of the bed. Warm golden evening light from a bedside lamp, a soft rug, a few cozy details at a clear distance from the bed. Cozy, calm, aspirational atmosphere.
+
+FRAMING AND CAMERA (critical, no cropping): shoot a wide establishing shot of the whole room with the camera pulled far back, in a three-quarter view from the foot end of the bed so that the bed recedes into the room. The ENTIRE bed — the whole headboard, the whole base, the nearest corner, the footboard end and all legs — must lie fully inside the frame, far from every edge: the bed occupies only about 55–60 percent of the frame width, with large empty areas of room (floor, rug, wall) of at least 20 percent of the frame width at BOTH the left and right sides and clear floor below the bed. No edge of the image may cut any part of the bed or its legs. 35–50mm lens at eye level, straight verticals, crisp, editorial quality.
+
+No text, logos, labels, measurements, watermarks, duplicated parts, invented stitching or structural changes. Only the people described in the scene (one or two) and exactly one pet; no other people or animals.
+
+Final self-check before finishing: the whole bed is fully inside the frame without any cropping; the upholstery is still exactly @COLOR@; the headboard shape, the panel pattern and the proportions are identical to Image 1.
