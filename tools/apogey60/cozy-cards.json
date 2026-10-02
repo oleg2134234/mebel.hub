@@ -1,5 +1,6 @@
 {
  "270": {
+  "view": "",
   "kind": "sofa",
   "title": "Адель 2 МДК",
   "slug": "adel-2-mdk",
@@ -13,6 +14,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "271": {
+  "view": "",
   "kind": "armchair",
   "title": "Адель 2 Кресло-кровать",
   "slug": "adel-2-kreslo-krovat",
@@ -26,6 +28,7 @@
   "config": "This is a single armchair: do not turn it into a sofa."
  },
  "272": {
+  "view": "",
   "kind": "sofa",
   "title": "Адель 2 1500 ДК",
   "slug": "adel-2-1500-dk",
@@ -35,10 +38,11 @@
   "who": "A couple, a man and a woman in their thirties",
   "act": "f_movie",
   "pet": "a grey lop-eared rabbit",
-  "action": "A couple, a man and a woman in their thirties in cozy home clothes are watching a movie together with a bowl of popcorn between them, while a grey lop-eared rabbit sits calmly beside them, nose twitching.",
+  "action": "A couple, a man and a woman in their thirties in cozy home clothes are watching a movie together on a TV that is outside the frame, in front of them beyond the camera (no TV is visible in the picture), looking toward the camera side with a bowl of popcorn between them, while a grey lop-eared rabbit sits calmly beside them, nose twitching.",
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "273": {
+  "view": "",
   "kind": "sofa",
   "title": "Адель 4 1500 ДК",
   "slug": "adel-4-1500-dk",
@@ -52,6 +56,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "274": {
+  "view": "",
   "kind": "sofa",
   "title": "Бали 4 ДК",
   "slug": "bali-4-dk",
@@ -65,6 +70,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "275": {
+  "view": "",
   "kind": "armchair",
   "title": "Бали 4 Кресло",
   "slug": "bali-4-kreslo",
@@ -78,6 +84,7 @@
   "config": "This is a single armchair: do not turn it into a sofa."
  },
  "276": {
+  "view": "",
   "kind": "sofa",
   "title": "Бали 4 ДК без боковин",
   "slug": "bali-4-dk-bez-bokovin",
@@ -91,6 +98,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "277": {
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "sofa",
   "title": "Бали 4 ДК с оттоманкой",
   "slug": "bali-4-dk-s-ottomankoy",
@@ -100,10 +108,11 @@
   "who": "Two sisters about 8 and 12 years old",
   "act": "f_draw",
   "pet": "a calico cat",
-  "action": "Two sisters about 8 and 12 years old in cozy home clothes are drawing together in sketchbooks with colored pencils, while a calico cat sleeps curled up beside them.",
+  "action": "Two sisters about 8 and 12 years old in cozy home clothes are sitting on the rug in front of the sofa, leaning their backs against the sofa seat and drawing together on a low coffee table, while a calico cat sleeps curled up on the sofa seat behind them.",
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "278": {
+  "view": "a nearly frontal view with only a slight angle",
   "kind": "sofa",
   "title": "Бали 4.1 ДК",
   "slug": "bali-4-1-dk",
@@ -113,10 +122,11 @@
   "who": "An elderly woman with grey hair",
   "act": "knit",
   "pet": "a grey British shorthair cat",
-  "action": "An elderly woman with grey hair in cozy home clothes is knitting a scarf with a basket of yarn beside them, while a grey British shorthair cat watches the yarn with great interest.",
+  "action": "An elderly woman with grey hair in cozy home clothes is sitting at the right end of the sofa with her feet up on a small pouf, knitting a scarf from a basket of yarn, while a grey British shorthair cat lies on the armrest beside her, watching the yarn.",
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "279": {
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "sofa",
   "title": "Бали 7-2 ДКУ-О",
   "slug": "bali-7-2-dku-o",
@@ -126,10 +136,11 @@
   "who": "A woman in her thirties",
   "act": "phone",
   "pet": "a Siamese cat",
-  "action": "A woman in her thirties in cozy home clothes is relaxing with a smartphone in hand, smiling at the screen, while a Siamese cat sleeps curled up beside them.",
+  "action": "A woman in her thirties in cozy home clothes is lying stretched out along the long chaise part of the sofa with one arm under her head, scrolling on a smartphone, while a Siamese cat is curled up on her legs.",
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "280": {
+  "view": "a nearly frontal view with only a slight angle",
   "kind": "sofa",
   "title": "Бруно ДКУ-П",
   "slug": "bruno-dku-p",
@@ -139,10 +150,11 @@
   "who": "A father and his son about 8 years old",
   "act": "f_game",
   "pet": "a pug",
-  "action": "A father and his son about 8 years old in cozy home clothes are playing a video game together with controllers, laughing, while a pug lies stretched out beside them.",
+  "action": "A father and his son about 8 years old in cozy home clothes are sleeping peacefully in the middle of the long part of the sofa, the son's head on his father's shoulder, while a pug sleeps stretched out on one of the chaise ends.",
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "281": {
+  "view": "",
   "kind": "armchair",
   "title": "Клик-Кляк 8 Кресло",
   "slug": "klik-klyak-8-kreslo",
@@ -156,6 +168,7 @@
   "config": "This is a single armchair: do not turn it into a sofa."
  },
  "282": {
+  "view": "",
   "kind": "sofa",
   "title": "Лортон 2 ДК",
   "slug": "lorton-2-dk",
@@ -169,6 +182,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "283": {
+  "view": "a front three-quarter view from the front-right at about 35 degrees",
   "kind": "sofa",
   "title": "Лотос 1 ДКУ",
   "slug": "lotos-1-dku",
@@ -178,10 +192,11 @@
   "who": "A grandmother and her granddaughter about 7 years old",
   "act": "f_book",
   "pet": "a grey lop-eared rabbit",
-  "action": "A grandmother and her granddaughter about 7 years old in cozy home clothes are sitting together sharing a picture book, while a grey lop-eared rabbit sits calmly beside them, nose twitching.",
+  "action": "A grandmother and her granddaughter about 7 years old in cozy home clothes are sitting side by side on the chaise (ottoman) section of the sofa sharing a picture book, while a grey lop-eared rabbit sits calmly on the main seat beside them.",
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "284": {
+  "view": "a front three-quarter view from the front-right at about 35 degrees",
   "kind": "sofa",
   "title": "Мартин 2 ДКУ",
   "slug": "martin-2-dku",
@@ -191,10 +206,11 @@
   "who": "A woman in her forties",
   "act": "snack",
   "pet": "a black-and-white cat",
-  "action": "A woman in her forties in cozy home clothes is enjoying a small plate of snacks and a cup of cocoa, while a black-and-white cat sleeps curled up beside them.",
+  "action": "A woman in her forties in cozy home clothes is sitting in the corner of the sofa with her legs folded to the side, holding a cup of cocoa with both hands and smiling, while a black-and-white cat sits on the backrest right behind her shoulder.",
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "285": {
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "sofa",
   "title": "Мартин 3 ДКУ",
   "slug": "martin-3-dku",
@@ -204,10 +220,11 @@
   "who": "Two brothers about 7 and 10 years old",
   "act": "f_board",
   "pet": "a tabby kitten",
-  "action": "Two brothers about 7 and 10 years old in cozy home clothes are playing a card game on a small tray between them, while a tabby kitten sleeps curled up beside them.",
+  "action": "Two brothers about 7 and 10 years old in cozy home clothes are sitting on the floor in front of the sofa, leaning their backs against it and playing a card game on a low coffee table, while a tabby kitten sleeps curled up on the sofa seat behind them.",
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "286": {
+  "view": "",
   "kind": "bed",
   "title": "Моно 3",
   "slug": "mono-3",
@@ -221,6 +238,7 @@
   "config": "The headboard is a plain flat rectangular panel with a thin piped border — NO tufting, NO square quilting, NO buttons; the base is plain upholstery."
  },
  "287": {
+  "view": "",
   "kind": "bed",
   "title": "Моно 4",
   "slug": "mono-4",
@@ -234,6 +252,7 @@
   "config": "The headboard is a plain flat rectangular panel with a thin piped border — NO tufting, NO square quilting, NO buttons; the base is plain upholstery."
  },
  "288": {
+  "view": "",
   "kind": "bed",
   "title": "Монтана 1",
   "slug": "montana-1",
@@ -247,6 +266,7 @@
   "config": "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
  },
  "289": {
+  "view": "",
   "kind": "bed",
   "title": "Монтана 2",
   "slug": "montana-2",
@@ -260,6 +280,7 @@
   "config": "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
  },
  "290": {
+  "view": "",
   "kind": "bed",
   "title": "Монтана 3",
   "slug": "montana-3",
@@ -273,6 +294,7 @@
   "config": "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
  },
  "291": {
+  "view": "",
   "kind": "bed",
   "title": "Монтана 4",
   "slug": "montana-4",
@@ -286,6 +308,7 @@
   "config": "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
  },
  "292": {
+  "view": "",
   "kind": "bed",
   "title": "Невада 2",
   "slug": "nevada-2",
@@ -299,6 +322,7 @@
   "config": "The headboard has rectangular block panels arranged like bricks exactly as in Image 1; no other quilting."
  },
  "293": {
+  "view": "",
   "kind": "bed",
   "title": "Невада 3",
   "slug": "nevada-3",
@@ -312,6 +336,7 @@
   "config": "The headboard has rectangular block panels arranged like bricks exactly as in Image 1; no other quilting."
  },
  "294": {
+  "view": "",
   "kind": "bed",
   "title": "Невада 4",
   "slug": "nevada-4",
@@ -325,6 +350,7 @@
   "config": "The headboard has rectangular block panels arranged like bricks exactly as in Image 1; no other quilting."
  },
  "296": {
+  "view": "",
   "kind": "sofa",
   "title": "Остин ДК",
   "slug": "ostin-dk",
@@ -338,6 +364,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "297": {
+  "view": "a front three-quarter view from the front-right at about 35 degrees",
   "kind": "sofa",
   "title": "Остин ДКУ",
   "slug": "ostin-dku",
@@ -347,10 +374,11 @@
   "who": "A mother and her son about 6 years old",
   "act": "f_cuddle",
   "pet": "a small poodle",
-  "action": "A mother and her son about 6 years old in cozy home clothes are cuddling up close and laughing, while a small poodle lies stretched out beside them.",
+  "action": "A mother and her son about 6 years old in cozy home clothes are on the chaise part of the sofa: the mother sits at its end reading a book while the son sleeps with his head on her lap, while a small poodle sleeps at the other end of the sofa.",
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "298": {
+  "view": "a front three-quarter view from the front-left at about 35 degrees",
   "kind": "sofa",
   "title": "Остин 2 ДК",
   "slug": "ostin-2-dk",
@@ -360,10 +388,11 @@
   "who": "An elderly man with glasses",
   "act": "guitar",
   "pet": "a cockatiel",
-  "action": "An elderly man with glasses in cozy home clothes is softly playing an acoustic guitar, while a cockatiel perches on their shoulder.",
+  "action": "An elderly man with glasses in cozy home clothes is sitting in the middle of the sofa playing a soft tune on an acoustic guitar, while a cockatiel perches on the top of the backrest beside his shoulder.",
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "301": {
+  "view": "",
   "kind": "bed",
   "title": "Рица 1 900",
   "slug": "rica-1-900",
@@ -377,6 +406,7 @@
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1. This is a narrow single bed for one person."
  },
  "302": {
+  "view": "",
   "kind": "bed",
   "title": "Рица 2",
   "slug": "rica-2",
@@ -390,6 +420,7 @@
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1."
  },
  "303": {
+  "view": "",
   "kind": "bed",
   "title": "Рица 2 900",
   "slug": "rica-2-900",
@@ -403,6 +434,7 @@
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1. This is a narrow single bed for one person."
  },
  "304": {
+  "view": "",
   "kind": "bed",
   "title": "Рица 3",
   "slug": "rica-3",
@@ -416,6 +448,7 @@
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1."
  },
  "305": {
+  "view": "",
   "kind": "bed",
   "title": "Рица 3 900",
   "slug": "rica-3-900",
@@ -429,6 +462,7 @@
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1. This is a narrow single bed for one person."
  },
  "306": {
+  "view": "",
   "kind": "bed",
   "title": "Рица 4",
   "slug": "rica-4",
@@ -442,6 +476,7 @@
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1."
  },
  "307": {
+  "view": "",
   "kind": "bed",
   "title": "Рица 4 900",
   "slug": "rica-4-900",
@@ -455,6 +490,7 @@
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1. This is a narrow single bed for one person."
  },
  "308": {
+  "view": "",
   "kind": "bed",
   "title": "Рица детская",
   "slug": "rica-detskaya",
@@ -468,6 +504,7 @@
   "config": "This is a child's corner bed with a high L-shaped back and side panel with geometric diagonal lines, exactly as in Image 1."
  },
  "309": {
+  "view": "a front three-quarter view from the front-right at about 35 degrees",
   "kind": "sofa",
   "title": "Сандра 2 ДКУ",
   "slug": "sandra-2-dku",
@@ -477,10 +514,11 @@
   "who": "A mother and her daughter about 7 years old",
   "act": "f_book",
   "pet": "a fluffy white kitten",
-  "action": "A mother and her daughter about 7 years old in cozy home clothes are sitting together sharing a picture book, while a fluffy white kitten sleeps curled up beside them.",
+  "action": "A mother and her daughter about 7 years old in cozy home clothes are sitting at the left end of the sofa: the daughter lies with her feet on her mother's lap while the mother reads aloud from a picture book, while a fluffy white kitten sits on the armrest next to them.",
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "310": {
+  "view": "",
   "kind": "bed",
   "title": "Соты 2",
   "slug": "soty-2",
@@ -494,6 +532,7 @@
   "config": "The headboard has a hexagonal honeycomb panel pattern exactly as in Image 1."
  },
  "311": {
+  "view": "",
   "kind": "bed",
   "title": "Соты 3",
   "slug": "soty-3",
@@ -507,6 +546,7 @@
   "config": "The headboard has a hexagonal honeycomb panel pattern exactly as in Image 1."
  },
  "312": {
+  "view": "",
   "kind": "bed",
   "title": "Соты 4",
   "slug": "soty-4",
@@ -520,6 +560,7 @@
   "config": "The headboard has a hexagonal honeycomb panel pattern exactly as in Image 1."
  },
  "313": {
+  "view": "",
   "kind": "sofa",
   "title": "София 2 ДКУ-О",
   "slug": "sofiya-2-dku-o",
@@ -533,6 +574,7 @@
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "314": {
+  "view": "",
   "kind": "sofa",
   "title": "София 2.1 ДКУ",
   "slug": "sofiya-2-1-dku",
@@ -546,6 +588,7 @@
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "315": {
+  "view": "",
   "kind": "sofa",
   "title": "Софт 1 ДКУ-О",
   "slug": "soft-1-dku-o",
@@ -559,6 +602,7 @@
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "316": {
+  "view": "",
   "kind": "sofa",
   "title": "Софт 2 ДК",
   "slug": "soft-2-dk",
@@ -572,6 +616,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "317": {
+  "view": "",
   "kind": "sofa",
   "title": "Софт 3 ДКУ-О",
   "slug": "soft-3-dku-o",
@@ -585,6 +630,7 @@
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "318": {
+  "view": "",
   "kind": "sofa",
   "title": "Софт 4 ДК",
   "slug": "soft-4-dk",
@@ -598,6 +644,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "319": {
+  "view": "",
   "kind": "sofa",
   "title": "Софт 5 ДК",
   "slug": "soft-5-dk",
@@ -611,6 +658,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "320": {
+  "view": "",
   "kind": "sofa",
   "title": "Софт 6 ДКУ-ОО",
   "slug": "soft-6-dku-oo",
@@ -624,6 +672,7 @@
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "321": {
+  "view": "",
   "kind": "sofa",
   "title": "Финка ДК с хромированными боковинами",
   "slug": "finka-dk-s-hromirovannymi-bokovinami",
@@ -637,6 +686,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "322": {
+  "view": "",
   "kind": "sofa",
   "title": "Финка ДКУ с хромированными боковинами",
   "slug": "finka-dku-s-hromirovannymi-bokovinami",
@@ -650,6 +700,7 @@
   "config": "This is a corner / modular sofa: do not mirror, flip, extend or rearrange its modules; the ottoman / chaise keeps the same side, shape and size as in Image 1."
  },
  "323": {
+  "view": "",
   "kind": "sofa",
   "title": "Финка 18 ДК",
   "slug": "finka-18-dk",
@@ -663,6 +714,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "324": {
+  "view": "",
   "kind": "sofa",
   "title": "Финка 3 ДК с хромированными боковинами",
   "slug": "finka-3-dk-s-hromirovannymi-bokovinami",
@@ -672,10 +724,11 @@
   "who": "Two boys about 8 and 10 years old",
   "act": "f_movie",
   "pet": "a dachshund",
-  "action": "Two boys about 8 and 10 years old in cozy home clothes are watching a movie together with a bowl of popcorn between them, while a dachshund lies stretched out beside them.",
+  "action": "Two boys about 8 and 10 years old in cozy home clothes are watching a movie together on a TV that is outside the frame, in front of them beyond the camera (no TV is visible in the picture), looking toward the camera side with a bowl of popcorn between them, while a dachshund lies stretched out beside them.",
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "325": {
+  "view": "",
   "kind": "sofa",
   "title": "Финка 5 ДК",
   "slug": "finka-5-dk",
@@ -689,6 +742,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "326": {
+  "view": "",
   "kind": "sofa",
   "title": "Финка 5 ДК на НПБ",
   "slug": "finka-5-dk-na-npb",
@@ -702,6 +756,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules."
  },
  "327": {
+  "view": "",
   "kind": "bed",
   "title": "Эклипс 1",
   "slug": "eklips-1",
@@ -715,6 +770,7 @@
   "config": "The headboard has a chevron diagonal stitching pattern exactly as in Image 1."
  },
  "328": {
+  "view": "",
   "kind": "bed",
   "title": "Эклипс 2",
   "slug": "eklips-2",
@@ -728,6 +784,7 @@
   "config": "The headboard has a chevron diagonal stitching pattern exactly as in Image 1."
  },
  "329": {
+  "view": "",
   "kind": "bed",
   "title": "Эклипс 4",
   "slug": "eklips-4",

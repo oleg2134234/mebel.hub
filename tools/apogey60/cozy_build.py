@@ -98,6 +98,7 @@ STYLE = {
 }
 
 from cozy_scenes import ACT, SC, PP, pet_kind
+from cozy_custom import CUSTOM
 DETAIL = {}
 for i in (286, 287): DETAIL[i] = "The headboard is a plain flat rectangular panel with a thin piped border — NO tufting, NO square quilting, NO buttons; the base is plain upholstery."
 for i in (288, 289, 290, 291): DETAIL[i] = "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
@@ -115,10 +116,12 @@ def build():
         kind = "bed" if AP[str(i)][0] == "b" else ("armchair" if i in ARM else "sofa")
         ref = sofa[str(i)]["urls"][0] if str(i) in sofa and "urls" in sofa[str(i)] else "/uploads/" + AP[str(i)][1]
         who, act, pet = SC[i]
+        view = ""
         k = PP[pet_kind(pet)]; pp = k[1] if kind == "bed" else k[0]
         action = ACT[act].format(w=who + (" in cozy home clothes" if not who.startswith(("A couple", "Two", "A mother", "A father", "A grandmother")) else " in cozy home clothes"), p=pet, pp=pp, pp_arm=k[2])
         config = DETAIL.get(i, "") if kind == "bed" else (ARMCH if kind == "armchair" else (CORNERS if i in CORNER else STRAIGHT))
-        cards[i] = dict(kind=kind, title=G[str(i)]["title"], slug=G[str(i)]["slides"][0]["src"].split("/")[1], ref=ref, color=COLOR[i],
+        if i in CUSTOM: action, view = CUSTOM[i]
+        cards[i] = dict(view=view, kind=kind, title=G[str(i)]["title"], slug=G[str(i)]["slides"][0]["src"].split("/")[1], ref=ref, color=COLOR[i],
                         style=STYLE[i], who=who, act=act, pet=pet, action=action, config=config)
     return cards
 
@@ -127,7 +130,7 @@ if __name__ == "__main__":
     cards = build()
     if len(sys.argv) > 1 and sys.argv[1] == "patch":
         ids = [int(a) for a in sys.argv[2:]]
-        P = {i: [cards[i]["kind"][0], cards[i]["ref"].replace("/uploads/", ""), cards[i]["color"], cards[i]["style"], cards[i]["action"], cards[i]["config"]] for i in ids}
+        P = {i: [cards[i]["kind"][0], cards[i]["ref"].replace("/uploads/", ""), cards[i]["color"], cards[i]["style"], cards[i]["action"], cards[i]["config"], cards[i].get("view", "")] for i in ids}
         print("Object.assign(window.CARDS=window.CARDS||{}," + json.dumps(P, ensure_ascii=False, separators=(",", ":")) + ");")
     else:
         json.dump(cards, open(HERE + "/cozy-cards.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)

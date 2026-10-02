@@ -3,7 +3,7 @@ window.cozyPrompt = (id) => {
   const a = window.CARDS[id], kind = { s: "sofa", a: "armchair", b: "bed" }[a[0]], bed = kind === "bed";
   return window.CTPL[bed ? "bed" : "sofa"]
     .replaceAll("@KIND@", kind === "armchair" ? "armchair" : "sofa").replaceAll("@ROOM_WORD@", kind === "armchair" ? "reading corner" : "living room")
-    .replaceAll("@COLOR@", a[2]).replaceAll("@STYLE@", a[3]).replaceAll("@ACTION@", a[4]).replaceAll("@CONFIG@", a[5]);
+    .replaceAll("@COLOR@", a[2]).replaceAll("@STYLE@", a[3]).replaceAll("@ACTION@", a[4]).replaceAll("@CONFIG@", a[5]).replaceAll("@VIEW@", a[6] || "a front three-quarter view similar to Image 1");
 };
 window.cozyRun = async (id) => {
   const dt = new DataTransfer();

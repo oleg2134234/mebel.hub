@@ -7,7 +7,7 @@ ACT = {
  "tea": "{w} is sipping tea from a large mug held in both hands, looking dreamily at the window, while {p} {pp}.",
  "laptop": "{w} is working on a laptop resting on the knees with a mug nearby, while {p} {pp}.",
  "game": "{w} is playing a video game with a controller in both hands, laughing, while {p} {pp}.",
- "movie": "{w} is watching a movie on a TV out of frame with a remote in one hand and a bowl of popcorn on the lap, while {p} {pp}.",
+ "movie": "{w} is watching a movie on a TV that is outside the frame, in front of them beyond the camera (no TV is visible in the picture), with a remote in one hand and a bowl of popcorn on the lap, while {p} {pp}.",
  "music": "{w} is listening to music with large headphones and eyes closed, while {p} {pp}.",
  "puzzle": "{w} is doing a jigsaw puzzle on a lap tray, while {p} {pp}.",
  "knit": "{w} is knitting a scarf with a basket of yarn beside them, while {p} watches the yarn with great interest.",
@@ -30,7 +30,7 @@ ACT = {
  # --- двое, диван ---
  "f_book": "{w} are sitting together sharing a picture book, while {p} {pp}.",
  "f_game": "{w} are playing a video game together with controllers, laughing, while {p} {pp}.",
- "f_movie": "{w} are watching a movie together with a bowl of popcorn between them, while {p} {pp}.",
+ "f_movie": "{w} are watching a movie together on a TV that is outside the frame, in front of them beyond the camera (no TV is visible in the picture), looking toward the camera side with a bowl of popcorn between them, while {p} {pp}.",
  "f_draw": "{w} are drawing together in sketchbooks with colored pencils, while {p} {pp}.",
  "f_cuddle": "{w} are cuddling up close and laughing, while {p} {pp}.",
  "f_tea": "{w} are chatting over cups of tea and cocoa, while {p} {pp}.",
