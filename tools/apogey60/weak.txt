@@ -1,3 +1,5 @@
 292 bed cropped right edge; headboard block layout approximate
 282 left armrest slightly cropped
 285 3 vs 4 backrest sections
+318 sofa cropped at right edge
+292 retried and replaced (v2)

@@ -6,7 +6,7 @@ i=h.index('const PRODUCT_SERIES');j=h.index('\n  ];',i)
 blk=h[i:j]
 EX={p['id'] for p in json.loads(re.search(r'^  const PRODUCTS = (.*);$',h,re.M).group(1))}
 def series_span(sid):
-    k=blk.index(f'id: "{sid}"'); s=blk.rfind('    {',0,k); e=blk.index('\n    }',k)+6
+    k=blk.index(f'id: "{sid}"'); s=blk.rfind('{',0,k); e=blk.index('\n    }',k)+6
     return s,e
 def edit(sid,add=None,names=None,desc=None,summary=None):
     global blk
@@ -36,6 +36,8 @@ def edit(sid,add=None,names=None,desc=None,summary=None):
     blk=blk[:s]+t+blk[e:]
 def new(sid,title,cat,ids,desc,names=None):
     global blk
+    if f'id: "{sid}"' in blk:
+        return edit(sid,ids,names)
     ids=[i for i in ids if i in EX]
     names={k:v for k,v in (names or {}).items() if k in EX} or None
     if len(ids)<2: return
@@ -61,7 +63,10 @@ B="Кровати одной линейки: сравните изголовья
 new('montana-beds','Монтана','bed',[288,289,290,291],B)
 new('nevada-beds','Невада','bed',[213,292,293,294],B)
 new('rica-beds','Рица','bed',[212,301,302,303,304,305,306,307,308],B,{301:"Рица 1 · 90 × 200",303:"Рица 2 · 90 × 200",305:"Рица 3 · 90 × 200",307:"Рица 4 · 90 × 200",308:"Рица детская"})
-new('soty-beds','Соты','bed',[210,310,311],B)
+new('soty-beds','Соты','bed',[210,310,311,312],B)
+new('eklips-beds','Эклипс','bed',[327,328,214,329],B)
+edit('nova',[295])
+edit('real',[300,299],desc="Беспружинные матрасы шириной 80–180 см. Сравните высоту, допустимую нагрузку и наполнение вариантов.",summary=['Ширина 80–180 см','Высота 15–24 см','Нагрузка 90–140 кг'])
 h=h[:i]+blk+h[j:]
 open(p,'w',encoding='utf-8').write(h)
 print('ok')
