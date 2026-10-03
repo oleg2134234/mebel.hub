@@ -238,7 +238,7 @@
   "config": "The headboard is a plain flat rectangular panel with a thin piped border — NO tufting, NO square quilting, NO buttons; the base is plain upholstery."
  },
  "287": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-left at about 35 degrees",
   "kind": "bed",
   "title": "Моно 4",
   "slug": "mono-4",
@@ -248,11 +248,11 @@
   "who": "A man in his thirties",
   "act": "bed_laptop",
   "pet": "a black cat",
-  "action": "A man in his thirties in cozy home clothes is sitting up with a laptop on the knees, working late, while a black cat sleeps curled up at the foot of the bed.",
+  "action": "A man in his thirties in cozy home clothes is sitting cross-legged at the right side of the bed, leaning against the pillows with a paper notebook on his knees, planning his week with a pen, while a black cat is curled up asleep on the pillow at the left side of the bed.",
   "config": "The headboard is a plain flat rectangular panel with a thin piped border — NO tufting, NO square quilting, NO buttons; the base is plain upholstery."
  },
  "288": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-right at about 35 degrees",
   "kind": "bed",
   "title": "Монтана 1",
   "slug": "montana-1",
@@ -262,11 +262,11 @@
   "who": "Two sisters about 9 and 12 years old",
   "act": "fb_giggle",
   "pet": "a grey lop-eared rabbit",
-  "action": "Two sisters about 9 and 12 years old in cozy home clothes are sitting cross-legged on the bed whispering and giggling, while a grey lop-eared rabbit sits calmly at the foot of the bed.",
+  "action": "Two sisters about 9 and 12 years old in cozy home clothes are sitting cross-legged facing each other in the middle of the bed, whispering and giggling and holding soft toys, while a grey lop-eared rabbit sits calmly at the foot of the bed.",
   "config": "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
  },
  "289": {
-  "view": "",
+  "view": "a nearly frontal view of the foot of the bed with only a slight angle",
   "kind": "bed",
   "title": "Монтана 2",
   "slug": "montana-2",
@@ -276,11 +276,11 @@
   "who": "An elderly man with glasses",
   "act": "bed_book",
   "pet": "a grey tabby cat",
-  "action": "An elderly man with glasses in cozy home clothes is sitting up in bed reading a book with glasses on, while a grey tabby cat sleeps curled up at the foot of the bed.",
+  "action": "An elderly man with glasses in cozy home clothes is sitting up against the pillows at the left side of the bed reading a newspaper, while a grey tabby cat sleeps curled up at the right side of the bed.",
   "config": "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
  },
  "290": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-right at about 35 degrees",
   "kind": "bed",
   "title": "Монтана 3",
   "slug": "montana-3",
@@ -290,11 +290,11 @@
   "who": "A teenage girl",
   "act": "bed_music",
   "pet": "a ginger cat",
-  "action": "A teenage girl in cozy home clothes is lying on the back with headphones on and eyes closed, while a ginger cat sleeps curled up at the foot of the bed.",
+  "action": "A teenage girl in cozy home clothes is lying on her stomach across the foot end of the bed with large headphones on, writing song lyrics in a notebook with her feet in the air, while a ginger cat sits upright on the pillow at the headboard.",
   "config": "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
  },
  "291": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-left at about 35 degrees",
   "kind": "bed",
   "title": "Монтана 4",
   "slug": "montana-4",
@@ -304,7 +304,7 @@
   "who": "A bearded man in his thirties",
   "act": "bed_phone",
   "pet": "a pug",
-  "action": "A bearded man in his thirties in cozy home clothes is sitting up with a smartphone, smiling at the screen, while a pug lies at the foot of the bed.",
+  "action": "A bearded man in his thirties in cozy home clothes is sitting on the edge of the bed on the left side with his feet on the floor, tuning an acoustic guitar, while a pug sleeps stretched out on the bed behind him.",
   "config": "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
  },
  "292": {
@@ -322,7 +322,7 @@
   "config": "The headboard has rectangular block panels arranged like bricks exactly as in Image 1; no other quilting."
  },
  "293": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-right at about 35 degrees",
   "kind": "bed",
   "title": "Невада 3",
   "slug": "nevada-3",
@@ -332,11 +332,11 @@
   "who": "A woman in her thirties",
   "act": "bed_tea",
   "pet": "a Siamese cat",
-  "action": "A woman in her thirties in cozy home clothes is sitting up with a mug in both hands, looking sleepily at the window, while a Siamese cat sleeps curled up at the foot of the bed.",
+  "action": "A woman in her thirties in cozy home clothes is sitting cross-legged in the middle of the bed painting her nails with a small bottle on a tray beside her, while a Siamese cat sleeps on the pillow at the left side of the bed.",
   "config": "The headboard has rectangular block panels arranged like bricks exactly as in Image 1; no other quilting."
  },
  "294": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-left at about 35 degrees",
   "kind": "bed",
   "title": "Невада 4",
   "slug": "nevada-4",
@@ -346,7 +346,7 @@
   "who": "A man in his forties",
   "act": "bed_stretch",
   "pet": "a Maine Coon cat",
-  "action": "A man in his forties in cozy home clothes is stretching with arms up and yawning, while a Maine Coon cat sleeps curled up at the foot of the bed.",
+  "action": "A man in his forties in cozy home clothes is lying asleep on top of the duvet on his back with a newspaper resting on his chest, while a Maine Coon cat sits upright at the foot of the bed.",
   "config": "The headboard has rectangular block panels arranged like bricks exactly as in Image 1; no other quilting."
  },
  "296": {
@@ -420,7 +420,7 @@
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1."
  },
  "303": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-left at about 35 degrees",
   "kind": "bed",
   "title": "Рица 2 900",
   "slug": "rica-2-900",
@@ -430,11 +430,11 @@
   "who": "A teenage boy",
   "act": "bed_draw",
   "pet": "a black-and-white cat",
-  "action": "A teenage boy in cozy home clothes is sitting cross-legged drawing in a sketchbook, while a black-and-white cat sleeps curled up at the foot of the bed.",
+  "action": "A teenage boy in cozy home clothes is sitting cross-legged on the narrow single bed drawing in a sketchbook, while a black-and-white cat sleeps on the pillow at the head of the bed.",
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1. This is a narrow single bed for one person."
  },
  "304": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-right at about 35 degrees",
   "kind": "bed",
   "title": "Рица 3",
   "slug": "rica-3",
@@ -444,11 +444,11 @@
   "who": "A mother and her daughter about 6 years old",
   "act": "fb_story",
   "pet": "a French bulldog",
-  "action": "A mother and her daughter about 6 years old in cozy home clothes are sitting up in bed — one reads a bedtime story aloud from a picture book to the other, while a French bulldog lies at the foot of the bed.",
+  "action": "A mother and her daughter about 6 years old in cozy home clothes are lying on their backs side by side on the bed, looking up at string lights on the ceiling and pointing at them, while a French bulldog sleeps at their feet.",
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1."
  },
  "305": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-right at about 35 degrees",
   "kind": "bed",
   "title": "Рица 3 900",
   "slug": "rica-3-900",
@@ -458,11 +458,11 @@
   "who": "A young woman",
   "act": "bed_diary",
   "pet": "a calico cat",
-  "action": "A young woman in cozy home clothes is sitting cross-legged writing in a diary with a pen, while a calico cat sleeps curled up at the foot of the bed.",
+  "action": "A young woman in cozy home clothes is sitting cross-legged on the narrow single bed with a face mask on, holding a small hand mirror, while a calico cat sleeps at the foot of the bed.",
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1. This is a narrow single bed for one person."
  },
  "306": {
-  "view": "",
+  "view": "a nearly frontal view of the foot of the bed with only a slight angle",
   "kind": "bed",
   "title": "Рица 4",
   "slug": "rica-4",
@@ -472,11 +472,11 @@
   "who": "A couple, a man and a woman in their thirties",
   "act": "fb_tablet",
   "pet": "a white rabbit",
-  "action": "A couple, a man and a woman in their thirties in cozy home clothes are propped up on the pillows watching cartoons on a tablet together, while a white rabbit sits calmly at the foot of the bed.",
+  "action": "A couple, a man and a woman in their thirties in cozy home clothes are sitting side by side against the headboard looking through a photo album together and smiling, while a white rabbit sits calmly at the foot of the bed.",
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1."
  },
  "307": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-left at about 35 degrees",
   "kind": "bed",
   "title": "Рица 4 900",
   "slug": "rica-4-900",
@@ -486,11 +486,11 @@
   "who": "A boy about 9 years old",
   "act": "bed_play",
   "pet": "a fluffy white kitten",
-  "action": "A boy about 9 years old in cozy home clothes is sitting cross-legged and laughing, playing with a fluffy white kitten using a small toy.",
+  "action": "A boy about 9 years old in cozy home clothes is sitting cross-legged on the narrow single bed building a small toy robot from a kit on a lap tray, while a fluffy white kitten watches the robot from the pillow.",
   "config": "The headboard has a pattern of thin diagonal geometric lines (triangular facets) exactly as in Image 1. This is a narrow single bed for one person."
  },
  "308": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-right at about 35 degrees",
   "kind": "bed",
   "title": "Рица детская",
   "slug": "rica-detskaya",
@@ -500,7 +500,7 @@
   "who": "A child about 7 years old",
   "act": "bed_story",
   "pet": "a ginger kitten",
-  "action": "A child about 7 years old in cozy home clothes is sitting on the bed with a teddy bear and a picture book, while a ginger kitten sleeps curled up at the foot of the bed.",
+  "action": "A child about 7 years old in cozy pajamas is sitting in the corner of the bed leaning against the high side panel, hugging a teddy bear and looking at a picture book, while a ginger kitten sits on the bed beside them.",
   "config": "This is a child's corner bed with a high L-shaped back and side panel with geometric diagonal lines, exactly as in Image 1."
  },
  "309": {
@@ -532,7 +532,7 @@
   "config": "The headboard has a hexagonal honeycomb panel pattern exactly as in Image 1."
  },
  "311": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-right at about 35 degrees",
   "kind": "bed",
   "title": "Соты 3",
   "slug": "soty-3",
@@ -542,11 +542,11 @@
   "who": "A man in his forties",
   "act": "bed_sleepy",
   "pet": "a ginger cat",
-  "action": "A man in his forties in cozy home clothes is lying on the side under the duvet, sleepy, hugging a pillow, while a ginger cat sleeps curled up at the foot of the bed.",
+  "action": "A man in his forties in cozy home clothes is lying on his side under the duvet in the middle of the bed, asleep with eyes closed, while a ginger cat sleeps on the pillow next to his head.",
   "config": "The headboard has a hexagonal honeycomb panel pattern exactly as in Image 1."
  },
  "312": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-left at about 35 degrees",
   "kind": "bed",
   "title": "Соты 4",
   "slug": "soty-4",
@@ -556,7 +556,7 @@
   "who": "A teenage girl",
   "act": "bed_phone",
   "pet": "a guinea pig",
-  "action": "A teenage girl in cozy home clothes is sitting up with a smartphone, smiling at the screen, while a guinea pig sits on the pillow beside them.",
+  "action": "A teenage girl in cozy home clothes is lying on her stomach in the middle of the bed with her chin on one hand, reading a comic book, her feet in the air, while a guinea pig sits on a pillow next to her.",
   "config": "The headboard has a hexagonal honeycomb panel pattern exactly as in Image 1."
  },
  "313": {
@@ -756,7 +756,7 @@
   "config": "This is a straight sofa with exactly the same number of seats and backrest sections as in Image 1: do not turn it into a corner sofa and do not add modules. Click-clack sofa with a distinctive pattern of dark wavy wood-grain lines stitched across the whole backrest and seat; keep this exact pattern."
  },
  "327": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-right at about 35 degrees",
   "kind": "bed",
   "title": "Эклипс 1",
   "slug": "eklips-1",
@@ -766,11 +766,11 @@
   "who": "A young woman",
   "act": "bed_tea",
   "pet": "a black cat",
-  "action": "A young woman in cozy home clothes is sitting up with a mug in both hands, looking sleepily at the window, while a black cat sleeps curled up at the foot of the bed.",
+  "action": "A young woman in cozy home clothes is sitting at the right side of the bed holding a mug in both hands and looking sleepily at the window, while a black cat sits on the pillow beside her.",
   "config": "The headboard has a chevron diagonal stitching pattern exactly as in Image 1."
  },
  "328": {
-  "view": "",
+  "view": "a nearly frontal view of the foot of the bed with only a slight angle",
   "kind": "bed",
   "title": "Эклипс 2",
   "slug": "eklips-2",
@@ -780,11 +780,11 @@
   "who": "An elderly woman with grey hair",
   "act": "bed_book",
   "pet": "a calico cat",
-  "action": "An elderly woman with grey hair in cozy home clothes is sitting up in bed reading a book with glasses on, while a calico cat sleeps curled up at the foot of the bed.",
+  "action": "An elderly woman with grey hair in cozy home clothes is sitting up against the pillows at the left side of the bed with reading glasses on, doing a crossword with a pencil, while a calico cat sleeps curled up on the other pillow.",
   "config": "The headboard has a chevron diagonal stitching pattern exactly as in Image 1."
  },
  "329": {
-  "view": "",
+  "view": "a three-quarter view from the foot of the bed, from the front-left at about 35 degrees",
   "kind": "bed",
   "title": "Эклипс 4",
   "slug": "eklips-4",
@@ -794,7 +794,7 @@
   "who": "Two brothers about 8 and 10 years old",
   "act": "fb_tablet",
   "pet": "a beagle",
-  "action": "Two brothers about 8 and 10 years old in cozy home clothes are propped up on the pillows watching cartoons on a tablet together, while a beagle lies at the foot of the bed.",
+  "action": "Two brothers about 8 and 10 years old in cozy home clothes are sitting cross-legged facing each other in the middle of the bed playing chess on a small board, while a beagle lies stretched out at the foot of the bed.",
   "config": "The headboard has a chevron diagonal stitching pattern exactly as in Image 1."
  }
 }

@@ -101,6 +101,8 @@ from cozy_scenes import ACT, SC, PP, pet_kind
 from cozy_custom import CUSTOM
 from cozy_custom2 import CUSTOM2, SOFA_DETAIL
 CUSTOM.update(CUSTOM2)
+from cozy_custom3 import CUSTOM3
+CUSTOM.update(CUSTOM3)
 DETAIL = {}
 for i in (286, 287): DETAIL[i] = "The headboard is a plain flat rectangular panel with a thin piped border — NO tufting, NO square quilting, NO buttons; the base is plain upholstery."
 for i in (288, 289, 290, 291): DETAIL[i] = "The tall headboard has vertical and rectangular stitched panels in its upper part exactly as in Image 1; no other quilting."
