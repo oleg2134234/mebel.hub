@@ -1450,6 +1450,31 @@
   GALLERIES[46].slides.find((slide) => slide.name === "Размеры").src =
     "assets/martin-dku-o/slide_dims-user-v3.png";
 
+  // Bruno NEW DKU-O: verified seller photos and dimensions from MebVektor.
+  const brunoNewDkuO = PRODUCTS.find((product) => product.id === 18);
+  if (brunoNewDkuO) {
+    brunoNewDkuO.sleeperCm = "280×160";
+    brunoNewDkuO.desc = "Угловой диван из серии «Бруно NEW» с оттоманкой, ярко-синий велюр, бельевой короб и металлокаркас. Наполнение: независимый пружинный блок, листовой ППУ и Polysintex. Механизм — выкатной трёхсекционный. Спальное место 2800×1600 мм.";
+  }
+  const brunoNewGallery = GALLERIES[18];
+  if (brunoNewGallery) {
+    const dimensionsSlide = brunoNewGallery.slides.find((slide) => slide.name === "Размеры");
+    const foldedSlide = brunoNewGallery.slides.find((slide) => slide.name === "Общий вид");
+    const unfoldedSlide = brunoNewGallery.slides.find((slide) => slide.name === "Раскладка");
+    if (dimensionsSlide) {
+      dimensionsSlide.src = "assets/bruno-new-dku-o/slide_dims-mebvektor-v1.png";
+      dimensionsSlide.desc = "Габариты в сложенном виде: 310×167×109 см. Спальное место в полностью разложенном виде: 280×160 см.";
+    }
+    if (foldedSlide) {
+      foldedSlide.src = "assets/bruno-new-dku-o/slide2_hero-mebvektor-v1.jpg";
+      foldedSlide.desc = "Фото продавца MebVektor — диван «Бруно NEW ДКУ-О» в сложенном виде.";
+    }
+    if (unfoldedSlide) {
+      unfoldedSlide.src = "assets/bruno-new-dku-o/slide3_unfold-mebvektor-v1.jpg";
+      unfoldedSlide.desc = "Фото продавца MebVektor — полностью разложенное ровное спальное место без подушек спинки.";
+    }
+  }
+
   // Safe structural fixes from the 03.09.2026 audit.
   const nova2Mattress = PRODUCTS.find((product) => product.id === 174);
   if (nova2Mattress) {
