@@ -1475,6 +1475,38 @@
     }
   }
 
+  // Soft 5 DK: manufacturer photos/video and seller-confirmed sleeping dimensions.
+  const soft5Dk = PRODUCTS.find((product) => product.id === 319);
+  if (soft5Dk) {
+    soft5Dk.sleeperCm = "280×160";
+    soft5Dk.desc = "Прямой модульный диван «Софт 5 ДК» с асимметричной конструкцией и одним правым подлокотником. Механизм «Еврокнижка», независимый пружинный блок и вентилируемые бельевые ящики. Спальное место 2800×1600 мм.";
+  }
+  const soft5Gallery = GALLERIES[319];
+  if (soft5Gallery) {
+    soft5Gallery.slides.forEach((slide) => {
+      if (slide.desc) slide.desc = slide.desc.replace("1600×2970", "2800×1600");
+    });
+    const dimensionsSlide = soft5Gallery.slides.find((slide) => slide.name === "Размеры");
+    const dimensionsData = {
+      src: "assets/soft-5-dk/slide_dims-internal-v1.png",
+      name: "Размеры",
+      desc: "Габариты в сложенном виде: 262×115×85,5 см. Спальное место в полностью разложенном виде: 280×160 см."
+    };
+    if (dimensionsSlide) {
+      Object.assign(dimensionsSlide, dimensionsData);
+    } else {
+      soft5Gallery.slides.push(dimensionsData);
+    }
+    if (!soft5Gallery.slides.some((slide) => slide.src === "assets/soft-5-dk/soft-5-dk-unfolding.mp4")) {
+      soft5Gallery.slides.push({
+        src: "assets/soft-5-dk/soft-5-dk-unfolding.mp4",
+        name: "Видео: раскладка",
+        desc: "Пятисекундная демонстрация раскладки механизма «Еврокнижка»: сиденья выдвигаются вперёд, затем спинки опускаются в освободившееся пространство.",
+        type: "video"
+      });
+    }
+  }
+
   // Safe structural fixes from the 03.09.2026 audit.
   const nova2Mattress = PRODUCTS.find((product) => product.id === 174);
   if (nova2Mattress) {
