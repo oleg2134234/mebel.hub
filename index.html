@@ -1121,6 +1121,18 @@
     }
   }
 
+  // Lorton DKU-O: approved two-panel dimensions slide with matching viewpoints.
+  const lortonDkuOGallery = GALLERIES[91];
+  if (lortonDkuOGallery) {
+    const dimensionsSlide = lortonDkuOGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      Object.assign(dimensionsSlide, {
+        src: "assets/lorton-dku-o/slide_dims-internal-v1.jpg",
+        desc: "Габариты в сложенном виде 258×110×80 см. Спальное место 212×160 см."
+      });
+    }
+  }
+
   // Related products stay independent in PRODUCTS/GALLERIES, but can be presented
   // as one series in the catalog. Start with one deliberately small UI prototype.
   const PRODUCT_SERIES = [
