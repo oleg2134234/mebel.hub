@@ -1492,6 +1492,32 @@
     else nova1Gallery.slides.splice(1, 0, dimensionsData);
   }
 
+  // Real Medium Light mattress: approved internal dimensions and filling slides.
+  const realMediumLight = PRODUCTS.find((product) => product.id === 299);
+  if (realMediumLight) {
+    realMediumLight.desc = "Беспружинный матрас «Реал Медиум Лайт» средней жёсткости. Наполнение: жаккардовый чехол, рифлёный высокоэластичный ППУ с массажным эффектом и центральный слой высокоэластичного ППУ повышенной жёсткости. Длина 200 см, ширина 80/90/120/140/160/180 см, высота 20–21 см. Допустимая нагрузка — до 120 кг.";
+  }
+  const realMediumLightGallery = GALLERIES[299];
+  if (realMediumLightGallery) {
+    const approvedSlides = [
+      {
+        src: "assets/real-medium-layt-matras/slide_dims-internal-v1.jpg",
+        name: "Размеры",
+        desc: "Длина 200 см. Доступные ширины: 80, 90, 120, 140, 160 и 180 см. Высота матраса 20–21 см."
+      },
+      {
+        src: "assets/real-medium-layt-matras/slide_filling-internal-v1.jpg",
+        name: "Наполнение",
+        desc: "Жаккардовый чехол, два рифлёных слоя ППУ по 30 мм с массажным эффектом и центральный слой высокоэластичного ППУ 140 мм."
+      }
+    ];
+    approvedSlides.forEach((approvedSlide, index) => {
+      const existingSlide = realMediumLightGallery.slides.find((slide) => slide.name === approvedSlide.name);
+      if (existingSlide) Object.assign(existingSlide, approvedSlide);
+      else realMediumLightGallery.slides.splice(index + 1, 0, approvedSlide);
+    });
+  }
+
   // Soft 4 DK: corrected gallery, manufacturer views and seller-confirmed dimensions.
   const soft4Dk = PRODUCTS.find((product) => product.id === 318);
   if (soft4Dk) {
