@@ -1109,6 +1109,18 @@
     }
   }
 
+  // Martin 3 DKU: approved two-panel dimensions slide with user-defined guides.
+  const martin3DkuGallery = GALLERIES[285];
+  if (martin3DkuGallery) {
+    const dimensionsSlide = martin3DkuGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      Object.assign(dimensionsSlide, {
+        src: "assets/martin-3-dku/slide_dims-internal-v2.jpg",
+        desc: "Габариты в сложенном виде 333×167×90 см. Спальное место 213×130 см."
+      });
+    }
+  }
+
   // Related products stay independent in PRODUCTS/GALLERIES, but can be presented
   // as one series in the catalog. Start with one deliberately small UI prototype.
   const PRODUCT_SERIES = [
