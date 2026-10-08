@@ -1085,6 +1085,18 @@
   // Verified catalog corrections from the 02.09.2026 card audit.
   // Keep the original media files in place so the visual change stays reversible.
 
+  // Sofia 2 DKU: approved dimensions slide with guides parallel to the sofa edges.
+  const sofia2DkuGallery = GALLERIES[206];
+  if (sofia2DkuGallery) {
+    const dimensionsSlide = sofia2DkuGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      Object.assign(dimensionsSlide, {
+        src: "assets/sofia-2-dku/slide_dims-internal-v1.jpg",
+        desc: "Габариты в сложенном виде: 333×182×105 см. Спальное место 273×136 см."
+      });
+    }
+  }
+
   // Related products stay independent in PRODUCTS/GALLERIES, but can be presented
   // as one series in the catalog. Start with one deliberately small UI prototype.
   const PRODUCT_SERIES = [
