@@ -1143,6 +1143,16 @@
     });
   }
 
+  // Real Hard mattress: approved dimensions slide.
+  const realHardGallery = GALLERIES[256];
+  if (realHardGallery && !realHardGallery.slides.some((slide) => slide.name === "Размеры")) {
+    realHardGallery.slides.splice(1, 0, {
+      src: "assets/real-hard-matras/slide_dims-internal-v1.jpg",
+      name: "Размеры",
+      desc: "Длина 200 см. Доступные ширины: 80, 90, 120, 140, 160 и 180 см. Высота матраса 24 см."
+    });
+  }
+
   // Related products stay independent in PRODUCTS/GALLERIES, but can be presented
   // as one series in the catalog. Start with one deliberately small UI prototype.
   const PRODUCT_SERIES = [
