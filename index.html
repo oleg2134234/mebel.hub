@@ -1153,6 +1153,30 @@
     });
   }
 
+  // Remaining mattress collection: approved dimensions slides.
+  [
+    [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
+    [258, "assets/orto-medium-matras/slide_dims-internal-v1.jpg", "20"],
+    [259, "assets/orto-hard-matras/slide_dims-internal-v1.jpg", "22"],
+    [260, "assets/optima-soft-matras/slide_dims-internal-v1.jpg", "18"],
+    [261, "assets/optima-duo-matras/slide_dims-internal-v1.jpg", "19"],
+    [262, "assets/optima-medium-matras/slide_dims-internal-v1.jpg", "20"],
+    [263, "assets/optima-hard-new-matras/slide_dims-internal-v1.jpg", "23–24"],
+    [264, "assets/optima-duo-lite-matras/slide_dims-internal-v1.jpg", "18–19"],
+    [265, "assets/optima-medium-lite-matras/slide_dims-internal-v1.jpg", "19–20"],
+    [266, "assets/elit-natura-new-matras/slide_dims-internal-v1.jpg", "24–25"],
+    [267, "assets/elit-medium-new-matras/slide_dims-internal-v1.jpg", "24–25"]
+  ].forEach(([productId, src, height]) => {
+    const gallery = GALLERIES[productId];
+    if (gallery && !gallery.slides.some((slide) => slide.name === "Размеры")) {
+      gallery.slides.splice(1, 0, {
+        src,
+        name: "Размеры",
+        desc: `Длина 200 см. Доступные ширины: 80, 90, 120, 140, 160 и 180 см. Высота матраса ${height} см.`
+      });
+    }
+  });
+
   // Related products stay independent in PRODUCTS/GALLERIES, but can be presented
   // as one series in the catalog. Start with one deliberately small UI prototype.
   const PRODUCT_SERIES = [
