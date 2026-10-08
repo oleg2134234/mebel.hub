@@ -1133,6 +1133,16 @@
     }
   }
 
+  // Real Medium mattress: approved dimensions slide.
+  const realMediumGallery = GALLERIES[255];
+  if (realMediumGallery && !realMediumGallery.slides.some((slide) => slide.name === "Размеры")) {
+    realMediumGallery.slides.splice(1, 0, {
+      src: "assets/real-medium-matras/slide_dims-internal-v1.jpg",
+      name: "Размеры",
+      desc: "Длина 200 см. Доступные ширины: 80, 90, 120, 140, 160 и 180 см. Высота матраса 22 см."
+    });
+  }
+
   // Related products stay independent in PRODUCTS/GALLERIES, but can be presented
   // as one series in the catalog. Start with one deliberately small UI prototype.
   const PRODUCT_SERIES = [
