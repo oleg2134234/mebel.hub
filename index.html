@@ -1475,7 +1475,7 @@
     }
   }
 
-  // Soft 5 DK: manufacturer photos/video and seller-confirmed sleeping dimensions.
+  // Soft 4 DK: corrected gallery, manufacturer views and seller-confirmed dimensions.
   const soft4Dk = PRODUCTS.find((product) => product.id === 318);
   if (soft4Dk) {
     soft4Dk.sleeperCm = "280×160";
@@ -1497,6 +1497,34 @@
     } else {
       soft4Gallery.slides.push(dimensionsData);
     }
+    const cozySlide = soft4Gallery.slides.find((slide) => slide.name === "Уют");
+    if (cozySlide) {
+      Object.assign(cozySlide, {
+        src: "assets/soft-4-dk/slide_cozy-correct.jpg",
+        desc: "Софт 4 ДК в современном интерьере: два самостоятельных модуля, две отдельные спинки и открытые боковины. Фото именно этой модели."
+      });
+    }
+    const featureSlides = [
+      {
+        src: "assets/soft-4-dk/slide_unfolded.jpg",
+        name: "Разложенный вид",
+        desc: "Два модуля полностью разложены механизмом «Еврокнижка» в единое спальное место 280×160 см."
+      },
+      {
+        src: "assets/soft-4-dk/slide_storage.jpg",
+        name: "Два бельевых ящика",
+        desc: "Вместительные вентилируемые бельевые ящики расположены в обоих самостоятельных модулях дивана."
+      }
+    ];
+    featureSlides.forEach((featureSlide) => {
+      const existingSlide = soft4Gallery.slides.find((slide) => slide.name === featureSlide.name);
+      if (existingSlide) {
+        Object.assign(existingSlide, featureSlide);
+      } else {
+        const insertAt = soft4Gallery.slides.findIndex((slide) => slide.name === "Размеры");
+        soft4Gallery.slides.splice(insertAt >= 0 ? insertAt : soft4Gallery.slides.length, 0, featureSlide);
+      }
+    });
   }
 
   const soft5Dk = PRODUCTS.find((product) => product.id === 319);
