@@ -1518,6 +1518,32 @@
     });
   }
 
+  // Real Soft Light mattress: approved internal dimensions and filling slides.
+  const realSoftLight = PRODUCTS.find((product) => product.id === 300);
+  if (realSoftLight) {
+    realSoftLight.desc = "Беспружинный матрас «Реал Софт Лайт» средней жёсткости. Наполнение: жаккардовый чехол с эффектом хлопка и единый слой высокоэластичного ППУ повышенной жёсткости 140 мм. Длина 200 см, ширина 80/90/120/140/160/180 см, высота 15–16 см. Допустимая нагрузка — до 90 кг.";
+  }
+  const realSoftLightGallery = GALLERIES[300];
+  if (realSoftLightGallery) {
+    const approvedSlides = [
+      {
+        src: "assets/real-soft-layt-matras/slide_dims-internal-v1.jpg",
+        name: "Размеры",
+        desc: "Длина 200 см. Доступные ширины: 80, 90, 120, 140, 160 и 180 см. Высота матраса 15–16 см."
+      },
+      {
+        src: "assets/real-soft-layt-matras/slide_filling-internal-v1.jpg",
+        name: "Наполнение",
+        desc: "Жаккардовый чехол с эффектом хлопка и единый слой высокоэластичного ППУ повышенной жёсткости 140 мм."
+      }
+    ];
+    approvedSlides.forEach((approvedSlide, index) => {
+      const existingSlide = realSoftLightGallery.slides.find((slide) => slide.name === approvedSlide.name);
+      if (existingSlide) Object.assign(existingSlide, approvedSlide);
+      else realSoftLightGallery.slides.splice(index + 1, 0, approvedSlide);
+    });
+  }
+
   // Soft 4 DK: corrected gallery, manufacturer views and seller-confirmed dimensions.
   const soft4Dk = PRODUCTS.find((product) => product.id === 318);
   if (soft4Dk) {
