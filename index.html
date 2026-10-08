@@ -1475,6 +1475,23 @@
     }
   }
 
+  // Nova 1 mattress: manufacturer-confirmed sizes and approved internal dimensions slide.
+  const nova1Mattress = PRODUCTS.find((product) => product.id === 295);
+  if (nova1Mattress) {
+    nova1Mattress.desc = "Двусторонний матрас «Нова 1» средней мягкости. Независимый пружинный блок, термотекстиль, пенополиуретан и объёмный наполнитель Polisintex. Длина 200 см, ширина 80/90/120/140/160/180 см, высота 23–24 см. Допустимая нагрузка — до 120 кг.";
+  }
+  const nova1Gallery = GALLERIES[295];
+  if (nova1Gallery) {
+    const dimensionsSlide = nova1Gallery.slides.find((slide) => slide.name === "Размеры");
+    const dimensionsData = {
+      src: "assets/nova-1-matras/slide_dims-internal-v1.jpg",
+      name: "Размеры",
+      desc: "Длина 200 см. Доступные ширины: 80, 90, 120, 140, 160 и 180 см. Высота матраса 23–24 см."
+    };
+    if (dimensionsSlide) Object.assign(dimensionsSlide, dimensionsData);
+    else nova1Gallery.slides.splice(1, 0, dimensionsData);
+  }
+
   // Soft 4 DK: corrected gallery, manufacturer views and seller-confirmed dimensions.
   const soft4Dk = PRODUCTS.find((product) => product.id === 318);
   if (soft4Dk) {
