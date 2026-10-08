@@ -1476,6 +1476,29 @@
   }
 
   // Soft 5 DK: manufacturer photos/video and seller-confirmed sleeping dimensions.
+  const soft4Dk = PRODUCTS.find((product) => product.id === 318);
+  if (soft4Dk) {
+    soft4Dk.sleeperCm = "280×160";
+    soft4Dk.desc = "Прямой модульный диван «Софт 4 ДК» без боковин. Механизм «Еврокнижка», независимый пружинный блок и вентилируемые бельевые ящики. Габариты 2800×1150×855 мм. Спальное место 2800×1600 мм.";
+  }
+  const soft4Gallery = GALLERIES[318];
+  if (soft4Gallery) {
+    soft4Gallery.slides.forEach((slide) => {
+      if (slide.desc) slide.desc = slide.desc.replace("1600×2970", "2800×1600");
+    });
+    const dimensionsSlide = soft4Gallery.slides.find((slide) => slide.name === "Размеры");
+    const dimensionsData = {
+      src: "assets/soft-4-dk/slide_dims-internal-v1.jpg",
+      name: "Размеры",
+      desc: "Габариты в сложенном виде: 280×115×85,5 см. Спальное место в полностью разложенном виде: 280×160 см."
+    };
+    if (dimensionsSlide) {
+      Object.assign(dimensionsSlide, dimensionsData);
+    } else {
+      soft4Gallery.slides.push(dimensionsData);
+    }
+  }
+
   const soft5Dk = PRODUCTS.find((product) => product.id === 319);
   if (soft5Dk) {
     soft5Dk.sleeperCm = "280×160";
