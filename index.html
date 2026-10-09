@@ -1167,6 +1167,13 @@
     if (dimensionsSlide) dimensionsSlide.src = "assets/martin-2-dku/slide_dims-internal-v3.png";
   }
 
+  // Soft 1 DKU-O: approved dimension lines based on the user's markup.
+  const soft1DkuoGallery = GALLERIES[315];
+  if (soft1DkuoGallery) {
+    const dimensionsSlide = soft1DkuoGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) dimensionsSlide.src = "assets/soft-1-dku-o/slide_dims-internal-v3.png";
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
