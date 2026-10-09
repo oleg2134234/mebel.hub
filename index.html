@@ -1160,6 +1160,13 @@
     if (dimensionsSlide) dimensionsSlide.src = "assets/adel-4-md/slide5_dims-v4.png";
   }
 
+  // Martin 2 DKU: approved dimension lines based on the user's markup.
+  const martin2DkuGallery = GALLERIES[284];
+  if (martin2DkuGallery) {
+    const dimensionsSlide = martin2DkuGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) dimensionsSlide.src = "assets/martin-2-dku/slide_dims-internal-v3.png";
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
