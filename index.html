@@ -1229,6 +1229,16 @@
     }
   }
 
+  // Joy 1 DKU-O: corrected unfolded construction and approved dimension lines.
+  const joy1DkuoGallery = GALLERIES[220];
+  if (joy1DkuoGallery) {
+    const dimensionsSlide = joy1DkuoGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      dimensionsSlide.src = "assets/joy-1-dku-o/slide_dims-internal-v4.png";
+      dimensionsSlide.desc = "Габариты широкого варианта 278×180 см и спальное место 198×174 см.";
+    }
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
