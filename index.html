@@ -1202,6 +1202,16 @@
     if (dimensionsSlide) dimensionsSlide.src = "assets/bruno-new-dku-o/slide_dims-internal-v3.png";
   }
 
+  // Michel DK: approved placement of the long dimension labels.
+  const michelDkGallery = GALLERIES[202];
+  if (michelDkGallery) {
+    const dimensionsSlide = michelDkGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      dimensionsSlide.src = "assets/michel-dk/slide_dims-internal-v2.png";
+      dimensionsSlide.desc = "На верхней панели указаны 197×93 см, на нижней — 172×140 см.";
+    }
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
