@@ -1181,6 +1181,13 @@
     if (dimensionsSlide) dimensionsSlide.src = "assets/palermo-dku/slide3_dimensions-v3.png";
   }
 
+  // Lotos DKU: approved dimensions slide based on manufacturer references.
+  const lotosDkuGallery = GALLERIES[4];
+  if (lotosDkuGallery) {
+    const dimensionsSlide = lotosDkuGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) dimensionsSlide.src = "assets/lotos-dku/slide_dims-internal-v2.png";
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
