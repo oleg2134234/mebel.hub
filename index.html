@@ -1195,6 +1195,13 @@
     if (dimensionsSlide) dimensionsSlide.src = "assets/lotos-2-dku/slide_dims-internal-v2.png";
   }
 
+  // Bruno NEW DKU-O: correct full unfolding and verified structured dimensions.
+  const brunoNewDkuoGallery = GALLERIES[18];
+  if (brunoNewDkuoGallery) {
+    const dimensionsSlide = brunoNewDkuoGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) dimensionsSlide.src = "assets/bruno-new-dku-o/slide_dims-internal-v3.png";
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
