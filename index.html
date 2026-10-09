@@ -1219,6 +1219,16 @@
     if (dimensionsSlide) dimensionsSlide.src = "assets/martin-dku-p/slide_dims-internal-v4.png";
   }
 
+  // Finka 1 DK NPB: approved dimension lines on a clean white background.
+  const finka1DkGallery = GALLERIES[208];
+  if (finka1DkGallery) {
+    const dimensionsSlide = finka1DkGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      dimensionsSlide.src = "assets/finka-1-dk/slide_dims-internal-v3.png";
+      dimensionsSlide.desc = "Габариты в сложенном виде 217×103×100 см и спальное место в разложенном виде 204×138 см.";
+    }
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
