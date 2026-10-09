@@ -1153,6 +1153,13 @@
     });
   }
 
+  // Adel 4 MDK: approved correction of the lower dimension labels.
+  const adel4MdkGallery = GALLERIES[227];
+  if (adel4MdkGallery) {
+    const dimensionsSlide = adel4MdkGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) dimensionsSlide.src = "assets/adel-4-md/slide5_dims-v4.png";
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
