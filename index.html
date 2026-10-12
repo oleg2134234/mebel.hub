@@ -1249,6 +1249,16 @@
     }
   }
 
+  // Joy 5 DK: corrected model, eurobook layout and matched viewing angles.
+  const joy5DkGallery = GALLERIES[224];
+  if (joy5DkGallery) {
+    const dimensionsSlide = joy5DkGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      dimensionsSlide.src = "assets/joy-5-dk/slide_dims-internal-v4.png";
+      dimensionsSlide.desc = "Габариты 278×133×85,5 см и спальное место 198×174 см. Механизм трансформации — еврокнижка.";
+    }
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
