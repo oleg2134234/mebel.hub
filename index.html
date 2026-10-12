@@ -1239,6 +1239,16 @@
     }
   }
 
+  // Joy 4 DK: corrected unfolded eurobook construction.
+  const joy4DkGallery = GALLERIES[223];
+  if (joy4DkGallery) {
+    const dimensionsSlide = joy4DkGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      dimensionsSlide.src = "assets/joy-4-dk/slide_dims-internal-v2.png";
+      dimensionsSlide.desc = "Габариты 314×133×85,5 см и спальное место 198×174 см. Механизм трансформации — еврокнижка.";
+    }
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
