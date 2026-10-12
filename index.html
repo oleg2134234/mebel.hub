@@ -1296,6 +1296,16 @@
     if (dimensionsSlide) dimensionsSlide.src = "assets/sandra-2-dk/slide_dims-v3.png";
   }
 
+  // Finka 4.1 DKU: approved dimension placement on official product views.
+  const finka41DkuGallery = GALLERIES[234];
+  if (finka41DkuGallery) {
+    const dimensionsSlide = finka41DkuGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      dimensionsSlide.src = "assets/finka-4-1-dku/slide_dims-internal-v4.png";
+      dimensionsSlide.desc = "Габариты 310×163×94 см и спальное место 280×140 см. Механизм трансформации — книжка.";
+    }
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
