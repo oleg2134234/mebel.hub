@@ -1269,6 +1269,16 @@
     }
   }
 
+  // Joy 7 DKU-O: corrected dimension placement on approved views.
+  const joy7DkuoGallery = GALLERIES[226];
+  if (joy7DkuoGallery) {
+    const dimensionsSlide = joy7DkuoGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      dimensionsSlide.src = "assets/joy-7-dku-o/slide_dims-internal-v2.png";
+      dimensionsSlide.desc = "Габариты 377×180×85,5 см и спальное место 297×223 см. Механизм трансформации — еврокнижка.";
+    }
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
