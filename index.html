@@ -1289,6 +1289,13 @@
     }
   }
 
+  // Sandra 2 DK: align the 214 cm dimension with the unfolded sofa.
+  const sandra2DkGallery = GALLERIES[232];
+  if (sandra2DkGallery) {
+    const dimensionsSlide = sandra2DkGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) dimensionsSlide.src = "assets/sandra-2-dk/slide_dims-v3.png";
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
