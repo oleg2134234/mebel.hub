@@ -1279,6 +1279,16 @@
     }
   }
 
+  // Lorton 3 DK: rebuilt clean dimensions slide from approved views.
+  const lorton3DkGallery = GALLERIES[230];
+  if (lorton3DkGallery) {
+    const dimensionsSlide = lorton3DkGallery.slides.find((slide) => slide.name === "Размеры");
+    if (dimensionsSlide) {
+      dimensionsSlide.src = "assets/lorton-3-dk/slide_dims-internal-v2.png";
+      dimensionsSlide.desc = "Габариты 366×110×80 см и спальное место 318×160 см. Механизм трансформации — тик-так.";
+    }
+  }
+
   // Remaining mattress collection: approved dimensions slides.
   [
     [257, "assets/orto-soft-matras/slide_dims-internal-v1.jpg", "18"],
