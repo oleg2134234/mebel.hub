@@ -1,0 +1,21 @@
+{
+  "name": "sytnie-ugodya-chatbot-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend proxy for the Sytnie Ugodya sales chatbot widget (Claude API + lead delivery).",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.68.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.14"
+  }
+}

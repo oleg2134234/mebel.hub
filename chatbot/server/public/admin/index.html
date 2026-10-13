@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<title>Сытные угодья — заявки</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; padding: 1.5rem; background: #f6f3ee; color: #2b271f; }
+  h1 { font-size: 1.3rem; margin: 0 0 1rem; }
+  .toolbar { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem; }
+  select, input, textarea, button { font: inherit; padding: 0.45rem 0.7rem; border-radius: 8px; border: 1px solid #d8d0c0; background: #fff; }
+  button { cursor: pointer; background: #6a4a2a; color: #fff; border: none; }
+  button.secondary { background: #fff; color: #6a4a2a; border: 1px solid #6a4a2a; }
+  button:disabled { opacity: 0.5; cursor: not-allowed; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  th, td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid #eee2d0; font-size: 0.88rem; vertical-align: top; }
+  th { background: #efe6d6; }
+  tr:last-child td { border-bottom: none; }
+  .muted { color: #8a8272; font-size: 0.8rem; }
+  .badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 999px; font-size: 0.75rem; background: #eee; }
+  .badge.new { background: #fde8d7; color: #9a5a1a; }
+  .badge.in_progress { background: #dfe9fb; color: #29538c; }
+  .badge.closed { background: #dff3df; color: #2b7a2b; }
+  section.broadcast { margin-top: 1.5rem; background: #fff; border-radius: 10px; padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  section.broadcast textarea { width: 100%; min-height: 5rem; box-sizing: border-box; }
+  #results { margin-top: 0.7rem; font-size: 0.85rem; white-space: pre-wrap; }
+  #status-msg { margin-left: auto; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+  <h1>Заявки — Сытные угодья</h1>
+  <div class="toolbar">
+    <label>Статус:
+      <select id="filterStatus">
+        <option value="">все</option>
+        <option value="new">новая</option>
+        <option value="in_progress">в работе</option>
+        <option value="closed">закрыта</option>
+      </select>
+    </label>
+    <label>Тип:
+      <select id="filterChannel">
+        <option value="">все</option>
+        <option value="retail">розница</option>
+        <option value="wholesale">опт</option>
+      </select>
+    </label>
+    <button class="secondary" id="reload">Обновить</button>
+    <span id="status-msg" class="muted"></span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Имя</th>
+        <th>Контакт</th>
+        <th>Тип</th>
+        <th>Потребность</th>
+        <th>Объём</th>
+        <th>Дата</th>
+        <th>Статус</th>
+      </tr>
+    </thead>
+    <tbody id="leadsBody"></tbody>
+  </table>
+
+  <section class="broadcast">
+    <h2 style="font-size:1rem;margin-top:0;">Рассылка по выбранным заявкам</h2>
+    <p class="muted">Отправляется по email — работает только для заявок, где контакт указан как email. Для телефона/WhatsApp/Telegram свяжитесь вручную.</p>
+    <input id="bcSubject" placeholder="Тема письма" style="width:100%;box-sizing:border-box;margin-bottom:0.5rem;" />
+    <textarea id="bcMessage" placeholder="Текст сообщения"></textarea>
+    <div style="margin-top:0.6rem;">
+      <button id="sendBroadcast">Отправить выбранным</button>
+    </div>
+    <div id="results"></div>
+  </section>
+
+<script>
+  const leadsBody = document.getElementById('leadsBody');
+  const statusMsg = document.getElementById('status-msg');
+  const selected = new Set();
+
+  const STATUS_LABEL = { new: 'новая', in_progress: 'в работе', closed: 'закрыта' };
+  const CHANNEL_LABEL = { retail: 'розница', wholesale: 'опт' };
+
+  async function api(path, opts) {
+    const resp = await fetch('/api/admin' + path, {
+      ...opts,
+      headers: { 'Content-Type': 'application/json', ...(opts && opts.headers) },
+    });
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    return resp.json();
+  }
+
+  function fmtDate(iso) {
+    try { return new Date(iso).toLocaleString('ru-RU'); } catch { return iso; }
+  }
+
+  async function loadLeads() {
+    statusMsg.textContent = 'Загрузка…';
+    const status = document.getElementById('filterStatus').value;
+    const channel = document.getElementById('filterChannel').value;
+    const qs = new URLSearchParams();
+    if (status) qs.set('status', status);
+    if (channel) qs.set('channel', channel);
+    const { leads } = await api('/leads?' + qs.toString());
+    selected.clear();
+    leadsBody.innerHTML = '';
+    for (const lead of leads) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td><input type="checkbox" data-id="${lead.id}" /></td>
+        <td>${escapeHtml(lead.name)}</td>
+        <td>${escapeHtml(lead.contact)}</td>
+        <td>${CHANNEL_LABEL[lead.channel] || lead.channel}</td>
+        <td>${escapeHtml(lead.need)}</td>
+        <td>${escapeHtml(lead.volume || '—')}</td>
+        <td class="muted">${fmtDate(lead.createdAt)}</td>
+        <td></td>
+      `;
+      const statusCell = tr.children[7];
+      const select = document.createElement('select');
+      for (const s of ['new', 'in_progress', 'closed']) {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = STATUS_LABEL[s];
+        if (s === lead.status) opt.selected = true;
+        select.appendChild(opt);
+      }
+      select.addEventListener('change', async () => {
+        await api(`/leads/${lead.id}`, { method: 'PATCH', body: JSON.stringify({ status: select.value }) });
+      });
+      statusCell.appendChild(select);
+
+      tr.querySelector('input[type=checkbox]').addEventListener('change', (e) => {
+        if (e.target.checked) selected.add(lead.id); else selected.delete(lead.id);
+      });
+
+      leadsBody.appendChild(tr);
+    }
+    statusMsg.textContent = `Заявок: ${leads.length}`;
+  }
+
+  function escapeHtml(str) {
+    return String(str ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  document.getElementById('reload').addEventListener('click', loadLeads);
+  document.getElementById('filterStatus').addEventListener('change', loadLeads);
+  document.getElementById('filterChannel').addEventListener('change', loadLeads);
+
+  document.getElementById('sendBroadcast').addEventListener('click', async () => {
+    const leadIds = Array.from(selected);
+    const subject = document.getElementById('bcSubject').value.trim();
+    const message = document.getElementById('bcMessage').value.trim();
+    const resultsEl = document.getElementById('results');
+    if (leadIds.length === 0) { resultsEl.textContent = 'Выберите хотя бы одну заявку.'; return; }
+    if (!subject || !message) { resultsEl.textContent = 'Заполните тему и текст.'; return; }
+    resultsEl.textContent = 'Отправка…';
+    try {
+      const { results } = await api('/broadcast', { method: 'POST', body: JSON.stringify({ leadIds, subject, message }) });
+      resultsEl.textContent = results.map((r) => `${r.contact}: ${r.status}`).join('\n');
+    } catch (err) {
+      resultsEl.textContent = 'Ошибка отправки: ' + err.message;
+    }
+  });
+
+  loadLeads();
+</script>
+</body>
+</html>
